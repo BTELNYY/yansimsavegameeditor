@@ -1,6 +1,6 @@
 #YanSim Save data editor
-title "Yandere Simulator Save Game Editor"
-$version = "1.0"
+$version = "1.1"
+$idarray = @(1..100)
 write-host "BTELNYY's Yandere Simulator Save Game Editor v$version" -ForegroundColor "blue"
 write-host "Yandere Simulator by Alexander Stuart Mahan or YandereDev." -ForegroundColor "blue"
 write-host "Only Works for the Osana Demo or later (Including 1980's mode)" -ForegroundColor "blue"
@@ -27,10 +27,12 @@ $regpath = "HKCU:\Software\YandereDev\YandereSimulator\"
 $regvalues = Get-Item -Path $regpath | Select-Object -ExpandProperty Property
 write-host "Save Files are stored from the top being 1. and the bottom being 3 with 2 in the middle. Select the save file you are on, or going to be on."
 write-warning "The program doesn't check if the save files are accurate, so do not lie unless you like erros."
-[int32]$savegame = read-host -Prompt "What Porfile is the current player on? (1-3 Ayano, 11-13 Ryoba)"
+write-host "What Porfile is the current player on? (1-3 Ayano, 11-13 Ryoba)"
+[int32]$savegame = read-host "Value Between 1-3, 11-13"
 $array = @(1,2,3,11,12,13)
 $modern = @(1,2,3)
 $old = @(11,12,13)
+$1or0 = @(0,1)
 while($true){
     if($savegame -notin $array){
         Write-host "ERROR: invalid save game specified." -ForegroundColor "red" 
@@ -52,7 +54,7 @@ while($true){
 #write-host "Warning: Pointing to a invalid folder won't trigger any errors, just please don't" -ForegroundColor "yellow"
 while($true){
 function cmdhelp{
-    write-host "Help: `n Commands: `n  help: Displays this message. `n  npc: change npc stats and such. (no, not the json ones, maybe later) `n  config: change game wide configuration. `n  exit: stops the utility `nKeep in mind that everything is CaSe SeNsItIvE"
+    write-host "Help: `n Commands: `n  help: Displays this message. `n  npc: change npc stats and such. (no, not the json ones, maybe later) `n  config: change game wide configuration. `n  exit: stops the utility. `n  tinker: opens the tinker menu. `n  deletesave: deletes save data. `nKeep in mind that everything is CaSe SeNsItIvE"
 }
 function cmdconfig{
     while($true){
@@ -66,15 +68,14 @@ function cmdconfig{
             write-warning "I am not sure if debug mode remains on between game restarts, if no, use this tool and exit and enter the save file."
             $savegame_Debug = "$savegame" + "_Debug"
             $debug = ($regvalues | Select-String -Pattern "Profile_$savegame_Debug")
-            $globaldebug = ($regvalues | Select-String -Pattern "Profile_0_Debug")
-            $debugvalue = read-host -Prompt "Enter 0 to disable debug, 1 to enable debug."
-            if($debug -notin @(0,1)){
+            write-host "Enter 0 to disable debug mode, 1 to enable it."
+            $debugvalue = read-host -Prompt "VALUE"
+            $debugarray = @(0,1)
+            if($debugvalue -notin $debugarray){
                 write-host "Error: Value must be 0 or 1." -ForegroundColor "red"
             }else{
                 Set-ItemProperty -Path "$regpath" -Name "$debug" -Value $debugvalue
                 Get-ItemProperty -Path "$regpath" -Name $debug
-                Set-ItemProperty -Path "$regpath" -Name "$globaldebug" -Value $debugvalue
-                Get-ItemProperty -Path "$regpath" -Name $globaldebug
                 if($profiletype -eq 0){
                     write-warning "Debug mode within Ryoba's time period may cause problems."
                 }
@@ -92,12 +93,14 @@ function cmdconfig{
                 $funiform = ($regvalues | Select-String -Pattern $funi)
                 $uniidarry = @(1,2,3,4,5,6)
                 $uniarray = @('female','male','exit','reset')
-                $promptuni = read-host -Prompt "Edit Uniform: female, male, reset or exit (keep all lower case)"
+                write-host "Edit Uniform: female, male, reset or exit (keep all lower case)"
+                $promptuni = read-host "COMMAND"
                 if($promptuni -notin $uniarray){
                     write-host "ERROR: input must be female or male or exit." -ForegroundColor "red"
                 }
                 elseif($promptuni -eq "female"){
-                    $uniid = read-host -Prompt "Enter the uniform value from 1 to 6."
+                    write-host "Enter the uniform value (1-6)"
+                    $uniid = read-host -Prompt "UNIFORM"
                     if($uniid -notin $uniidarry){
                         write-host "ERROR: value must be between 1 and 6" -ForegroundColor "red"
                     }else{
@@ -106,7 +109,8 @@ function cmdconfig{
                     }
                 }
                 elseif($promptuni -eq "male"){
-                    $uniid = read-host -Prompt "Enter the uniform value from 1 to 6."
+                    write-host "Enter the uniform value (1-6)"
+                    $uniid = read-host -Prompt "UNIFORM"
                     if($uniid -notin $uniidarry){
                         write-host "ERROR: value must be between 1 and 6" -ForegroundColor "red"
                     }else{
@@ -127,7 +131,8 @@ function cmdconfig{
         }
         elseif($promptconfig -eq "titlescreen"){
             while($true){
-                $titlescreen = read-host -Prompt "Enter a save file to show on the title screen. (Background for Osana only)"
+                write-host "Enter a Demo Save file (1-3)"
+                $titlescreen = read-host -Prompt "SAVEFILE"
                 if($titlescreen -notin $modern){
                     write-host "ERROR: You must specify a valid modern save file (1-3)" -ForegroundColor "red"
                 }else{
@@ -143,13 +148,14 @@ function cmdconfig{
 }
 function cmdnpc{
     while($true){
-        $promptnpc = read-host -Prompt "NPC: help, exit, rep, state"
-        $arraynpc = @('help','exit','state','rep')
+        write-host "NPC: help, exit, rep, state, revive"
+        $promptnpc = read-host "COMMAND"
+        $arraynpc = @('help','exit','state','rep','revive')
         if($promptnpc -notin $arraynpc){
             write-host "ERROR: $promptnpc isn't a command."
         }
         elseif($promptnpc -eq "help"){
-            write-host "Help for NPC commands: `n  help: displays this message `n  exit: goes to main menu `n  kill: sets the 'isDying', not sure if this kills them. `n  rep: changes a characters repuation.  "
+            write-host "Help for NPC commands: `n  help: displays this message `n  exit: goes to main menu `n  state: sets the 'isDying', not sure if this kills them. `n  rep: changes a characters repuation. `n  revive: allows the player to bring back dead NPC's "
         }
         elseif($promptnpc -eq "rep"){
             if($profiletype -eq "1"){
@@ -157,13 +163,19 @@ function cmdnpc{
             }else{
                 write-host "You are in Ryoba's time period, use the proper ID's."
             }
-            $npcid = read-host -Prompt "Enter the NPC's ID (1 for Taro, 11 for Osana, ETC."
-            $rep = read-host -Prompt "Enter the reputation (you can use negative numbers, just use the '-' symbol before that."
-            $npc = "Profile_" + "$savegame" + "_StudentReputation_" + "$npcid"
-            write-host $npc
-            $npcrep = ($regvalues | Select-String -Pattern "$npc")
-            Set-ItemProperty -Path "$regpath" -Name "$npcrep" -Value $rep
-            Get-ItemProperty -Path "$regpath" -Name "$npcrep"
+            write-host "Enter the NPC's ID (1 for Taro, 11 for Osana, ETC."
+            $npcid = read-host "ID"
+            if($npcid -notin $idarray){
+                write-host "ERROR: Invalid Student ID, Must be a integer between 1 and 100." -ForegroundColor "red"
+            }else{
+                write-host "Enter a reputation value, must be a integer, can be negative"
+                $rep = read-host -Prompt "VALUE"
+                $npc = "Profile_" + "$savegame" + "_StudentReputation_" + "$npcid"
+                write-host $npc
+                $npcrep = ($regvalues | Select-String -Pattern "$npc")
+                Set-ItemProperty -Path "$regpath" -Name "$npcrep" -Value $rep
+                Get-ItemProperty -Path "$regpath" -Name "$npcrep"
+            }
             #TO DO: check if the value is int32, but powershell refuses to let me do it.
             #if($rep -is [int]){
                 #$npc = "Profile_" + "$savegame" + "StudentReputation_" + "$npcid"
@@ -180,20 +192,85 @@ function cmdnpc{
         }
         elseif($promptnpc -eq "state"){
             write-warning "For the life of me I cannot figure out what this value is meant to do, I guess try putting in some value and see what happens?"
-            $npcid = read-host -Prompt "Enter the NPC's ID (1 for Taro, 11 for Osana, ETC.)"
-            $deadoralive = read-host -Prompt "Enter value"
-            $npc = "Profile_" + "$savegame" + "_StudentDying_" + "$npcid"
-            $npcdeath = ($regvalues | Select-String -Pattern "$npc")
-            Set-ItemProperty -Path "$regpath" -Name "$npcdeath" -Value $deadoralive
-            Get-ItemProperty -Path "$regpath" -Name "$npcdeath"
+            write-host "Enter student ID"
+            $npcid = read-host -Prompt "ID"
+            if($npcid -notin $idarray){
+                write-host "ERROR: Invalid Student ID, Must be a integer between 1 and 100." -ForegroundColor "red"
+            }else{
+                $deadoralive = read-host -Prompt "Enter value"
+                $npc = "Profile_" + "$savegame" + "_StudentDying_" + "$npcid"
+                $npcdeath = ($regvalues | Select-String -Pattern "$npc")
+                Set-ItemProperty -Path "$regpath" -Name "$npcdeath" -Value $deadoralive
+                Get-ItemProperty -Path "$regpath" -Name "$npcdeath"
+            }
+        }elseif($promptnpc -eq "revive"){
+            $deadnpcs = "Profile_$savegame" + "_StudentDead_"
+            write-host "Profile_#_StudentDead_ID_h##########"
+            $regvalues | Select-string -Pattern "$deadnpcs"
+            write-host "If the Above list is empty, no students are dead. attempting to revive a already alive student will result in errors."
+            write-host "From the list above, please choose a NPC by ID to revive."
+            $npctorevive = read-host "ID"
+            if($npctorevive -notin $idarray){
+                write-host "ERROR: Invalid ID, must be a valid student ID."
+            }else{
+                $deadnpc = "$deadnpcs" + "$npctorevive"
+                write-host "Enter Value for Student $npctorevive, 1 being dead, 0 meaning alive. Anything else will keep them dead."
+                $death = read-host "VALUE"
+                $studentrevive = ($regvalues | Select-String -Pattern "$deadnpc") 
+                Set-ItemProperty -Path "$regpath" -Name $studentrevive -Value $death
+                Get-ItemProperty -Path $regpath -Name $studentrevive
+            }
+        }
+    }
+}
+function tinker{
+    $regpath = "HKCU:\Software\YandereDev\YandereSimulator\"
+    $regvalues = Get-Item -Path $regpath | Select-Object -ExpandProperty Property
+    $tinkercmd = @('list','search','modify','exit','read')
+    write-host "Welcome to the tinkerer, the Registry command line edit tool for Yandere Simulator."
+    write-host "Becuase some people want to modify any registry key."
+    write-host "I/We are not responsible for save game corruption."
+    write-host "This is more advanced stuff, so instructions may be vauge or technical."
+    while($true){
+        write-host "Tinkerer: list, search, modify, read, exit."
+        $tinkerinput = read-host "COMMAND"
+        if($tinkerinput -notin $tinkercmd){
+            write-host "ERROR: $tinkerinput isn't a command."
+        }elseif($tinkerinput -eq "exit"){
+            break
+        }elseif($tinkerinput -eq "list"){
+            Get-Item -Path $regpath | Select-Object -ExpandProperty Property
+            write-host "This isn't exactly really easy to read, so use the search function."
+        }elseif($tinkerinput -eq "search"){
+            write-host "Searches with simple pattern match, caps matter, Replace 1 in Profile_1 with any profile number to search through those."
+            write-host "If your modifying things in a save file you did not select, simply restart instead of doing this."
+            write-host "Enter a search pattern, eg 'Profile_1_Student' Don't forget the 'Profile_1'"
+            $pattern = read-host "PATTERN"
+            $regvalues | Select-string -Pattern "$pattern" -list
+        }elseif($tinkerinput -eq "modify"){
+            Write-Host "You might want to run the list or search commands before this one."
+            write-warning "YandereDev made some values corrupt DWORDS, This means modifying them will break them and may break the game in strange ways. Money is a corrupt DWORD."
+            write-warning "This stuff also may break if a invalid property was specified."
+            write-host "Enter a valid registry property."
+            $valueinput = read-host "PROPERTY"
+            $setto = read-host "VALUE"
+            Set-ItemProperty -Path "$regpath" -Name "$valueinput" -Value $setto
+            Get-ItemProperty -Path $regpath -Name $valueinput
+        }elseif($tinkerinput -eq "read"){
+            Write-host "Enter a valid registry property."
+            $read = read-host "PROPERTY"
+            Get-ItemProperty -Path $regpath -Name $read
         }
     }
 }
 
+
+
 #big boi while loop
 while($true){
-    $prompt = read-host -Prompt "Main Menu use 'help' for help."
-    $available = @('help','npc','config','exit')
+    write-host "Main Menu use 'help' for help."
+    $prompt = read-host -Prompt "COMMAND"
+    $available = @('help','npc','config','exit','tinker','deletesave')
     if($prompt -notin $available){
         write-host "ERROR: $prompt isn't a command. Type 'help' for help." -ForegroundColor "red"
     }
@@ -202,14 +279,26 @@ while($true){
     }
     elseif($prompt -eq "config"){
         cmdconfig
-        break
     }
     elseif($prompt -eq "npc"){
         cmdnpc
     }
+    elseif($prompt -eq "tinker"){
+        tinker
+    }
     elseif($prompt -eq "exit"){
         write-host "Goodbye."
         exit
+    }
+    elseif($prompt -eq "deletesave"){
+        write-host "DANGER! this will destroy all config related to Yandere Simulator, Save files, Config, etc. You will have to run the game again to use this tool." -ForegroundColor "cyan"
+        $deleteall = read-host "Delete all data? [y/n]"
+        if($deleteall -eq "y"){
+            Remove-Item -Path $regpath -Force
+            write-host "All data deleted."
+        }else{
+            write-host "Aborted."
+        }
     }
 }
 
