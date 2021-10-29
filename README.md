@@ -1,5 +1,5 @@
 # yansimsavegameeditor
-I program to edit Yandere Simulators save files.
+A program to edit Yandere Simulators save files.
 You can edit the code, you can also submit your own edits to this page. I will review them and add them if needed.
 If you can optimize my code, I will be thankful.
 For the love of god do not go after me over coding practices. Its not like it even effects a CLI.
