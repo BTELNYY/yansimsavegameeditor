@@ -6,6 +6,13 @@ For the love of god do not go after me over coding practices. Its not like it ev
 
 DISCLAIMER: I am not resposible for you breaking your save files, I just made the tool.
 
+Path Notes v1.2
+* Added 'kidnap' command to the npc menu.
+ * Allows for changing of the victim to any NPC.
+ * Release of a victim.
+* Added feedback when a command succeeds.
+* Fixed A bug where prompts would not work correctly.
+
 Patch Notes: v1.1
 * added Tinker menu, allows for controlled access to your registry by you.
 * added revive option in NPC config
