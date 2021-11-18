@@ -1,10 +1,11 @@
 #YanSim Save data editor
-$version = "1.3.1"
+$version = "1.4 BETA 1"
 $idarray = @(1..100)
 write-host "BTELNYY's Yandere Simulator Save Game Editor v$version" -ForegroundColor "blue"
 write-host "Yandere Simulator by Alexander Stuart Mahan or YandereDev." -ForegroundColor "blue"
 write-host "Only Works for the Osana Demo or later (Including 1980's mode)" -ForegroundColor "blue"
 write-host "If I restricted an input to a certian set of values, please, Just follow those values unless you want your save file to be gone." -ForegroundColor "blue"
+write-host "I have a discord btw: https://discord.gg/P22tFkjTm3" -ForegroundColor "blue"
 write-warning "There is no update mechanism, you'll have to check manually."
 write-host "------------------------------------------------------------------------------------------------------------------"
 write-host "I agree and understand that any bugs and related issues in the game are not to be reported as bugs to YandereDev."
@@ -52,7 +53,6 @@ while($true){
 #disabled until I can figure out how to edit JSON files.
 #$gamepath = read-host "Enter the games directory (Where EXE is located)"
 #write-host "Warning: Pointing to a invalid folder won't trigger any errors, just please don't" -ForegroundColor "yellow"
-while($true){
 function cmdhelp{
     write-host "Help: `n Commands: `n  help: Displays this message. `n  npc: change npc stats and such. (no, not the json ones, maybe later) `n  config: change game wide configuration. `n  exit: stops the utility. `n  tinker: opens the tinker menu. `n  deletesave: deletes save data. `nKeep in mind that everything is CaSe SeNsItIvE"
 }
@@ -170,9 +170,9 @@ function cmdconfig{
 }
 function cmdnpc{
     while($true){
-        write-host "NPC: help, exit, rep, state, revive, kidnap"
+        write-host "NPC: help, rep, state, kidnap, exit."
         $promptnpc = read-host "COMMAND"
-        $arraynpc = @('help','exit','state','rep','revive','kidnap')
+        $arraynpc = @('help','exit','state','rep','kidnap')
         if($promptnpc -notin $arraynpc){
             write-host "ERROR: $promptnpc isn't a command."
         }
@@ -213,26 +213,24 @@ function cmdnpc{
         elseif($promptnpc -eq "exit"){
             break
         }
+        #elseif($promptnpc -eq ""){
+         #   write-warning "For the life of me I cannot figure out what this value is meant to do, I guess try putting in some value and see what happens?"
+         #   write-host "Enter student ID"
+         #   $npcid = read-host -Prompt "ID"
+         #   if($npcid -notin $idarray){
+         #       write-host "ERROR: Invalid Student ID, Must be a integer between 1 and 100." -ForegroundColor "red"
+         #   }else{
+         #       $deadoralive = read-host -Prompt "Enter value"
+         #       $npc = "Profile_" + "$savegame" + "_StudentDying_" + "$npcid"
+         #       $npcdeath = ($regvalues | Select-String -Pattern "$npc")
+         #       Set-ItemProperty -Path "$regpath" -Name "$npcdeath" -Value $deadoralive
+         #       Get-ItemProperty -Path "$regpath" -Name "$npcdeath"
+         #       write-host "Done." -ForegroundColor "green"
+         #   }
+        # }
         elseif($promptnpc -eq "state"){
-            write-warning "For the life of me I cannot figure out what this value is meant to do, I guess try putting in some value and see what happens?"
-            write-host "Enter student ID"
-            $npcid = read-host -Prompt "ID"
-            if($npcid -notin $idarray){
-                write-host "ERROR: Invalid Student ID, Must be a integer between 1 and 100." -ForegroundColor "red"
-            }else{
-                $deadoralive = read-host -Prompt "Enter value"
-                $npc = "Profile_" + "$savegame" + "_StudentDying_" + "$npcid"
-                $npcdeath = ($regvalues | Select-String -Pattern "$npc")
-                Set-ItemProperty -Path "$regpath" -Name "$npcdeath" -Value $deadoralive
-                Get-ItemProperty -Path "$regpath" -Name "$npcdeath"
-                write-host "Done." -ForegroundColor "green"
-            }
-        }elseif($promptnpc -eq "revive"){
             $deadnpcs = "Profile_$savegame" + "_StudentDead_"
-            write-host "Profile_#_StudentDead_ID_h##########"
-            $regvalues | Select-string -Pattern "$deadnpcs"
-            write-host "If the Above list is empty, no students are dead. attempting to revive a already alive student will result in errors."
-            write-host "From the list above, please choose a NPC by ID to revive."
+            write-host "Enter a student ID to modify life state."
             $npctorevive = read-host "ID"
             if($npctorevive -notin $idarray){
                 write-host "ERROR: Invalid ID, must be a valid student ID."
@@ -240,10 +238,18 @@ function cmdnpc{
                 $deadnpc = "$deadnpcs" + "$npctorevive"
                 write-host "Enter Value for Student $npctorevive, 1 being dead, 0 meaning alive. Anything else will keep them dead."
                 $death = read-host "VALUE"
-                $studentrevive = ($regvalues | Select-String -Pattern "$deadnpc") 
-                Set-ItemProperty -Path "$regpath" -Name $studentrevive -Value $death
-                Get-ItemProperty -Path $regpath -Name $studentrevive
-                write-host "Done." -ForegroundColor "green"
+                $studentrevive = $regvalues | Select-String -Pattern "$deadnpc"
+                if($studentrevive -eq $null){
+                    New-ItemProperty -path $regpath -name $deadnpc -value 0
+                    Set-ItemProperty -path $regpath -name $deadnpc -value $death
+                    Get-ItemProperty -Path $regpath -Name $deadnpc
+                    write-host "The student was not killed before and therefore had a new value set for them."
+                    write-host "Done." -ForegroundColor "green"
+                }else{
+                    Set-ItemProperty -Path "$regpath" -Name $studentrevive -Value $death
+                    Get-ItemProperty -Path $regpath -Name $studentrevive
+                    write-host "Done." -ForegroundColor "green"
+                }
             }
         }
         elseif($promptnpc -eq "kidnap"){
@@ -255,7 +261,6 @@ function cmdnpc{
                     write-host "ERROR: $kidnapprompt isn't a command." -ForegroundColor "red"
                 }
                 elseif($kidnapprompt -eq "victim"){
-                    write-warning "You must have a kidnapped person in your house already in order for this to work, Otherwise get ready to see lots of errors."
                     write-host "Just a quick FYI, the game still thinks anybody you've actually kidnapped as kidnapped, so they wont come to school if you replaced them, you can always release them with the release command."
                     write-host "Enter the ID of the student you want to be set as your victim."
                     $kidnapvictim = read-host "ID"
@@ -263,10 +268,17 @@ function cmdnpc{
                         write-host "ERROR: ID is invalid." -ForegroundColor "red"
                     }else{
                         $temp = "Profile_" + "$savegame" + "_KidnapVictim"
-                        $kidnapvar = ($regvalues | Select-String -Pattern "$temp")
-                        Set-ItemProperty -path $regpath -Name $kidnapvar -Value $kidnapvictim
-                        Get-ItemProperty -path $regpath -Name $kidnapvar
-                        write-host "Done." -ForegroundColor "green"
+                        $kidnapvar = $regvalues | Select-String -Pattern "$temp"
+                        if($kidnapvar -eq $null){
+                            New-ItemProperty -Path $regpath -Name $temp -Value 0
+                            Set-ItemProperty -path $regpath -Name $temp -Value $kidnapvictim
+                            write-host "Since you had no prevous victims, a new value was written."
+                            write-host "Done." -ForegroundColor "green"
+                        }else{
+                            Set-ItemProperty -path $regpath -Name $kidnapvar -Value $kidnapvictim
+                            Get-ItemProperty -path $regpath -Name $kidnapvar
+                            write-host "Done." -ForegroundColor "green"
+                        }
                     }
                 }
                 elseif($kidnapprompt -eq "release"){
@@ -348,42 +360,40 @@ function tinker{
     }
 }
 
-
-
-#big boi while loop
 while($true){
-    write-host "Main Menu use 'help' for help."
-    $prompt = read-host -Prompt "COMMAND"
-    $available = @('help','npc','config','exit','tinker','deletesave')
-    if($prompt -notin $available){
-        write-host "ERROR: $prompt isn't a command. Type 'help' for help." -ForegroundColor "red"
-    }
-    if($prompt -eq "help"){
-        cmdhelp
-    }
-    elseif($prompt -eq "config"){
-        cmdconfig
-    }
-    elseif($prompt -eq "npc"){
-        cmdnpc
-    }
-    elseif($prompt -eq "tinker"){
-        tinker
-    }
-    elseif($prompt -eq "exit"){
-        write-host "Goodbye."
-        exit
-    }
-    elseif($prompt -eq "deletesave"){
-        write-host "DANGER! this will destroy all config related to Yandere Simulator, Save files, Config, etc. You will have to run the game again to use this tool." -ForegroundColor "cyan"
-        $deleteall = read-host "Delete all data? [y/n]"
-        if($deleteall -eq "y"){
-            Remove-Item -Path $regpath -Force
-            write-host "All data deleted."
-        }else{
-            write-host "Aborted."
+#big boi while loop
+    while($true){
+        write-host "Main Menu use 'help' for help."
+        $prompt = read-host -Prompt "COMMAND"
+        $available = @('help','npc','config','exit','tinker','deletesave')
+        if($prompt -notin $available){
+            write-host "ERROR: $prompt isn't a command. Type 'help' for help." -ForegroundColor "red"
+        }
+        if($prompt -eq "help"){
+            cmdhelp
+        }
+        elseif($prompt -eq "config"){
+            cmdconfig
+        }
+        elseif($prompt -eq "npc"){
+            cmdnpc
+        }
+        elseif($prompt -eq "tinker"){
+            tinker
+        }
+        elseif($prompt -eq "exit"){
+            write-host "Goodbye."
+            exit
+        }
+        elseif($prompt -eq "deletesave"){
+            write-host "DANGER! this will destroy all config related to Yandere Simulator, Save files, Config, etc. You will have to run the game again to use this tool." -ForegroundColor "cyan"
+            $deleteall = read-host "Delete all data? [y/n]"
+            if($deleteall -eq "y"){
+                Remove-Item -Path $regpath -Force
+                write-host "All data deleted."
+            }else{
+                write-host "Aborted."
+            }
         }
     }
-}
-
 }
