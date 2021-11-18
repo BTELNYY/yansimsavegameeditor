@@ -1,5 +1,5 @@
 #YanSim Save data editor
-$version = "1.2"
+$version = "1.3.1"
 $idarray = @(1..100)
 write-host "BTELNYY's Yandere Simulator Save Game Editor v$version" -ForegroundColor "blue"
 write-host "Yandere Simulator by Alexander Stuart Mahan or YandereDev." -ForegroundColor "blue"
@@ -301,13 +301,13 @@ function cmdnpc{
 function tinker{
     $regpath = "HKCU:\Software\YandereDev\YandereSimulator\"
     $regvalues = Get-Item -Path $regpath | Select-Object -ExpandProperty Property
-    $tinkercmd = @('list','search','modify','exit','read')
+    $tinkercmd = @('list','search','modify','exit','read','exists')
     write-host "Welcome to the tinkerer, the Registry command line edit tool for Yandere Simulator."
     write-host "Becuase some people want to modify any registry key."
     write-host "I/We are not responsible for save game corruption."
     write-host "This is more advanced stuff, so instructions may be vauge or technical."
     while($true){
-        write-host "Tinkerer: list, search, modify, read, exit."
+        write-host "Tinkerer: list, search, modify, read, exists, exit."
         $tinkerinput = read-host "COMMAND"
         if($tinkerinput -notin $tinkercmd){
             write-host "ERROR: $tinkerinput isn't a command." -ForegroundColor "red"
@@ -335,6 +335,15 @@ function tinker{
             Write-host "Enter a valid registry property."
             $read = read-host "PROPERTY"
             Get-ItemProperty -Path $regpath -Name $read
+        }elseif($tinkerinput -eq "exists"){
+            Write-host "Enter a registry property."
+            $temp = read-host "PROPERTY"
+            $checkfor = $regvalues | Select-string -Pattern "$temp" -List
+            if($null -eq $checkfor){
+                write-host "That value does not exist."
+            }else{
+                write-host "That value exists, full name $checkfor"
+            }
         }
     }
 }
