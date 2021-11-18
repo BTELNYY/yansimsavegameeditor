@@ -5,9 +5,19 @@ If you can optimize my code, I will be thankful.
 For the love of god do not go after me over coding practices. Its not like it even effects a CLI.
 Report any bugs to me here or on my Discord: btelnyy#8395
 
-[DOWNLOAD]: You can grab a copy here: https://github.com/BTELNYY/yansimsavegameeditor/releases
+[Discord](https://discord.gg/P22tFkjTm3)
 
 DISCLAIMER: I am not resposible for you breaking your save files, I just made the tool.
+
+Patch Notes v1.4 BETA 1
+First beta
+* Fixed typos
+* You can now kidnap somebody without having anybody kidnapped prevously
+* You can kill anyone with the new state command which replaces the revive comamnd
+* Tinker can now check if a key exists (this is only for debugging)
+* Made a discord
+This will be a very buggy update, use the prevous until a more stable release is out.
+
 
 Patch Notes v1.3.1
 First Mini patch!
