@@ -9,6 +9,12 @@ Report any bugs to me here or on my Discord: btelnyy#8395
 
 DISCLAIMER: I am not resposible for you breaking your save files, I just made the tool.
 
+Patch Notes v1.3.1
+First Mini patch!
+* Fixed incorrect version (was being displayed as v1.2, oops.)
+* Added "exists" to the tinker menu (important for later)
+[Download](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
+
 Path Notes v1.3
 Hi, this is tiny patch as I am working on something bigger for the next one. Enjoy messing around!
 * Added "item" command to the config submenu, this command allows you to bring items to school which you normally should not be able to.
