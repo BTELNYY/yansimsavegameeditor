@@ -5,7 +5,7 @@ If you can optimize my code, I will be thankful.
 For the love of god do not go after me over coding practices. Its not like it even effects a CLI.
 Report any bugs to me here or on my Discord: btelnyy#8395
 
-[Discord](https://discord.gg/P22tFkjTm3)
+[Discord Server](https://discord.gg/P22tFkjTm3)
 
 DISCLAIMER: I am not resposible for you breaking your save files, I just made the tool.
 
