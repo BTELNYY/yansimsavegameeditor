@@ -10,12 +10,14 @@ Report any bugs to me here or on my Discord: btelnyy#8395
 DISCLAIMER: I am not resposible for you breaking your save files, I just made the tool.
 
 Patch Notes v1.4 BETA 1
+
 First beta! 
 * Fixed typos
 * You can now kidnap somebody without having anybody kidnapped prevously
 * You can kill anyone with the new state command which replaces the revive comamnd
 * Tinker can now check if a key exists (this is only for debugging)
 * Made a discord 
+
 This will be a very buggy update, use the prevous until a more stable release is out.
 
 
