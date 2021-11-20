@@ -13,7 +13,10 @@ TODO:
 * ~~Add configuration via registry~~
 * ~~Add a file icon~~ Thanks Fashion :)
 * Add the ability to delete keys in the tinkerer
-If you can do one of these, do it. Just create a pull request for me to review.
+* Add credits.
+* Allow modification of the students.json (With a GUI would be best.)
+
+This is GitHub, anyone can contribute. (hint: above list :) )
 
 [Download the latest release](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
