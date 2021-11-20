@@ -5,6 +5,16 @@ If you can optimize my code, I will be thankful.
 For the love of god do not go after me over coding practices. Its not like it even effects a CLI.
 Report any bugs to me here or on my Discord: btelnyy#8395
 
+TODO:
+* ~~Allow people to change the club they are in.~~
+* Replace most if/elseif/else statements with switch cases.
+* Add a GUI for the entire app.
+* Make most of the commands function based instead of logic based.
+* ~~Add configuration via registry~~
+* ~~Add a file icon~~ Thanks Fashion :)
+* Add the ability to delete keys in the tinkerer
+If you can do one of these, do it. Just create a pull request for me to review.
+
 [Download the latest release](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
 [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.4-beta.2/editscript.exe)
