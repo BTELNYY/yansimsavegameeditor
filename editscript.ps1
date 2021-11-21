@@ -1,6 +1,19 @@
 #YanSim Save data editor
 Add-Type -AssemblyName System.Windows.Forms
 [System.Windows.Forms.Application]::EnableVisualStyles()
+function log(){
+    param ([string]$text, [switch]$debug)
+    if($debug -eq $false -and $nolog -eq "false"){
+        Add-Content -Path ".\$date.log" -Value "[$seconds]: $text"
+    }elseif($debug -eq $true -and $allowdebug -eq "true" -and $nolog -eq "false"){
+        Add-Content -Path "$logfolder\$date.log" -Value "[$seconds]:[DEBUG]: $text"
+    }
+    if($printlog -eq "true"){
+        write-host "[$seconds]: $text"
+    }elseif($printlog -eq "true" -and $debug -eq $true){
+        write-host  "[$seconds]:[DEBUG]: $text"
+    }
+}
 $version = "1.4 BETA 2"
 $idarray = @(1..100)
 $array = @(1,2,3,11,12,13)
@@ -12,8 +25,49 @@ $seconds = Get-Date -Format "HH:mm:ss"
 $time = Get-Date
 #for later usage
 $appdata = "$env:APPDATA\BTELNYY"
-$allowdebug = $true #this will be changed later by using config, in the mean time it is just a cool little thing.
-$logfolder = "." #directory in which to put logs, I will allow modification with the registry later.
+#configuration via registry
+$globalconfigpath = "HKCU:\SOFTWARE\btelnyy"
+$configpath = "$globalconfigpath\YanSaveEdit"
+log("Starting Log, it is currently $time")
+$temp = Test-Path -Path "$configpath"
+if($temp -eq $true){
+    log("Path for configuration exists. Parent: $globalconfigpath")
+}else{
+    New-Item -Path "HKCU:\SOFTWARE" -Name "btelnyy" | Out-null
+    New-Item -Path $configpath -Name "YanSaveEdit" | Out-Null
+}
+function importconfig(){
+    param ([string]$valuename, [string]$defaultvalue)
+    $verify = (Get-Item $configpath).Property -contains "$valuename"
+    if($verify -eq $false){
+        New-ItemProperty -Path $configpath -Name "$valuename" -value "$defaultvalue" | Out-Null
+        $output = Get-ItemPropertyValue -Path $configpath $valuename
+        log("Created New Registry Value $valuename with value $defaultvalue in $configpath")
+        return $output
+    }else{
+        $output = Get-ItemPropertyValue -Path $configpath $valuename
+        if($output -eq ""){
+            Set-ItemProperty -Path $configpath -Name $valuename -Value $defaultvalue
+        }else{
+            log("Importing value $valuename from $configpath with value $output")
+            return $output
+        }
+    }
+}
+function exportconfig(){
+    param ([string]$valuename, [string]$value)
+    Set-ItemProperty -Path $regpath -Name $valuename -Value $value
+    log("Set $valuename in $regpath to $value")
+}
+$allowdebug = importconfig -valuename "allowDebug" -defaultvalue "true"
+if($allowdebug -eq "true"){log("All debug messages will be shown in the log.")}else{log("No debug messages will be shown in the log.")}
+$logfolder = importconfig -valuename "logFolder" -defaultvalue "."
+$skipagreement = importconfig -valuename "skipAgreement" -defaultvalue "false"
+$nolog = importconfig -valuename "noLog" -defaultvalue "false"
+$regpath = importconfig -valuename "regPath" -defaultvalue "HKCU:\SOFTWARE\YandereDev\YandereSimulator\"
+$printlog = importconfig -valuename "printLog" -defaultvalue "false" 
+if($printlog -eq "true"){log("Printing to console is enabled, all log messages will be disaplayed on screen.")}
+$regvalues = Get-Item -Path $regpath | Select-Object -ExpandProperty Property
 write-host "BTELNYY's Yandere Simulator Save Game Editor v$version" -ForegroundColor "blue"
 write-host "Yandere Simulator by Alexander Stuart Mahan or YandereDev." -ForegroundColor "blue"
 write-host "Only Works for the Osana Demo or later (Including 1980's mode)" -ForegroundColor "blue"
@@ -23,36 +77,36 @@ write-warning "There is no update mechanism, you'll have to check manually."
 write-host "------------------------------------------------------------------------------------------------------------------"
 write-host "I agree and understand that any bugs and related issues in the game are not to be reported as bugs to YandereDev."
 write-host "I understand that this tool may cuase game crashes, softlocks, and other bad situations."
-write-host "I understand that this tool may cause me to lose my save file."
-write-host "Watch for caps lock, all commands are lowercase."
-while($true){
-    $consent = read-host "Do you agree and understand to the above statements? [y/n]"
-    if($consent -eq "y"){
-        break
-    }elseif($consent -eq "n"){
-        write-host "Agreement declined. Exiting....."
-        pause
-        exit
-    }else{
+if($skipagreement -eq "false"){
+    while($true){
+        $agreement = read-host "Do you agree and understand to the above statements? [y/n]"
+        if($agreement -eq "y"){
+            $temp = read-host "Would you like to never see this agreement before? (Default n)[y/n]"
+            if($temp -eq "y"){
+                Set-ItemProperty -Path $configpath -Name "skipAgreement" -value "true"
+                write-host "You will not see this screen again."
+            }else{
+                write-host "You either inputted n, or another value. This agreement will display on next boot."
+                break
+            }
+            break
+        }elseif($agreement -eq "n"){
+            write-host "Agreement declined. Exiting....."
+            pause
+            exit
+        }else{
 
+        }
     }
 }
-$regpath = "HKCU:\Software\YandereDev\YandereSimulator\"
-$regvalues = Get-Item -Path $regpath | Select-Object -ExpandProperty Property
-write-host "Save Files are stored from the top being 1. and the bottom being 3 with 2 in the middle. Select the save file you are on, or going to be on."
-write-warning "The program doesn't check if the save files are accurate, so do not lie unless you like erros."
+write-host "I understand that this tool may cause me to lose my save file."
+write-host "Save Files are stored from the top being 1. and the bottom being 3 with 2 in the middle."
+write-host "Select the file you are on, or going to be on."
+write-host "In order for changes to take affect, you must reload your day."
 write-host "What Porfile is the current player on? (1-3 Ayano, 11-13 Ryoba)"
-[int32]$savegame = read-host "Value Between 1-3, 11-13"
-function log(){
-    param ([string]$text, [switch]$debug)
-    if($debug -eq $false){
-        Add-Content -Path ".\$date.log" -Value "[$seconds]: $text"
-    }elseif($debug -eq $true -and $allowdebug -eq $true){
-        Add-Content -Path "$logfolder\$date.log" -Value "[$seconds]:[DEBUG]: $text"
-    }
-}
+
 function errorgui(){
-    #currenlty not used, will be used when I make a GUI.
+    #currently not used, will be needed when I make a GUI.
     param([string]$msg, [string]$details)
     log("Error occured, error msg: $msg, error details: $details")
     $Form                            = New-Object system.Windows.Forms.Form
@@ -96,17 +150,24 @@ function errorgui(){
 }
 #errorgui -msg "error message" -details "error details"
 #keep above line for later
-Add-Content -Path ".\$date.log" -Value "Starting Log, it is currently $time"
 if((Test-Path -Path "$env:APPDATA\btelnyy") -eq $false){
     New-Item -path "$env:APPDATA\" -Name "btelnyy" -ItemType "directory" | Out-Null
 }else{
     log("ignored creation of appdata directory as it already exists.")
 }
 while($true){
+    $savegame = read-host "Value Between 1-3, 11-13"
+    $temp = "ProfileCreated_$savegame"
+    $temp2 = $regvalues | Select-String -Pattern $temp
+    $temp3 = Get-ItemPropertyValue -Path $regpath $temp2
     if($savegame -notin $array){
         Write-host "ERROR: invalid save game specified." -ForegroundColor "red" 
+    }elseif($null -eq $temp2){
+        write-host "ERROR: save file doesn't exist." -ForegroundColor "red"
+    }elseif($temp3 -eq 0){
+        write-host "ERROR: save file was deleted." -ForegroundColor "red"
     }
-    if($savegame -in $modern){
+    elseif($savegame -in $modern){
        Write-host "Ok, Selected Ayano's time period." -ForegroundColor "green"
         $profiletype = 1
         break
@@ -114,8 +175,6 @@ while($true){
         write-host "Ok, Selected Ryoba's time period." -ForegroundColor "green"
         $profiletype = 0
         break
-    }else{
-        write-host "ERROR: I have no idea how you got here." -ForegroundColor "red"
     }
 }      
 log("The current profile is $savegame")
@@ -128,13 +187,63 @@ log("The current appdata directory is $appdata")
 
 
 function cmdhelp{
-    write-host "Help: `n Commands: `n  help: Displays this message. `n  npc: change npc stats and such. (no, not the json ones, maybe later) `n  config: change game wide configuration. `n  exit: stops the utility. `n  tinker: opens the tinker menu. `n  deletesave: deletes save data. `nKeep in mind that everything is CaSe SeNsItIvE"
+    write-host "Help: `n Commands: `n  help: Displays this message. `n  npc: change npc stats and such. (no, not the json ones, maybe later) `n  config: change game wide configuration. `n  exit: stops the utility. `n  tinker: opens the tinker menu. `n  deletesave: deletes save data. `nself: modify things about your player. `nKeep in mind that everything is CaSe SeNsItIvE"
+}
+function self{
+    log("Entering self config")
+    while($true){
+        write-host "Don't worry, more comming sono!"
+        write-host "Self Config: club, exit."
+        $selfpromptarray = @('club','exit')
+        $selfprompt = read-host "COMMAND"
+        $clubs = @(0,1,2,3,4,5,6,7,8,9,10,11,12,13,14,15,99,100,101)
+        if($selfprompt -notin $selfpromptarray){
+            write-host "ERROR: $selfprompt isn't a command." -ForegroundColor "red"
+        }elseif($selfprompt -eq "exit"){
+            log("Exitting self config")
+            break
+        }elseif($selfprompt -eq "club"){
+            write-host "Enter a club ID (0-15, 99, 100, 101)"
+            write-host "If you know what all the clubs names are, please contact me on discord at: https://discord.gg/P22tfkjTm3 or create a github issue."
+            $clubid = read-host "ID"
+            if($clubid -notin $clubs){
+                write-host "ERROR: Invalid club ID." -ForegroundColor "red"
+                log("Invalid Club id was specified")
+            }else{
+                $newclub = "Profile_$savegame" + "_Club"
+                $oldclub = "Profile_$savegame" + "_Club_h"
+                $oldclub2 = $regvalues | Select-String -Pattern "$oldclub"
+                log -text "oldphoto2 = $oldclub2" -debug
+                $verify = (Get-Item $regpath).Property -contains $newclub
+                $verify2 = (Get-ITem $regpath).Property -contains $oldclub2
+                if($verify -eq $true){
+                    $temp = "Profile_$savegame" + "_Club"
+                    Set-ItemProperty -path $regpath -name $temp -value $clubid
+                    write-host "Done." -ForegroundColor "green"
+                    log("User has not reset the game to title screen, $temp in $regpath has been set to $value")
+                }elseif($verify -eq $false -and $verify2 -eq $false){
+                    log("[DEBUG] value 'verify' is $verify and value 'verify2' is $verify2")
+                    $temp = "Profile_$savegame" + "_Club"
+                    New-ItemProperty -path $regpath -Name $temp -Value 0
+                    Set-ItemProperty -path $regpath -Name $temp -Value $clubid
+                    write-host "Done." -ForegroundColor "green"
+                    log("Wrote new value called $temp in $regpath with a value of $clubid")
+                }else{
+                    log("Changed value in $regpath with name $oldclub2 to value $clubid")
+                    $temp = "Profile_$savegame" + "_Club_h"
+                    $temp2 = $regvalues | Select-String -Pattern $temp
+                    Set-ItemProperty -Path $regpath -Name $temp2 -Value $clubid
+                    write-host "Done." -ForegroundColor "green"
+                }
+            }
+        }
+    }
 }
 function cmdconfig{
     while($true){
-        write-host "Configuration: debug, exit, uniform, titlescreen (updates the title screen), item (force brings an item from home)"
+        write-host "Configuration: debug, exit, uniform, titlescreen (updates the title screen), item (force brings an item from home), gday (changes the gameplayday), gweek (changes the gameplay week)"
         $promptconfig = read-host "COMMAND" 
-        $arrayconfig = @('debug','exit','uniform','titlescreen','item')
+        $arrayconfig = @('debug','exit','uniform','titlescreen','item','gday','gweek')
         #I regret using else if
         if($promptconfig -notin $arrayconfig){
             write-host "ERROR: $promptconfig isn't a command." -ForegroundColor "red"
@@ -236,8 +345,37 @@ function cmdconfig{
                 $temp = "Profile_" + "$savegame" + "_BringingItem"
                 $bringitem = ($regvalues | Select-String -Pattern $temp)
                 Set-ItemProperty -Path "$regpath" -Name "$bringitem" -Value $item
+                log("Set $bringitem in $regpath to $item")
                 Get-ItemProperty -Path "$regpath" -Name "$bringitem"
                 write-host "Done." -ForegroundColor "green"
+            }
+        }elseif($promptconfig -eq "gday"){
+            $gdaydays = @(0..7)
+            log("Accessing the gameplay day menu")
+            write-host "Enter a number from 0-7"
+            $value = read-host "VALUE"
+            if($value -notin $gdaydays){
+                write-host "ERROR: Invalid day specified." -ForegroundColor "red"
+            }else{
+                $gameday = "Profile_$savegame" + "_GameplayDay"
+                $gameday2 = $regvalues | Select-String -Pattern $gameday #temp refused to work. OK BUDDY.
+                Set-ItemProperty -path $regpath -name "$gameday2" -value $value
+                $gameday22 = "Profile_$savegame" + "_WeekDay"
+                $gameday23 = $regvalues | Select-String -Pattern $gameday22
+                Set-ItemProperty -path $regpath -name "$gameday23" -value $value
+            }
+        }elseif($promptconfig -eq "gweek"){
+            $gweekweeks = @(1..10)
+            log("Accessing the gameplay week menu.")
+            write-host "Enter a number from 0-10"
+            $value = read-host "VALUE"
+            if($value -notin $gweekweeks){
+                write-host "ERROR: Invalid week specified." -ForegroundColor "red"
+            }else{
+                $week = "Profile_$savegame" + "_Week"
+                $week2 = $regvalues | Select-String -Pattern $week
+                Set-ItemProperty -path $regpath -name "$week2" -value $value
+                log("Set $week2 in $regpath to $value")
             }
         }
     }
@@ -396,10 +534,9 @@ function cmdnpc{
                 $newphoto = "Profile_$savegame" + "_StudentPhotographed_$npcid"
                 $oldphoto = "Profile_$savegame" + "_StudentPhotographed_" + "$npcid" + "_h"
                 $oldphoto2 = $regvalues | Select-String -Pattern "$oldphoto"
-                write-host $oldphoto2
-                write-host $temp2
+                log -text "oldphoto2 = $oldphoto2" -debug
                 write-host "Enter value: 1 being photographed (true) and 0 being not photographed (false)"
-                [int32]$value = read-host -Prompt "VALUE" 
+                $value = read-host -Prompt "VALUE" 
                 $verify = (Get-Item $regpath).Property -contains $newphoto
                 $verify2 = (Get-ITem $regpath).Property -contains $oldphoto2
                 if($verify -eq $true){
@@ -421,34 +558,12 @@ function cmdnpc{
                     Set-ItemProperty -Path $regpath -Name $temp2 -Value $value
                     write-host "Done." -ForegroundColor "green"
                 }
-                       #disabled until I need it
-                <#if($temp2 -eq $null){ #the things I need to do.
-                    log("Wrote new value called $temp in $regpath with a value of $value")
-                    New-ItemProperty -Path $regpath -Name $temp -Value 0 -Force
-                    Set-ItemProperty -path $regpath -Name $temp -Value $value
-                    write-host "Since this person wasn't photographed before, a new value was written."
-                    write-host "Done." -ForegroundColor "green"
-                }elseif($verify -ne $null){
-                    $temp = "Profile_$savegame" + "_StudentPhotographed_" + "$npcid" + "_"
-                    $temp2 = $regvalues | Select-String -Pattern $temp
-                    log("modified value $temp2 in $regpath with a new value of $value")
-                    Set-ItemProperty -path $regpath -Name $temp2 -Value $value
-                    Get-ItemProperty -path $regpath -Name $temp2
-                    write-host "Done." -ForegroundColor "green"
-                }else{
-                    log("Wrote new value called $temp in $regpath with a value of $value")
-                    New-ItemProperty -Path $regpath -Name $temp -Value 0 -Force
-                    Set-ItemProperty -path $regpath -Name $temp -Value $value
-                    write-host "Since this person wasn't photographed before, a new value was written."
-                    write-host "Done." -ForegroundColor "green"
-                }#>
-                
             } 
         }
     }
 }
 function tinker{
-    log("Entered Tinker Meno")
+    log("Entered Tinker Menu")
     $regpath = "HKCU:\Software\YandereDev\YandereSimulator\"
     $regvalues = Get-Item -Path $regpath | Select-Object -ExpandProperty Property
     $tinkercmd = @('list','search','modify','exit','read','exists')
@@ -504,7 +619,7 @@ while($true){
     while($true){
         write-host "Main Menu use 'help' for help."
         $prompt = read-host -Prompt "COMMAND"
-        $available = @('help','npc','config','exit','tinker','deletesave')
+        $available = @('help','npc','config','exit','tinker','deletesave','self')
         if($prompt -notin $available){
             write-host "ERROR: $prompt isn't a command. Type 'help' for help." -ForegroundColor "red"
         }
@@ -537,6 +652,8 @@ while($true){
                 write-host "Aborted."
                 log("exited delete save submenu (Aborted)")
             }
+        }elseif($prompt -eq "self"){
+            self
         }
     }
 }
