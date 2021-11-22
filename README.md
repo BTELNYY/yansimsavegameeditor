@@ -8,17 +8,18 @@ Important Note:
 The project is being re-written in C#, so new versions may not be out for some time.
 Also 2 new developers have been added, if you need help join our discord.
 
-Authors:
-btelnyy#8395
-loaflover#2421
-Bsce#3561
-Do not contact us for debugging, use our discord
+# Authors:
+* btelnyy#8395
+* loaflover#2421
+* Bsce#3561
 
-[Download the latest release](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
+Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3)
 
-[Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.4-beta.3/yansaveeditorv1.4-BETA-3.zip)
+# Releases
+* [Download the latest release](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
+* [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.4-beta.3/yansaveeditorv1.4-BETA-3.zip)
 
-TODO:
+# TODO:
 * Convert to C#
 * ~~Allow people to change the club they are in.~~
 * Replace most if/elseif/else statements with switch cases.
