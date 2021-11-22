@@ -5,6 +5,13 @@ If you can optimize my code, I will be thankful.
 For the love of god do not go after me over coding practices. Its not like it even effects a CLI.
 Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjTm3) Please join it :)
 
+Important Note:
+The project is being re-written in C#, so new versions may not be out for some time.
+Also 2 new developers have been added, if you need help join our discord.
+
+
+
+
 [Download the latest release](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
 [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.4-beta.3/yansaveeditorv1.4-BETA-3.zip)
