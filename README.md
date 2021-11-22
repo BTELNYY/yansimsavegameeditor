@@ -4,6 +4,7 @@ You can edit the code, you can also submit your own edits to this page. I will r
 If you can optimize my code, I will be thankful.
 For the love of god do not go after me over coding practices. Its not like it even effects a CLI.
 Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjTm3) Please join it :)
+
 TODO:
 * ~~Allow people to change the club they are in.~~
 * Replace most if/elseif/else statements with switch cases.
