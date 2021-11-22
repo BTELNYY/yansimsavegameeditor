@@ -29,6 +29,8 @@ TODO:
 * Add the ability to delete keys in the tinkerer
 * Add credits.
 * Allow modification of the students.json (With a GUI would be best.)
+* Add external control for in game events (as in day ends, restart day, etc)
+* texture swapper (depends on how doable this is)
 
 This is GitHub, anyone can contribute. (hint: above list :) )
 
