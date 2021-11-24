@@ -1,4 +1,5 @@
 ﻿using System.IO;
+using System.Text;
 using static Microsoft.Win32.Registry;
 namespace YanSimSaveEditor
 {
