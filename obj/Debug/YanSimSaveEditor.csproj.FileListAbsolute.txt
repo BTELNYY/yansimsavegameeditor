@@ -1,0 +1,11 @@
+C:\Users\bohdan\Desktop\yansimsavegameeditor\bin\Debug\YanSimSaveEditor.exe.config
+C:\Users\bohdan\Desktop\yansimsavegameeditor\bin\Debug\YanSimSaveEditor.exe
+C:\Users\bohdan\Desktop\yansimsavegameeditor\bin\Debug\YanSimSaveEditor.pdb
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.AssemblyReference.cache
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.SuggestedBindingRedirects.cache
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.MainForm.resources
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.Properties.Resources.resources
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.GenerateResource.cache
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.CoreCompileInputs.cache
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.exe
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.pdb
