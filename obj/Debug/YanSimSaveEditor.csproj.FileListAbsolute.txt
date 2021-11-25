@@ -12,3 +12,19 @@ C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.pdb
 C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.StudentConfig.resources
 C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.Open.resources
 C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.GameConfig.resources
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\bin\Debug\YanSimSaveEditor.exe.config
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\bin\Debug\YanSimSaveEditor.exe
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\bin\Debug\YanSimSaveEditor.pdb
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.AssemblyReference.cache
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.GameConfig.resources
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.StudentConfig.resources
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.MainForm.resources
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.Open.resources
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.Properties.Resources.resources
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.GenerateResource.cache
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.CoreCompileInputs.cache
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.exe
+C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.pdb

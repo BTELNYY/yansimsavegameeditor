@@ -4,47 +4,46 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Newtonsoft.Json.Linq;
+using Newtonsoft.Json;
 namespace YanSimSaveEditor
 {
     public class JSONEdit
     {
         public static string Delete(string JSONPath, string name)
         {
-     
 
-            //creates a key
-            try
-            {
-                return "succeeded";
-            }
-            catch (Exception e)
-            {
-                //returns error as string
-                return e.ToString();
-            }
+
+            student product = new student();
+
+            product.Name = "Apple";
+            Utility.WriteError(JsonConvert.SerializeObject(product), "test");
+           return JsonConvert.SerializeObject(product);
+
+            
+
         }
     }
 
     public class student
     {
-        public int ID { get;  set; }
-        public string Name { get;  set; }
-        public string RealName { get;  set; }
-        public int Gender { get;  set; }
-        public int Seat { get;  set; }
-        public int Club { get;  set; }
-        public int Class { get;  set; }
-        public int Persona { get;  set; }
-        public int Crush { get;  set; }
-        public double Bustsize { get;  set; }
-        public int Strength { get;  set; }
-        public int HairStyle { get;  set; }
-        public string Color { get;  set; }
-        public string Eyes { get;  set; }
-        public string Eyetype { get;  set; }
-        public string Stockings { get;  set; }
-        public int Accessory { get;  set; }
-        public string Info { get;  set; }
+        public int ID { get; set; }
+        public string Name { get; set; }
+        public string RealName { get; set; }
+        public int Gender { get; set; }
+        public int Seat { get; set; }
+        public int Club { get; set; }
+        public int Class { get; set; }
+        public int Persona { get; set; }
+        public int Crush { get; set; }
+        public double Bustsize { get; set; }
+        public int Strength { get; set; }
+        public int HairStyle { get; set; }
+        public string Color { get; set; }
+        public string Eyes { get; set; }
+        public string Eyetype { get; set; }
+        public string Stockings { get; set; }
+        public int Accessory { get; set; }
+        public string Info { get; set; }
 
 
         /*
