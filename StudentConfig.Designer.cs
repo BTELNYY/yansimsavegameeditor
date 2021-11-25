@@ -58,7 +58,7 @@
             this.textBox3 = new System.Windows.Forms.TextBox();
             this.MemorialCheckbox = new System.Windows.Forms.CheckBox();
             this.DyingCheckbox = new System.Windows.Forms.CheckBox();
-            this.AiCheckBox = new System.Windows.Forms.CheckBox();
+            this.RivalCheckBox = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
             this.AccessoryCheckbox = new System.Windows.Forms.TextBox();
             this.ReputationTextbox = new System.Windows.Forms.TextBox();
@@ -460,15 +460,16 @@
             this.DyingCheckbox.Text = "Dying?";
             this.DyingCheckbox.UseVisualStyleBackColor = true;
             // 
-            // AiCheckBox
+            // RivalCheckBox
             // 
-            this.AiCheckBox.AutoSize = true;
-            this.AiCheckBox.Location = new System.Drawing.Point(323, 75);
-            this.AiCheckBox.Name = "AiCheckBox";
-            this.AiCheckBox.Size = new System.Drawing.Size(42, 17);
-            this.AiCheckBox.TabIndex = 28;
-            this.AiCheckBox.Text = "AI?";
-            this.AiCheckBox.UseVisualStyleBackColor = true;
+            this.RivalCheckBox.AutoSize = true;
+            this.RivalCheckBox.Enabled = false;
+            this.RivalCheckBox.Location = new System.Drawing.Point(323, 75);
+            this.RivalCheckBox.Name = "RivalCheckBox";
+            this.RivalCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.RivalCheckBox.TabIndex = 28;
+            this.RivalCheckBox.Text = "Rival?";
+            this.RivalCheckBox.UseVisualStyleBackColor = true;
             // 
             // label14
             // 
@@ -868,7 +869,7 @@
             this.Controls.Add(this.ReputationTextbox);
             this.Controls.Add(this.AccessoryCheckbox);
             this.Controls.Add(this.label14);
-            this.Controls.Add(this.AiCheckBox);
+            this.Controls.Add(this.RivalCheckBox);
             this.Controls.Add(this.DyingCheckbox);
             this.Controls.Add(this.MemorialCheckbox);
             this.Controls.Add(this.textBox3);
@@ -938,7 +939,7 @@
         private System.Windows.Forms.TextBox textBox3;
         private System.Windows.Forms.CheckBox MemorialCheckbox;
         private System.Windows.Forms.CheckBox DyingCheckbox;
-        private System.Windows.Forms.CheckBox AiCheckBox;
+        private System.Windows.Forms.CheckBox RivalCheckBox;
         private System.Windows.Forms.Label label14;
         private System.Windows.Forms.TextBox AccessoryCheckbox;
         private System.Windows.Forms.TextBox ReputationTextbox;
