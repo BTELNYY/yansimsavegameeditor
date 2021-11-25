@@ -52,5 +52,12 @@ namespace YanSimSaveEditor
         {
             //waiting for loaf
         }
+
+        private void ChangeGameDirButton_Click(object sender, EventArgs e)
+        {
+            //open the change dir dialog
+            Open SelectGameDir = new Open();
+            SelectGameDir.ShowDialog();
+        }
     }
 }

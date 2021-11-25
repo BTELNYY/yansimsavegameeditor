@@ -73,11 +73,11 @@
     <Compile Include="StudentConfig.Designer.cs">
       <DependentUpon>StudentConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Open.cs">
+    <Compile Include="SelectGameDir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Open.Designer.cs">
-      <DependentUpon>Open.cs</DependentUpon>
+    <Compile Include="SelectGameDir.Designer.cs">
+      <DependentUpon>SelectGameDir.cs</DependentUpon>
     </Compile>
     <Compile Include="Utility.cs" />
     <Compile Include="MainForm.cs">
@@ -97,8 +97,8 @@
     <EmbeddedResource Include="MainForm.resx">
       <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Open.resx">
-      <DependentUpon>Open.cs</DependentUpon>
+    <EmbeddedResource Include="SelectGameDir.resx">
+      <DependentUpon>SelectGameDir.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

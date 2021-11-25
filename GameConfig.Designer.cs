@@ -39,6 +39,16 @@
             this.ItemCombobox = new System.Windows.Forms.ComboBox();
             this.DebugCheckbox = new System.Windows.Forms.CheckBox();
             this.SaveButton = new System.Windows.Forms.Button();
+            this.PhsycStat = new System.Windows.Forms.ComboBox();
+            this.PhysedStat = new System.Windows.Forms.ComboBox();
+            this.LangStat = new System.Windows.Forms.ComboBox();
+            this.ChemStat = new System.Windows.Forms.ComboBox();
+            this.BioStat = new System.Windows.Forms.ComboBox();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.label7 = new System.Windows.Forms.Label();
+            this.label8 = new System.Windows.Forms.Label();
+            this.label9 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -60,7 +70,7 @@
             "4",
             "5",
             "6"});
-            this.FemaleuniformCombo.Location = new System.Drawing.Point(99, 10);
+            this.FemaleuniformCombo.Location = new System.Drawing.Point(99, 11);
             this.FemaleuniformCombo.Name = "FemaleuniformCombo";
             this.FemaleuniformCombo.Size = new System.Drawing.Size(121, 21);
             this.FemaleuniformCombo.TabIndex = 1;
@@ -250,7 +260,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(245, 86);
+            this.SaveButton.Location = new System.Drawing.Point(245, 263);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 9;
@@ -258,11 +268,136 @@
             this.SaveButton.UseVisualStyleBackColor = true;
             this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
+            // PhsycStat
+            // 
+            this.PhsycStat.FormattingEnabled = true;
+            this.PhsycStat.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.PhsycStat.Location = new System.Drawing.Point(99, 126);
+            this.PhsycStat.Name = "PhsycStat";
+            this.PhsycStat.Size = new System.Drawing.Size(121, 21);
+            this.PhsycStat.TabIndex = 10;
+            // 
+            // PhysedStat
+            // 
+            this.PhysedStat.FormattingEnabled = true;
+            this.PhysedStat.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.PhysedStat.Location = new System.Drawing.Point(99, 153);
+            this.PhysedStat.Name = "PhysedStat";
+            this.PhysedStat.Size = new System.Drawing.Size(121, 21);
+            this.PhysedStat.TabIndex = 11;
+            // 
+            // LangStat
+            // 
+            this.LangStat.FormattingEnabled = true;
+            this.LangStat.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.LangStat.Location = new System.Drawing.Point(99, 180);
+            this.LangStat.Name = "LangStat";
+            this.LangStat.Size = new System.Drawing.Size(121, 21);
+            this.LangStat.TabIndex = 12;
+            // 
+            // ChemStat
+            // 
+            this.ChemStat.FormattingEnabled = true;
+            this.ChemStat.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.ChemStat.Location = new System.Drawing.Point(99, 207);
+            this.ChemStat.Name = "ChemStat";
+            this.ChemStat.Size = new System.Drawing.Size(121, 21);
+            this.ChemStat.TabIndex = 13;
+            // 
+            // BioStat
+            // 
+            this.BioStat.FormattingEnabled = true;
+            this.BioStat.Items.AddRange(new object[] {
+            "1",
+            "2",
+            "3",
+            "4",
+            "5"});
+            this.BioStat.Location = new System.Drawing.Point(99, 234);
+            this.BioStat.Name = "BioStat";
+            this.BioStat.Size = new System.Drawing.Size(121, 21);
+            this.BioStat.TabIndex = 14;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.TabIndex = 15;
+            this.label5.Text = "Phsycology Stat";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(13, 156);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.TabIndex = 16;
+            this.label6.Text = "Phys Ed Stat";
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(13, 183);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.TabIndex = 17;
+            this.label7.Text = "Language Stat";
+            // 
+            // label8
+            // 
+            this.label8.AutoSize = true;
+            this.label8.Location = new System.Drawing.Point(13, 210);
+            this.label8.Name = "label8";
+            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.TabIndex = 18;
+            this.label8.Text = "Chemistry Stat";
+            // 
+            // label9
+            // 
+            this.label9.AutoSize = true;
+            this.label9.Location = new System.Drawing.Point(13, 237);
+            this.label9.Name = "label9";
+            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.TabIndex = 19;
+            this.label9.Text = "Biology Stat";
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 110);
+            this.ClientSize = new System.Drawing.Size(319, 285);
+            this.Controls.Add(this.label9);
+            this.Controls.Add(this.label8);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.BioStat);
+            this.Controls.Add(this.ChemStat);
+            this.Controls.Add(this.LangStat);
+            this.Controls.Add(this.PhysedStat);
+            this.Controls.Add(this.PhsycStat);
             this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.DebugCheckbox);
             this.Controls.Add(this.ItemCombobox);
@@ -276,6 +411,7 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameConfig";
             this.Text = "Form1";
+            this.Load += new System.EventHandler(this.GameConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -293,5 +429,15 @@
         private System.Windows.Forms.ComboBox ItemCombobox;
         private System.Windows.Forms.CheckBox DebugCheckbox;
         private System.Windows.Forms.Button SaveButton;
+        private System.Windows.Forms.ComboBox PhsycStat;
+        private System.Windows.Forms.ComboBox PhysedStat;
+        private System.Windows.Forms.ComboBox LangStat;
+        private System.Windows.Forms.ComboBox ChemStat;
+        private System.Windows.Forms.ComboBox BioStat;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label label7;
+        private System.Windows.Forms.Label label8;
+        private System.Windows.Forms.Label label9;
     }
 }

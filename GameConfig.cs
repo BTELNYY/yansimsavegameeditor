@@ -27,5 +27,10 @@ namespace YanSimSaveEditor
         {
 
         }
+
+        private void GameConfig_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }

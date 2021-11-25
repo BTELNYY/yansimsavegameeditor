@@ -28,5 +28,29 @@ namespace YanSimSaveEditor
             //what even is this bullshit?
             StudentConfig.Close();
         }
+
+        private void comboBox1_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StudentSelect_SelectionChangeCommitted(object sender, EventArgs e)
+        {
+            
+        }
+
+        private void ApplyButton_Click(object sender, EventArgs e)
+        {
+            string[] rivals = { "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
+            int index = Array.IndexOf(rivals, StudentSelect.SelectedItem);
+            if (index > -1)
+            {
+                RivalCheckBox.Checked = true;
+            }
+            else
+            {
+                RivalCheckBox.Checked = false;
+            };
+        }
     }
 }

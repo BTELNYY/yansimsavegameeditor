@@ -29,7 +29,7 @@
         private void InitializeComponent()
         {
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(StudentConfig));
-            this.comboBox1 = new System.Windows.Forms.ComboBox();
+            this.StudentSelect = new System.Windows.Forms.ComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
@@ -77,14 +77,16 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
+            this.ChangeimageButton = new System.Windows.Forms.Button();
+            this.ApplyButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
-            // comboBox1
+            // StudentSelect
             // 
-            this.comboBox1.FormattingEnabled = true;
-            this.comboBox1.Items.AddRange(new object[] {
+            this.StudentSelect.FormattingEnabled = true;
+            this.StudentSelect.Items.AddRange(new object[] {
             "1",
             "2",
             "3",
@@ -185,10 +187,12 @@
             "98",
             "99",
             "100"});
-            this.comboBox1.Location = new System.Drawing.Point(299, 1);
-            this.comboBox1.Name = "comboBox1";
-            this.comboBox1.Size = new System.Drawing.Size(120, 21);
-            this.comboBox1.TabIndex = 0;
+            this.StudentSelect.Location = new System.Drawing.Point(299, 1);
+            this.StudentSelect.Name = "StudentSelect";
+            this.StudentSelect.Size = new System.Drawing.Size(64, 21);
+            this.StudentSelect.TabIndex = 0;
+            this.StudentSelect.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
+            this.StudentSelect.SelectionChangeCommitted += new System.EventHandler(this.StudentSelect_SelectionChangeCommitted);
             // 
             // label1
             // 
@@ -201,9 +205,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(0, 22);
+            this.pictureBox1.Location = new System.Drawing.Point(-3, 1);
             this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(178, 169);
+            this.pictureBox1.Size = new System.Drawing.Size(162, 156);
             this.pictureBox1.TabIndex = 2;
             this.pictureBox1.TabStop = false;
             // 
@@ -847,11 +851,32 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
+            // ChangeimageButton
+            // 
+            this.ChangeimageButton.Location = new System.Drawing.Point(-3, 156);
+            this.ChangeimageButton.Name = "ChangeimageButton";
+            this.ChangeimageButton.Size = new System.Drawing.Size(91, 23);
+            this.ChangeimageButton.TabIndex = 46;
+            this.ChangeimageButton.Text = "Change Image";
+            this.ChangeimageButton.UseVisualStyleBackColor = true;
+            // 
+            // ApplyButton
+            // 
+            this.ApplyButton.Location = new System.Drawing.Point(369, -1);
+            this.ApplyButton.Name = "ApplyButton";
+            this.ApplyButton.Size = new System.Drawing.Size(56, 23);
+            this.ApplyButton.TabIndex = 47;
+            this.ApplyButton.Text = "Get ID";
+            this.ApplyButton.UseVisualStyleBackColor = true;
+            this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 438);
+            this.Controls.Add(this.ApplyButton);
+            this.Controls.Add(this.ChangeimageButton);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
@@ -897,7 +922,7 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.label1);
-            this.Controls.Add(this.comboBox1);
+            this.Controls.Add(this.StudentSelect);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentConfig";
             this.Text = "Student Configuration";
@@ -910,7 +935,7 @@
 
         #endregion
 
-        private System.Windows.Forms.ComboBox comboBox1;
+        private System.Windows.Forms.ComboBox StudentSelect;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.PictureBox pictureBox1;
@@ -958,5 +983,7 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label19;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
+        private System.Windows.Forms.Button ChangeimageButton;
+        private System.Windows.Forms.Button ApplyButton;
     }
 }

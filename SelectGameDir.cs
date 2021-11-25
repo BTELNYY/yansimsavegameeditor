@@ -21,5 +21,21 @@ namespace YanSimSaveEditor
         {
 
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void Cancel_Click(object sender, EventArgs e)
+        {
+            Open Open = new Open();
+            Open.Close();
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            //apply some cool config
+        }
     }
 }

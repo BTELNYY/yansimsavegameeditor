@@ -38,6 +38,7 @@
             this.AdvancedconfigButton = new System.Windows.Forms.Button();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
+            this.ChangeGameDirButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cancel
@@ -113,7 +114,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 154);
+            this.label2.Location = new System.Drawing.Point(12, 190);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(109, 13);
             this.label2.TabIndex = 8;
@@ -122,17 +123,28 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(14, 177);
+            this.label3.Location = new System.Drawing.Point(12, 203);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(200, 13);
             this.label3.TabIndex = 9;
             this.label3.Text = "If there is no \"close\" button, just hit the X";
+            // 
+            // ChangeGameDirButton
+            // 
+            this.ChangeGameDirButton.Location = new System.Drawing.Point(12, 157);
+            this.ChangeGameDirButton.Name = "ChangeGameDirButton";
+            this.ChangeGameDirButton.Size = new System.Drawing.Size(112, 23);
+            this.ChangeGameDirButton.TabIndex = 10;
+            this.ChangeGameDirButton.Text = "Change Game Dir";
+            this.ChangeGameDirButton.UseVisualStyleBackColor = true;
+            this.ChangeGameDirButton.Click += new System.EventHandler(this.ChangeGameDirButton_Click);
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 367);
+            this.Controls.Add(this.ChangeGameDirButton);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.AdvancedconfigButton);
@@ -162,6 +174,7 @@
         private System.Windows.Forms.Button AdvancedconfigButton;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.Button ChangeGameDirButton;
     }
 }
 
