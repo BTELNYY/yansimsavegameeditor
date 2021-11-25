@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace YanSimSaveEditor
 {
-    class JsonEdit
+    public class JSONEdit
     {
     }
 }
