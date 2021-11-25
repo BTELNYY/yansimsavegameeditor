@@ -43,7 +43,12 @@ namespace YanSimSaveEditor
         {
             //displays old icon, no idea why.
             MessageBox.Show(msg, title,
-             MessageBoxButtons.OK, MessageBoxIcon.Error);
+                MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+        public static void WriteWarning(string msg, string title)
+        {
+            MessageBox.Show(msg, title,
+                MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
 
     }

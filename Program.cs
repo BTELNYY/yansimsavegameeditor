@@ -15,12 +15,17 @@ namespace YanSimSaveEditor
         [STAThread]
         static void Main()
         {
+            //do not put any windows forms code above this
+            Application.EnableVisualStyles();
+            Application.SetCompatibleTextRenderingDefault(false);
             //check if the games directory is set and exists, if not, call set game dir. (open)
             Open SetGameDir = new Open();
 
-            Application.EnableVisualStyles();
-            Application.SetCompatibleTextRenderingDefault(false);
+
+
+
             Application.Run(new MainForm());
+            //Dont put anything Bellow this statment or it will never run.
         }
     }
 }
