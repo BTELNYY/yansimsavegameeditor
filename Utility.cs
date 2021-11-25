@@ -50,6 +50,11 @@ namespace YanSimSaveEditor
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
+        public static void WriteInfo(string msg, string title)
+        {
+            MessageBox.Show(msg, title,
+                MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
 
     }
 };

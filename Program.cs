@@ -20,8 +20,7 @@ namespace YanSimSaveEditor
             Application.SetCompatibleTextRenderingDefault(false);
             //check if the games directory is set and exists, if not, call set game dir. (open)
             Open SetGameDir = new Open();
-
-
+            //logic stuff
 
 
             Application.Run(new MainForm());
