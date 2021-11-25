@@ -13,7 +13,6 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
-            //I spent 2 and a half hours importing vairables. not proud rn.
             string config = "HKEY_CURRENT_USER\\SOFTWARE\\btelnyy\\YanSaveEdit".ToString();
             string logFolder = GetValue(config, "logFolder", null).ToString();
             string noLog = GetValue(config, "noLog", null).ToString();
@@ -21,11 +20,11 @@ namespace YanSimSaveEditor
             if (string.IsNullOrEmpty(logFolder))
             {
                 SetValue(config, "logFolder", ".");
-            };
+            }
             if (string.IsNullOrEmpty(noLog))
             {
                 SetValue(config, "noLog", "false");
-            };
+            }
             if (noLog == "true")
             {
                 return;
@@ -37,7 +36,7 @@ namespace YanSimSaveEditor
                 sw.WriteLine(text);
                 sw.Close();
                 return;
-            };
+            }
         }
 
         public static void WriteError(string msg, string title)
