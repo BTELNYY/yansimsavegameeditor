@@ -67,6 +67,7 @@
     <Compile Include="GameConfig.Designer.cs">
       <DependentUpon>GameConfig.cs</DependentUpon>
     </Compile>
+    <Compile Include="RegEdit.cs" />
     <Compile Include="StudentConfig.cs">
       <SubType>Form</SubType>
     </Compile>
