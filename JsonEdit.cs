@@ -27,45 +27,33 @@ namespace YanSimSaveEditor
 
     public class student
     {
-        private int ID;
-        private string Name;
-        private string RealName;
-        private int Gender;
-        private int Seat;
-        private int Class;
-        private int Club;
-        private int persona;
-        private int Crush;
-        private double bustSize;
-        private int Strength;
-        private int HairStyle;
-        private string Color;
-        private string Eyes;
-        private string EyeType;
-        private string Stockings;
-        private int Accessory;
-        private string Info;
+        public int ID { get;  set; }
+        public string Name { get;  set; }
+        public string RealName { get;  set; }
+        public int Gender { get;  set; }
+        public int Seat { get;  set; }
+        public int Club { get;  set; }
+        public int Class { get;  set; }
+        public int Persona { get;  set; }
+        public int Crush { get;  set; }
+        public double Bustsize { get;  set; }
+        public int Strength { get;  set; }
+        public int HairStyle { get;  set; }
+        public string Color { get;  set; }
+        public string Eyes { get;  set; }
+        public string Eyetype { get;  set; }
+        public string Stockings { get;  set; }
+        public int Accessory { get;  set; }
+        public string Info { get;  set; }
+
+
         /*
-         [ScheduleTime] => 7_7_8_13.0000_13.375_15.5_16_99
-             [ScheduleDestination] => Spawn_Locker_Patrol_Seat_LunchSpot_Seat_Clean_Patrol
- [ScheduleAction] => Stand_Stand_Patrol_Sit_Eat_Sit_Clean_Patrol
+        [ScheduleTime] => 7_7_8_13.0000_13.375_15.5_16_99
+        [ScheduleDestination] => Spawn_Locker_Patrol_Seat_LunchSpot_Seat_Clean_Patrol
+        [ScheduleAction] => Stand_Stand_Patrol_Sit_Eat_Sit_Clean_Patrol
         */
 
 
-        public static string Delete(string JSONPath, string name)
-        {
 
-
-            //creates a key
-            try
-            {
-                return "succeeded";
-            }
-            catch (Exception e)
-            {
-                //returns error as string
-                return e.ToString();
-            }
-        }
     }
 }
