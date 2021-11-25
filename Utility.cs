@@ -13,7 +13,7 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
-            string config = "HKEY_CURRENT_USER\\SOFTWARE\\btelnyy\\YanSaveEdit".ToString();
+            string config = @"HKEY_CURRENT_USER\SOFTWARE\btelnyy\YanSaveEdit";
             string logFolder = GetValue(config, "logFolder", null).ToString();
             string noLog = GetValue(config, "noLog", null).ToString();
             //check if the keys exist, if not, simply create them
