@@ -1,13 +1,15 @@
 ﻿using System.IO;
+using System;
 using System.Text;
 using static Microsoft.Win32.Registry;
+using System.Windows.Forms;
 namespace YanSimSaveEditor
 {
     public class Main
     {
 
     }
-    public class Log
+    public class Utility
     {
         public static void CreateLog(string text)
         {
@@ -33,8 +35,17 @@ namespace YanSimSaveEditor
                 string file = logFolder.ToString() + "\\latest.log";
                 StreamWriter sw = new StreamWriter(file);
                 sw.WriteLine(text);
+                sw.Close();
                 return;
             };
         }
+
+        public static void WriteError(string msg, string title)
+        {
+            //displays old icon, no idea why.
+            MessageBox.Show(msg, title,
+             MessageBoxButtons.OK, MessageBoxIcon.Error);
+        }
+
     }
 };

@@ -15,8 +15,6 @@ namespace YanSimSaveEditor
         [STAThread]
         static void Main()
         {
-            Log instance = new Log();
-            Log.CreateLog("Test");
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             Application.Run(new MainForm());

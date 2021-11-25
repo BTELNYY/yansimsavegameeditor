@@ -9,3 +9,6 @@ C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.G
 C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.CoreCompileInputs.cache
 C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.exe
 C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.pdb
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.StudentConfig.resources
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.Open.resources
+C:\Users\bohdan\Desktop\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.GameConfig.resources
