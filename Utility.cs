@@ -13,6 +13,7 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
+<<<<<<< Updated upstream
             /*
             string config = @"HKEY_CURRENT_USER\SOFTWARE\btelnyy\YanSaveEdit";
             string logFolder = GetValue(config, "logFolder", null).ToString();
@@ -39,6 +40,9 @@ namespace YanSimSaveEditor
                 return;
             }
             */
+=======
+           
+>>>>>>> Stashed changes
         }
 
         public static void WriteError(string msg, string title)
@@ -56,6 +60,17 @@ namespace YanSimSaveEditor
         {
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
+        }
+        public static bool FileExists(string path)
+        {
+            if (!File.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
         }
 
     }
