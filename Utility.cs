@@ -13,7 +13,6 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
-<<<<<<< Updated upstream
             /*
             string config = @"HKEY_CURRENT_USER\SOFTWARE\btelnyy\YanSaveEdit";
             string logFolder = GetValue(config, "logFolder", null).ToString();
@@ -40,9 +39,6 @@ namespace YanSimSaveEditor
                 return;
             }
             */
-=======
-           
->>>>>>> Stashed changes
         }
 
         public static void WriteError(string msg, string title)
