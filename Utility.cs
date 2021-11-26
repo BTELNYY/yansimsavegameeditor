@@ -1,7 +1,7 @@
 ﻿using System.IO;
 using System;
 using System.Text;
-using static Microsoft.Win32.Registry;
+using Microsoft.Win32;
 using System.Windows.Forms;
 namespace YanSimSaveEditor
 {
@@ -13,6 +13,7 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
+            /*
             string config = @"HKEY_CURRENT_USER\SOFTWARE\btelnyy\YanSaveEdit";
             string logFolder = GetValue(config, "logFolder", null).ToString();
             string noLog = GetValue(config, "noLog", null).ToString();
@@ -37,6 +38,7 @@ namespace YanSimSaveEditor
                 sw.Close();
                 return;
             }
+            */
         }
 
         public static void WriteError(string msg, string title)

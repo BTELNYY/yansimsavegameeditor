@@ -28,3 +28,19 @@ C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Deb
 C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.csproj.CoreCompileInputs.cache
 C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.exe
 C:\Users\nir\Desktop\Bt repository\Yansim ext debug\yansimsavegameeditor\obj\Debug\YanSimSaveEditor.pdb
+C:\Users\nir\Desktop\Bt repository\bin\Debug\YanSimSaveEditor.exe.config
+C:\Users\nir\Desktop\Bt repository\bin\Debug\YanSimSaveEditor.exe
+C:\Users\nir\Desktop\Bt repository\bin\Debug\YanSimSaveEditor.pdb
+C:\Users\nir\Desktop\Bt repository\bin\Debug\Microsoft.VisualStudio.DebuggerVisualizers.dll
+C:\Users\nir\Desktop\Bt repository\bin\Debug\Newtonsoft.Json.dll
+C:\Users\nir\Desktop\Bt repository\bin\Debug\Newtonsoft.Json.xml
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.csproj.AssemblyReference.cache
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.GameConfig.resources
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.StudentConfig.resources
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.MainForm.resources
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.Open.resources
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.Properties.Resources.resources
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.csproj.GenerateResource.cache
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.csproj.CoreCompileInputs.cache
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.exe
+C:\Users\nir\Desktop\Bt repository\obj\Debug\YanSimSaveEditor.pdb
