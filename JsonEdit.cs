@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.Linq;
 using System.Text;
@@ -11,13 +12,13 @@ namespace YanSimSaveEditor
     {
         public static student GetInfo(string JSONPath, int StudentId)
         {
+            StreamReader sr = new StreamReader(@"\TestDir\TestFile.txt");
             string JSON = @" {""ID"":""100"",""Name"":""Info - chan"",""RealName"":"" d "",""Gender"":""1"",""Class"":""1"",""Seat"":""1"",""Club"":""99"",""Persona"":""99"",""Crush"":""1"",""BreastSize"":""1"",""Strength"":""99"",""Hairstyle"":""1"",""Color"":""White"",""Eyes"":""Black"",""EyeType"":""N / A"",""Stockings"":""None"",""Accessory"":""1"",""ScheduleTime"":""1"",""ScheduleDestination"":""Nothing"",""ScheduleAction"":""Nothing"",""Info"":""Trying to look up my information? Dont bother. There is nothing that you need to know about me. Youre a client, and Im a provider. Thats all we need to know about each other.""} ";
 
 
 
-            student StudentId = JsonConvert.DeserializeObject<student>(JSON);
-            Utility.WriteError(nir.ID.ToString(), nir.Name.ToString());
-            return ;
+            student tempstudent = JsonConvert.DeserializeObject<student>(JSON);
+            return tempstudent;
 
 
 
