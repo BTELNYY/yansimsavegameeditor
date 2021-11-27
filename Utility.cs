@@ -72,23 +72,27 @@ namespace YanSimSaveEditor
         }
         public static string SelectString(string pattern)
         {
-            //loaf plz help
+            //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            //sets the registry
-            Array list = RegEdit.returnValuesList(gamereg);
-            WriteInfo(pattern, "test");
-            foreach (string s in list)
+            //gets list of values
+            string[] list = RegEdit.returnValuesList(gamereg);
+            foreach(string s in list)
             {
-                string matches = Regex.Matches(s, pattern).ToString();
-                if (matches == "System.Text.RegularExpressions.MatchCollection") //wtf is this shit
+                //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
+                bool result = Regex.IsMatch(s, pattern + @"*"); //regex is my nightmare
+                if (result)
+                {
+                    return s;
+                }
+                else if(!result)
                 {
                     continue;
                 }
                 else
                 {
-                    WriteInfo(matches, "Info");
+                    return null;
                 }
-                
+                //returns null if the loop breaks. cuz yes.
             }
             return null;
         }

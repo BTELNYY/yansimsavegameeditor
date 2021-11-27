@@ -32,7 +32,7 @@
             this.StudentSelect = new System.Windows.Forms.ComboBox();
             this.colorDialog1 = new System.Windows.Forms.ColorDialog();
             this.label1 = new System.Windows.Forms.Label();
-            this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.Portrait = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
             this.label4 = new System.Windows.Forms.Label();
@@ -79,7 +79,7 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.ChangeimageButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
             // 
@@ -203,13 +203,13 @@
             this.label1.TabIndex = 1;
             this.label1.Text = "Student (by ID)";
             // 
-            // pictureBox1
+            // Portrait
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(-3, 1);
-            this.pictureBox1.Name = "pictureBox1";
-            this.pictureBox1.Size = new System.Drawing.Size(162, 156);
-            this.pictureBox1.TabIndex = 2;
-            this.pictureBox1.TabStop = false;
+            this.Portrait.Location = new System.Drawing.Point(-3, 1);
+            this.Portrait.Name = "Portrait";
+            this.Portrait.Size = new System.Drawing.Size(162, 156);
+            this.Portrait.TabIndex = 2;
+            this.Portrait.TabStop = false;
             // 
             // label2
             // 
@@ -920,13 +920,14 @@
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
-            this.Controls.Add(this.pictureBox1);
+            this.Controls.Add(this.Portrait);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.StudentSelect);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "StudentConfig";
             this.Text = "Student Configuration";
-            ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.Load += new System.EventHandler(this.StudentConfig_Load);
+            ((System.ComponentModel.ISupportInitialize)(this.Portrait)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -938,7 +939,7 @@
         private System.Windows.Forms.ComboBox StudentSelect;
         private System.Windows.Forms.ColorDialog colorDialog1;
         private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.PictureBox Portrait;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label4;

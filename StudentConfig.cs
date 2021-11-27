@@ -36,7 +36,7 @@ namespace YanSimSaveEditor
 
         private void StudentSelect_SelectionChangeCommitted(object sender, EventArgs e)
         {
-            
+
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
@@ -51,6 +51,15 @@ namespace YanSimSaveEditor
             {
                 RivalCheckBox.Checked = false;
             };
+            string path = @".\YandereSimulator_Data\StreamingAssets\Portraits\";
+            Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
+            string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
+            Portrait.Image = Image.FromFile(file);
+        }
+
+        private void StudentConfig_Load(object sender, EventArgs e)
+        {
+
         }
     }
 }
