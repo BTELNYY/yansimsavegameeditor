@@ -70,13 +70,13 @@ namespace YanSimSaveEditor
                 return true;
             }
         }
-        public static string SelectString(string pattern)
+        public static string SelectString(string pattern, bool allowCreation)
         {
             //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             //gets list of values
             string[] list = RegEdit.returnValuesList(gamereg);
-            foreach(string s in list)
+            foreach (string s in list)
             {
                 //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
                 bool result = Regex.IsMatch(s, pattern + @"*"); //regex is my nightmare
@@ -84,7 +84,7 @@ namespace YanSimSaveEditor
                 {
                     return s;
                 }
-                else if(!result)
+                else if (!result)
                 {
                     continue;
                 }
@@ -93,6 +93,15 @@ namespace YanSimSaveEditor
                     return null;
                 }
                 //returns null if the loop breaks. cuz yes.
+            }
+            if (allowCreation == true)
+            {
+                gamereg.SetValue(pattern, 0);
+                return pattern;
+            }
+            else if (allowCreation == false)
+            {
+                return null;
             }
             return null;
         }

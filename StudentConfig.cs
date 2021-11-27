@@ -59,7 +59,7 @@ namespace YanSimSaveEditor
 
         private void StudentConfig_Load(object sender, EventArgs e)
         {
-
+            
         }
     }
 }

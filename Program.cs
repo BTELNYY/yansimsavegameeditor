@@ -21,7 +21,6 @@ namespace YanSimSaveEditor
             Application.SetCompatibleTextRenderingDefault(false);
             //checks if YandereSimulator is in the same folder as the application
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            Utility.SelectString("Profile_1_Student");
             bool exists = Utility.FileExists("YandereSimulator.exe");
             bool checkFiles = false; //change this to true once we are done rigging UI
             if (!exists & checkFiles==true)
