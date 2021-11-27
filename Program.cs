@@ -20,6 +20,7 @@ namespace YanSimSaveEditor
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
             //checks if YandereSimulator is in the same folder as the application
+            Utility.SelectString("Profile_1_Debug");
             bool exists = Utility.FileExists("YandereSimulator.exe");
             bool checkFiles = false; //change this to true once we are done rigging UI
             if (!exists & checkFiles==true)

@@ -2,7 +2,9 @@
 using System;
 using System.Text;
 using Microsoft.Win32;
+using System.Linq;
 using System.Windows.Forms;
+using System.Text.RegularExpressions;
 namespace YanSimSaveEditor
 {
     public class Main
@@ -68,6 +70,29 @@ namespace YanSimSaveEditor
                 return true;
             }
         }
+        public static string SelectString(string pattern)
+        {
+            //loaf plz help
+            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+            //sets the registry
+            Array list = RegEdit.returnValuesList(gamereg);
+            WriteInfo(pattern, "test");
+            foreach (string s in list)
+            {
+                string matches = Regex.Matches(s, pattern).ToString();
+                if (matches == "System.Text.RegularExpressions.MatchCollection") //wtf is this shit
+                {
+                    continue;
+                }
+                else
+                {
+                    WriteInfo(matches, "Info");
+                }
+                
+            }
+            return null;
+        }
+
 
     }
 };
