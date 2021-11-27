@@ -19,37 +19,18 @@ namespace YanSimSaveEditor
             //do not put any windows forms code above this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //check if the games directory is set and exists, if not, call set game dir. (open)
-            Open SetGameDir = new Open();
-            //logic stuff
-            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            try
+            //checks if YandereSimulator is in the same folder as the application
+            bool exists = Utility.FileExists("YandereSimulator.exe");
+            bool checkFiles = false; //change this to true once we are done rigging UI
+            if (!exists & checkFiles==true)
             {
-                try
-                {
-                    string result = config.GetValue("gamePath").ToString();
-                }
-                catch(Exception e)
-                {
-                    string result = SetGameDir.ShowDialog().ToString();
-                    Utility.WriteInfo(result, "Result");
-                    config.SetValue("gamePath", result);
-                };
-
-                config.Close();
-                //if(result.Length < 0)
-                //{
-                  //  SetGameDir.ShowDialog();
-                //}
+                Utility.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
+                Application.Exit();
             }
-            catch (Exception e)
+            else //had to make it else otherwise the form would still show.
             {
-                //returns error as string
-                Utility.WriteError(e.ToString(), "Error While opening registry key");
+                Application.Run(new MainForm());
             }
-            
-
-            Application.Run(new MainForm());
             //Dont put anything Bellow this statment or it will never run.
         }
     }

@@ -6,3 +6,6 @@
 *.config
 ./bin
 ./obj
+*.pdb
+*.CopyComplete
+.vs/YanSimSaveEditor/v17/.suo
