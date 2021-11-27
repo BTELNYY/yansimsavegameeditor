@@ -16,6 +16,7 @@ namespace YanSimSaveEditor
         [STAThread]
         static void Main()
         {
+            JSONEdit.GetInfo(1);
             //do not put any windows forms code above this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);

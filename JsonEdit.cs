@@ -10,17 +10,16 @@ namespace YanSimSaveEditor
 {
     public static class JSONEdit
     {
-        public static student GetInfo(string JSONPath, int StudentId)
+        public static student GetInfo(int StudentId)
         {
             //TEST Tommorw 
-            string line = File.ReadLines("foo.txt").ElementAt(StudentId); // 0-based
-            if (line.EndsWith(@"'"))
+            string line = File.ReadLines(@"C:\Users\nir\Desktop\yandere sim\YandereSimulator\YandereSimulator_Data\StreamingAssets\JSON\Students.json").ElementAt(StudentId); // 0-based
+            if (line.EndsWith(@","))
             {
                 line = line.Remove(line.Length - 1);
             }
             student tempstudent = JsonConvert.DeserializeObject<student>(line);
             return tempstudent;
-
 
 
         }
