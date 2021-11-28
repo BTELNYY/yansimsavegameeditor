@@ -112,6 +112,7 @@
             // 
             this.KidnapCombobox.FormattingEnabled = true;
             this.KidnapCombobox.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
