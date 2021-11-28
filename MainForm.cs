@@ -65,11 +65,12 @@ namespace YanSimSaveEditor
             {
                 StudentConfig StudentConfig = new StudentConfig();
                 MainForm MainForm = new MainForm();
+                globalVars globalVars = new globalVars();
+                globalVars.setProfile(ProfileCombobox.Text);
                 //what even is this bullshit?
                 MainForm.Close();
                 StudentConfig.ShowDialog();
             }
-
         }
 
         private void GameconfigButton_Click(object sender, EventArgs e)
@@ -81,6 +82,9 @@ namespace YanSimSaveEditor
             else
             {
                 GameConfig GameConfig = new GameConfig();
+                globalVars globalVars = new globalVars();
+                Utility.WriteInfo(ProfileCombobox.Text, "info");
+                globalVars.setProfile(ProfileCombobox.Text);
                 GameConfig.ShowDialog();
             }
         }
@@ -95,6 +99,30 @@ namespace YanSimSaveEditor
             //open the change dir dialog
             Open SelectGameDir = new Open();
             SelectGameDir.ShowDialog();
+        }
+
+        private void ApplysaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+        public string getProfile()
+        {
+            string profile = ProfileCombobox.SelectedIndex.ToString();
+            while(profile == null)
+            {
+                string newprofile = ProfileCombobox.SelectedIndex.ToString();
+                if(newprofile != null)
+                {
+                    profile = newprofile;
+                    break;
+                }
+            }
+            return profile;
+        }
+
+        private void ProfileCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }

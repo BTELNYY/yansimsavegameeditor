@@ -137,6 +137,7 @@
             this.ProfileCombobox.Name = "ProfileCombobox";
             this.ProfileCombobox.Size = new System.Drawing.Size(121, 21);
             this.ProfileCombobox.TabIndex = 10;
+            this.ProfileCombobox.SelectedIndexChanged += new System.EventHandler(this.ProfileCombobox_SelectedIndexChanged);
             // 
             // label4
             // 

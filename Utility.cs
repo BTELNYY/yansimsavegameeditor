@@ -105,7 +105,20 @@ namespace YanSimSaveEditor
             }
             return null;
         }
-
-
+    }
+    public class globalVars
+    {
+        public string profile = "";
+        public static void setProfile(string profile)
+        {
+            globalVars globalVars = new globalVars();
+            globalVars.profile = profile;
+            Utility.WriteInfo(globalVars.profile, "test");
+        }
+        public static string getProfile()
+        {
+            globalVars globalVars = new globalVars();
+            return globalVars.profile;
+        }
     }
 };
