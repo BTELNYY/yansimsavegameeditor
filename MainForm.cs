@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace YanSimSaveEditor
 {
@@ -19,15 +20,36 @@ namespace YanSimSaveEditor
 
         private void cancel_Click(object sender, EventArgs e)
         {
-            Utility.CreateLog("Closing Application");
+
             Application.Exit();
         }
 
         private void MainForm_Load(object sender, EventArgs e)
         {
-            Utility.CreateLog("MainForm Loaded");
+            string[] saves = { "1", "2", "3", "11", "12", "13" };
+            foreach (string s in saves)
+            {
+                RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+                string result = Utility.SelectString("ProfileCreated_" + s + "_", false);
+                if (result != null)
+                {
+                    string value = RegEdit.returnValue(gamereg, result);
+                    if(value == "1")
+                    {
+                        ProfileCombobox.Items.Add(s);
+                    }
+                    else
+                    {
+                        continue;
+                    }
+                    
+                }
+                else
+                {
+                    continue;
+                }
+            }
         }
-
         private void githublink_MouseDoubleClick(object sender, MouseEventArgs e)
         {
             //link to github open in default browser
@@ -35,20 +57,39 @@ namespace YanSimSaveEditor
 
         private void Studentconfigbutton_Click(object sender, EventArgs e)
         {
-            StudentConfig StudentConfig = new StudentConfig();
-            MainForm MainForm = new MainForm();
-            //what even is this bullshit?
-            MainForm.Close();
-            StudentConfig.ShowDialog();
+            if(ProfileCombobox.SelectedIndex < 0)
+            {
+                Utility.WriteWarning("A save file must be selected!", "Warning");
+            }
+            else
+            {
+                StudentConfig StudentConfig = new StudentConfig();
+                MainForm MainForm = new MainForm();
+                globalVars globalVars = new globalVars();
+                globalVars.setProfile(ProfileCombobox.Text);
+                //what even is this bullshit?
+                MainForm.Close();
+                StudentConfig.ShowDialog();
+            }
         }
 
         private void GameconfigButton_Click(object sender, EventArgs e)
         {
-            GameConfig GameConfig = new GameConfig();
-            GameConfig.ShowDialog();
+            if (ProfileCombobox.SelectedIndex < 0)
+            {
+                Utility.WriteWarning("A save file must be selected!", "Warning");
+            }
+            else
+            {
+                GameConfig GameConfig = new GameConfig();
+                globalVars globalVars = new globalVars();
+                Utility.WriteInfo(ProfileCombobox.Text, "info");
+                globalVars.setProfile(ProfileCombobox.Text);
+                GameConfig.ShowDialog();
+            }
         }
 
-        private void AdvancedconfigButton_Click(object sender, EventArgs e)
+            private void AdvancedconfigButton_Click(object sender, EventArgs e)
         {
             //waiting for loaf
         }
@@ -58,6 +99,30 @@ namespace YanSimSaveEditor
             //open the change dir dialog
             Open SelectGameDir = new Open();
             SelectGameDir.ShowDialog();
+        }
+
+        private void ApplysaveButton_Click(object sender, EventArgs e)
+        {
+
+        }
+        public string getProfile()
+        {
+            string profile = ProfileCombobox.SelectedIndex.ToString();
+            while(profile == null)
+            {
+                string newprofile = ProfileCombobox.SelectedIndex.ToString();
+                if(newprofile != null)
+                {
+                    profile = newprofile;
+                    break;
+                }
+            }
+            return profile;
+        }
+
+        private void ProfileCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+            
         }
     }
 }
