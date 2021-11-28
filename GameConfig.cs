@@ -33,13 +33,8 @@ namespace YanSimSaveEditor
         {
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             MainForm mainForm = new MainForm();
-            globalVars globalVars = new globalVars();
-            string profile = globalVars.getProfile();
-            if (string.IsNullOrEmpty(profile))
-            {
-                Utility.WriteError("Profile Identifier Null or empty.", "Error");
-            }
             //debug checkmark
+            /*
             string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
             string debugvalue = RegEdit.returnValue(gamereg, debug);
             Utility.WriteInfo(debug + debugvalue, "test");
@@ -51,6 +46,8 @@ namespace YanSimSaveEditor
             {
                 DebugCheckbox.Checked = false;
             }
+            */
+            //ill fix later
         }
     }
 }

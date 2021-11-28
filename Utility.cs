@@ -105,20 +105,17 @@ namespace YanSimSaveEditor
             }
             return null;
         }
-    }
-    public class globalVars
-    {
-        public string profile = "";
         public static void setProfile(string profile)
         {
-            globalVars globalVars = new globalVars();
-            globalVars.profile = profile;
-            Utility.WriteInfo(globalVars.profile, "test");
+            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
+            int result = Int32.Parse(profile);
+            RegEdit.createValue(config, result, "profile");
         }
         public static string getProfile()
         {
-            globalVars globalVars = new globalVars();
-            return globalVars.profile;
+            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
+            string result = RegEdit.returnValue(config, "profile");
+            return result;
         }
     }
 };

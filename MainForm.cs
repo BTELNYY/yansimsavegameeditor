@@ -65,8 +65,6 @@ namespace YanSimSaveEditor
             {
                 StudentConfig StudentConfig = new StudentConfig();
                 MainForm MainForm = new MainForm();
-                globalVars globalVars = new globalVars();
-                globalVars.setProfile(ProfileCombobox.Text);
                 //what even is this bullshit?
                 MainForm.Close();
                 StudentConfig.ShowDialog();
@@ -82,9 +80,7 @@ namespace YanSimSaveEditor
             else
             {
                 GameConfig GameConfig = new GameConfig();
-                globalVars globalVars = new globalVars();
                 Utility.WriteInfo(ProfileCombobox.Text, "info");
-                globalVars.setProfile(ProfileCombobox.Text);
                 GameConfig.ShowDialog();
             }
         }
