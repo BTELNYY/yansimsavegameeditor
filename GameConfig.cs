@@ -33,11 +33,10 @@ namespace YanSimSaveEditor
         {
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             MainForm mainForm = new MainForm();
+            string profile = Utility.getProfile();
             //debug checkmark
-            /*
             string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
             string debugvalue = RegEdit.returnValue(gamereg, debug);
-            Utility.WriteInfo(debug + debugvalue, "test");
             if (debugvalue == "1")
             {
                 DebugCheckbox.Checked = true;
@@ -46,8 +45,14 @@ namespace YanSimSaveEditor
             {
                 DebugCheckbox.Checked = false;
             }
-            */
-            //ill fix later
+            //Female Uniform
+            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform_", false);
+            string femaleunivalue = RegEdit.returnValue(gamereg, femaleuni);
+            FemaleuniformCombo.Text = femaleunivalue;
+            //Male uniform
+            string maleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform_", false);
+            string maleunivalue = RegEdit.returnValue(gamereg, maleuni);
+            FemaleuniformCombo.Text = maleunivalue;
         }
     }
 }

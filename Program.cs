@@ -16,7 +16,6 @@ namespace YanSimSaveEditor
         [STAThread]
         static void Main()
         {
-            JSONEdit.GetInfo(1);
             //do not put any windows forms code above this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
@@ -24,6 +23,8 @@ namespace YanSimSaveEditor
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             bool exists = Utility.FileExists("YandereSimulator.exe");
             bool checkFiles = false; //change this to true once we are done rigging UI
+            //JSONEdit.GetInfo(1);
+            //enable later.
             if (!exists & checkFiles==true)
             {
                 Utility.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");

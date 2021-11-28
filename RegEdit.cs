@@ -12,7 +12,7 @@ namespace YanSimSaveEditor
         {
             //returns an arrey of all the values in a subkey
             string[] result = key.GetValueNames();
-            key.Close();
+            
             return result;
         }
         public static string returnValue(RegistryKey key, string name)
@@ -22,7 +22,7 @@ namespace YanSimSaveEditor
             {
 
                 string result = key.GetValue(name).ToString();
-                key.Close();
+                
                 return result;
             }
             catch (Exception e)
@@ -37,7 +37,7 @@ namespace YanSimSaveEditor
             try
             {
                 key.SetValue(name, value);
-                key.Close();
+                
                 return "succeeded";
             }
             catch (Exception e)
@@ -52,7 +52,7 @@ namespace YanSimSaveEditor
             try
             {
                 key.SetValue(name, value);
-                key.Close();
+ 
                 return "succeeded";
             }
             catch (Exception e)
@@ -67,7 +67,7 @@ namespace YanSimSaveEditor
             try
             {
                 key.DeleteValue(name);
-                key.Close();
+
                 return "succeeded";
             }
             catch (Exception e)

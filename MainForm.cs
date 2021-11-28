@@ -65,6 +65,7 @@ namespace YanSimSaveEditor
             {
                 StudentConfig StudentConfig = new StudentConfig();
                 MainForm MainForm = new MainForm();
+                Utility.setProfile(ProfileCombobox.Text);
                 //what even is this bullshit?
                 MainForm.Close();
                 StudentConfig.ShowDialog();
@@ -79,8 +80,8 @@ namespace YanSimSaveEditor
             }
             else
             {
+                Utility.setProfile(ProfileCombobox.Text);
                 GameConfig GameConfig = new GameConfig();
-                Utility.WriteInfo(ProfileCombobox.Text, "info");
                 GameConfig.ShowDialog();
             }
         }
@@ -100,20 +101,6 @@ namespace YanSimSaveEditor
         private void ApplysaveButton_Click(object sender, EventArgs e)
         {
 
-        }
-        public string getProfile()
-        {
-            string profile = ProfileCombobox.SelectedIndex.ToString();
-            while(profile == null)
-            {
-                string newprofile = ProfileCombobox.SelectedIndex.ToString();
-                if(newprofile != null)
-                {
-                    profile = newprofile;
-                    break;
-                }
-            }
-            return profile;
         }
 
         private void ProfileCombobox_SelectedIndexChanged(object sender, EventArgs e)

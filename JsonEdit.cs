@@ -13,7 +13,7 @@ namespace YanSimSaveEditor
         public static student GetInfo(int StudentId)
         {
             //TEST Tommorw 
-            string line = File.ReadLines(@"C:\Users\nir\Desktop\yandere sim\YandereSimulator\YandereSimulator_Data\StreamingAssets\JSON\Students.json").ElementAt(StudentId); // 0-based
+            string line = File.ReadLines(@".\YandereSimulator_Data\StreamingAssets\JSON\Students.json").ElementAt(StudentId); // 0-based //loaf, put the fucking program in the game folder.
             if (line.EndsWith(@","))
             {
                 line = line.Remove(line.Length - 1);
