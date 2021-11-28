@@ -82,5 +82,18 @@ namespace YanSimSaveEditor
             ItemCombobox.Text = bringitemvalue;
 
         }
+
+        private void mangaButton_Click(object sender, EventArgs e)
+        {
+            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+            string[] manga = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
+            string profile = Utility.getProfile();
+            foreach (string s in manga)
+            {
+                string manga1 = Utility.SelectString("Profile_" + profile + "_MangaCollected_" + s + "_", true);
+                RegEdit.editValue(gamereg, 1, manga1);
+            }
+            mangaButton.Enabled = false;
+        }
     }
 }
