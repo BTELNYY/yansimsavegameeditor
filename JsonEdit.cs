@@ -10,13 +10,14 @@ namespace YanSimSaveEditor
 {
     public static class JSONEdit
     {
+        static string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Students.json";
         public static student GetInfo(int StudentId)
         {
             
 
             try
             {
-                string line = File.ReadLines(@".\YandereSimulator_Data\StreamingAssets\JSON\Students.json").ElementAt(StudentId); //bt, i will but i was too high on energy drinks
+                string line = File.ReadLines(path).ElementAt(StudentId); //bt, i will but i was too high on energy drinks
                 if (line.EndsWith(@","))
                 {
                     line = line.Remove(line.Length - 1);
@@ -32,10 +33,38 @@ namespace YanSimSaveEditor
                 return tempstudent;
             }
         }
+        public static string WriteInfo(student tempstudent)
+        {
+
+
+            try
+            {
+
+                string Json = JsonConvert.SerializeObject(tempstudent);
+                if (tempstudent.ID != 100)
+                {
+                    Json = Json + ",";
+                }
+                string[] arrLine = File.ReadAllLines(path);
+                arrLine[tempstudent.ID] = Json;
+                File.WriteAllLines(path, arrLine);
+                return "success";
+
+            }
+            catch (Exception e)
+            {
+                //returns error as string
+                Utility.WriteError("ERROR", e.ToString());
+                return "failed: got to horny jail *bonk*";
+            }
+        }
     }
 
     public class student
     {
+        public int ScheduleTime { get; set; }
+        public string ScheduleDestination { get; set; }
+        public string ScheduleAction { get; set; }
         public int ID { get; set; }
         public string Name { get; set; }
         public string RealName { get; set; }
