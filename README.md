@@ -1,5 +1,6 @@
-#WARNING:
-If for some reason you see something like this:https://i.imgur.com/tMyf0bE.png
+# WARNING
+
+If  some reason you see something like this:https://i.imgur.com/tMyf0bE.png
 You will need to just create the registry yourself. Open the registry editor and open
 Hikey current user, open software, right click on software and click create key, name it `btelnyy` 
 Right click on this new key and create another key called `YanSaveEdit` now run the app again.
