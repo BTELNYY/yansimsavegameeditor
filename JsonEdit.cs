@@ -12,16 +12,25 @@ namespace YanSimSaveEditor
     {
         public static student GetInfo(int StudentId)
         {
-            //TEST Tommorw 
-            string line = File.ReadLines(@".\YandereSimulator_Data\StreamingAssets\JSON\Students.json").ElementAt(StudentId); // 0-based //loaf, put the fucking program in the game folder.
-            if (line.EndsWith(@","))
+            
+
+            try
             {
-                line = line.Remove(line.Length - 1);
+                string line = File.ReadLines(@".\YandereSimulator_Data\StreamingAssets\JSON\Students.json").ElementAt(StudentId); //bt, i will but i was too high on energy drinks
+                if (line.EndsWith(@","))
+                {
+                    line = line.Remove(line.Length - 1);
+                }
+                student tempstudent = JsonConvert.DeserializeObject<student>(line);
+                return tempstudent;
             }
-            student tempstudent = JsonConvert.DeserializeObject<student>(line);
-            return tempstudent;
-
-
+            catch (Exception e)
+            {
+                student tempstudent = new student();
+                //returns error as string
+                Utility.WriteError("ERROR", e.ToString());
+                return tempstudent;
+            }
         }
     }
 
