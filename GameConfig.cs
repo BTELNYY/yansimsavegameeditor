@@ -44,9 +44,13 @@ namespace YanSimSaveEditor
                 RegEdit.editValue(gamereg, 0, debug);
             }
             RegEdit.editValue(gamereg, FemaleuniformCombo.SelectedIndex, femaleuni);
+            
             RegEdit.editValue(gamereg, MaleuniformCombobox.SelectedIndex, maleuni);
+            
             RegEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
+           
             RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
+            
         }
 
         private void GameConfig_Load(object sender, EventArgs e)
@@ -54,7 +58,7 @@ namespace YanSimSaveEditor
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             string profile = Utility.getProfile();
             //debug checkmark
-            string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
+            string debug = Utility.SelectString("Profile_" + profile + "_Debug_", false);
             string debugvalue = RegEdit.returnValue(gamereg, debug);
             if (debugvalue == "1")
             {
@@ -67,18 +71,22 @@ namespace YanSimSaveEditor
             //Female Uniform
             string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform_", false);
             string femaleunivalue = RegEdit.returnValue(gamereg, femaleuni);
+
             FemaleuniformCombo.Text = femaleunivalue;
             //Male uniform
             string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform_", false);
             string maleunivalue = RegEdit.returnValue(gamereg, maleuni);
+     
             MaleuniformCombobox.Text = maleunivalue;
             //Kidnap Victim
             string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true); //will create the value if none is found.
             string kidnapvictimvalue = RegEdit.returnValue(gamereg, kidnapvictim);
+            
             KidnapCombobox.Text = kidnapvictimvalue;
             //bringing item
             string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem_", false);
             string bringitemvalue = RegEdit.returnValue(gamereg, bringitem);
+            
             ItemCombobox.Text = bringitemvalue;
 
         }

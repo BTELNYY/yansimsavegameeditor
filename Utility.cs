@@ -94,14 +94,10 @@ namespace YanSimSaveEditor
                 }
                 //returns null if the loop breaks. cuz yes.
             }
-            if (allowCreation == true)
+            if (allowCreation)
             {
                 gamereg.SetValue(pattern, 0);
                 return pattern;
-            }
-            else if (allowCreation == false)
-            {
-                return null;
             }
             return null;
         }

@@ -66,6 +66,7 @@
             // 
             this.FemaleuniformCombo.FormattingEnabled = true;
             this.FemaleuniformCombo.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
@@ -90,6 +91,7 @@
             // 
             this.MaleuniformCombobox.FormattingEnabled = true;
             this.MaleuniformCombobox.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",

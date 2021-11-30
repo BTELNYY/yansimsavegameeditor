@@ -51,10 +51,23 @@ namespace YanSimSaveEditor
             {
                 RivalCheckBox.Checked = false;
             };
-            string path = @".\YandereSimulator_Data\StreamingAssets\Portraits\";
-            Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
-            string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
-            Portrait.Image = Image.FromFile(file);
+            string profile = Utility.getProfile();
+            string[] twentytwentyx = { "1", "2", "3" };
+            int array20 = Array.IndexOf(twentytwentyx, profile);
+            if(array20 > -1)
+            {
+                string path = @".\YandereSimulator_Data\StreamingAssets\Portraits\";
+                Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
+                string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
+                Portrait.Image = Image.FromFile(file);
+            }
+            else
+            {
+                string path = @".\YandereSimulator_Data\StreamingAssets\Portraits1989\";
+                Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
+                string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
+                Portrait.Image = Image.FromFile(file);
+            }
         }
 
         private void StudentConfig_Load(object sender, EventArgs e)
