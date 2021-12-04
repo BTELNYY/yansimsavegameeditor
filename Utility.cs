@@ -101,6 +101,42 @@ namespace YanSimSaveEditor
             }
             return null;
         }
+        public static void deleteProfile(string profile)
+        {
+            try
+            {
+                //registry of the game
+                RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+                //gets list of values
+                string[] list = RegEdit.returnValuesList(gamereg);
+                string pattern = "Profile_" + profile + "_"
+                string profilemarker = Utility.SelectString("ProfileCreated_" + profile + "_", false);
+                foreach (string s in list)
+                {
+                    //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
+                    bool result = Regex.IsMatch(s, pattern + @"*"); //regex is my nightmare
+                    if (result)
+                    {
+                        gamereg.DeleteValue(s);
+                        gamereg.DeleteValue(profilemarker);
+                    }
+                    else if (!result)
+                    {
+                        continue;
+                    }
+                    else
+                    {
+                        return;
+                    }
+                    return;
+                    //returns null if the loop breaks. cuz yes.
+                }
+            }
+            catch(Exception e)
+            {
+                WriteError(e.ToString(), "Error");
+            }
+            }
         public static void setProfile(string profile)
         {
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");

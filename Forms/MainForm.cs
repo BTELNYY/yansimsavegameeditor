@@ -107,5 +107,25 @@ namespace YanSimSaveEditor
         {
             
         }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator"); //i know I could just make it a global, but fuck you.
+            if (ProfileCombobox.SelectedIndex < 0)
+            {
+                Utility.WriteError("No profile was selected. Select a profile and try again.", "Error");
+            }
+            else //haha best code ever. KILL ME
+            {
+                Utility.setProfile(ProfileCombobox.Text);
+                string profile = Utility.getProfile();
+                Utility.deleteProfile(profile);
+            }
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+        }
     }
 }

@@ -40,6 +40,8 @@
             this.label3 = new System.Windows.Forms.Label();
             this.ProfileCombobox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
+            this.button1 = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // cancel
@@ -148,11 +150,33 @@
             this.label4.TabIndex = 11;
             this.label4.Text = "Select Save Profile";
             // 
+            // button1
+            // 
+            this.button1.Location = new System.Drawing.Point(12, 244);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(154, 23);
+            this.button1.TabIndex = 12;
+            this.button1.Text = "Delete Selected Profile";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(12, 273);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(154, 23);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Delete All Profiles";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 367);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.ProfileCombobox);
             this.Controls.Add(this.label3);
@@ -186,6 +210,8 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ComboBox ProfileCombobox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Button button2;
     }
 }
 
