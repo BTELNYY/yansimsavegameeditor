@@ -1,12 +1,10 @@
 
 *.cache
-.vs/YanSimSaveEditor/v17/.suo
+*.suo
 *.txt
 *.exe
-*.config
-./bin
-./obj
+bin/
+obj/
+.vs/
 *.pdb
 *.CopyComplete
-.vs/YanSimSaveEditor/v17/.suo
-.vs/YanSimSaveEditor/v17/.suo
