@@ -109,7 +109,7 @@ namespace YanSimSaveEditor
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 //gets list of values
                 string[] list = RegEdit.returnValuesList(gamereg);
-                string pattern = "Profile_" + profile + "_"
+                string pattern = "Profile_" + profile + "_";
                 string profilemarker = Utility.SelectString("ProfileCreated_" + profile + "_", false);
                 foreach (string s in list)
                 {
@@ -134,7 +134,7 @@ namespace YanSimSaveEditor
             }
             catch(Exception e)
             {
-                WriteError(e.ToString(), "Error");
+                //make log later.
             }
             }
         public static void setProfile(string profile)

@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using Microsoft.Win32;
 
 namespace YanSimSaveEditor
 {
@@ -41,32 +42,59 @@ namespace YanSimSaveEditor
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
-            string[] rivals = { "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
-            int index = Array.IndexOf(rivals, StudentSelect.SelectedItem);
-            if (index > -1)
+            try
             {
-                RivalCheckBox.Checked = true;
+                if (StudentSelect.SelectedIndex < 0)
+                {
+                    Utility.WriteError("You must select a NPC ID!", "Error");
+                }
+                else
+                {
+                    string[] rivals = { "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
+                    int index = Array.IndexOf(rivals, StudentSelect.SelectedItem);
+                    if (index > -1)
+                    {
+                        RivalCheckBox.Checked = true;
+                    }
+                    else
+                    {
+                        RivalCheckBox.Checked = false;
+                    };
+                    string profile = Utility.getProfile();
+                    RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+                    string student = StudentSelect.Text;
+                    bool allowpfp = false; //enables or disables the ability to show pfps of the student. DEBUG ONLY
+                    string[] twentytwentyx = { "1", "2", "3" };
+                    int array20 = Array.IndexOf(twentytwentyx, profile);
+                    if (array20 > -1 & allowpfp == true)
+                    {
+                        string path = @".\YandereSimulator_Data\StreamingAssets\Portraits\";
+                        Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
+                        string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
+                        Portrait.Image = Image.FromFile(file);
+                    }
+                    else if (array20 < -1 & allowpfp == true)
+                    {
+                        string path = @".\YandereSimulator_Data\StreamingAssets\Portraits1989\";
+                        Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
+                        string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
+                        Portrait.Image = Image.FromFile(file);
+                    }
+                    string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true); //the _ is needed so my method doesnt shit itself.
+                    string studentdeadvalue = RegEdit.returnValue(gamereg, studentdead);
+                    if (studentdeadvalue == "1")
+                    {
+                        DeathCheckbox.Checked = true;
+                    }
+                    else
+                    {
+                        DeathCheckbox.Checked = false;
+                    }
+                }
             }
-            else
+            catch (Exception loaderror)
             {
-                RivalCheckBox.Checked = false;
-            };
-            string profile = Utility.getProfile();
-            string[] twentytwentyx = { "1", "2", "3" };
-            int array20 = Array.IndexOf(twentytwentyx, profile);
-            if(array20 > -1)
-            {
-                string path = @".\YandereSimulator_Data\StreamingAssets\Portraits\";
-                Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
-                string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
-                Portrait.Image = Image.FromFile(file);
-            }
-            else
-            {
-                string path = @".\YandereSimulator_Data\StreamingAssets\Portraits1989\";
-                Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
-                string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
-                Portrait.Image = Image.FromFile(file);
+                Utility.WriteError(loaderror.ToString(), "Error");
             }
         }
 
