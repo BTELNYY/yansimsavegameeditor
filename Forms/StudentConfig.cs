@@ -90,6 +90,9 @@ namespace YanSimSaveEditor
                     {
                         DeathCheckbox.Checked = false;
                     }
+                    string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + StudentSelect.SelectedItem + "_", true);
+                    string studentrepvalue = RegEdit.returnValue(gamereg, studentrep);
+                    ReputationTextbox.Text = studentrepvalue;
                 }
             }
             catch (Exception loaderror)
