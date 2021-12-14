@@ -17,11 +17,14 @@ namespace YanSimSaveEditor
 
             try
             {
-                string line = File.ReadLines(path).ElementAt(StudentId); //bt, i will but i was too high on energy drinks
+                //gets the line with the correct student.
+                string line = File.ReadLines(path).ElementAt(StudentId);
                 if (line.EndsWith(@","))
                 {
+                    //removes the comma at the end if it exists
                     line = line.Remove(line.Length - 1);
                 }
+               //deserializes the line int a student object
                 student tempstudent = JsonConvert.DeserializeObject<student>(line);
                 return tempstudent;
             }
@@ -35,16 +38,17 @@ namespace YanSimSaveEditor
         }
         public static string WriteInfo(student tempstudent)
         {
-
-
+            //accepts student object and writes it to json file
             try
             {
 
                 string Json = JsonConvert.SerializeObject(tempstudent);
                 if (tempstudent.ID != 100)
                 {
+                    //if not last student, serialized object requires a comma.
                     Json = Json + ",";
                 }
+                //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
                 string[] arrLine = File.ReadAllLines(path);
                 arrLine[tempstudent.ID] = Json;
                 File.WriteAllLines(path, arrLine);
@@ -62,7 +66,8 @@ namespace YanSimSaveEditor
 
     public class student
     {
-        public int ScheduleTime { get; set; }
+        //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
+        public string ScheduleTime { get; set; }
         public string ScheduleDestination { get; set; }
         public string ScheduleAction { get; set; }
         public int ID { get; set; }
@@ -83,9 +88,10 @@ namespace YanSimSaveEditor
         public string Stockings { get; set; }
         public int Accessory { get; set; }
         public string Info { get; set; }
-
+        
 
         /*
+        leftover code - just to make debugging simpler (not even code just a mess - ignore if not Loaflove\r 
         [ScheduleTime] => 7_7_8_13.0000_13.375_15.5_16_99
         [ScheduleDestination] => Spawn_Locker_Patrol_Seat_LunchSpot_Seat_Clean_Patrol
         [ScheduleAction] => Stand_Stand_Patrol_Sit_Eat_Sit_Clean_Patrol
