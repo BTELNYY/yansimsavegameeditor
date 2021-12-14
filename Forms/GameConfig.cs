@@ -34,6 +34,7 @@ namespace YanSimSaveEditor
             string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform_", false);
             string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true);
             string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem_", false);
+            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots_", true);
             //debug checkbox if
             if (DebugCheckbox.Checked == true)
             {
@@ -44,13 +45,25 @@ namespace YanSimSaveEditor
                 RegEdit.editValue(gamereg, 0, debug);
             }
             RegEdit.editValue(gamereg, FemaleuniformCombo.SelectedIndex, femaleuni);
-            
+
             RegEdit.editValue(gamereg, MaleuniformCombobox.SelectedIndex, maleuni);
-            
+
             RegEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
-           
+
             RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
-            
+            int infopointsint;
+            if (Int32.TryParse(InfoTextbox.Text, out infopointsint))
+            {
+                RegEdit.editValue(gamereg, infopointsint, infopoints);
+            }
+            else
+            {
+                int result = 0;
+                RegEdit.editValue(gamereg, result, infopoints);
+                Utility.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
+            }
+            //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
+
         }
 
         private void GameConfig_Load(object sender, EventArgs e)
@@ -86,8 +99,13 @@ namespace YanSimSaveEditor
             //bringing item
             string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem_", false);
             string bringitemvalue = RegEdit.returnValue(gamereg, bringitem);
-            
+
             ItemCombobox.Text = bringitemvalue;
+
+            //info points
+            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots_", true);
+            string infopointsvalue = RegEdit.returnValue(gamereg, infopoints);
+            InfoTextbox.Text = infopointsvalue;
 
         }
 
@@ -100,6 +118,20 @@ namespace YanSimSaveEditor
             {
                 string manga1 = Utility.SelectString("Profile_" + profile + "_MangaCollected_" + s + "_", true);
                 RegEdit.editValue(gamereg, 1, manga1);
+            }
+            mangaButton.Enabled = false;
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+            //haha! reused code!
+            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+            string[] array = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
+            string profile = Utility.getProfile();
+            foreach (string s in array)
+            {
+                string value = Utility.SelectString("Profile_" + profile + "_PantyPurchased_" + s + "_", true);
+                RegEdit.editValue(gamereg, 1, value);
             }
             mangaButton.Enabled = false;
         }

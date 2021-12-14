@@ -51,6 +51,9 @@
             this.label9 = new System.Windows.Forms.Label();
             this.mangaButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.label10 = new System.Windows.Forms.Label();
+            this.InfoTextbox = new System.Windows.Forms.TextBox();
+            this.button2 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -265,7 +268,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(245, 263);
+            this.SaveButton.Location = new System.Drawing.Point(245, 306);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 9;
@@ -277,12 +280,13 @@
             // 
             this.PhsycStat.FormattingEnabled = true;
             this.PhsycStat.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(99, 126);
+            this.PhsycStat.Location = new System.Drawing.Point(99, 172);
             this.PhsycStat.Name = "PhsycStat";
             this.PhsycStat.Size = new System.Drawing.Size(121, 21);
             this.PhsycStat.TabIndex = 10;
@@ -291,12 +295,13 @@
             // 
             this.PhysedStat.FormattingEnabled = true;
             this.PhysedStat.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(99, 153);
+            this.PhysedStat.Location = new System.Drawing.Point(99, 199);
             this.PhysedStat.Name = "PhysedStat";
             this.PhysedStat.Size = new System.Drawing.Size(121, 21);
             this.PhysedStat.TabIndex = 11;
@@ -305,12 +310,13 @@
             // 
             this.LangStat.FormattingEnabled = true;
             this.LangStat.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(99, 180);
+            this.LangStat.Location = new System.Drawing.Point(99, 226);
             this.LangStat.Name = "LangStat";
             this.LangStat.Size = new System.Drawing.Size(121, 21);
             this.LangStat.TabIndex = 12;
@@ -319,12 +325,13 @@
             // 
             this.ChemStat.FormattingEnabled = true;
             this.ChemStat.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(99, 207);
+            this.ChemStat.Location = new System.Drawing.Point(99, 253);
             this.ChemStat.Name = "ChemStat";
             this.ChemStat.Size = new System.Drawing.Size(121, 21);
             this.ChemStat.TabIndex = 13;
@@ -333,12 +340,13 @@
             // 
             this.BioStat.FormattingEnabled = true;
             this.BioStat.Items.AddRange(new object[] {
+            "0",
             "1",
             "2",
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(99, 234);
+            this.BioStat.Location = new System.Drawing.Point(99, 280);
             this.BioStat.Name = "BioStat";
             this.BioStat.Size = new System.Drawing.Size(121, 21);
             this.BioStat.TabIndex = 14;
@@ -346,7 +354,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 129);
+            this.label5.Location = new System.Drawing.Point(13, 175);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 15;
@@ -355,7 +363,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 156);
+            this.label6.Location = new System.Drawing.Point(13, 202);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 16;
@@ -364,7 +372,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 183);
+            this.label7.Location = new System.Drawing.Point(13, 229);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 17;
@@ -373,7 +381,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 210);
+            this.label8.Location = new System.Drawing.Point(13, 256);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 18;
@@ -382,7 +390,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 237);
+            this.label9.Location = new System.Drawing.Point(13, 283);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 19;
@@ -400,7 +408,7 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1, 263);
+            this.button1.Location = new System.Drawing.Point(1, 306);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 21;
@@ -408,11 +416,40 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.ExitButton_Click);
             // 
+            // label10
+            // 
+            this.label10.AutoSize = true;
+            this.label10.Location = new System.Drawing.Point(13, 118);
+            this.label10.Name = "label10";
+            this.label10.Size = new System.Drawing.Size(57, 13);
+            this.label10.TabIndex = 22;
+            this.label10.Text = "Info Points";
+            // 
+            // InfoTextbox
+            // 
+            this.InfoTextbox.Location = new System.Drawing.Point(99, 115);
+            this.InfoTextbox.Name = "InfoTextbox";
+            this.InfoTextbox.Size = new System.Drawing.Size(121, 20);
+            this.InfoTextbox.TabIndex = 23;
+            // 
+            // button2
+            // 
+            this.button2.Location = new System.Drawing.Point(227, 63);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 23);
+            this.button2.TabIndex = 24;
+            this.button2.Text = "All underwear";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 285);
+            this.ClientSize = new System.Drawing.Size(319, 327);
+            this.Controls.Add(this.button2);
+            this.Controls.Add(this.InfoTextbox);
+            this.Controls.Add(this.label10);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.mangaButton);
             this.Controls.Add(this.label9);
@@ -468,5 +505,8 @@
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.Button mangaButton;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.Label label10;
+        private System.Windows.Forms.TextBox InfoTextbox;
+        private System.Windows.Forms.Button button2;
     }
 }

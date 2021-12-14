@@ -50,6 +50,9 @@ namespace YanSimSaveEditor
                 }
                 else
                 {
+                    //while this could be done in a 2d array foreach loop, I am too lazy. it would also do
+                    //almost nothing different except how many lines of code this C# file has. Which is kinda a shitty trade.
+                    string student = StudentSelect.Text;
                     string[] rivals = { "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
                     int index = Array.IndexOf(rivals, StudentSelect.SelectedItem);
                     if (index > -1)
@@ -62,7 +65,8 @@ namespace YanSimSaveEditor
                     };
                     string profile = Utility.getProfile();
                     RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                    string student = StudentSelect.Text;
+                    //changes a label
+                    idLabel.Text = "ID:" + student;
                     bool allowpfp = false; //enables or disables the ability to show pfps of the student. DEBUG ONLY
                     string[] twentytwentyx = { "1", "2", "3" };
                     int array20 = Array.IndexOf(twentytwentyx, profile);
@@ -93,6 +97,48 @@ namespace YanSimSaveEditor
                     string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + StudentSelect.SelectedItem + "_", true);
                     string studentrepvalue = RegEdit.returnValue(gamereg, studentrep);
                     ReputationTextbox.Text = studentrepvalue;
+                    //kidnapped?
+                    string kidnapped = Utility.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
+                    string kidanppedvalue = RegEdit.returnValue(gamereg, kidnapped);
+                    if (kidanppedvalue == "1")
+                    {
+                        KidnapChekbox.Checked = true;
+                    }
+                    else
+                    {
+                        KidnapChekbox.Checked = false;
+                    }
+                    string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
+                    string photovalue = RegEdit.returnValue(gamereg, photo);
+                    if (photovalue == "1")
+                    {
+                        PhotographedCheckbox.Checked = true;
+                    }
+                    else
+                    {
+                        PhotographedCheckbox.Checked = false;
+                    }
+                    string dying = Utility.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
+                    string dyingvalue = RegEdit.returnValue(gamereg, dying);
+                    if (dyingvalue == "0")
+                    {
+                        DyingCheckbox.Checked = false;
+                    }
+                    else
+                    {
+                        DyingCheckbox.Checked = true;
+                    }
+                    string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+                    string friendvalue = RegEdit.returnValue(gamereg, friend);
+                    if (friendvalue == "1")
+                    {
+                        FriendCheckbox.Checked = true;
+                    }
+                    else
+                    {
+                        FriendCheckbox.Checked = false;
+                    }
+
                 }
             }
             catch (Exception loaderror)

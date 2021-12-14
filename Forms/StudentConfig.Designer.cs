@@ -35,7 +35,7 @@
             this.Portrait = new System.Windows.Forms.PictureBox();
             this.label2 = new System.Windows.Forms.Label();
             this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
+            this.idLabel = new System.Windows.Forms.Label();
             this.DeathCheckbox = new System.Windows.Forms.CheckBox();
             this.PhotographedCheckbox = new System.Windows.Forms.CheckBox();
             this.PantyshotCheckbox = new System.Windows.Forms.CheckBox();
@@ -56,7 +56,6 @@
             this.RealnameTextbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
             this.textBox3 = new System.Windows.Forms.TextBox();
-            this.MemorialCheckbox = new System.Windows.Forms.CheckBox();
             this.DyingCheckbox = new System.Windows.Forms.CheckBox();
             this.RivalCheckBox = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
@@ -69,7 +68,6 @@
             this.textBox5 = new System.Windows.Forms.TextBox();
             this.PersonaCombobox = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.StalkCheckbox = new System.Windows.Forms.CheckBox();
             this.KidnapChekbox = new System.Windows.Forms.CheckBox();
             this.label17 = new System.Windows.Forms.Label();
             this.label18 = new System.Windows.Forms.Label();
@@ -229,14 +227,14 @@
             this.label3.TabIndex = 4;
             this.label3.Text = "Seat:";
             // 
-            // label4
+            // idLabel
             // 
-            this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 239);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(36, 13);
-            this.label4.TabIndex = 5;
-            this.label4.Text = "ID: 11";
+            this.idLabel.AutoSize = true;
+            this.idLabel.Location = new System.Drawing.Point(12, 239);
+            this.idLabel.Name = "idLabel";
+            this.idLabel.Size = new System.Drawing.Size(36, 13);
+            this.idLabel.TabIndex = 5;
+            this.idLabel.Text = "ID: 11";
             // 
             // DeathCheckbox
             // 
@@ -271,7 +269,7 @@
             // FriendCheckbox
             // 
             this.FriendCheckbox.AutoSize = true;
-            this.FriendCheckbox.Location = new System.Drawing.Point(218, 97);
+            this.FriendCheckbox.Location = new System.Drawing.Point(320, 74);
             this.FriendCheckbox.Name = "FriendCheckbox";
             this.FriendCheckbox.Size = new System.Drawing.Size(61, 17);
             this.FriendCheckbox.TabIndex = 9;
@@ -444,20 +442,10 @@
             this.textBox3.Size = new System.Drawing.Size(185, 85);
             this.textBox3.TabIndex = 25;
             // 
-            // MemorialCheckbox
-            // 
-            this.MemorialCheckbox.AutoSize = true;
-            this.MemorialCheckbox.Location = new System.Drawing.Point(323, 28);
-            this.MemorialCheckbox.Name = "MemorialCheckbox";
-            this.MemorialCheckbox.Size = new System.Drawing.Size(74, 17);
-            this.MemorialCheckbox.TabIndex = 26;
-            this.MemorialCheckbox.Text = "Memorial?";
-            this.MemorialCheckbox.UseVisualStyleBackColor = true;
-            // 
             // DyingCheckbox
             // 
             this.DyingCheckbox.AutoSize = true;
-            this.DyingCheckbox.Location = new System.Drawing.Point(323, 51);
+            this.DyingCheckbox.Location = new System.Drawing.Point(320, 28);
             this.DyingCheckbox.Name = "DyingCheckbox";
             this.DyingCheckbox.Size = new System.Drawing.Size(59, 17);
             this.DyingCheckbox.TabIndex = 27;
@@ -468,7 +456,7 @@
             // 
             this.RivalCheckBox.AutoSize = true;
             this.RivalCheckBox.Enabled = false;
-            this.RivalCheckBox.Location = new System.Drawing.Point(323, 75);
+            this.RivalCheckBox.Location = new System.Drawing.Point(320, 51);
             this.RivalCheckBox.Name = "RivalCheckBox";
             this.RivalCheckBox.Size = new System.Drawing.Size(56, 17);
             this.RivalCheckBox.TabIndex = 28;
@@ -777,20 +765,10 @@
             this.label16.TabIndex = 38;
             this.label16.Text = "Personality";
             // 
-            // StalkCheckbox
-            // 
-            this.StalkCheckbox.AutoSize = true;
-            this.StalkCheckbox.Location = new System.Drawing.Point(323, 97);
-            this.StalkCheckbox.Name = "StalkCheckbox";
-            this.StalkCheckbox.Size = new System.Drawing.Size(65, 17);
-            this.StalkCheckbox.TabIndex = 39;
-            this.StalkCheckbox.Text = "Stalker?";
-            this.StalkCheckbox.UseVisualStyleBackColor = true;
-            // 
             // KidnapChekbox
             // 
             this.KidnapChekbox.AutoSize = true;
-            this.KidnapChekbox.Location = new System.Drawing.Point(218, 120);
+            this.KidnapChekbox.Location = new System.Drawing.Point(218, 98);
             this.KidnapChekbox.Name = "KidnapChekbox";
             this.KidnapChekbox.Size = new System.Drawing.Size(83, 17);
             this.KidnapChekbox.TabIndex = 40;
@@ -800,7 +778,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(218, 144);
+            this.label17.Location = new System.Drawing.Point(220, 118);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(194, 13);
             this.label17.TabIndex = 41;
@@ -809,7 +787,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(218, 161);
+            this.label18.Location = new System.Drawing.Point(220, 131);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(185, 13);
             this.label18.TabIndex = 42;
@@ -853,6 +831,7 @@
             // 
             // ChangeimageButton
             // 
+            this.ChangeimageButton.Enabled = false;
             this.ChangeimageButton.Location = new System.Drawing.Point(-3, 156);
             this.ChangeimageButton.Name = "ChangeimageButton";
             this.ChangeimageButton.Size = new System.Drawing.Size(91, 23);
@@ -883,7 +862,6 @@
             this.Controls.Add(this.label18);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.KidnapChekbox);
-            this.Controls.Add(this.StalkCheckbox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.PersonaCombobox);
             this.Controls.Add(this.textBox5);
@@ -896,7 +874,6 @@
             this.Controls.Add(this.label14);
             this.Controls.Add(this.RivalCheckBox);
             this.Controls.Add(this.DyingCheckbox);
-            this.Controls.Add(this.MemorialCheckbox);
             this.Controls.Add(this.textBox3);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.RealnameTextbox);
@@ -917,7 +894,7 @@
             this.Controls.Add(this.PantyshotCheckbox);
             this.Controls.Add(this.PhotographedCheckbox);
             this.Controls.Add(this.DeathCheckbox);
-            this.Controls.Add(this.label4);
+            this.Controls.Add(this.idLabel);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.Portrait);
@@ -942,7 +919,7 @@
         private System.Windows.Forms.PictureBox Portrait;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label idLabel;
         private System.Windows.Forms.CheckBox DeathCheckbox;
         private System.Windows.Forms.CheckBox PhotographedCheckbox;
         private System.Windows.Forms.CheckBox PantyshotCheckbox;
@@ -963,7 +940,6 @@
         private System.Windows.Forms.TextBox RealnameTextbox;
         private System.Windows.Forms.Label label12;
         private System.Windows.Forms.TextBox textBox3;
-        private System.Windows.Forms.CheckBox MemorialCheckbox;
         private System.Windows.Forms.CheckBox DyingCheckbox;
         private System.Windows.Forms.CheckBox RivalCheckBox;
         private System.Windows.Forms.Label label14;
@@ -976,7 +952,6 @@
         private System.Windows.Forms.TextBox textBox5;
         private System.Windows.Forms.ComboBox PersonaCombobox;
         private System.Windows.Forms.Label label16;
-        private System.Windows.Forms.CheckBox StalkCheckbox;
         private System.Windows.Forms.CheckBox KidnapChekbox;
         private System.Windows.Forms.Label label17;
         private System.Windows.Forms.Label label18;

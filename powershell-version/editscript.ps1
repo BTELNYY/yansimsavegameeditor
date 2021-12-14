@@ -525,8 +525,13 @@ function cmdnpc{
                         if($releasevalue -notin $1or0){
                             write-host "ERROR: Must be 0 or 1." -ForegroundColor "red"
                         }else{
-                            Set-ItemProperty -path $regpath -Name $kidnapvar2 -Value $releasevalue
-                            Get-ItemProperty -path $regpath -Name $kidnapvar2
+                            try{
+                                Set-ItemProperty -path $regpath -Name $kidnapvar2 -Value $releasevalue
+                                Get-ItemProperty -path $regpath -Name $kidnapvar2
+                            }catch{
+                                New-ItemProperty -Path $regpath -Name $temp -Value 0
+                                set-ItemProperty -path $regpath -Name $name -Value $releasevalue
+                            }
                             write-host "Done." -ForegroundColor "green"
                         }
                     }
