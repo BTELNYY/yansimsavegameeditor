@@ -67,6 +67,7 @@ namespace YanSimSaveEditor
     public class student
     {
         //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
+        //btelnyy here, this code is used more then twice.
         public string ScheduleTime { get; set; }
         public string ScheduleDestination { get; set; }
         public string ScheduleAction { get; set; }

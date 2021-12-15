@@ -96,8 +96,10 @@ namespace YanSimSaveEditor
             }
             if (allowCreation)
             {
-                gamereg.SetValue(pattern, 0);
-                return pattern;
+                //basiclly removes the last _ in a name to prevent yansim from ignoring it and making a nww value.
+                string trimpattern = pattern.TrimEnd('_');
+                gamereg.SetValue(trimpattern, 0);
+                return trimpattern;
             }
             return null;
         }

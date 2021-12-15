@@ -67,7 +67,7 @@ namespace YanSimSaveEditor
                     RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                     //changes a label
                     idLabel.Text = "ID:" + student;
-                    bool allowpfp = false; //enables or disables the ability to show pfps of the student. DEBUG ONLY
+                    bool allowpfp = true; //enables or disables the ability to show pfps of the student. DEBUG ONLY
                     string[] twentytwentyx = { "1", "2", "3" };
                     int array20 = Array.IndexOf(twentytwentyx, profile);
                     if (array20 > -1 & allowpfp == true)
@@ -138,6 +138,22 @@ namespace YanSimSaveEditor
                     {
                         FriendCheckbox.Checked = false;
                     }
+                    string reputation = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                    ReputationTextbox.Text = RegEdit.returnValue(gamereg, reputation);
+                    student studentjson = JSONEdit.GetInfo(StudentSelect.SelectedIndex + 1);
+                    //damn.
+                    NicknameTextbox.Text = studentjson.Name;
+                    RealnameTextbox.Text = studentjson.RealName;
+                    DescTextbox.Text = studentjson.Info;
+                    CrushTextbox.Text = studentjson.Crush.ToString(); //I am idiot.
+                    GenderCombobox.SelectedIndex = studentjson.Gender;
+                    StrengthTextbox.Text = studentjson.Strength.ToString();
+                    AccessoryTextbox.Text = studentjson.Accessory.ToString();
+                    HairCombobox.SelectedIndex = studentjson.HairStyle;
+                    ClassTextbox.Text = studentjson.Class.ToString();
+                    SeatTextbox.Text = studentjson.Seat.ToString();
+                    BustTextbox.Text = studentjson.BreastSize.ToString(); //eww. I was debating not allowing
+                    //mods to this, decided to keep my prefrences out of the way. (fuck this setting btw)
 
                 }
             }

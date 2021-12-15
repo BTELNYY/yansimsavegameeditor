@@ -45,27 +45,27 @@
             this.label6 = new System.Windows.Forms.Label();
             this.ClubCombobox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.comboBox2 = new System.Windows.Forms.ComboBox();
-            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.StrengthTextbox = new System.Windows.Forms.ComboBox();
+            this.CrushTextbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
-            this.textBox2 = new System.Windows.Forms.TextBox();
+            this.BustTextbox = new System.Windows.Forms.TextBox();
             this.label9 = new System.Windows.Forms.Label();
             this.NicknameTextbox = new System.Windows.Forms.TextBox();
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.RealnameTextbox = new System.Windows.Forms.TextBox();
             this.label12 = new System.Windows.Forms.Label();
-            this.textBox3 = new System.Windows.Forms.TextBox();
+            this.DescTextbox = new System.Windows.Forms.TextBox();
             this.DyingCheckbox = new System.Windows.Forms.CheckBox();
             this.RivalCheckBox = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.AccessoryCheckbox = new System.Windows.Forms.TextBox();
+            this.AccessoryTextbox = new System.Windows.Forms.TextBox();
             this.ReputationTextbox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.HairCombobox = new System.Windows.Forms.ComboBox();
             this.label15 = new System.Windows.Forms.Label();
-            this.textBox4 = new System.Windows.Forms.TextBox();
-            this.textBox5 = new System.Windows.Forms.TextBox();
+            this.ClassTextbox = new System.Windows.Forms.TextBox();
+            this.SeatTextbox = new System.Windows.Forms.TextBox();
             this.PersonaCombobox = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.KidnapChekbox = new System.Windows.Forms.CheckBox();
@@ -342,10 +342,10 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Strength";
             // 
-            // comboBox2
+            // StrengthTextbox
             // 
-            this.comboBox2.FormattingEnabled = true;
-            this.comboBox2.Items.AddRange(new object[] {
+            this.StrengthTextbox.FormattingEnabled = true;
+            this.StrengthTextbox.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -356,17 +356,17 @@
             "7",
             "8",
             "9"});
-            this.comboBox2.Location = new System.Drawing.Point(298, 234);
-            this.comboBox2.Name = "comboBox2";
-            this.comboBox2.Size = new System.Drawing.Size(121, 21);
-            this.comboBox2.TabIndex = 15;
+            this.StrengthTextbox.Location = new System.Drawing.Point(298, 234);
+            this.StrengthTextbox.Name = "StrengthTextbox";
+            this.StrengthTextbox.Size = new System.Drawing.Size(121, 21);
+            this.StrengthTextbox.TabIndex = 15;
             // 
-            // textBox1
+            // CrushTextbox
             // 
-            this.textBox1.Location = new System.Drawing.Point(298, 257);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(121, 20);
-            this.textBox1.TabIndex = 16;
+            this.CrushTextbox.Location = new System.Drawing.Point(298, 257);
+            this.CrushTextbox.Name = "CrushTextbox";
+            this.CrushTextbox.Size = new System.Drawing.Size(121, 20);
+            this.CrushTextbox.TabIndex = 16;
             // 
             // label8
             // 
@@ -377,12 +377,12 @@
             this.label8.TabIndex = 17;
             this.label8.Text = "Crush (ID)";
             // 
-            // textBox2
+            // BustTextbox
             // 
-            this.textBox2.Location = new System.Drawing.Point(298, 279);
-            this.textBox2.Name = "textBox2";
-            this.textBox2.Size = new System.Drawing.Size(121, 20);
-            this.textBox2.TabIndex = 18;
+            this.BustTextbox.Location = new System.Drawing.Point(298, 279);
+            this.BustTextbox.Name = "BustTextbox";
+            this.BustTextbox.Size = new System.Drawing.Size(121, 20);
+            this.BustTextbox.TabIndex = 18;
             // 
             // label9
             // 
@@ -434,13 +434,13 @@
             this.label12.TabIndex = 24;
             this.label12.Text = "Description";
             // 
-            // textBox3
+            // DescTextbox
             // 
-            this.textBox3.Location = new System.Drawing.Point(15, 350);
-            this.textBox3.Multiline = true;
-            this.textBox3.Name = "textBox3";
-            this.textBox3.Size = new System.Drawing.Size(185, 85);
-            this.textBox3.TabIndex = 25;
+            this.DescTextbox.Location = new System.Drawing.Point(15, 350);
+            this.DescTextbox.Multiline = true;
+            this.DescTextbox.Name = "DescTextbox";
+            this.DescTextbox.Size = new System.Drawing.Size(185, 85);
+            this.DescTextbox.TabIndex = 25;
             // 
             // DyingCheckbox
             // 
@@ -472,12 +472,12 @@
             this.label14.TabIndex = 29;
             this.label14.Text = "Accessory";
             // 
-            // AccessoryCheckbox
+            // AccessoryTextbox
             // 
-            this.AccessoryCheckbox.Location = new System.Drawing.Point(298, 301);
-            this.AccessoryCheckbox.Name = "AccessoryCheckbox";
-            this.AccessoryCheckbox.Size = new System.Drawing.Size(121, 20);
-            this.AccessoryCheckbox.TabIndex = 30;
+            this.AccessoryTextbox.Location = new System.Drawing.Point(298, 301);
+            this.AccessoryTextbox.Name = "AccessoryTextbox";
+            this.AccessoryTextbox.Size = new System.Drawing.Size(121, 20);
+            this.AccessoryTextbox.TabIndex = 30;
             // 
             // ReputationTextbox
             // 
@@ -714,19 +714,19 @@
             this.label15.TabIndex = 34;
             this.label15.Text = "Hairstyle";
             // 
-            // textBox4
+            // ClassTextbox
             // 
-            this.textBox4.Location = new System.Drawing.Point(53, 191);
-            this.textBox4.Name = "textBox4";
-            this.textBox4.Size = new System.Drawing.Size(79, 20);
-            this.textBox4.TabIndex = 35;
+            this.ClassTextbox.Location = new System.Drawing.Point(53, 191);
+            this.ClassTextbox.Name = "ClassTextbox";
+            this.ClassTextbox.Size = new System.Drawing.Size(79, 20);
+            this.ClassTextbox.TabIndex = 35;
             // 
-            // textBox5
+            // SeatTextbox
             // 
-            this.textBox5.Location = new System.Drawing.Point(52, 216);
-            this.textBox5.Name = "textBox5";
-            this.textBox5.Size = new System.Drawing.Size(80, 20);
-            this.textBox5.TabIndex = 36;
+            this.SeatTextbox.Location = new System.Drawing.Point(52, 216);
+            this.SeatTextbox.Name = "SeatTextbox";
+            this.SeatTextbox.Size = new System.Drawing.Size(80, 20);
+            this.SeatTextbox.TabIndex = 36;
             // 
             // PersonaCombobox
             // 
@@ -864,27 +864,27 @@
             this.Controls.Add(this.KidnapChekbox);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.PersonaCombobox);
-            this.Controls.Add(this.textBox5);
-            this.Controls.Add(this.textBox4);
+            this.Controls.Add(this.SeatTextbox);
+            this.Controls.Add(this.ClassTextbox);
             this.Controls.Add(this.label15);
             this.Controls.Add(this.HairCombobox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.ReputationTextbox);
-            this.Controls.Add(this.AccessoryCheckbox);
+            this.Controls.Add(this.AccessoryTextbox);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.RivalCheckBox);
             this.Controls.Add(this.DyingCheckbox);
-            this.Controls.Add(this.textBox3);
+            this.Controls.Add(this.DescTextbox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.RealnameTextbox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
             this.Controls.Add(this.NicknameTextbox);
             this.Controls.Add(this.label9);
-            this.Controls.Add(this.textBox2);
+            this.Controls.Add(this.BustTextbox);
             this.Controls.Add(this.label8);
-            this.Controls.Add(this.textBox1);
-            this.Controls.Add(this.comboBox2);
+            this.Controls.Add(this.CrushTextbox);
+            this.Controls.Add(this.StrengthTextbox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ClubCombobox);
             this.Controls.Add(this.label6);
@@ -929,27 +929,27 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ClubCombobox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox comboBox2;
-        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.ComboBox StrengthTextbox;
+        private System.Windows.Forms.TextBox CrushTextbox;
         private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.TextBox textBox2;
+        private System.Windows.Forms.TextBox BustTextbox;
         private System.Windows.Forms.Label label9;
         private System.Windows.Forms.TextBox NicknameTextbox;
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.TextBox RealnameTextbox;
         private System.Windows.Forms.Label label12;
-        private System.Windows.Forms.TextBox textBox3;
+        private System.Windows.Forms.TextBox DescTextbox;
         private System.Windows.Forms.CheckBox DyingCheckbox;
         private System.Windows.Forms.CheckBox RivalCheckBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox AccessoryCheckbox;
+        private System.Windows.Forms.TextBox AccessoryTextbox;
         private System.Windows.Forms.TextBox ReputationTextbox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox HairCombobox;
         private System.Windows.Forms.Label label15;
-        private System.Windows.Forms.TextBox textBox4;
-        private System.Windows.Forms.TextBox textBox5;
+        private System.Windows.Forms.TextBox ClassTextbox;
+        private System.Windows.Forms.TextBox SeatTextbox;
         private System.Windows.Forms.ComboBox PersonaCombobox;
         private System.Windows.Forms.Label label16;
         private System.Windows.Forms.CheckBox KidnapChekbox;
