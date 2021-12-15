@@ -232,9 +232,9 @@
             this.idLabel.AutoSize = true;
             this.idLabel.Location = new System.Drawing.Point(12, 239);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(36, 13);
+            this.idLabel.Size = new System.Drawing.Size(21, 13);
             this.idLabel.TabIndex = 5;
-            this.idLabel.Text = "ID: 11";
+            this.idLabel.Text = "ID:";
             // 
             // DeathCheckbox
             // 

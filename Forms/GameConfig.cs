@@ -29,12 +29,20 @@ namespace YanSimSaveEditor
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             string profile = Utility.getProfile();
             //top part of checkboxes
+            //and comboboxes
+            //the end _ is missing since its not needed, I like it this way too.
             string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
-            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform_", false);
-            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform_", false);
-            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true);
-            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem_", false);
-            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots_", true);
+            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform", false);
+            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform", false);
+            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim", true);
+            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem", false);
+            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
+            string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);
+            string biostat = Utility.SelectString("Profile_" + profile + "_BiologyGrade", true);
+            string physstat = Utility.SelectString("Profile_" + profile + "_PhysicalGrade", true);
+            string langstat = Utility.SelectString("Profile_" + profile + "_LanguageGrade", true);
+            string psycstat = Utility.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+
             //debug checkbox if
             if (DebugCheckbox.Checked == true)
             {
@@ -51,6 +59,14 @@ namespace YanSimSaveEditor
             RegEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
 
             RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
+
+            //idk about the spacing above. Bellow is for the player stats.
+            RegEdit.editValue(gamereg, ChemStat.SelectedIndex, chemstat);
+            RegEdit.editValue(gamereg, BioStat.SelectedIndex, biostat);
+            RegEdit.editValue(gamereg, PhysedStat.SelectedIndex, physstat);
+            RegEdit.editValue(gamereg, LangStat.SelectedIndex, langstat);
+            RegEdit.editValue(gamereg, PhsycStat.SelectedIndex, psycstat);
+            //try parse for the info points, its a textbox, so people can put random shit like words.
             int infopointsint;
             if (Int32.TryParse(InfoTextbox.Text, out infopointsint))
             {
@@ -82,31 +98,42 @@ namespace YanSimSaveEditor
                 DebugCheckbox.Checked = false;
             }
             //Female Uniform
-            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform_", false);
+            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform", false);
             string femaleunivalue = RegEdit.returnValue(gamereg, femaleuni);
 
             FemaleuniformCombo.Text = femaleunivalue;
             //Male uniform
-            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform_", false);
+            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform", false);
             string maleunivalue = RegEdit.returnValue(gamereg, maleuni);
-     
+
             MaleuniformCombobox.Text = maleunivalue;
             //Kidnap Victim
-            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true); //will create the value if none is found.
+            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim", true); //will create the value if none is found.
             string kidnapvictimvalue = RegEdit.returnValue(gamereg, kidnapvictim);
-            
+
             KidnapCombobox.Text = kidnapvictimvalue;
             //bringing item
-            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem_", false);
+            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem", false);
             string bringitemvalue = RegEdit.returnValue(gamereg, bringitem);
 
             ItemCombobox.Text = bringitemvalue;
 
             //info points
-            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots_", true);
+            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
             string infopointsvalue = RegEdit.returnValue(gamereg, infopoints);
             InfoTextbox.Text = infopointsvalue;
 
+            //stats
+            string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);
+            string biostat = Utility.SelectString("Profile_" + profile + "_BiologyGrade", true);
+            string physstat = Utility.SelectString("Profile_" + profile + "_PhysicalGrade", true);
+            string langstat = Utility.SelectString("Profile_" + profile + "_LanguageGrade", true);
+            string psycstat = Utility.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+            ChemStat.Text = RegEdit.returnValue(gamereg, chemstat);
+            BioStat.Text = RegEdit.returnValue(gamereg, biostat);
+            PhysedStat.Text = RegEdit.returnValue(gamereg, physstat);
+            LangStat.Text = RegEdit.returnValue(gamereg, langstat);
+            PhsycStat.Text = RegEdit.returnValue(gamereg, psycstat); //I am aware of spelling mistake
         }
 
         private void mangaButton_Click(object sender, EventArgs e)
@@ -117,7 +144,8 @@ namespace YanSimSaveEditor
             foreach (string s in manga)
             {
                 string manga1 = Utility.SelectString("Profile_" + profile + "_MangaCollected_" + s + "_", true);
-                RegEdit.editValue(gamereg, 1, manga1);
+                string result = manga1.TrimEnd('_');
+                RegEdit.editValue(gamereg, 1, result);
             }
             mangaButton.Enabled = false;
         }
@@ -131,9 +159,10 @@ namespace YanSimSaveEditor
             foreach (string s in array)
             {
                 string value = Utility.SelectString("Profile_" + profile + "_PantyPurchased_" + s + "_", true);
-                RegEdit.editValue(gamereg, 1, value);
+                string result = value.TrimEnd('_');
+                RegEdit.editValue(gamereg, 1, result);
             }
-            mangaButton.Enabled = false;
+            button2.Enabled = false;
         }
     }
 }
