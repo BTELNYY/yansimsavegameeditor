@@ -15,32 +15,12 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
-            /*
-            string config = @"HKEY_CURRENT_USER\SOFTWARE\btelnyy\YanSaveEdit";
-            string logFolder = GetValue(config, "logFolder", null).ToString();
-            string noLog = GetValue(config, "noLog", null).ToString();
-            //check if the keys exist, if not, simply create them
-            if (string.IsNullOrEmpty(logFolder))
-            {
-                SetValue(config, "logFolder", ".");
-            }
-            if (string.IsNullOrEmpty(noLog))
-            {
-                SetValue(config, "noLog", "false");
-            }
-            if (noLog == "true")
-            {
-                return;
-            }
-            else
-            {
-                string file = logFolder.ToString() + "\\latest.log";
-                StreamWriter sw = new StreamWriter(file);
-                sw.WriteLine(text);
-                sw.Close();
-                return;
-            }
-            */
+            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
+            string file = "." + "\\latest.log"; //currently hard set, will be changed later.
+            StreamWriter sw = new StreamWriter(file);
+            sw.WriteLine(text);
+            sw.Close();
+            return;
         }
 
         public static void WriteError(string msg, string title)
@@ -134,11 +114,11 @@ namespace YanSimSaveEditor
                     //returns null if the loop breaks. cuz yes.
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
                 //make log later.
             }
-            }
+        }
         public static void setProfile(string profile)
         {
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
@@ -150,6 +130,18 @@ namespace YanSimSaveEditor
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             string result = RegEdit.returnValue(config, "profile");
             return result;
+        }
+        public static int toInteger(string input)
+        {
+            try
+            {
+                int result = int.Parse(input);
+                return result;
+            }
+            catch (Exception e)
+            {
+                return 0;  
+            }
         }
     }
 };
