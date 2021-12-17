@@ -42,14 +42,14 @@ namespace YanSimSaveEditor
             {
 
                 string Json = JsonConvert.SerializeObject(tempstudent);
-                if (tempstudent.ID != 100)
+                if (Utility.ToInteger(tempstudent.ID) != 100)
                 {
                     //if not last student, serialized object requires a comma.
                     Json = Json + ",";
                 }
                 //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
                 string[] arrLine = File.ReadAllLines(path);
-                arrLine[tempstudent.ID] = Json;
+                arrLine[Utility.ToInteger(tempstudent.ID)] = Json;
                 File.WriteAllLines(path, arrLine);
                 return "success";
 
@@ -67,28 +67,28 @@ namespace YanSimSaveEditor
     {
         //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
         //btelnyy here, this code is used more then twice.
+        public string ID { get; set; }
+        public string Name { get; set; }
+        public string RealName { get; set; }
+        public string Gender { get; set; }
+        public string Class { get; set; }
+        public string Seat { get; set; }
+        public string Club { get; set; }
+        public string Persona { get; set; }
+        public string Crush { get; set; }
+        public string BreastSize { get; set; }
+        public string Strength { get; set; }
+        public string Hairstyle { get; set; }
+        public string Color { get; set; }
+        public string Eyes { get; set; }
+        public string EyeType { get; set; }
+        public string Stockings { get; set; }
+        public string Accessory { get; set; }
         public string ScheduleTime { get; set; }
         public string ScheduleDestination { get; set; }
         public string ScheduleAction { get; set; }
-        public int ID { get; set; }
-        public string Name { get; set; }
-        public string RealName { get; set; }
-        public int Gender { get; set; }
-        public int Seat { get; set; }
-        public int Club { get; set; }
-        public int Class { get; set; }
-        public int Persona { get; set; }
-        public int Crush { get; set; }
-        public double BreastSize { get; set; }
-        public int Strength { get; set; }
-        public int HairStyle { get; set; }
-        public string Color { get; set; }
-        public string Eyes { get; set; }
-        public string Eyetype { get; set; }
-        public string Stockings { get; set; }
-        public int Accessory { get; set; }
         public string Info { get; set; }
-        
+
 
         /*
         leftover code - just to make debugging simpler (not even code just a mess - ignore if not Loaflove\r 

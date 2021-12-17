@@ -27,7 +27,7 @@ namespace YanSimSaveEditor
                 string student = StudentSelect.Text;
                 int studentint = Utility.ToInteger(student);
                 student studentjson = JSONEdit.GetInfo(studentint);
-                
+                student studenjsonread = JSONEdit.GetInfo(studentint);
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
                 string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
@@ -42,36 +42,36 @@ namespace YanSimSaveEditor
                 RegEdit.editValue(gamereg, Utility.ConvertBool(PhotographedCheckbox.Checked), photo);
                 RegEdit.editValue(gamereg, Utility.ConvertBool(DyingCheckbox.Checked), dying);
                 RegEdit.editValue(gamereg, Utility.ConvertBool(FriendCheckbox.Checked), friend);
-                studentjson.Gender = GenderCombobox.SelectedIndex;
+                studentjson.Gender = GenderCombobox.SelectedIndex.ToString();
                 studentjson.Name = NicknameTextbox.Text;
                 studentjson.RealName = RealnameTextbox.Text;
                 int club = ClubCombobox.SelectedIndex;
                 if (club > 14)
                 {
-                    studentjson.Club = club - 84;
+                    int clubvalue = club - 84;
+                    studentjson.Club = clubvalue.ToString();
                 }
                 else
                 {
-                    studentjson.Club = club;
+                    studentjson.Club = club.ToString();
                 }
-                studentjson.Strength = StrengthCombobox.SelectedIndex;
-                studentjson.Crush = Utility.ToInteger(CrushTextbox.Text);
-                studentjson.BreastSize = Utility.ToDouble(BustTextbox.Text);
+                studentjson.Strength = StrengthCombobox.SelectedIndex.ToString();
+                studentjson.Crush = CrushTextbox.Text;
+                studentjson.BreastSize = BustTextbox.Text;
                 studentjson.Info = DescTextbox.Text;
-                studentjson.Accessory = AccessoryCombobox.SelectedIndex;
-                studentjson.HairStyle = HairCombobox.SelectedIndex;
+                studentjson.Accessory = AccessoryCombobox.SelectedIndex.ToString();
+                studentjson.Hairstyle = HairCombobox.SelectedIndex.ToString();
                 int persona = PersonaCombobox.SelectedIndex;
                 if (persona == 99)
                 {
-                    studentjson.Persona = 99;
+                    studentjson.Persona = 99.ToString();
                 }
                 else
                 {
-                    studentjson.Persona = PersonaCombobox.SelectedIndex;
+                    studentjson.Persona = PersonaCombobox.SelectedIndex.ToString();
                 }
-                studentjson.Class = Utility.ToInteger(ClassTextbox.Text);
-                studentjson.Seat = Utility.ToInteger(SeatTextbox.Text);
-
+                studentjson.Class = ClassTextbox.Text;
+                studentjson.Seat = SeatTextbox.Text;
 
                 //actually write the data
                 JSONEdit.WriteInfo(studentjson);
@@ -217,18 +217,18 @@ namespace YanSimSaveEditor
                     RealnameTextbox.Text = studentjson.RealName;
                     DescTextbox.Text = studentjson.Info; //refuses to work I guess.
                     CrushTextbox.Text = studentjson.Crush.ToString(); //I am idiot.
-                    GenderCombobox.SelectedIndex = studentjson.Gender;
-                    AccessoryCombobox.SelectedIndex = studentjson.Accessory; //pulls the current accessory
-                    HairCombobox.SelectedIndex = studentjson.HairStyle;
+                    GenderCombobox.SelectedIndex = Utility.ToInteger(studentjson.Gender);
+                    AccessoryCombobox.SelectedIndex = Utility.ToInteger(studentjson.Accessory); //pulls the current accessory
+                    HairCombobox.SelectedIndex = Utility.ToInteger(studentjson.Hairstyle);
                     ClassTextbox.Text = studentjson.Class.ToString();
                     SeatTextbox.Text = studentjson.Seat.ToString();
-                    StrengthCombobox.SelectedIndex = studentjson.Strength; //wow simple
+                    StrengthCombobox.SelectedIndex = Utility.ToInteger(studentjson.Strength); //wow simple
                     BustTextbox.Text = studentjson.BreastSize.ToString(); //eww. I was debating not allowing
                     //mods to this, decided to keep my prefrences out of the way. (fuck this setting btw)
                     //alex cant count from 0 to 100 appernetly. Now I have to do this bs.
                     //you may be asking, why dont I used the .Text method of these comboboxes?
                     //in short, it looks better when it shows the names of thigns, not just numbers.
-                    int club = studentjson.Club;
+                    int club = Utility.ToInteger(studentjson.Club);
                     if(club > 14) //check if the club is larger then the last known club
                     {
                         ClubCombobox.SelectedIndex = club - 84;
@@ -238,7 +238,7 @@ namespace YanSimSaveEditor
                     {
                         ClubCombobox.SelectedIndex = club;
                     } //alex cant count, so I need to play intergalatic pinball to get this shit to work correctly.
-                    int persona = studentjson.Persona;
+                    int persona = Utility.ToInteger(studentjson.Persona);
                     if (persona == 99) //checks if the personsa is 99, if it is, set it as so.
                     {
                         PersonaCombobox.SelectedIndex = 18;

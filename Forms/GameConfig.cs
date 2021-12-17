@@ -34,7 +34,7 @@ namespace YanSimSaveEditor
             string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
             string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform", false);
             string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform", false);
-            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim", true);
+            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true);
             string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem", false);
             string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
             string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);
