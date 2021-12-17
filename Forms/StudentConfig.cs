@@ -247,8 +247,8 @@ namespace YanSimSaveEditor
                     {
                         PersonaCombobox.SelectedIndex = persona;
                     }
-                    
 
+                    SaveButton.Enabled = true;
                 }
             }
             catch (Exception loaderror)
@@ -260,7 +260,7 @@ namespace YanSimSaveEditor
 
         private void StudentConfig_Load(object sender, EventArgs e)
         {
-            
+            SaveButton.Enabled = false;
         }
 
         private void ClubCombobox_SelectedIndexChanged(object sender, EventArgs e)
