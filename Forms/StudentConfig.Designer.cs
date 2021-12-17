@@ -74,7 +74,6 @@
             this.CancelButton = new System.Windows.Forms.Button();
             this.label19 = new System.Windows.Forms.Label();
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
-            this.ChangeimageButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
             this.AccessoryCombobox = new System.Windows.Forms.ComboBox();
             this.idTextbox = new System.Windows.Forms.TextBox();
@@ -825,16 +824,6 @@
             this.fileSystemWatcher1.EnableRaisingEvents = true;
             this.fileSystemWatcher1.SynchronizingObject = this;
             // 
-            // ChangeimageButton
-            // 
-            this.ChangeimageButton.Enabled = false;
-            this.ChangeimageButton.Location = new System.Drawing.Point(-3, 156);
-            this.ChangeimageButton.Name = "ChangeimageButton";
-            this.ChangeimageButton.Size = new System.Drawing.Size(91, 23);
-            this.ChangeimageButton.TabIndex = 46;
-            this.ChangeimageButton.Text = "Change Image";
-            this.ChangeimageButton.UseVisualStyleBackColor = true;
-            // 
             // ApplyButton
             // 
             this.ApplyButton.Location = new System.Drawing.Point(369, -1);
@@ -868,6 +857,7 @@
             this.AccessoryCombobox.Name = "AccessoryCombobox";
             this.AccessoryCombobox.Size = new System.Drawing.Size(121, 21);
             this.AccessoryCombobox.TabIndex = 48;
+            this.AccessoryCombobox.SelectedIndexChanged += new System.EventHandler(this.AccessoryCombobox_SelectedIndexChanged);
             // 
             // idTextbox
             // 
@@ -885,7 +875,6 @@
             this.Controls.Add(this.idTextbox);
             this.Controls.Add(this.AccessoryCombobox);
             this.Controls.Add(this.ApplyButton);
-            this.Controls.Add(this.ChangeimageButton);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.CancelButton);
             this.Controls.Add(this.SaveButton);
@@ -987,7 +976,6 @@
         private System.Windows.Forms.Button CancelButton;
         private System.Windows.Forms.Label label19;
         private System.IO.FileSystemWatcher fileSystemWatcher1;
-        private System.Windows.Forms.Button ChangeimageButton;
         private System.Windows.Forms.Button ApplyButton;
         private System.Windows.Forms.ComboBox AccessoryCombobox;
         private System.Windows.Forms.TextBox idTextbox;

@@ -42,6 +42,7 @@ namespace YanSimSaveEditor
             string physstat = Utility.SelectString("Profile_" + profile + "_PhysicalGrade", true);
             string langstat = Utility.SelectString("Profile_" + profile + "_LanguageGrade", true);
             string psycstat = Utility.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+            string club = Utility.SelectString("Profile_" + profile + "_Club", true);
 
             //debug checkbox if
             if (DebugCheckbox.Checked == true)
@@ -59,6 +60,16 @@ namespace YanSimSaveEditor
             RegEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
 
             RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
+
+            int clubvalue = ClubCombobox.SelectedIndex;
+            if (clubvalue > 14)
+            {
+                RegEdit.editValue(gamereg, clubvalue + 84, club);
+            }
+            else
+            {
+                RegEdit.editValue(gamereg, clubvalue, club);
+            }
 
             //idk about the spacing above. Bellow is for the player stats.
             RegEdit.editValue(gamereg, ChemStat.SelectedIndex, chemstat);
@@ -79,7 +90,7 @@ namespace YanSimSaveEditor
                 Utility.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
             }
             //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
-
+            Utility.WriteInfo("Data Written Succesfully", "Done");
         }
 
         private void GameConfig_Load(object sender, EventArgs e)
@@ -122,6 +133,18 @@ namespace YanSimSaveEditor
             string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
             string infopointsvalue = RegEdit.returnValue(gamereg, infopoints);
             InfoTextbox.Text = infopointsvalue;
+
+            //club
+            string club = Utility.SelectString("Profile_" + profile + "_Club", true);
+            int clubvalue = Utility.ToInteger(RegEdit.returnValue(gamereg, club));
+            if(clubvalue > 14)
+            {
+                ClubCombobox.SelectedIndex = clubvalue - 84;
+            }
+            else
+            {
+                ClubCombobox.SelectedIndex = clubvalue;
+            }
 
             //stats
             string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);

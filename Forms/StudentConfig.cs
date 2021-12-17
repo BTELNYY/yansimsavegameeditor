@@ -26,7 +26,8 @@ namespace YanSimSaveEditor
                 string profile = Utility.getProfile();
                 string student = StudentSelect.Text;
                 int studentint = Utility.ToInteger(student);
-                student studentjsonread = JSONEdit.GetInfo(studentint);
+                student studentjson = JSONEdit.GetInfo(studentint);
+                
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
                 string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
@@ -41,10 +42,39 @@ namespace YanSimSaveEditor
                 RegEdit.editValue(gamereg, Utility.ConvertBool(PhotographedCheckbox.Checked), photo);
                 RegEdit.editValue(gamereg, Utility.ConvertBool(DyingCheckbox.Checked), dying);
                 RegEdit.editValue(gamereg, Utility.ConvertBool(FriendCheckbox.Checked), friend);
+                studentjson.Gender = GenderCombobox.SelectedIndex;
+                studentjson.Name = NicknameTextbox.Text;
+                studentjson.RealName = RealnameTextbox.Text;
+                int club = ClubCombobox.SelectedIndex;
+                if (club > 14)
+                {
+                    studentjson.Club = club - 84;
+                }
+                else
+                {
+                    studentjson.Club = club;
+                }
+                studentjson.Strength = StrengthCombobox.SelectedIndex;
+                studentjson.Crush = Utility.ToInteger(CrushTextbox.Text);
+                studentjson.BreastSize = Utility.ToDouble(BustTextbox.Text);
+                studentjson.Info = DescTextbox.Text;
+                studentjson.Accessory = AccessoryCombobox.SelectedIndex;
+                studentjson.HairStyle = HairCombobox.SelectedIndex;
+                int persona = PersonaCombobox.SelectedIndex;
+                if (persona == 99)
+                {
+                    studentjson.Persona = 99;
+                }
+                else
+                {
+                    studentjson.Persona = PersonaCombobox.SelectedIndex;
+                }
+                studentjson.Class = Utility.ToInteger(ClassTextbox.Text);
+                studentjson.Seat = Utility.ToInteger(SeatTextbox.Text);
 
 
-
-
+                //actually write the data
+                JSONEdit.WriteInfo(studentjson);
                 //execute when finished write
                 Utility.WriteInfo("Data Saved Successfully", "Done");
             }
@@ -237,6 +267,11 @@ namespace YanSimSaveEditor
         }
 
         private void StrengthTextbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccessoryCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
         }
