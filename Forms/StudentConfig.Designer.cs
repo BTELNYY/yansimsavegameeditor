@@ -45,7 +45,7 @@
             this.label6 = new System.Windows.Forms.Label();
             this.ClubCombobox = new System.Windows.Forms.ComboBox();
             this.label7 = new System.Windows.Forms.Label();
-            this.StrengthTextbox = new System.Windows.Forms.ComboBox();
+            this.StrengthCombobox = new System.Windows.Forms.ComboBox();
             this.CrushTextbox = new System.Windows.Forms.TextBox();
             this.label8 = new System.Windows.Forms.Label();
             this.BustTextbox = new System.Windows.Forms.TextBox();
@@ -59,7 +59,6 @@
             this.DyingCheckbox = new System.Windows.Forms.CheckBox();
             this.RivalCheckBox = new System.Windows.Forms.CheckBox();
             this.label14 = new System.Windows.Forms.Label();
-            this.AccessoryTextbox = new System.Windows.Forms.TextBox();
             this.ReputationTextbox = new System.Windows.Forms.TextBox();
             this.label13 = new System.Windows.Forms.Label();
             this.HairCombobox = new System.Windows.Forms.ComboBox();
@@ -77,6 +76,8 @@
             this.fileSystemWatcher1 = new System.IO.FileSystemWatcher();
             this.ChangeimageButton = new System.Windows.Forms.Button();
             this.ApplyButton = new System.Windows.Forms.Button();
+            this.AccessoryCombobox = new System.Windows.Forms.ComboBox();
+            this.idTextbox = new System.Windows.Forms.TextBox();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -212,7 +213,7 @@
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 198);
+            this.label2.Location = new System.Drawing.Point(12, 188);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(35, 13);
             this.label2.TabIndex = 3;
@@ -221,7 +222,7 @@
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 219);
+            this.label3.Location = new System.Drawing.Point(12, 211);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(32, 13);
             this.label3.TabIndex = 4;
@@ -230,11 +231,11 @@
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(12, 239);
+            this.idLabel.Location = new System.Drawing.Point(12, 233);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(21, 13);
+            this.idLabel.Size = new System.Drawing.Size(18, 13);
             this.idLabel.TabIndex = 5;
-            this.idLabel.Text = "ID:";
+            this.idLabel.Text = "ID";
             // 
             // DeathCheckbox
             // 
@@ -332,6 +333,7 @@
             this.ClubCombobox.Name = "ClubCombobox";
             this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
             this.ClubCombobox.TabIndex = 13;
+            this.ClubCombobox.SelectedIndexChanged += new System.EventHandler(this.ClubCombobox_SelectedIndexChanged);
             // 
             // label7
             // 
@@ -342,10 +344,10 @@
             this.label7.TabIndex = 14;
             this.label7.Text = "Strength";
             // 
-            // StrengthTextbox
+            // StrengthCombobox
             // 
-            this.StrengthTextbox.FormattingEnabled = true;
-            this.StrengthTextbox.Items.AddRange(new object[] {
+            this.StrengthCombobox.FormattingEnabled = true;
+            this.StrengthCombobox.Items.AddRange(new object[] {
             "0",
             "1",
             "2",
@@ -356,10 +358,11 @@
             "7",
             "8",
             "9"});
-            this.StrengthTextbox.Location = new System.Drawing.Point(298, 234);
-            this.StrengthTextbox.Name = "StrengthTextbox";
-            this.StrengthTextbox.Size = new System.Drawing.Size(121, 21);
-            this.StrengthTextbox.TabIndex = 15;
+            this.StrengthCombobox.Location = new System.Drawing.Point(298, 234);
+            this.StrengthCombobox.Name = "StrengthCombobox";
+            this.StrengthCombobox.Size = new System.Drawing.Size(121, 21);
+            this.StrengthCombobox.TabIndex = 15;
+            this.StrengthCombobox.SelectedIndexChanged += new System.EventHandler(this.StrengthTextbox_SelectedIndexChanged);
             // 
             // CrushTextbox
             // 
@@ -430,9 +433,9 @@
             this.label12.AutoSize = true;
             this.label12.Location = new System.Drawing.Point(12, 334);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(60, 13);
+            this.label12.Size = new System.Drawing.Size(138, 13);
             this.label12.TabIndex = 24;
-            this.label12.Text = "Description";
+            this.label12.Text = "Description (May Not Work)";
             // 
             // DescTextbox
             // 
@@ -471,13 +474,6 @@
             this.label14.Size = new System.Drawing.Size(56, 13);
             this.label14.TabIndex = 29;
             this.label14.Text = "Accessory";
-            // 
-            // AccessoryTextbox
-            // 
-            this.AccessoryTextbox.Location = new System.Drawing.Point(298, 301);
-            this.AccessoryTextbox.Name = "AccessoryTextbox";
-            this.AccessoryTextbox.Size = new System.Drawing.Size(121, 20);
-            this.AccessoryTextbox.TabIndex = 30;
             // 
             // ReputationTextbox
             // 
@@ -716,14 +712,14 @@
             // 
             // ClassTextbox
             // 
-            this.ClassTextbox.Location = new System.Drawing.Point(53, 191);
+            this.ClassTextbox.Location = new System.Drawing.Point(53, 185);
             this.ClassTextbox.Name = "ClassTextbox";
             this.ClassTextbox.Size = new System.Drawing.Size(79, 20);
             this.ClassTextbox.TabIndex = 35;
             // 
             // SeatTextbox
             // 
-            this.SeatTextbox.Location = new System.Drawing.Point(52, 216);
+            this.SeatTextbox.Location = new System.Drawing.Point(53, 207);
             this.SeatTextbox.Name = "SeatTextbox";
             this.SeatTextbox.Size = new System.Drawing.Size(80, 20);
             this.SeatTextbox.TabIndex = 36;
@@ -849,11 +845,45 @@
             this.ApplyButton.UseVisualStyleBackColor = true;
             this.ApplyButton.Click += new System.EventHandler(this.ApplyButton_Click);
             // 
+            // AccessoryCombobox
+            // 
+            this.AccessoryCombobox.FormattingEnabled = true;
+            this.AccessoryCombobox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14"});
+            this.AccessoryCombobox.Location = new System.Drawing.Point(299, 301);
+            this.AccessoryCombobox.Name = "AccessoryCombobox";
+            this.AccessoryCombobox.Size = new System.Drawing.Size(121, 21);
+            this.AccessoryCombobox.TabIndex = 48;
+            // 
+            // idTextbox
+            // 
+            this.idTextbox.Location = new System.Drawing.Point(53, 230);
+            this.idTextbox.Name = "idTextbox";
+            this.idTextbox.ReadOnly = true;
+            this.idTextbox.Size = new System.Drawing.Size(79, 20);
+            this.idTextbox.TabIndex = 49;
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 438);
+            this.Controls.Add(this.idTextbox);
+            this.Controls.Add(this.AccessoryCombobox);
             this.Controls.Add(this.ApplyButton);
             this.Controls.Add(this.ChangeimageButton);
             this.Controls.Add(this.label19);
@@ -870,7 +900,6 @@
             this.Controls.Add(this.HairCombobox);
             this.Controls.Add(this.label13);
             this.Controls.Add(this.ReputationTextbox);
-            this.Controls.Add(this.AccessoryTextbox);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.RivalCheckBox);
             this.Controls.Add(this.DyingCheckbox);
@@ -884,7 +913,7 @@
             this.Controls.Add(this.BustTextbox);
             this.Controls.Add(this.label8);
             this.Controls.Add(this.CrushTextbox);
-            this.Controls.Add(this.StrengthTextbox);
+            this.Controls.Add(this.StrengthCombobox);
             this.Controls.Add(this.label7);
             this.Controls.Add(this.ClubCombobox);
             this.Controls.Add(this.label6);
@@ -929,7 +958,7 @@
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.ComboBox ClubCombobox;
         private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.ComboBox StrengthTextbox;
+        private System.Windows.Forms.ComboBox StrengthCombobox;
         private System.Windows.Forms.TextBox CrushTextbox;
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox BustTextbox;
@@ -943,7 +972,6 @@
         private System.Windows.Forms.CheckBox DyingCheckbox;
         private System.Windows.Forms.CheckBox RivalCheckBox;
         private System.Windows.Forms.Label label14;
-        private System.Windows.Forms.TextBox AccessoryTextbox;
         private System.Windows.Forms.TextBox ReputationTextbox;
         private System.Windows.Forms.Label label13;
         private System.Windows.Forms.ComboBox HairCombobox;
@@ -961,5 +989,7 @@
         private System.IO.FileSystemWatcher fileSystemWatcher1;
         private System.Windows.Forms.Button ChangeimageButton;
         private System.Windows.Forms.Button ApplyButton;
+        private System.Windows.Forms.ComboBox AccessoryCombobox;
+        private System.Windows.Forms.TextBox idTextbox;
     }
 }

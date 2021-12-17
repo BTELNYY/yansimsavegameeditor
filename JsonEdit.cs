@@ -10,11 +10,10 @@ namespace YanSimSaveEditor
 {
     public static class JSONEdit
     {
-        static string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Students.json";
+
+        static readonly string path = Utility.GetJSON(); //this lets us use the 1980s students too.
         public static student GetInfo(int StudentId)
         {
-            
-
             try
             {
                 //gets the line with the correct student.
@@ -32,7 +31,7 @@ namespace YanSimSaveEditor
             {
                 student tempstudent = new student();
                 //returns error as string
-                Utility.WriteError("ERROR", e.ToString());
+                Utility.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
         }

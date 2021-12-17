@@ -131,7 +131,7 @@ namespace YanSimSaveEditor
             string result = RegEdit.returnValue(config, "profile");
             return result;
         }
-        public static int toInteger(string input)
+        public static int ToInteger(string input)
         {
             try
             {
@@ -140,7 +140,46 @@ namespace YanSimSaveEditor
             }
             catch (Exception e)
             {
-                return 0;  
+                return 0;
+            }
+        }
+        public static double ToDouble(string input) //same as above.
+        {
+            try
+            {
+                double result = double.Parse(input); //Parse throws an exception, if its thrown, just convert it to 0
+                return result;
+            }
+            catch (Exception e)
+            {
+                return 0;
+            }
+        }
+        public static string GetJSON()
+        {
+            string profilestring = Utility.getProfile();
+            int profile = Utility.ToInteger(profilestring);
+            if (profile > 3)
+            {
+                string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Eighties.json";
+                return path;
+            }
+            else
+            {
+                string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Students.json";
+                return path;
+            }
+        }
+        public static int ConvertBool(bool input)
+        {
+            //lame ass function not needed, useful for one liners.
+            if (input)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
             }
         }
     }
