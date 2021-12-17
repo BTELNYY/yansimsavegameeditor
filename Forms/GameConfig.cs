@@ -90,7 +90,7 @@ namespace YanSimSaveEditor
                 Utility.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
             }
             //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
-            Utility.WriteInfo("Data Written Succesfully", "Done");
+            Utility.WriteInfo("All Data Written Succesfully", "Done");
         }
 
         private void GameConfig_Load(object sender, EventArgs e)

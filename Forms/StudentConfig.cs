@@ -76,7 +76,8 @@ namespace YanSimSaveEditor
                 //actually write the data
                 JSONEdit.WriteInfo(studentjson);
                 //execute when finished write
-                Utility.WriteInfo("Data Saved Successfully", "Done");
+                Utility.WriteInfo("All Data Written Successfully", "Done");
+                ApplyButton_Click(null, null);
             }
             catch (Exception writeerror)
             {
@@ -207,6 +208,7 @@ namespace YanSimSaveEditor
                     {
                         FriendCheckbox.Checked = false;
                     }
+                    string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
                     string reputation = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
                     ReputationTextbox.Text = RegEdit.returnValue(gamereg, reputation);
                     student studentjson = JSONEdit.GetInfo(StudentSelect.SelectedIndex + 1);
