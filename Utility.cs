@@ -150,15 +150,15 @@ namespace YanSimSaveEditor
                 double result = double.Parse(input); //Parse throws an exception, if its thrown, just convert it to 0
                 return result;
             }
-            catch (Exception e)
+            catch
             {
                 return 0;
             }
         }
         public static string GetJSON()
         {
-            string profilestring = Utility.getProfile();
-            int profile = Utility.ToInteger(profilestring);
+            string profilestring = getProfile();
+            int profile = ToInteger(profilestring);
             if (profile > 3)
             {
                 string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Eighties.json";

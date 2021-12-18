@@ -11,7 +11,7 @@ namespace YanSimSaveEditor
     public static class JSONEdit
     {
 
-        static readonly string path = Utility.GetJSON(); //this lets us use the 1980s students too.
+        static string path = Utility.GetJSON(); //this lets us use the 1980s students too.
         public static student GetInfo(int StudentId)
         {
             try
