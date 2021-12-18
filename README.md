@@ -1,5 +1,6 @@
 # Installation Guide
-The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory
+The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory.
+The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
 
 # Yandere Simulator Save Game Editor
 A program to edit Yandere Simulators save files.
