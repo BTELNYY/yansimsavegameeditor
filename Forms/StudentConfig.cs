@@ -229,7 +229,7 @@ namespace YanSimSaveEditor
                     //you may be asking, why dont I used the .Text method of these comboboxes?
                     //in short, it looks better when it shows the names of thigns, not just numbers.
                     int club = Utility.ToInteger(studentjson.Club);
-                    Utility.WriteInfo(club.ToString(), "Info");
+                    
                     if (club > 14) //check if the club is larger then the last known club
                     {
                         if(studentint > 96)
