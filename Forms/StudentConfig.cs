@@ -268,6 +268,8 @@ namespace YanSimSaveEditor
 
         private void StudentConfig_Load(object sender, EventArgs e)
         {
+            //changing this value causes insane lag for some reason.....
+            //MaximizeBox = false;
             SaveButton.Enabled = false;
         }
 

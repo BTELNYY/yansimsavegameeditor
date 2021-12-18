@@ -26,6 +26,8 @@ namespace YanSimSaveEditor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            //causes lag, gotta fix
+            //MaximizeBox = false;
             button1.Enabled = true; //enables the button if it was disabled.
             button2.Enabled = true;
             string[] saves = { "1", "2", "3", "11", "12", "13" };

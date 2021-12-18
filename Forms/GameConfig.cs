@@ -21,6 +21,7 @@ namespace YanSimSaveEditor
         private void ExitButton_Click(object sender, EventArgs e)
         {
             GameConfig GameConfig = new GameConfig();
+            //why wont this shit work.
             GameConfig.Close();
         }
 
@@ -95,6 +96,8 @@ namespace YanSimSaveEditor
 
         private void GameConfig_Load(object sender, EventArgs e)
         {
+            //causes lag, gotta fix.
+            //MaximizeBox = false;
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             string profile = Utility.getProfile();
             //debug checkmark

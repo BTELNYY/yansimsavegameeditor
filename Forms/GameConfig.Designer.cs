@@ -410,6 +410,7 @@
             // 
             // button1
             // 
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
             this.button1.Location = new System.Drawing.Point(-5, 374);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
@@ -485,6 +486,7 @@
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(319, 397);
             this.Controls.Add(this.ClubCombobox);
             this.Controls.Add(this.label11);
@@ -513,9 +515,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FemaleuniformCombo);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameConfig";
-            this.Text = "Form1";
+            this.Text = "Game Configuration";
             this.Load += new System.EventHandler(this.GameConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
