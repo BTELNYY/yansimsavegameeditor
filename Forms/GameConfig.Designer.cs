@@ -54,6 +54,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.InfoTextbox = new System.Windows.Forms.TextBox();
             this.button2 = new System.Windows.Forms.Button();
+            this.label11 = new System.Windows.Forms.Label();
+            this.ClubCombobox = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -268,7 +270,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(245, 306);
+            this.SaveButton.Location = new System.Drawing.Point(246, 374);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 9;
@@ -286,7 +288,7 @@
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(99, 172);
+            this.PhsycStat.Location = new System.Drawing.Point(99, 200);
             this.PhsycStat.Name = "PhsycStat";
             this.PhsycStat.Size = new System.Drawing.Size(121, 21);
             this.PhsycStat.TabIndex = 10;
@@ -301,7 +303,7 @@
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(99, 199);
+            this.PhysedStat.Location = new System.Drawing.Point(99, 227);
             this.PhysedStat.Name = "PhysedStat";
             this.PhysedStat.Size = new System.Drawing.Size(121, 21);
             this.PhysedStat.TabIndex = 11;
@@ -316,7 +318,7 @@
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(99, 226);
+            this.LangStat.Location = new System.Drawing.Point(99, 254);
             this.LangStat.Name = "LangStat";
             this.LangStat.Size = new System.Drawing.Size(121, 21);
             this.LangStat.TabIndex = 12;
@@ -331,7 +333,7 @@
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(99, 253);
+            this.ChemStat.Location = new System.Drawing.Point(99, 281);
             this.ChemStat.Name = "ChemStat";
             this.ChemStat.Size = new System.Drawing.Size(121, 21);
             this.ChemStat.TabIndex = 13;
@@ -346,7 +348,7 @@
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(99, 280);
+            this.BioStat.Location = new System.Drawing.Point(99, 308);
             this.BioStat.Name = "BioStat";
             this.BioStat.Size = new System.Drawing.Size(121, 21);
             this.BioStat.TabIndex = 14;
@@ -354,7 +356,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 175);
+            this.label5.Location = new System.Drawing.Point(13, 203);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(83, 13);
             this.label5.TabIndex = 15;
@@ -363,7 +365,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 202);
+            this.label6.Location = new System.Drawing.Point(13, 230);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(68, 13);
             this.label6.TabIndex = 16;
@@ -372,7 +374,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 229);
+            this.label7.Location = new System.Drawing.Point(13, 257);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(77, 13);
             this.label7.TabIndex = 17;
@@ -381,7 +383,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 256);
+            this.label8.Location = new System.Drawing.Point(13, 284);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(74, 13);
             this.label8.TabIndex = 18;
@@ -390,7 +392,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 283);
+            this.label9.Location = new System.Drawing.Point(13, 311);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(63, 13);
             this.label9.TabIndex = 19;
@@ -408,7 +410,8 @@
             // 
             // button1
             // 
-            this.button1.Location = new System.Drawing.Point(1, 306);
+            this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
+            this.button1.Location = new System.Drawing.Point(-5, 374);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(75, 23);
             this.button1.TabIndex = 21;
@@ -442,11 +445,51 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // label11
+            // 
+            this.label11.AutoSize = true;
+            this.label11.Location = new System.Drawing.Point(13, 144);
+            this.label11.Name = "label11";
+            this.label11.Size = new System.Drawing.Size(28, 13);
+            this.label11.TabIndex = 25;
+            this.label11.Text = "Club";
+            // 
+            // ClubCombobox
+            // 
+            this.ClubCombobox.FormattingEnabled = true;
+            this.ClubCombobox.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "99",
+            "100",
+            "101",
+            "102"});
+            this.ClubCombobox.Location = new System.Drawing.Point(99, 141);
+            this.ClubCombobox.Name = "ClubCombobox";
+            this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
+            this.ClubCombobox.TabIndex = 26;
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(319, 327);
+            this.CancelButton = this.button1;
+            this.ClientSize = new System.Drawing.Size(319, 397);
+            this.Controls.Add(this.ClubCombobox);
+            this.Controls.Add(this.label11);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.InfoTextbox);
             this.Controls.Add(this.label10);
@@ -472,9 +515,10 @@
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FemaleuniformCombo);
             this.Controls.Add(this.label1);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "GameConfig";
-            this.Text = "Form1";
+            this.Text = "Game Configuration";
             this.Load += new System.EventHandler(this.GameConfig_Load);
             this.ResumeLayout(false);
             this.PerformLayout();
@@ -508,5 +552,7 @@
         private System.Windows.Forms.Label label10;
         private System.Windows.Forms.TextBox InfoTextbox;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Label label11;
+        private System.Windows.Forms.ComboBox ClubCombobox;
     }
 }

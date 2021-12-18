@@ -15,52 +15,36 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
-            /*
-            string config = @"HKEY_CURRENT_USER\SOFTWARE\btelnyy\YanSaveEdit";
-            string logFolder = GetValue(config, "logFolder", null).ToString();
-            string noLog = GetValue(config, "noLog", null).ToString();
-            //check if the keys exist, if not, simply create them
-            if (string.IsNullOrEmpty(logFolder))
-            {
-                SetValue(config, "logFolder", ".");
-            }
-            if (string.IsNullOrEmpty(noLog))
-            {
-                SetValue(config, "noLog", "false");
-            }
-            if (noLog == "true")
-            {
-                return;
-            }
-            else
-            {
-                string file = logFolder.ToString() + "\\latest.log";
-                StreamWriter sw = new StreamWriter(file);
-                sw.WriteLine(text);
-                sw.Close();
-                return;
-            }
-            */
+            //takes a string and writes it to a file in the same folder as the app. not used atm.
+            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
+            string file = "." + "\\latest.log"; //currently hard set, will be changed later.
+            StreamWriter sw = new StreamWriter(file);
+            sw.WriteLine(text);
+            sw.Close();
+            return;
         }
 
         public static void WriteError(string msg, string title)
         {
-            //displays old icon, no idea why.
+            //Allows the display of error messages, used for when shit breaks.
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public static void WriteWarning(string msg, string title)
         {
+            //warning message.
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         public static void WriteInfo(string msg, string title)
         {
+            //info stuff
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public static bool FileExists(string path)
         {
+            //returns a bool depending on if a path exists.
             if (!File.Exists(path))
             {
                 return false;
@@ -96,8 +80,10 @@ namespace YanSimSaveEditor
             }
             if (allowCreation)
             {
-                gamereg.SetValue(pattern, 0);
-                return pattern;
+                //basiclly removes the last _ in a name to prevent yansim from ignoring it and making a nww value.
+                string trimpattern = pattern.TrimEnd('_');
+                gamereg.SetValue(trimpattern, 0);
+                return trimpattern;
             }
             return null;
         }
@@ -132,15 +118,16 @@ namespace YanSimSaveEditor
                     //returns null if the loop breaks. cuz yes.
                 }
             }
-            catch(Exception e)
+            catch (Exception e)
             {
-                //make log later.
+                WriteError(e.ToString(), "Error");
             }
-            }
+        }
         public static void setProfile(string profile)
         {
+            //techinically a very bad way to do this, but I can make a "recover on crash" system later.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            int result = Int32.Parse(profile);
+            int result = int.Parse(profile);
             RegEdit.createValue(config, result, "profile");
         }
         public static string getProfile()
@@ -148,6 +135,58 @@ namespace YanSimSaveEditor
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             string result = RegEdit.returnValue(config, "profile");
             return result;
+        }
+        public static int ToInteger(string input)
+        {
+            try
+            {
+                int result = int.Parse(input);
+                return result;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public static double ToDouble(string input) //same as above.
+        {
+            try
+            {
+                double result = double.Parse(input); //Parse throws an exception, if its thrown, just convert it to 0
+                return result;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
+        public static string GetJSON()
+        {
+            string profilestring = getProfile();
+            int profile = ToInteger(profilestring);
+            if (profile > 3)
+            {
+                // @ is needed so you dont have to replace the \ with \\
+                string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Eighties.json";
+                return path;
+            }
+            else
+            {
+                string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Students.json";
+                return path;
+            }
+        }
+        public static int ConvertBool(bool input)
+        {
+            //converts a boolean into a registry friendly integer, used for checkboes
+            if (input)
+            {
+                return 1;
+            }
+            else
+            {
+                return 0;
+            }
         }
     }
 };

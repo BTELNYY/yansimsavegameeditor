@@ -20,6 +20,69 @@ namespace YanSimSaveEditor
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
+            try
+            {
+                //define the things we need
+                string profile = Utility.getProfile();
+                string student = StudentSelect.Text;
+                int studentint = Utility.ToInteger(student);
+                student studentjson = JSONEdit.GetInfo(studentint);
+                student studenjsonread = JSONEdit.GetInfo(studentint);
+                RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+                string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
+                string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                string kidnapped = Utility.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
+                string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
+                string dying = Utility.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
+                string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+                //lets get ready to rumble!
+                RegEdit.editValue(gamereg, Utility.ToInteger(ReputationTextbox.Text), studentrep);
+                RegEdit.editValue(gamereg, Utility.ConvertBool(DeathCheckbox.Checked), studentdead);
+                RegEdit.editValue(gamereg, Utility.ConvertBool(KidnapChekbox.Checked), kidnapped);
+                RegEdit.editValue(gamereg, Utility.ConvertBool(PhotographedCheckbox.Checked), photo);
+                RegEdit.editValue(gamereg, Utility.ConvertBool(DyingCheckbox.Checked), dying);
+                RegEdit.editValue(gamereg, Utility.ConvertBool(FriendCheckbox.Checked), friend);
+                studentjson.Gender = GenderCombobox.SelectedIndex.ToString();
+                studentjson.Name = NicknameTextbox.Text;
+                studentjson.RealName = RealnameTextbox.Text;
+                int club = ClubCombobox.SelectedIndex;
+                if (club > 14)
+                {
+                    int clubvalue = club - 84;
+                    studentjson.Club = clubvalue.ToString();
+                }
+                else
+                {
+                    studentjson.Club = club.ToString();
+                }
+                studentjson.Strength = StrengthCombobox.SelectedIndex.ToString();
+                studentjson.Crush = CrushTextbox.Text;
+                studentjson.BreastSize = BustTextbox.Text;
+                studentjson.Info = DescTextbox.Text;
+                studentjson.Accessory = AccessoryCombobox.SelectedIndex.ToString();
+                studentjson.Hairstyle = HairCombobox.SelectedIndex.ToString();
+                int persona = PersonaCombobox.SelectedIndex;
+                if (persona == 99)
+                {
+                    studentjson.Persona = 99.ToString();
+                }
+                else
+                {
+                    studentjson.Persona = PersonaCombobox.SelectedIndex.ToString();
+                }
+                studentjson.Class = ClassTextbox.Text;
+                studentjson.Seat = SeatTextbox.Text;
+
+                //actually write the data
+                JSONEdit.WriteInfo(studentjson);
+                //execute when finished write
+                Utility.WriteInfo("All Data Written Successfully", "Done");
+                ApplyButton_Click(null, null);
+            }
+            catch (Exception writeerror)
+            {
+                Utility.WriteError(writeerror.ToString(), "Error");
+            }
 
         }
 
@@ -66,18 +129,27 @@ namespace YanSimSaveEditor
                     string profile = Utility.getProfile();
                     RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                     //changes a label
-                    idLabel.Text = "ID:" + student;
-                    bool allowpfp = false; //enables or disables the ability to show pfps of the student. DEBUG ONLY
-                    string[] twentytwentyx = { "1", "2", "3" };
-                    int array20 = Array.IndexOf(twentytwentyx, profile);
-                    if (array20 > -1 & allowpfp == true)
+                    idTextbox.Text = student;
+                    bool allowpfp;
+                    int studentint = Utility.ToInteger(student);
+                    int profileint = Utility.ToInteger(profile);
+                    if (studentint > 97)
+                    {
+                        allowpfp = false;
+                    }
+                    else
+                    {
+                        allowpfp = true;
+                    }
+                    //checks if it is the last 3 npcs, which dont have a pfp. (ill make a not found later)
+                    if (profileint < 4 & allowpfp == true)
                     {
                         string path = @".\YandereSimulator_Data\StreamingAssets\Portraits\";
                         Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
                         string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
                         Portrait.Image = Image.FromFile(file);
                     }
-                    else if (array20 < -1 & allowpfp == true)
+                    else if (profileint > 4 & allowpfp == true)
                     {
                         string path = @".\YandereSimulator_Data\StreamingAssets\Portraits1989\";
                         Portrait.SizeMode = PictureBoxSizeMode.StretchImage;
@@ -85,6 +157,7 @@ namespace YanSimSaveEditor
                         Portrait.Image = Image.FromFile(file);
                     }
                     string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true); //the _ is needed so my method doesnt shit itself.
+                    //above comment fixed, I added a trim statement.
                     string studentdeadvalue = RegEdit.returnValue(gamereg, studentdead);
                     if (studentdeadvalue == "1")
                     {
@@ -94,9 +167,6 @@ namespace YanSimSaveEditor
                     {
                         DeathCheckbox.Checked = false;
                     }
-                    string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + StudentSelect.SelectedItem + "_", true);
-                    string studentrepvalue = RegEdit.returnValue(gamereg, studentrep);
-                    ReputationTextbox.Text = studentrepvalue;
                     //kidnapped?
                     string kidnapped = Utility.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
                     string kidanppedvalue = RegEdit.returnValue(gamereg, kidnapped);
@@ -138,18 +208,85 @@ namespace YanSimSaveEditor
                     {
                         FriendCheckbox.Checked = false;
                     }
+                    string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
+                    string reputation = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                    ReputationTextbox.Text = RegEdit.returnValue(gamereg, reputation);
+                    student studentjson = JSONEdit.GetInfo(StudentSelect.SelectedIndex + 1);
+                    //damn.
+                    NicknameTextbox.Text = studentjson.Name;
+                    RealnameTextbox.Text = studentjson.RealName;
+                    DescTextbox.Text = studentjson.Info; //refuses to work I guess.
+                    CrushTextbox.Text = studentjson.Crush.ToString(); //I am idiot.
+                    GenderCombobox.SelectedIndex = Utility.ToInteger(studentjson.Gender);
+                    AccessoryCombobox.SelectedIndex = Utility.ToInteger(studentjson.Accessory); //pulls the current accessory
+                    HairCombobox.SelectedIndex = Utility.ToInteger(studentjson.Hairstyle);
+                    ClassTextbox.Text = studentjson.Class.ToString();
+                    SeatTextbox.Text = studentjson.Seat.ToString();
+                    StrengthCombobox.SelectedIndex = Utility.ToInteger(studentjson.Strength); //wow simple
+                    BustTextbox.Text = studentjson.BreastSize.ToString(); //eww. I was debating not allowing
+                    //mods to this, decided to keep my prefrences out of the way. (fuck this setting btw)
+                    //alex cant count from 0 to 100 appernetly. Now I have to do this bs.
+                    //you may be asking, why dont I used the .Text method of these comboboxes?
+                    //in short, it looks better when it shows the names of thigns, not just numbers.
+                    int club = Utility.ToInteger(studentjson.Club);
+                    
+                    if (club > 14) //check if the club is larger then the last known club
+                    {
+                        if(studentint > 96)
+                        {
+                            ClubCombobox.Text = "0";
+                        }
+                        else
+                        {
+                            ClubCombobox.SelectedIndex = club - 84;
+                        }
+                        //perfect offset for the clubs
+                    }
+                    else
+                    {
+                        ClubCombobox.SelectedIndex = club;
+                    } //alex cant count, so I need to play intergalatic pinball to get this shit to work correctly.
+                    int persona = Utility.ToInteger(studentjson.Persona);
+                    if (persona == 99) //checks if the personsa is 99, if it is, set it as so.
+                    {
+                        PersonaCombobox.SelectedIndex = 18;
+                    }
+                    else
+                    {
+                        PersonaCombobox.SelectedIndex = persona;
+                    }
 
+                    SaveButton.Enabled = true;
                 }
             }
             catch (Exception loaderror)
             {
+                //error handling code, just shows and error before failing.
                 Utility.WriteError(loaderror.ToString(), "Error");
             }
         }
 
         private void StudentConfig_Load(object sender, EventArgs e)
         {
-            
+            //changing this value causes insane lag for some reason.....
+            //MaximizeBox = false;
+            //prevents people from essentially causing the app to write null values to a student.
+            SaveButton.Enabled = false;
+        }
+
+        private void ClubCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void StrengthTextbox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
+
+        private void AccessoryCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
         }
     }
 }

@@ -6,6 +6,7 @@ using System.Threading.Tasks;
 using Microsoft.Win32;
 namespace YanSimSaveEditor
 {
+    //this works just fine, do not touch it.
     public class RegEdit
     {
         public static string[] returnValuesList(RegistryKey key)
