@@ -1,10 +1,7 @@
-# WARNING
+# Installation Guide
+The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory
+This is still buggy as crap.
 
-If  some reason you see something like this:https://i.imgur.com/tMyf0bE.png
-You will need to just create the registry yourself. Open the registry editor and open
-Hikey current user, open software, right click on software and click create key, name it `btelnyy` 
-Right click on this new key and create another key called `YanSaveEdit` now run the app again.
-I will patch this soon.
 
 # Yandere Simulator Save Game Editor
 A program to edit Yandere Simulators save files.
@@ -28,16 +25,16 @@ Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3
 * [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.4-beta.3/yansaveeditorv1.4-BETA-3.zip)
 
 # TODO:
-* Convert to C#
+* ~~Convert to C#~~
 * ~~Allow people to change the club they are in.~~
 * Replace most if/elseif/else statements with switch cases.
-* Add a GUI for the entire app.
+* ~~Add a GUI for the entire app.~~
 * Make most of the commands function based instead of logic based.
 * ~~Add configuration via registry~~
 * ~~Add a file icon~~ Thanks Fashion :)
 * Add the ability to delete keys in the tinkerer
 * Add credits.
-* Allow modification of the students.json (With a GUI would be best.)
+* ~~Allow modification of the students.json (With a GUI would be best.)~~
 * Add external control for in game events (as in day ends, restart day, etc)
 * texture swapper (depends on how doable this is)
 
