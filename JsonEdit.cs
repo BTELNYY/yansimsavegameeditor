@@ -10,7 +10,7 @@ namespace YanSimSaveEditor
 {
     public static class JSONEdit
     {
-
+        //do not touch this code Ben, loaf wrote it.
         static string path = Utility.GetJSON(); //this lets us use the 1980s students too.
         public static student GetInfo(int StudentId)
         {
@@ -67,6 +67,7 @@ namespace YanSimSaveEditor
     {
         //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
         //btelnyy here, this code is used more then twice.
+        //DO NOT CHANGE THE ORDER OF THE STATEMENTS. I WILL BREAK YOU BACK
         public string ID { get; set; }
         public string Name { get; set; }
         public string RealName { get; set; }

@@ -8,18 +8,20 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
-
+//using is needed to import things correctly.
 namespace YanSimSaveEditor
 {
     public partial class GameConfig : Form
     {
         public GameConfig()
         {
+            //this starts the form, don't touch.
             InitializeComponent();
         }
 
         private void ExitButton_Click(object sender, EventArgs e)
         {
+            //GameConfig is not a static class, you need to EXPLAIN to the computer that you are calling it
             GameConfig GameConfig = new GameConfig();
             //why wont this shit work.
             GameConfig.Close();

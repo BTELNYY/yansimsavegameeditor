@@ -270,6 +270,7 @@ namespace YanSimSaveEditor
         {
             //changing this value causes insane lag for some reason.....
             //MaximizeBox = false;
+            //prevents people from essentially causing the app to write null values to a student.
             SaveButton.Enabled = false;
         }
 

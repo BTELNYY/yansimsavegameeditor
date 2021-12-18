@@ -15,6 +15,7 @@ namespace YanSimSaveEditor
     {
         public static void CreateLog(string text)
         {
+            //takes a string and writes it to a file in the same folder as the app. not used atm.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             string file = "." + "\\latest.log"; //currently hard set, will be changed later.
             StreamWriter sw = new StreamWriter(file);
@@ -25,22 +26,25 @@ namespace YanSimSaveEditor
 
         public static void WriteError(string msg, string title)
         {
-            //displays old icon, no idea why.
+            //Allows the display of error messages, used for when shit breaks.
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
         }
         public static void WriteWarning(string msg, string title)
         {
+            //warning message.
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Warning);
         }
         public static void WriteInfo(string msg, string title)
         {
+            //info stuff
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Information);
         }
         public static bool FileExists(string path)
         {
+            //returns a bool depending on if a path exists.
             if (!File.Exists(path))
             {
                 return false;
@@ -116,13 +120,14 @@ namespace YanSimSaveEditor
             }
             catch (Exception e)
             {
-                //make log later.
+                WriteError(e.ToString(), "Error");
             }
         }
         public static void setProfile(string profile)
         {
+            //techinically a very bad way to do this, but I can make a "recover on crash" system later.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            int result = Int32.Parse(profile);
+            int result = int.Parse(profile);
             RegEdit.createValue(config, result, "profile");
         }
         public static string getProfile()
@@ -138,7 +143,7 @@ namespace YanSimSaveEditor
                 int result = int.Parse(input);
                 return result;
             }
-            catch (Exception e)
+            catch
             {
                 return 0;
             }
@@ -161,6 +166,7 @@ namespace YanSimSaveEditor
             int profile = ToInteger(profilestring);
             if (profile > 3)
             {
+                // @ is needed so you dont have to replace the \ with \\
                 string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Eighties.json";
                 return path;
             }
@@ -172,7 +178,7 @@ namespace YanSimSaveEditor
         }
         public static int ConvertBool(bool input)
         {
-            //lame ass function not needed, useful for one liners.
+            //converts a boolean into a registry friendly integer, used for checkboes
             if (input)
             {
                 return 1;
