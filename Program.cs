@@ -26,12 +26,12 @@ namespace YanSimSaveEditor
             {
                 config.DeleteValue("profile");
             }
-            catch(Exception e)
+            catch
             {
-                //do nothing since its ok if this breaks.
+                //do nothing
             }
             bool exists = Utility.FileExists("YandereSimulator.exe");
-            bool checkFiles = false; //change this to true once we are done rigging UI
+            bool checkFiles = true; //change this to true once we are done rigging UI
             //JSONEdit.GetInfo(1);
             //enable later.
             if (!exists & checkFiles==true)
