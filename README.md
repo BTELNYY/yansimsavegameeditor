@@ -2,6 +2,15 @@
 The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory.
 The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
 
+# Bugs and issues
+I am well aware that bugs may exist within my code please:
+* Report it on this github by making a new issue
+
+If reporting on GitHub is not possible:
+* Report it on discord
+* Report it on Reddit
+* email me (in profile)
+
 # Yandere Simulator Save Game Editor
 A program to edit Yandere Simulators save files.
 You can edit the code, you can also submit your own edits to this page. I will review them and add them if needed.
@@ -17,8 +26,11 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3)
 
 # Releases
-* [Download the latest release](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
-* [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.4-beta.3/yansaveeditorv1.4-BETA-3.zip)
+* [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
+* No release exists at this time.
+
+Outdated Downloads:
+* [Last supported PowerShell build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
 # TODO:
 * Add credits.
