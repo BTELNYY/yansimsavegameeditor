@@ -26,11 +26,11 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3)
 
 # Releases
-* [Download the latest beta](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
-* No release exists at this time.
+* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5/YanSimSaveEditor.v1.5.zip)
+* [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
 
 Outdated Downloads:
-* [Last supported PowerShell build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
+* [Last PowerShell build (Not Supported)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
 # TODO:
 * Add credits.
