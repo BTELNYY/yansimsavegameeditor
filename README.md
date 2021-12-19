@@ -2,6 +2,15 @@
 The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory.
 The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
 
+# Bugs and issues
+I am well aware that bugs may exist within my code please:
+* Report it on this github by making a new issue
+
+If reporting on GitHub is not possible:
+* Report it on discord
+* Report it on Reddit
+* email me (in profile)
+
 # Yandere Simulator Save Game Editor
 A program to edit Yandere Simulators save files.
 You can edit the code, you can also submit your own edits to this page. I will review them and add them if needed.
