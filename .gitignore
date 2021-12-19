@@ -7,4 +7,5 @@ bin/
 obj/
 /.vs/
 *.pdb
+*.user
 *.CopyComplete
