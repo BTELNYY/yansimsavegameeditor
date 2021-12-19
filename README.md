@@ -2,6 +2,13 @@
 The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory.
 The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
 
+# Releases
+* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5/YanSimSaveEditor.v1.5.zip)
+* [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
+
+Outdated Downloads:
+* [Last PowerShell build (Not Supported)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
+
 # Bugs and issues
 I am well aware that bugs may exist within my code please:
 * Report it on this github by making a new issue
@@ -24,13 +31,6 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 * Jack No Last Name Given#3435
 
 Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3)
-
-# Releases
-* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5/YanSimSaveEditor.v1.5.zip)
-* [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
-
-Outdated Downloads:
-* [Last PowerShell build (Not Supported)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
 # TODO:
 * Add credits.
