@@ -45,6 +45,7 @@ namespace YanSimSaveEditor
                 studentjson.Gender = GenderCombobox.SelectedIndex.ToString();
                 studentjson.Name = NicknameTextbox.Text;
                 studentjson.RealName = RealnameTextbox.Text;
+                //something with negative 67 causes an error somewhere here, however I am unable to locate it.
                 int club = ClubCombobox.SelectedIndex;
                 if (club > 14)
                 {
@@ -135,10 +136,14 @@ namespace YanSimSaveEditor
                     int profileint = Utility.ToInteger(profile);
                     if (studentint > 97)
                     {
+                        Portrait.Visible = false;
+                        noImageLabel.Text = "No Image Available.";
                         allowpfp = false;
                     }
                     else
                     {
+                        Portrait.Visible = true;
+                        noImageLabel.Text = "";
                         allowpfp = true;
                     }
                     //checks if it is the last 3 npcs, which dont have a pfp. (ill make a not found later)
@@ -222,27 +227,27 @@ namespace YanSimSaveEditor
                     HairCombobox.SelectedIndex = Utility.ToInteger(studentjson.Hairstyle);
                     ClassTextbox.Text = studentjson.Class.ToString();
                     SeatTextbox.Text = studentjson.Seat.ToString();
-                    StrengthCombobox.SelectedIndex = Utility.ToInteger(studentjson.Strength); //wow simple
+                    int strength = Utility.ToInteger(studentjson.Strength);
+                    if(strength > 9)
+                    {
+                        StrengthCombobox.SelectedIndex = strength - 89;
+                    }
+                    else
+                    {
+                        StrengthCombobox.SelectedIndex = Utility.ToInteger(studentjson.Strength);
+                    }
                     BustTextbox.Text = studentjson.BreastSize.ToString(); //eww. I was debating not allowing
                     //mods to this, decided to keep my prefrences out of the way. (fuck this setting btw)
                     //alex cant count from 0 to 100 appernetly. Now I have to do this bs.
                     //you may be asking, why dont I used the .Text method of these comboboxes?
                     //in short, it looks better when it shows the names of thigns, not just numbers.
                     int club = Utility.ToInteger(studentjson.Club);
-                    
                     if (club > 14) //check if the club is larger then the last known club
                     {
-                        if(studentint > 96)
-                        {
-                            ClubCombobox.Text = "0";
-                        }
-                        else
-                        {
-                            ClubCombobox.SelectedIndex = club - 84;
-                        }
+                        int clubvalue = club - 84;
+                        ClubCombobox.SelectedIndex = clubvalue;
                         //perfect offset for the clubs
-                    }
-                    else
+                    } else
                     {
                         ClubCombobox.SelectedIndex = club;
                     } //alex cant count, so I need to play intergalatic pinball to get this shit to work correctly.
@@ -255,7 +260,6 @@ namespace YanSimSaveEditor
                     {
                         PersonaCombobox.SelectedIndex = persona;
                     }
-
                     SaveButton.Enabled = true;
                 }
             }
@@ -263,6 +267,7 @@ namespace YanSimSaveEditor
             {
                 //error handling code, just shows and error before failing.
                 Utility.WriteError(loaderror.ToString(), "Error");
+                return;
             }
         }
 

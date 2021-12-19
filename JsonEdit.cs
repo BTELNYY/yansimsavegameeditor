@@ -11,13 +11,13 @@ namespace YanSimSaveEditor
     public static class JSONEdit
     {
         //do not touch this code Ben, loaf wrote it.
-        static string path = Utility.GetJSON(); //this lets us use the 1980s students too.
+        //public static string path = Utility.GetJSON(); //this lets us use the 1980s students too.
         public static student GetInfo(int StudentId)
         {
             try
             {
                 //gets the line with the correct student.
-                string line = File.ReadLines(path).ElementAt(StudentId);
+                string line = File.ReadLines(Utility.GetJSON()).ElementAt(StudentId);
                 if (line.EndsWith(@","))
                 {
                     //removes the comma at the end if it exists
@@ -48,9 +48,9 @@ namespace YanSimSaveEditor
                     Json = Json + ",";
                 }
                 //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
-                string[] arrLine = File.ReadAllLines(path);
+                string[] arrLine = File.ReadAllLines(Utility.GetJSON());
                 arrLine[Utility.ToInteger(tempstudent.ID)] = Json;
-                File.WriteAllLines(path, arrLine);
+                File.WriteAllLines(Utility.GetJSON(), arrLine);
                 return "success";
 
             }

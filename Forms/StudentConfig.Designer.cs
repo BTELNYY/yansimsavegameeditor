@@ -77,6 +77,7 @@
             this.ApplyButton = new System.Windows.Forms.Button();
             this.AccessoryCombobox = new System.Windows.Forms.ComboBox();
             this.idTextbox = new System.Windows.Forms.TextBox();
+            this.noImageLabel = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -356,7 +357,8 @@
             "6",
             "7",
             "8",
-            "9"});
+            "9",
+            "99"});
             this.StrengthCombobox.Location = new System.Drawing.Point(298, 234);
             this.StrengthCombobox.Name = "StrengthCombobox";
             this.StrengthCombobox.Size = new System.Drawing.Size(121, 21);
@@ -861,17 +863,27 @@
             // 
             // idTextbox
             // 
+            this.idTextbox.Cursor = System.Windows.Forms.Cursors.No;
             this.idTextbox.Location = new System.Drawing.Point(53, 230);
             this.idTextbox.Name = "idTextbox";
             this.idTextbox.ReadOnly = true;
             this.idTextbox.Size = new System.Drawing.Size(79, 20);
             this.idTextbox.TabIndex = 49;
             // 
+            // noImageLabel
+            // 
+            this.noImageLabel.AutoSize = true;
+            this.noImageLabel.Location = new System.Drawing.Point(9, 9);
+            this.noImageLabel.Name = "noImageLabel";
+            this.noImageLabel.Size = new System.Drawing.Size(0, 13);
+            this.noImageLabel.TabIndex = 50;
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 438);
+            this.Controls.Add(this.noImageLabel);
             this.Controls.Add(this.idTextbox);
             this.Controls.Add(this.AccessoryCombobox);
             this.Controls.Add(this.ApplyButton);
@@ -980,5 +992,6 @@
         private System.Windows.Forms.Button ApplyButton;
         private System.Windows.Forms.ComboBox AccessoryCombobox;
         private System.Windows.Forms.TextBox idTextbox;
+        private System.Windows.Forms.Label noImageLabel;
     }
 }
