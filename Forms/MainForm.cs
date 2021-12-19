@@ -26,6 +26,7 @@ namespace YanSimSaveEditor
 
         private void MainForm_Load(object sender, EventArgs e)
         {
+            versionLabel.Text = Program.version;
             //causes lag, gotta fix
             //MaximizeBox = false;
             button1.Enabled = true; //enables the button if it was disabled.

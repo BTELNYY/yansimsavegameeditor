@@ -43,6 +43,7 @@
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.versionLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cancel
@@ -76,7 +77,7 @@
             // githublink
             // 
             this.githublink.AutoSize = true;
-            this.githublink.Location = new System.Drawing.Point(9, 349);
+            this.githublink.Location = new System.Drawing.Point(50, 349);
             this.githublink.Name = "githublink";
             this.githublink.Size = new System.Drawing.Size(40, 13);
             this.githublink.TabIndex = 4;
@@ -174,7 +175,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(55, 349);
+            this.linkLabel1.Location = new System.Drawing.Point(96, 349);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(43, 13);
             this.linkLabel1.TabIndex = 14;
@@ -182,11 +183,20 @@
             this.linkLabel1.Text = "Discord";
             this.linkLabel1.Click += new System.EventHandler(this.linkLabel1_Click);
             // 
+            // versionLabel
+            // 
+            this.versionLabel.AutoSize = true;
+            this.versionLabel.Location = new System.Drawing.Point(9, 349);
+            this.versionLabel.Name = "versionLabel";
+            this.versionLabel.Size = new System.Drawing.Size(0, 13);
+            this.versionLabel.TabIndex = 15;
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 367);
+            this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.button1);
@@ -227,6 +237,7 @@
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Label versionLabel;
     }
 }
 
