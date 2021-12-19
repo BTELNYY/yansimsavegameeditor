@@ -68,6 +68,7 @@ namespace YanSimSaveEditor
             }
             else //had to make it else otherwise the form would still show.
             {
+                Update.checkUpdate();
                 Application.Run(new MainForm());
             }
             //Dont put anything Bellow this statment or it will never run.

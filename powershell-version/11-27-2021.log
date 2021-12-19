@@ -1,8 +1,0 @@
-[20:43:47]: Importing value regPath from HKCU:\SOFTWARE\btelnyy\YanSaveEdit with value HKCU:\SOFTWARE\YandereDev\YandereSimulator\
-[20:43:47]: Importing value printLog from HKCU:\SOFTWARE\btelnyy\YanSaveEdit with value false
-[20:43:47]: Importing value eolWarn from HKCU:\SOFTWARE\btelnyy\YanSaveEdit with value true
-[20:43:47]: ignored creation of appdata directory as it already exists.
-[20:43:47]: The current profile is 1
-[20:43:47]: The current registry path is HKCU:\SOFTWARE\YandereDev\YandereSimulator\
-[20:43:47]: The current appdata directory is C:\Users\bohdan\AppData\Roaming\BTELNYY
-[20:43:47]: debug key for current profile is Profile_1_Debug_h1784072846

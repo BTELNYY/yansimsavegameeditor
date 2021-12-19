@@ -71,6 +71,7 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Update.cs" />
     <Compile Include="Forms\GameConfig.cs">
       <SubType>Form</SubType>
     </Compile>

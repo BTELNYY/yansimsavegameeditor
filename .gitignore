@@ -5,6 +5,6 @@
 *.exe
 bin/
 obj/
-.vs/
+/.vs/
 *.pdb
 *.CopyComplete
