@@ -19,9 +19,11 @@ namespace YanSimSaveEditor
                 string web = client.DownloadString(url);
                 string[] website = web.Split(' '); //splits the resulting string into a array based on spaces.
                 string version = (string)website.GetValue(0);
-                double remotever = Utility.ToDouble(version);
-                double currentver = Utility.ToDouble(Program.version);
-                if (remotever > currentver)
+                int remotever = Utility.ToInteger(version.Replace(".", string.Empty));
+                string localver = Program.version;
+                int currentver = Utility.ToInteger(localver.Replace(".", string.Empty));
+                //WHAT THE FUCK IS GOING ON HERE??!?!?!?!?!?!?!?
+                if (remotever < currentver)
                 {
                     //outdated client, handle question for user
                     DialogResult result;
@@ -38,11 +40,11 @@ namespace YanSimSaveEditor
                         return 1;
                     }
                 }
-                else if (remotever < currentver)
+                else if (remotever > currentver)
                 {
                     //The current version is somehow newer then the remote version, print a warning.
                     Utility.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
-                    return 2;
+                    return 3;
                 }
                 else
                 {
