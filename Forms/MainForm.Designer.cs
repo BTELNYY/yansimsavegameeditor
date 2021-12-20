@@ -47,6 +47,7 @@
             this.label5 = new System.Windows.Forms.Label();
             this.label6 = new System.Windows.Forms.Label();
             this.updateStatusLabel = new System.Windows.Forms.Label();
+            this.linkLabel2 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // cancel
@@ -221,11 +222,23 @@
             this.updateStatusLabel.Size = new System.Drawing.Size(0, 13);
             this.updateStatusLabel.TabIndex = 18;
             // 
+            // linkLabel2
+            // 
+            this.linkLabel2.AutoSize = true;
+            this.linkLabel2.Location = new System.Drawing.Point(108, 459);
+            this.linkLabel2.Name = "linkLabel2";
+            this.linkLabel2.Size = new System.Drawing.Size(39, 13);
+            this.linkLabel2.TabIndex = 19;
+            this.linkLabel2.TabStop = true;
+            this.linkLabel2.Text = "Credits";
+            this.linkLabel2.Click += new System.EventHandler(this.linkLabel2_Click);
+            // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(305, 476);
+            this.Controls.Add(this.linkLabel2);
             this.Controls.Add(this.updateStatusLabel);
             this.Controls.Add(this.label6);
             this.Controls.Add(this.label5);
@@ -274,6 +287,7 @@
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.Label label6;
         private System.Windows.Forms.Label updateStatusLabel;
+        private System.Windows.Forms.LinkLabel linkLabel2;
     }
 }
 

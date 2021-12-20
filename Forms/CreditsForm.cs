@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 
-namespace YanSimSaveEditor.Forms
+namespace YanSimSaveEditor
 {
     public partial class CreditsForm : Form
     {
@@ -20,10 +20,7 @@ namespace YanSimSaveEditor.Forms
 
         private void CreditsForm_Load(object sender, EventArgs e)
         {
-            string url = "https://btelnyy.github.io/yansimsavegameeditor/Website/credits.html";
-            WebClient client = new WebClient();
-            string credits = client.DownloadString(url);
-            creditsTextBox.Text = credits;
+            //oops
         }
     }
 }

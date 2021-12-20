@@ -172,5 +172,11 @@ namespace YanSimSaveEditor
         {
 
         }
+
+        private void linkLabel2_Click(object sender, EventArgs e)
+        {
+            CreditsForm creditsForm = new CreditsForm();
+            creditsForm.ShowDialog();
+        }
     }
 }
