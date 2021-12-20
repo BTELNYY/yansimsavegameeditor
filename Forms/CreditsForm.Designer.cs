@@ -61,6 +61,7 @@
             this.ClientSize = new System.Drawing.Size(496, 339);
             this.Controls.Add(this.creditsWebBrowser);
             this.Controls.Add(this.closeButton);
+            this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "CreditsForm";
             this.Text = "Credits";
