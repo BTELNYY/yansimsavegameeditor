@@ -44,11 +44,14 @@
             this.button2 = new System.Windows.Forms.Button();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.versionLabel = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.updateStatusLabel = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // cancel
             // 
-            this.cancel.Location = new System.Drawing.Point(230, 344);
+            this.cancel.Location = new System.Drawing.Point(230, 454);
             this.cancel.Name = "cancel";
             this.cancel.Size = new System.Drawing.Size(75, 23);
             this.cancel.TabIndex = 0;
@@ -77,7 +80,7 @@
             // githublink
             // 
             this.githublink.AutoSize = true;
-            this.githublink.Location = new System.Drawing.Point(50, 349);
+            this.githublink.Location = new System.Drawing.Point(12, 459);
             this.githublink.Name = "githublink";
             this.githublink.Size = new System.Drawing.Size(40, 13);
             this.githublink.TabIndex = 4;
@@ -175,7 +178,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(96, 349);
+            this.linkLabel1.Location = new System.Drawing.Point(58, 459);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(43, 13);
             this.linkLabel1.TabIndex = 14;
@@ -186,16 +189,46 @@
             // versionLabel
             // 
             this.versionLabel.AutoSize = true;
-            this.versionLabel.Location = new System.Drawing.Point(9, 349);
+            this.versionLabel.Location = new System.Drawing.Point(100, 329);
             this.versionLabel.Name = "versionLabel";
             this.versionLabel.Size = new System.Drawing.Size(0, 13);
             this.versionLabel.TabIndex = 15;
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 329);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(82, 13);
+            this.label5.TabIndex = 16;
+            this.label5.Text = "Current Version:";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 351);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(78, 13);
+            this.label6.TabIndex = 17;
+            this.label6.Text = "Update Status:";
+            this.label6.Click += new System.EventHandler(this.label6_Click);
+            // 
+            // updateStatusLabel
+            // 
+            this.updateStatusLabel.AutoSize = true;
+            this.updateStatusLabel.Location = new System.Drawing.Point(100, 351);
+            this.updateStatusLabel.Name = "updateStatusLabel";
+            this.updateStatusLabel.Size = new System.Drawing.Size(0, 13);
+            this.updateStatusLabel.TabIndex = 18;
             // 
             // MainForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(305, 367);
+            this.ClientSize = new System.Drawing.Size(305, 476);
+            this.Controls.Add(this.updateStatusLabel);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
             this.Controls.Add(this.versionLabel);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.button2);
@@ -238,6 +271,9 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label versionLabel;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Label updateStatusLabel;
     }
 }
 

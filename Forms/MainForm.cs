@@ -55,6 +55,21 @@ namespace YanSimSaveEditor
                 {
                     continue;
                 }
+                int update = Upgrade.checkUpdate();
+                if (update == 2)
+                {
+                    updateStatusLabel.Text = "Error Occured.";
+                    updateStatusLabel.ForeColor = Color.Red;
+                }
+                else if(update == 0)
+                {
+                    updateStatusLabel.Text = "Up to date.";
+                    updateStatusLabel.ForeColor = Color.Green;
+                }else if(update == 1)
+                {
+                    updateStatusLabel.Text = "Outdated Version.";
+                    updateStatusLabel.ForeColor = Color.Yellow;
+                }
             }
         }
 
@@ -153,5 +168,9 @@ namespace YanSimSaveEditor
             System.Diagnostics.Process.Start("https://github.com/btelnyy/yansimsavegameeditor");
         }
 
+        private void label6_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }
