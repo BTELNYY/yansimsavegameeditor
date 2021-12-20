@@ -14,7 +14,7 @@ namespace YanSimSaveEditor
         {
             try
             {
-                string url = "https://btelnyy.github.io/yansimsavegameeditor/docs/version.html";
+                string url = "https://btelnyy.github.io/yansimsavegameeditor/Website/version.html";
                 WebClient client = new WebClient();
                 string web = client.DownloadString(url);
                 string[] website = web.Split(' '); //splits the resulting string into a array based on spaces.
