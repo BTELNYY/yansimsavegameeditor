@@ -3,7 +3,7 @@ The files extracted from the ZIP folder must go into the same folder as the game
 The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
 
 # Releases
-* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5/YanSimSaveEditor.v1.5.zip)
+* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.1/YanSimSaveEditor.v1.6.1.zip)
 * [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
 
 Outdated Downloads:
