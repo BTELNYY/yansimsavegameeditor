@@ -71,11 +71,11 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\CreditsForm.cs">
+    <Compile Include="Forms\creditsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\CreditsForm.Designer.cs">
-      <DependentUpon>CreditsForm.cs</DependentUpon>
+    <Compile Include="Forms\creditsForm.Designer.cs">
+      <DependentUpon>creditsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Forms\randomizerForm.cs">
       <SubType>Form</SubType>
@@ -89,38 +89,38 @@
     <Compile Include="Forms\watiForForm.Designer.cs">
       <DependentUpon>watiForForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Update.cs" />
-    <Compile Include="Forms\GameConfig.cs">
+    <Compile Include="updateScript.cs" />
+    <Compile Include="Forms\gameConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\GameConfig.Designer.cs">
-      <DependentUpon>GameConfig.cs</DependentUpon>
+    <Compile Include="Forms\gameConfig.Designer.cs">
+      <DependentUpon>gameConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\MainForm.cs">
+    <Compile Include="Forms\mainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\MainForm.Designer.cs">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <Compile Include="Forms\mainForm.Designer.cs">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\SelectGameDir.cs">
+    <Compile Include="Forms\selectGameDir.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\SelectGameDir.Designer.cs">
-      <DependentUpon>SelectGameDir.cs</DependentUpon>
+    <Compile Include="Forms\selectGameDir.Designer.cs">
+      <DependentUpon>selectGameDir.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\StudentConfig.cs">
+    <Compile Include="Forms\ssudentConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\StudentConfig.Designer.cs">
-      <DependentUpon>StudentConfig.cs</DependentUpon>
+    <Compile Include="Forms\ssudentConfig.Designer.cs">
+      <DependentUpon>ssudentConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="JsonEdit.cs" />
-    <Compile Include="RegEdit.cs" />
-    <Compile Include="Utility.cs" />
+    <Compile Include="jsonEdit.cs" />
+    <Compile Include="regEdit.cs" />
+    <Compile Include="utilityScript.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\CreditsForm.resx">
-      <DependentUpon>CreditsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\creditsForm.resx">
+      <DependentUpon>creditsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\randomizerForm.resx">
       <DependentUpon>randomizerForm.cs</DependentUpon>
@@ -128,17 +128,17 @@
     <EmbeddedResource Include="Forms\watiForForm.resx">
       <DependentUpon>watiForForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\GameConfig.resx">
-      <DependentUpon>GameConfig.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\gameConfig.resx">
+      <DependentUpon>gameConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\MainForm.resx">
-      <DependentUpon>MainForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\mainForm.resx">
+      <DependentUpon>mainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\SelectGameDir.resx">
-      <DependentUpon>SelectGameDir.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\selectGameDir.resx">
+      <DependentUpon>selectGameDir.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\StudentConfig.resx">
-      <DependentUpon>StudentConfig.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\ssudentConfig.resx">
+      <DependentUpon>ssudentConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>

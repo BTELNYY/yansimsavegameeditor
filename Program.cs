@@ -11,7 +11,7 @@ namespace YanSimSaveEditor
     internal static class Program
     {
         //DO NOT FORGET TO UPDATE!!!!!!
-        public static string version = "1.5.2";
+        public static string version = "1.6.0";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

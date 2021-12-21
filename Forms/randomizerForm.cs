@@ -35,17 +35,28 @@ namespace YanSimSaveEditor
                 MessageBoxButtons.YesNo, MessageBoxIcon.Warning);
             if (result == DialogResult.Yes)
             {
+                randomizerForm form = new randomizerForm();
+                progressBar.Visible = true;
+                form.Update();
+
                 try
                 {
-                    if (utilityScript.ToInteger(profile) > 3)
+                    try
                     {
-                        File.Copy(utilityScript.GetJSON(), "Eighties1.json", true);
-                    }
-                    else
+                        if (utilityScript.ToInteger(profile) > 3)
+                        {
+                            File.Copy(utilityScript.GetJSON(), "Eighties1.json", false);
+                        }
+                        else
+                        {
+                            File.Copy(utilityScript.GetJSON(), "Students1.json", false);
+                        }
+                    }catch (Exception)
                     {
-                        File.Copy(utilityScript.GetJSON(), "Students1.json", true);
+                        //do nothing
+                        //this prevents the files from being overwritten again, allowing the user to return to originals.
                     }
-                    foreach (int student in students)
+                        foreach (int student in students)
                     {
                         //waitForForm = Utility.openWaitForNotification();
                         //Utility.updateWaitForNotification("Student: " + student.ToString(), "None", waitForForm);
@@ -117,20 +128,23 @@ namespace YanSimSaveEditor
                             studentjson.Strength = strength.GetValue(utilityScript.getRandomInt(0, 10)).ToString();
                         }
                         JSONEdit.WriteInfo(studentjson);
+                        progressBar.Value = student;
                     }
                     //hide, close it and dispose of the form as we no longer need it.
                     utilityScript.closeWaitForNotification(waitForForm);
                     utilityScript.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students1.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students. Note that profile data cannot be reverted.", "Done");
+                    progressBar.Visible = false;
                 }
                 catch (Exception ex)
                 {
+                    progressBar.Visible = false;
                     utilityScript.WriteError(ex.ToString(), "Error");
                 }
             }
             else
             {
                 //the question answer was no, therefore return back to the student config screen and do nothing about it.
-                utilityScript.WriteInfo("Operation Aborted", "Done.");
+                
             }
         }
 

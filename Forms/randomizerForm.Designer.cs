@@ -47,11 +47,12 @@
             this.strengthCheck = new System.Windows.Forms.CheckBox();
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
+            this.progressBar = new System.Windows.Forms.ProgressBar();
             this.SuspendLayout();
             // 
             // randomizeButton
             // 
-            this.randomizeButton.Location = new System.Drawing.Point(215, 150);
+            this.randomizeButton.Location = new System.Drawing.Point(218, 196);
             this.randomizeButton.Name = "randomizeButton";
             this.randomizeButton.Size = new System.Drawing.Size(75, 23);
             this.randomizeButton.TabIndex = 0;
@@ -62,7 +63,7 @@
             // cancelButton
             // 
             this.cancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.cancelButton.Location = new System.Drawing.Point(134, 150);
+            this.cancelButton.Location = new System.Drawing.Point(137, 196);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 1;
@@ -200,7 +201,7 @@
             // linkLabel1
             // 
             this.linkLabel1.AutoSize = true;
-            this.linkLabel1.Location = new System.Drawing.Point(9, 155);
+            this.linkLabel1.Location = new System.Drawing.Point(12, 201);
             this.linkLabel1.Name = "linkLabel1";
             this.linkLabel1.Size = new System.Drawing.Size(104, 13);
             this.linkLabel1.TabIndex = 15;
@@ -217,12 +218,24 @@
             this.label3.TabIndex = 16;
             this.label3.Text = "Careful, may break";
             // 
+            // progressBar
+            // 
+            this.progressBar.ForeColor = System.Drawing.Color.Lime;
+            this.progressBar.Location = new System.Drawing.Point(0, 167);
+            this.progressBar.Name = "progressBar";
+            this.progressBar.Size = new System.Drawing.Size(293, 23);
+            this.progressBar.Step = 1;
+            this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
+            this.progressBar.TabIndex = 17;
+            this.progressBar.Visible = false;
+            // 
             // randomizerForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
-            this.ClientSize = new System.Drawing.Size(289, 173);
+            this.ClientSize = new System.Drawing.Size(289, 217);
+            this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
             this.Controls.Add(this.strengthCheck);
@@ -269,5 +282,6 @@
         private System.Windows.Forms.CheckBox strengthCheck;
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
+        private System.Windows.Forms.ProgressBar progressBar;
     }
 }
