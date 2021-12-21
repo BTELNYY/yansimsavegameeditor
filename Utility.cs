@@ -5,6 +5,7 @@ using Microsoft.Win32;
 using System.Linq;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
+using System.Threading.Tasks;
 namespace YanSimSaveEditor
 {
     public class Main
@@ -230,34 +231,33 @@ namespace YanSimSaveEditor
             double result = ToDouble(combined);
             return result;
         }
-        public static void updateWaitForNotification(string item, string details)
+        public static void updateWaitForNotification(string item, string details, waitForForm waitForForm)
         {
-            waitForForm waitForForm = new waitForForm();
-            if (CheckOpened("waitForForm"))
+            Task t = Task.Run(() =>
             {
                 waitForForm.itemLabel.Text = item;
                 waitForForm.detailsLabel.Text = details;
                 waitForForm.Refresh();
-                waitForForm.ShowDialog();
-            }
-            else
+            });
+            TimeSpan ts = TimeSpan.FromMilliseconds(10);
+            if (!t.Wait(ts))
             {
-                waitForForm.ShowDialog();
+
             }
+                
         }
-        public static void closeWaitForNotification()
+        public static void closeWaitForNotification(waitForForm waitForForm)
         {
-            waitForForm waitForForm = new waitForForm();
             waitForForm.Hide();
             waitForForm.Close();
             waitForForm.Dispose();
         }
-        public static void openWaitForNotification()
+        public static waitForForm openWaitForNotification()
         {
             waitForForm waitForForm = new waitForForm();
             waitForForm.ShowDialog();
-            
             waitForForm.Hide();
+            return waitForForm;
         }
         public static bool CheckOpened(string name)
         {

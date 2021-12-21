@@ -290,7 +290,8 @@ namespace YanSimSaveEditor
                     }
                     foreach (int student in students)
                     {
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "None");
+                        waitForForm = Utility.openWaitForNotification();
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "None", waitForForm);
                         student studentjson = JSONEdit.GetInfo(student);
                         string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
                         string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
@@ -298,42 +299,42 @@ namespace YanSimSaveEditor
                         string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
                         string reputation = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), reputation);
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), reputation, waitForForm);
                         RegEdit.editValue(gamereg, Utility.getRandomInt(-100, 100), reputation);
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), photo);
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), photo, waitForForm);
                         RegEdit.editValue(gamereg, Utility.getRandomInt(0, 3), photo);
                         
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), friend);
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), friend, waitForForm);
                         RegEdit.editValue(gamereg, Utility.getRandomInt(0, 3), friend);
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), panty);
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), panty, waitForForm);
                         RegEdit.editValue(gamereg, Utility.getRandomInt(0, 3), panty);
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "BreastSize");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "BreastSize", waitForForm);
                         studentjson.BreastSize = Utility.getRandomDouble(0, 2, 0, 9).ToString();
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Accessory");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "Accessory", waitForForm);
                         studentjson.Accessory = Utility.getRandomInt(0, 15).ToString();
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Club");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "Club", waitForForm);
                         studentjson.Club = clubs.GetValue(Utility.getRandomInt(0, 19)).ToString();
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Crush");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "Crush", waitForForm);
                         studentjson.Crush = Utility.getRandomInt(0, 101).ToString();
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Hairstyle");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "Hairstyle", waitForForm);
                         studentjson.Hairstyle = Utility.getRandomInt(0, 201).ToString();
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Persona");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "Persona", waitForForm);
                         studentjson.Persona = personas.GetValue(Utility.getRandomInt(1, 18)).ToString();
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Strength");
+                        Utility.updateWaitForNotification("Student: " + student.ToString(), "Strength", waitForForm);
                         studentjson.Strength = strength.GetValue(Utility.getRandomInt(0, 10)).ToString();
                         JSONEdit.WriteInfo(studentjson);
                     }
                     //hide, close it and dispose of the form as we no longer need it.
-                    Utility.closeWaitForNotification();
+                    Utility.closeWaitForNotification(waitForForm);
                     Utility.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students1.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students. Note that profile data cannot be reverted.", "Done");
                 }
                 catch (Exception ex)
