@@ -214,14 +214,16 @@ namespace YanSimSaveEditor
             //gets a random boolian. 
             Random random = new Random();
             int output = random.Next(0, 3);
-            if(output == 0)
+            if (output == 0)
             {
                 return false;
-            }else
+            }
+            else
             {
                 return true;
             }
         }
+        //this shit don't work. why? has I ever?
         public static double getRandomDouble(int min, int max, int min2, int max2)
         {
             Random random = new Random();

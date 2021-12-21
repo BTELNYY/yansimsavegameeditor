@@ -77,6 +77,12 @@
     <Compile Include="Forms\CreditsForm.Designer.cs">
       <DependentUpon>CreditsForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="Forms\randomizerForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\randomizerForm.Designer.cs">
+      <DependentUpon>randomizerForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Forms\watiForForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -115,6 +121,9 @@
     <Compile Include="Properties\AssemblyInfo.cs" />
     <EmbeddedResource Include="Forms\CreditsForm.resx">
       <DependentUpon>CreditsForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\randomizerForm.resx">
+      <DependentUpon>randomizerForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Forms\watiForForm.resx">
       <DependentUpon>watiForForm.cs</DependentUpon>
