@@ -58,13 +58,13 @@ namespace YanSimSaveEditor
             {
                 //do nothing
             }
-            bool exists = Utility.FileExists("YandereSimulator.exe");
+            bool exists = utilityScript.FileExists("YandereSimulator.exe");
             bool checkFiles = true; //change this to true once we are done rigging UI
             //JSONEdit.GetInfo(1);
             //enable later.
             if (!exists & checkFiles==true)
             {
-                Utility.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
+                utilityScript.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
                 Application.Exit();
             }
             else //had to make it else otherwise the form would still show.

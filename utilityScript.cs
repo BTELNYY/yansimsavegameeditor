@@ -12,7 +12,7 @@ namespace YanSimSaveEditor
     {
 
     }
-    public class Utility
+    public class utilityScript
     {
         public static void CreateLog(string text)
         {
@@ -60,7 +60,7 @@ namespace YanSimSaveEditor
             //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             //gets list of values
-            string[] list = RegEdit.returnValuesList(gamereg);
+            string[] list = regEdit.returnValuesList(gamereg);
             foreach (string s in list)
             {
                 //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
@@ -95,9 +95,9 @@ namespace YanSimSaveEditor
                 //registry of the game
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 //gets list of values
-                string[] list = RegEdit.returnValuesList(gamereg);
+                string[] list = regEdit.returnValuesList(gamereg);
                 string pattern = "Profile_" + profile + "_";
-                string profilemarker = Utility.SelectString("ProfileCreated_" + profile + "_", false);
+                string profilemarker = utilityScript.SelectString("ProfileCreated_" + profile + "_", false);
                 foreach (string s in list)
                 {
                     //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
@@ -128,12 +128,12 @@ namespace YanSimSaveEditor
         {
             //techinically a very bad way to do this, but I can make a "recover on crash" system later.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            RegEdit.createValue(config, ToInteger(profile), "profile");
+            regEdit.createValue(config, ToInteger(profile), "profile");
         }
         public static string getProfile()
         {
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            string result = RegEdit.returnValue(config, "profile");
+            string result = regEdit.returnValue(config, "profile");
             return result;
         }
         public static int ToInteger(string input)

@@ -40,25 +40,25 @@ namespace YanSimSaveEditor
             try
             {
                 //define the things we need
-                string profile = Utility.getProfile();
+                string profile = utilityScript.getProfile();
                 string student = StudentSelect.Text;
-                int studentint = Utility.ToInteger(student);
+                int studentint = utilityScript.ToInteger(student);
                 student studentjson = JSONEdit.GetInfo(studentint);
                 student studenjsonread = JSONEdit.GetInfo(studentint);
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
-                string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
-                string kidnapped = Utility.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
-                string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
-                string dying = Utility.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
-                string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+                string studentdead = utilityScript.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
+                string studentrep = utilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                string kidnapped = utilityScript.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
+                string photo = utilityScript.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
+                string dying = utilityScript.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
+                string friend = utilityScript.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
                 //lets get ready to rumble!
-                RegEdit.editValue(gamereg, Utility.ToInteger(ReputationTextbox.Text), studentrep);
-                RegEdit.editValue(gamereg, Utility.ConvertBool(DeathCheckbox.Checked), studentdead);
-                RegEdit.editValue(gamereg, Utility.ConvertBool(KidnapChekbox.Checked), kidnapped);
-                RegEdit.editValue(gamereg, Utility.ConvertBool(PhotographedCheckbox.Checked), photo);
-                RegEdit.editValue(gamereg, Utility.ConvertBool(DyingCheckbox.Checked), dying);
-                RegEdit.editValue(gamereg, Utility.ConvertBool(FriendCheckbox.Checked), friend);
+                regEdit.editValue(gamereg, utilityScript.ToInteger(ReputationTextbox.Text), studentrep);
+                regEdit.editValue(gamereg, utilityScript.ConvertBool(DeathCheckbox.Checked), studentdead);
+                regEdit.editValue(gamereg, utilityScript.ConvertBool(KidnapChekbox.Checked), kidnapped);
+                regEdit.editValue(gamereg, utilityScript.ConvertBool(PhotographedCheckbox.Checked), photo);
+                regEdit.editValue(gamereg, utilityScript.ConvertBool(DyingCheckbox.Checked), dying);
+                regEdit.editValue(gamereg, utilityScript.ConvertBool(FriendCheckbox.Checked), friend);
                 studentjson.Gender = GenderCombobox.SelectedIndex.ToString();
                 studentjson.Name = NicknameTextbox.Text;
                 studentjson.RealName = RealnameTextbox.Text;
@@ -94,12 +94,12 @@ namespace YanSimSaveEditor
                 //actually write the data
                 JSONEdit.WriteInfo(studentjson);
                 //execute when finished write
-                Utility.WriteInfo("All Data Written Successfully", "Done");
+                utilityScript.WriteInfo("All Data Written Successfully", "Done");
                 ApplyButton_Click(null, null);
             }
             catch (Exception writeerror)
             {
-                Utility.WriteError(writeerror.ToString(), "Error");
+                utilityScript.WriteError(writeerror.ToString(), "Error");
             }
 
         }
@@ -127,7 +127,7 @@ namespace YanSimSaveEditor
             {
                 if (StudentSelect.SelectedIndex < 0)
                 {
-                    Utility.WriteError("You must select a NPC ID!", "Error");
+                    utilityScript.WriteError("You must select a NPC ID!", "Error");
                 }
                 else
                 {
@@ -144,13 +144,13 @@ namespace YanSimSaveEditor
                     {
                         RivalCheckBox.Checked = false;
                     };
-                    string profile = Utility.getProfile();
+                    string profile = utilityScript.getProfile();
                     RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                     //changes a label
                     idTextbox.Text = student;
                     bool allowpfp;
-                    int studentint = Utility.ToInteger(student);
-                    int profileint = Utility.ToInteger(profile);
+                    int studentint = utilityScript.ToInteger(student);
+                    int profileint = utilityScript.ToInteger(profile);
                     if (studentint > 97)
                     {
                         Portrait.Visible = false;
@@ -178,54 +178,54 @@ namespace YanSimSaveEditor
                         string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
                         Portrait.Image = Image.FromFile(file);
                     }
-                    string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true); //the _ is needed so my method doesnt shit itself.
+                    string studentdead = utilityScript.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true); //the _ is needed so my method doesnt shit itself.
                     //above comment fixed, I added a trim statement.
-                    string studentdeadvalue = RegEdit.returnValue(gamereg, studentdead);
+                    string studentdeadvalue = regEdit.returnValue(gamereg, studentdead);
                     //ok so, what the fuck is this code?
-                    DeathCheckbox.Checked = Utility.ToBool(Utility.ToInteger(studentdeadvalue)); 
+                    DeathCheckbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(studentdeadvalue)); 
                     //kidnapped?
-                    string kidnapped = Utility.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
-                    string kidanppedvalue = RegEdit.returnValue(gamereg, kidnapped);
-                    KidnapChekbox.Checked = Utility.ToBool(Utility.ToInteger(kidanppedvalue));
-                    string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
-                    string photovalue = RegEdit.returnValue(gamereg, photo);
-                    PhotographedCheckbox.Checked = Utility.ToBool(Utility.ToInteger(photovalue));
-                    string dying = Utility.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
-                    string dyingvalue = RegEdit.returnValue(gamereg, dying);
-                    DeathCheckbox.Checked = Utility.ToBool(Utility.ToInteger(dyingvalue));
-                    string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
-                    string friendvalue = RegEdit.returnValue(gamereg, friend);
-                    FriendCheckbox.Checked = Utility.ToBool(Utility.ToInteger(friendvalue));
-                    string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
-                    PantyshotCheckbox.Checked = Utility.ToBool(Utility.ToInteger(RegEdit.returnValue(gamereg, panty))); //jesus
-                    string reputation = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
-                    ReputationTextbox.Text = RegEdit.returnValue(gamereg, reputation);
+                    string kidnapped = utilityScript.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
+                    string kidanppedvalue = regEdit.returnValue(gamereg, kidnapped);
+                    KidnapChekbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(kidanppedvalue));
+                    string photo = utilityScript.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
+                    string photovalue = regEdit.returnValue(gamereg, photo);
+                    PhotographedCheckbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(photovalue));
+                    string dying = utilityScript.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
+                    string dyingvalue = regEdit.returnValue(gamereg, dying);
+                    DeathCheckbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(dyingvalue));
+                    string friend = utilityScript.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+                    string friendvalue = regEdit.returnValue(gamereg, friend);
+                    FriendCheckbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(friendvalue));
+                    string panty = utilityScript.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
+                    PantyshotCheckbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(regEdit.returnValue(gamereg, panty))); //jesus
+                    string reputation = utilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                    ReputationTextbox.Text = regEdit.returnValue(gamereg, reputation);
                     student studentjson = JSONEdit.GetInfo(StudentSelect.SelectedIndex + 1);
                     //damn.
                     NicknameTextbox.Text = studentjson.Name;
                     RealnameTextbox.Text = studentjson.RealName;
                     DescTextbox.Text = studentjson.Info; //refuses to work I guess.
                     CrushTextbox.Text = studentjson.Crush.ToString(); //I am idiot.
-                    GenderCombobox.SelectedIndex = Utility.ToInteger(studentjson.Gender);
-                    AccessoryCombobox.SelectedIndex = Utility.ToInteger(studentjson.Accessory); //pulls the current accessory
-                    HairCombobox.SelectedIndex = Utility.ToInteger(studentjson.Hairstyle);
+                    GenderCombobox.SelectedIndex = utilityScript.ToInteger(studentjson.Gender);
+                    AccessoryCombobox.SelectedIndex = utilityScript.ToInteger(studentjson.Accessory); //pulls the current accessory
+                    HairCombobox.SelectedIndex = utilityScript.ToInteger(studentjson.Hairstyle);
                     ClassTextbox.Text = studentjson.Class.ToString();
                     SeatTextbox.Text = studentjson.Seat.ToString();
-                    int strength = Utility.ToInteger(studentjson.Strength);
+                    int strength = utilityScript.ToInteger(studentjson.Strength);
                     if(strength > 9)
                     {
                         StrengthCombobox.SelectedIndex = strength - 89;
                     }
                     else
                     {
-                        StrengthCombobox.SelectedIndex = Utility.ToInteger(studentjson.Strength);
+                        StrengthCombobox.SelectedIndex = utilityScript.ToInteger(studentjson.Strength);
                     }
                     BustTextbox.Text = studentjson.BreastSize.ToString(); //eww. I was debating not allowing
                     //mods to this, decided to keep my prefrences out of the way. (fuck this setting btw)
                     //alex cant count from 0 to 100 appernetly. Now I have to do this bs.
                     //you may be asking, why dont I used the .Text method of these comboboxes?
                     //in short, it looks better when it shows the names of thigns, not just numbers.
-                    int club = Utility.ToInteger(studentjson.Club);
+                    int club = utilityScript.ToInteger(studentjson.Club);
                     if (club > 15) //check if the club is larger then the last known club
                     {
                         int clubvalue = club - 84;
@@ -235,7 +235,7 @@ namespace YanSimSaveEditor
                     {
                         ClubCombobox.SelectedIndex = club;
                     } //alex cant count, so I need to play intergalatic pinball to get this shit to work correctly.
-                    int persona = Utility.ToInteger(studentjson.Persona);
+                    int persona = utilityScript.ToInteger(studentjson.Persona);
                     if (persona == 99) //checks if the personsa is 99, if it is, set it as so.
                     {
                         PersonaCombobox.SelectedIndex = 18;
@@ -250,7 +250,7 @@ namespace YanSimSaveEditor
             catch (Exception loaderror)
             {
                 //error handling code, just shows and error before failing.
-                Utility.WriteError(loaderror.ToString(), "Error");
+                utilityScript.WriteError(loaderror.ToString(), "Error");
                 SaveButton.Enabled = true;
                 warncorruoption = true;
 

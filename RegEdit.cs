@@ -7,7 +7,7 @@ using Microsoft.Win32;
 namespace YanSimSaveEditor
 {
     //this works just fine, do not touch it.
-    public class RegEdit
+    public class regEdit
     {
         public static string[] returnValuesList(RegistryKey key)
         {

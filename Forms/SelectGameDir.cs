@@ -54,18 +54,18 @@ namespace YanSimSaveEditor
             {
                 string jsonpath = textBox1.Text + "YandereSimulator_Data\\StreamingAssets\\JSON\\";
                 string jsonpath2020 = textBox1.Text + "YandereSimulator_Data\\StreamingAssets\\JSON\\Students.json";
-                bool exists = Utility.FileExists(jsonpath2020);
+                bool exists = utilityScript.FileExists(jsonpath2020);
                 if (!exists)
                 {
-                    Utility.WriteError("Students.json was not found in " + jsonpath + ",make sure it exists.", "Error");
+                    utilityScript.WriteError("Students.json was not found in " + jsonpath + ",make sure it exists.", "Error");
                     Application.Exit();
 
                 }
                 string jsonpath1980 = textBox1.Text + "YandereSimulator_Data\\StreamingAssets\\JSON\\Eighties.json";
-                bool exists80 = Utility.FileExists(jsonpath1980);
+                bool exists80 = utilityScript.FileExists(jsonpath1980);
                 if (!exists)
                 {
-                    Utility.WriteError("Eighties.json was not found in " + jsonpath + ",make sure it exists.", "Error");
+                    utilityScript.WriteError("Eighties.json was not found in " + jsonpath + ",make sure it exists.", "Error");
                     Application.Exit();
 
                 }
@@ -73,13 +73,13 @@ namespace YanSimSaveEditor
                 config.SetValue("jsonPath1980", jsonpath1980);
                 config.SetValue("jsonPath2020", jsonpath2020);
                 config.Close();
-                Utility.WriteInfo("Configuration Set Succesfully with no errors.", "Success");
+                utilityScript.WriteInfo("Configuration Set Succesfully with no errors.", "Success");
                 Open.Close();
             }
             catch (Exception e1)
             {
                 //returns error as string
-                Utility.WriteError(e1.ToString(), "Error");
+                utilityScript.WriteError(e1.ToString(), "Error");
             }
         }
     }

@@ -30,70 +30,70 @@ namespace YanSimSaveEditor
         private void SaveButton_Click(object sender, EventArgs e)
         {
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            string profile = Utility.getProfile();
+            string profile = utilityScript.getProfile();
             //top part of checkboxes
             //and comboboxes
             //the end _ is missing since its not needed, I like it this way too.
-            string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
-            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform", false);
-            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform", false);
-            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true);
-            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem", false);
-            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
-            string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);
-            string biostat = Utility.SelectString("Profile_" + profile + "_BiologyGrade", true);
-            string physstat = Utility.SelectString("Profile_" + profile + "_PhysicalGrade", true);
-            string langstat = Utility.SelectString("Profile_" + profile + "_LanguageGrade", true);
-            string psycstat = Utility.SelectString("Profile_" + profile + "_PsychologyGrade", true);
-            string club = Utility.SelectString("Profile_" + profile + "_Club", true);
+            string debug = utilityScript.SelectString("Profile_" + profile + "_Debug", false);
+            string femaleuni = utilityScript.SelectString("Profile_" + profile + "_FemaleUniform", false);
+            string maleuni = utilityScript.SelectString("Profile_" + profile + "_MaleUniform", false);
+            string kidnapvictim = utilityScript.SelectString("Profile_" + profile + "_KidnapVictim_", true);
+            string bringitem = utilityScript.SelectString("Profile_" + profile + "_BringingItem", false);
+            string infopoints = utilityScript.SelectString("Profile_" + profile + "_PantyShots", true);
+            string chemstat = utilityScript.SelectString("Profile_" + profile + "_ChemistryGrade", true);
+            string biostat = utilityScript.SelectString("Profile_" + profile + "_BiologyGrade", true);
+            string physstat = utilityScript.SelectString("Profile_" + profile + "_PhysicalGrade", true);
+            string langstat = utilityScript.SelectString("Profile_" + profile + "_LanguageGrade", true);
+            string psycstat = utilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+            string club = utilityScript.SelectString("Profile_" + profile + "_Club", true);
 
             //debug checkbox if
             if (DebugCheckbox.Checked == true)
             {
-                RegEdit.editValue(gamereg, 1, debug);
+                regEdit.editValue(gamereg, 1, debug);
             }
             else
             {
-                RegEdit.editValue(gamereg, 0, debug);
+                regEdit.editValue(gamereg, 0, debug);
             }
-            RegEdit.editValue(gamereg, FemaleuniformCombo.SelectedIndex, femaleuni);
+            regEdit.editValue(gamereg, FemaleuniformCombo.SelectedIndex, femaleuni);
 
-            RegEdit.editValue(gamereg, MaleuniformCombobox.SelectedIndex, maleuni);
+            regEdit.editValue(gamereg, MaleuniformCombobox.SelectedIndex, maleuni);
 
-            RegEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
+            regEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
 
-            RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
+            regEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
 
             int clubvalue = ClubCombobox.SelectedIndex;
             if (clubvalue > 14)
             {
-                RegEdit.editValue(gamereg, clubvalue + 84, club);
+                regEdit.editValue(gamereg, clubvalue + 84, club);
             }
             else
             {
-                RegEdit.editValue(gamereg, clubvalue, club);
+                regEdit.editValue(gamereg, clubvalue, club);
             }
 
             //idk about the spacing above. Bellow is for the player stats.
-            RegEdit.editValue(gamereg, ChemStat.SelectedIndex, chemstat);
-            RegEdit.editValue(gamereg, BioStat.SelectedIndex, biostat);
-            RegEdit.editValue(gamereg, PhysedStat.SelectedIndex, physstat);
-            RegEdit.editValue(gamereg, LangStat.SelectedIndex, langstat);
-            RegEdit.editValue(gamereg, PhsycStat.SelectedIndex, psycstat);
+            regEdit.editValue(gamereg, ChemStat.SelectedIndex, chemstat);
+            regEdit.editValue(gamereg, BioStat.SelectedIndex, biostat);
+            regEdit.editValue(gamereg, PhysedStat.SelectedIndex, physstat);
+            regEdit.editValue(gamereg, LangStat.SelectedIndex, langstat);
+            regEdit.editValue(gamereg, PhsycStat.SelectedIndex, psycstat);
             //try parse for the info points, its a textbox, so people can put random shit like words.
             int infopointsint;
             if (Int32.TryParse(InfoTextbox.Text, out infopointsint))
             {
-                RegEdit.editValue(gamereg, infopointsint, infopoints);
+                regEdit.editValue(gamereg, infopointsint, infopoints);
             }
             else
             {
                 int result = 0;
-                RegEdit.editValue(gamereg, result, infopoints);
-                Utility.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
+                regEdit.editValue(gamereg, result, infopoints);
+                utilityScript.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
             }
             //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
-            Utility.WriteInfo("All Data Written Succesfully", "Done");
+            utilityScript.WriteInfo("All Data Written Succesfully", "Done");
         }
 
         private void GameConfig_Load(object sender, EventArgs e)
@@ -101,10 +101,10 @@ namespace YanSimSaveEditor
             //causes lag, gotta fix.
             //MaximizeBox = false;
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            string profile = Utility.getProfile();
+            string profile = utilityScript.getProfile();
             //debug checkmark
-            string debug = Utility.SelectString("Profile_" + profile + "_Debug_", false);
-            string debugvalue = RegEdit.returnValue(gamereg, debug);
+            string debug = utilityScript.SelectString("Profile_" + profile + "_Debug_", false);
+            string debugvalue = regEdit.returnValue(gamereg, debug);
             if (debugvalue == "1")
             {
                 DebugCheckbox.Checked = true;
@@ -114,34 +114,34 @@ namespace YanSimSaveEditor
                 DebugCheckbox.Checked = false;
             }
             //Female Uniform
-            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform", false);
-            string femaleunivalue = RegEdit.returnValue(gamereg, femaleuni);
+            string femaleuni = utilityScript.SelectString("Profile_" + profile + "_FemaleUniform", false);
+            string femaleunivalue = regEdit.returnValue(gamereg, femaleuni);
 
             FemaleuniformCombo.Text = femaleunivalue;
             //Male uniform
-            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform", false);
-            string maleunivalue = RegEdit.returnValue(gamereg, maleuni);
+            string maleuni = utilityScript.SelectString("Profile_" + profile + "_MaleUniform", false);
+            string maleunivalue = regEdit.returnValue(gamereg, maleuni);
 
             MaleuniformCombobox.Text = maleunivalue;
             //Kidnap Victim
-            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim", true); //will create the value if none is found.
-            string kidnapvictimvalue = RegEdit.returnValue(gamereg, kidnapvictim);
+            string kidnapvictim = utilityScript.SelectString("Profile_" + profile + "_KidnapVictim", true); //will create the value if none is found.
+            string kidnapvictimvalue = regEdit.returnValue(gamereg, kidnapvictim);
 
             KidnapCombobox.Text = kidnapvictimvalue;
             //bringing item
-            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem", false);
-            string bringitemvalue = RegEdit.returnValue(gamereg, bringitem);
+            string bringitem = utilityScript.SelectString("Profile_" + profile + "_BringingItem", false);
+            string bringitemvalue = regEdit.returnValue(gamereg, bringitem);
 
             ItemCombobox.Text = bringitemvalue;
 
             //info points
-            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
-            string infopointsvalue = RegEdit.returnValue(gamereg, infopoints);
+            string infopoints = utilityScript.SelectString("Profile_" + profile + "_PantyShots", true);
+            string infopointsvalue = regEdit.returnValue(gamereg, infopoints);
             InfoTextbox.Text = infopointsvalue;
 
             //club
-            string club = Utility.SelectString("Profile_" + profile + "_Club", true);
-            int clubvalue = Utility.ToInteger(RegEdit.returnValue(gamereg, club));
+            string club = utilityScript.SelectString("Profile_" + profile + "_Club", true);
+            int clubvalue = utilityScript.ToInteger(regEdit.returnValue(gamereg, club));
             if(clubvalue > 14)
             {
                 ClubCombobox.SelectedIndex = clubvalue - 84;
@@ -152,28 +152,28 @@ namespace YanSimSaveEditor
             }
 
             //stats
-            string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);
-            string biostat = Utility.SelectString("Profile_" + profile + "_BiologyGrade", true);
-            string physstat = Utility.SelectString("Profile_" + profile + "_PhysicalGrade", true);
-            string langstat = Utility.SelectString("Profile_" + profile + "_LanguageGrade", true);
-            string psycstat = Utility.SelectString("Profile_" + profile + "_PsychologyGrade", true);
-            ChemStat.Text = RegEdit.returnValue(gamereg, chemstat);
-            BioStat.Text = RegEdit.returnValue(gamereg, biostat);
-            PhysedStat.Text = RegEdit.returnValue(gamereg, physstat);
-            LangStat.Text = RegEdit.returnValue(gamereg, langstat);
-            PhsycStat.Text = RegEdit.returnValue(gamereg, psycstat); //I am aware of spelling mistake
+            string chemstat = utilityScript.SelectString("Profile_" + profile + "_ChemistryGrade", true);
+            string biostat = utilityScript.SelectString("Profile_" + profile + "_BiologyGrade", true);
+            string physstat = utilityScript.SelectString("Profile_" + profile + "_PhysicalGrade", true);
+            string langstat = utilityScript.SelectString("Profile_" + profile + "_LanguageGrade", true);
+            string psycstat = utilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+            ChemStat.Text = regEdit.returnValue(gamereg, chemstat);
+            BioStat.Text = regEdit.returnValue(gamereg, biostat);
+            PhysedStat.Text = regEdit.returnValue(gamereg, physstat);
+            LangStat.Text = regEdit.returnValue(gamereg, langstat);
+            PhsycStat.Text = regEdit.returnValue(gamereg, psycstat); //I am aware of spelling mistake
         }
 
         private void mangaButton_Click(object sender, EventArgs e)
         {
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             string[] manga = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11"};
-            string profile = Utility.getProfile();
+            string profile = utilityScript.getProfile();
             foreach (string s in manga)
             {
-                string manga1 = Utility.SelectString("Profile_" + profile + "_MangaCollected_" + s + "_", true);
+                string manga1 = utilityScript.SelectString("Profile_" + profile + "_MangaCollected_" + s + "_", true);
                 string result = manga1.TrimEnd('_');
-                RegEdit.editValue(gamereg, 1, result);
+                regEdit.editValue(gamereg, 1, result);
             }
             mangaButton.Enabled = false;
         }
@@ -183,12 +183,12 @@ namespace YanSimSaveEditor
             //haha! reused code!
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             string[] array = { "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11" };
-            string profile = Utility.getProfile();
+            string profile = utilityScript.getProfile();
             foreach (string s in array)
             {
-                string value = Utility.SelectString("Profile_" + profile + "_PantyPurchased_" + s + "_", true);
+                string value = utilityScript.SelectString("Profile_" + profile + "_PantyPurchased_" + s + "_", true);
                 string result = value.TrimEnd('_');
-                RegEdit.editValue(gamereg, 1, result);
+                regEdit.editValue(gamereg, 1, result);
             }
             button2.Enabled = false;
         }
