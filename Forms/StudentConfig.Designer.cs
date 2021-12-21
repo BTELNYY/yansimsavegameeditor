@@ -78,6 +78,7 @@
             this.AccessoryCombobox = new System.Windows.Forms.ComboBox();
             this.idTextbox = new System.Windows.Forms.TextBox();
             this.noImageLabel = new System.Windows.Forms.Label();
+            this.randomButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -878,11 +879,22 @@
             this.noImageLabel.Size = new System.Drawing.Size(0, 13);
             this.noImageLabel.TabIndex = 50;
             // 
+            // randomButton
+            // 
+            this.randomButton.Location = new System.Drawing.Point(227, 415);
+            this.randomButton.Name = "randomButton";
+            this.randomButton.Size = new System.Drawing.Size(58, 23);
+            this.randomButton.TabIndex = 51;
+            this.randomButton.Text = "Random";
+            this.randomButton.UseVisualStyleBackColor = true;
+            this.randomButton.Click += new System.EventHandler(this.randomButton_Click);
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 438);
+            this.Controls.Add(this.randomButton);
             this.Controls.Add(this.noImageLabel);
             this.Controls.Add(this.idTextbox);
             this.Controls.Add(this.AccessoryCombobox);
@@ -993,5 +1005,6 @@
         private System.Windows.Forms.ComboBox AccessoryCombobox;
         private System.Windows.Forms.TextBox idTextbox;
         private System.Windows.Forms.Label noImageLabel;
+        private System.Windows.Forms.Button randomButton;
     }
 }

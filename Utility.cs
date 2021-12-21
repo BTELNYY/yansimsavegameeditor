@@ -127,8 +127,7 @@ namespace YanSimSaveEditor
         {
             //techinically a very bad way to do this, but I can make a "recover on crash" system later.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            int result = int.Parse(profile);
-            RegEdit.createValue(config, result, "profile");
+            RegEdit.createValue(config, ToInteger(profile), "profile");
         }
         public static string getProfile()
         {
@@ -179,14 +178,98 @@ namespace YanSimSaveEditor
         public static int ConvertBool(bool input)
         {
             //converts a boolean into a registry friendly integer, used for checkboes
-            if (input)
+            switch (input)
             {
-                return 1;
+                case true:
+                    return 1;
+                case false:
+                    return 0;
+                default:
+                    return 0;
+            }
+        }
+        public static bool ToBool(int input)
+        {
+            //woooo switch case
+            switch (input)
+            {
+                case 0:
+                    return false;
+                case 1:
+                    return true;
+                default:
+                    return false;
+            }
+        }
+        public static int getRandomInt(int min, int max)
+        {
+            //allows for one liners in my code.
+            Random random = new Random();
+            int output = random.Next(min, max);
+            return output;
+        }
+        public static bool getRandomBool()
+        {
+            //gets a random boolian. 
+            Random random = new Random();
+            int output = random.Next(0, 3);
+            if(output == 0)
+            {
+                return false;
+            }else
+            {
+                return true;
+            }
+        }
+        public static double getRandomDouble(int min, int max, int min2, int max2)
+        {
+            Random random = new Random();
+            string firstdigit = random.Next(min, max).ToString();
+            string seconddigit = random.Next(min2, max2).ToString();
+            string combined = firstdigit + "." + seconddigit;
+            double result = ToDouble(combined);
+            return result;
+        }
+        public static void updateWaitForNotification(string item, string details)
+        {
+            waitForForm waitForForm = new waitForForm();
+            if (CheckOpened("waitForForm"))
+            {
+                waitForForm.itemLabel.Text = item;
+                waitForForm.detailsLabel.Text = details;
+                waitForForm.Refresh();
+                waitForForm.ShowDialog();
             }
             else
             {
-                return 0;
+                waitForForm.ShowDialog();
             }
+        }
+        public static void closeWaitForNotification()
+        {
+            waitForForm waitForForm = new waitForForm();
+            waitForForm.Hide();
+            waitForForm.Close();
+            waitForForm.Dispose();
+        }
+        public static void openWaitForNotification()
+        {
+            waitForForm waitForForm = new waitForForm();
+            waitForForm.ShowDialog();
+            
+            waitForForm.Hide();
+        }
+        public static bool CheckOpened(string name)
+        {
+            FormCollection fc = Application.OpenForms;
+            foreach (Form frm in fc)
+            {
+                if (frm.Text == name)
+                {
+                    return true;
+                }
+            }
+            return false;
         }
     }
 };
