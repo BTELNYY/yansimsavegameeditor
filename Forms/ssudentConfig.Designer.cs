@@ -311,25 +311,25 @@
             // 
             this.ClubCombobox.FormattingEnabled = true;
             this.ClubCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "99",
-            "100",
-            "101",
-            "102"});
+            "0, None",
+            "1, Cooking",
+            "2, Drama",
+            "3, Occult",
+            "4, Art",
+            "5, Light Music",
+            "6, Martial Arts",
+            "7, Photography",
+            "8, Science",
+            "9, Sports",
+            "10, Gardening",
+            "11, Gaming",
+            "12, Student Council",
+            "13, Bully",
+            "14, Delinquent",
+            "99, Info",
+            "100, Teacher",
+            "101, Gym Teacher",
+            "102, Rival Nurse"});
             this.ClubCombobox.Location = new System.Drawing.Point(298, 211);
             this.ClubCombobox.Name = "ClubCombobox";
             this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
@@ -730,29 +730,30 @@
             // 
             this.PersonaCombobox.FormattingEnabled = true;
             this.PersonaCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "99"});
+            "0, None",
+            "1, Loner",
+            "2, Teachers Pet",
+            "3, Herioc",
+            "4, Coward",
+            "5, Evil",
+            "6, Social",
+            "7, Lovestruck",
+            "8, Dangerous",
+            "9, Strict",
+            "10, Phone Addict",
+            "11, Fragile",
+            "12, Spiteful",
+            "13, Slueth",
+            "14, Stalker",
+            "15, Protective",
+            "16, Tough",
+            "17, Snitch",
+            "99, Info-Chan"});
             this.PersonaCombobox.Location = new System.Drawing.Point(298, 368);
             this.PersonaCombobox.Name = "PersonaCombobox";
             this.PersonaCombobox.Size = new System.Drawing.Size(121, 21);
             this.PersonaCombobox.TabIndex = 37;
+            this.PersonaCombobox.SelectedIndexChanged += new System.EventHandler(this.PersonaCombobox_SelectedIndexChanged);
             // 
             // label16
             // 

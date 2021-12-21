@@ -285,5 +285,10 @@ namespace YanSimSaveEditor
             randomizerForm randomizerForm = new randomizerForm();
             randomizerForm.ShowDialog();
         }
+
+        private void PersonaCombobox_SelectedIndexChanged(object sender, EventArgs e)
+        {
+
+        }
     }
 }

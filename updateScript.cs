@@ -23,7 +23,7 @@ namespace YanSimSaveEditor
                 string localver = Program.version;
                 int currentver = utilityScript.ToInteger(localver.Replace(".", string.Empty));
                 //WHAT THE FUCK IS GOING ON HERE??!?!?!?!?!?!?!?
-                if (remotever < currentver)
+                if (remotever > currentver)
                 {
                     //outdated client, handle question for user
                     DialogResult result;
@@ -40,7 +40,7 @@ namespace YanSimSaveEditor
                         return 1;
                     }
                 }
-                else if (remotever > currentver)
+                else if (remotever < currentver)
                 {
                     //The current version is somehow newer then the remote version, print a warning.
                     utilityScript.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
