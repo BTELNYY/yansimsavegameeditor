@@ -458,25 +458,25 @@
             // 
             this.ClubCombobox.FormattingEnabled = true;
             this.ClubCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "99",
-            "100",
-            "101",
-            "102"});
+            "0, None",
+            "1, Cooking",
+            "2, Drama",
+            "3, Occult",
+            "4, Art",
+            "5, Light Music",
+            "6, Martial Arts",
+            "7, Photography",
+            "8, Science",
+            "9, Sports",
+            "10, Gardening",
+            "11, Gaming",
+            "12, Student Council",
+            "13, Bully",
+            "14, Delinquent",
+            "99, Info",
+            "100, Teacher",
+            "101, Gym Teacher",
+            "102, Rival Nurse"});
             this.ClubCombobox.Location = new System.Drawing.Point(99, 141);
             this.ClubCombobox.Name = "ClubCombobox";
             this.ClubCombobox.Size = new System.Drawing.Size(121, 21);

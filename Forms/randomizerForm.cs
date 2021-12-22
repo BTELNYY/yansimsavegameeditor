@@ -36,8 +36,7 @@ namespace YanSimSaveEditor
             if (result == DialogResult.Yes)
             {
                 randomizerForm form = new randomizerForm();
-                progressBar.Visible = true;
-                form.Update();
+                form.Refresh();
 
                 try
                 {
@@ -56,7 +55,7 @@ namespace YanSimSaveEditor
                         //do nothing
                         //this prevents the files from being overwritten again, allowing the user to return to originals.
                     }
-                        foreach (int student in students)
+                    foreach (int student in students)
                     {
                         //waitForForm = Utility.openWaitForNotification();
                         //Utility.updateWaitForNotification("Student: " + student.ToString(), "None", waitForForm);
@@ -68,6 +67,10 @@ namespace YanSimSaveEditor
                         string reputation = utilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
 
                         //Utility.updateWaitForNotification("Student: " + student.ToString(), reputation, waitForForm);
+
+                        //I have become the thing I swore to destroy......
+
+
                         if (repCheck.Checked)
                         {
                             regEdit.editValue(gamereg, utilityScript.getRandomInt(-100, 100), reputation);
@@ -131,19 +134,16 @@ namespace YanSimSaveEditor
                         progressBar.Value = student;
                     }
                     //hide, close it and dispose of the form as we no longer need it.
-                    utilityScript.closeWaitForNotification(waitForForm);
                     utilityScript.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students1.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students. Note that profile data cannot be reverted.", "Done");
-                    progressBar.Visible = false;
                 }
                 catch (Exception ex)
                 {
-                    progressBar.Visible = false;
                     utilityScript.WriteError(ex.ToString(), "Error");
                 }
             }
             else
             {
-                //the question answer was no, therefore return back to the student config screen and do nothing about it.
+                //the question answer was no, therefore return back to the randomizer config screen and do nothing about it.
                 
             }
         }
@@ -151,6 +151,11 @@ namespace YanSimSaveEditor
         private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
         {
             System.Diagnostics.Process.Start("https://discord.gg/P22tFkjTm3");
+        }
+
+        private void githubLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/BTELNYY/yansimsavegameeditor");
         }
     }
 }

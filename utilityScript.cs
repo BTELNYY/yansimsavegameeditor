@@ -8,10 +8,6 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 namespace YanSimSaveEditor
 {
-    public class Main
-    {
-
-    }
     public class utilityScript
     {
         public static void CreateLog(string text)
@@ -232,34 +228,6 @@ namespace YanSimSaveEditor
             string combined = firstdigit + "." + seconddigit;
             double result = ToDouble(combined);
             return result;
-        }
-        public static void updateWaitForNotification(string item, string details, waitForForm waitForForm)
-        {
-            Task t = Task.Run(() =>
-            {
-                waitForForm.itemLabel.Text = item;
-                waitForForm.detailsLabel.Text = details;
-                waitForForm.Refresh();
-            });
-            TimeSpan ts = TimeSpan.FromMilliseconds(10);
-            if (!t.Wait(ts))
-            {
-
-            }
-                
-        }
-        public static void closeWaitForNotification(waitForForm waitForForm)
-        {
-            waitForForm.Hide();
-            waitForForm.Close();
-            waitForForm.Dispose();
-        }
-        public static waitForForm openWaitForNotification()
-        {
-            waitForForm waitForForm = new waitForForm();
-            waitForForm.ShowDialog();
-            waitForForm.Hide();
-            return waitForForm;
         }
         public static bool CheckOpened(string name)
         {

@@ -11,7 +11,7 @@ namespace YanSimSaveEditor
     internal static class Program
     {
         //DO NOT FORGET TO UPDATE!!!!!!
-        public static string version = "1.6.1";
+        public static readonly string version = "1.6.2";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
@@ -62,16 +62,13 @@ namespace YanSimSaveEditor
             bool checkFiles = true; //change this to true once we are done rigging UI
             //JSONEdit.GetInfo(1);
             //enable later.
-            if (!exists & checkFiles==true)
+            if (!exists & checkFiles == true)
             {
                 utilityScript.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
                 Application.Exit();
             }
-            else //had to make it else otherwise the form would still show.
-            {
-                Application.Run(new MainForm());
-            }
-            //Dont put anything Bellow this statment or it will never run.
+            //the else here was removed since if the condition was met, it would exit anyway, making an else just slowed down execution.
+            Application.Run(new MainForm());
         }
     }
 }

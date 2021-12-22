@@ -65,7 +65,7 @@ namespace YanSimSaveEditor
             regEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
 
             int clubvalue = ClubCombobox.SelectedIndex;
-            if (clubvalue > 14)
+            if (clubvalue > 15)
             {
                 regEdit.editValue(gamereg, clubvalue + 84, club);
             }
@@ -81,15 +81,10 @@ namespace YanSimSaveEditor
             regEdit.editValue(gamereg, LangStat.SelectedIndex, langstat);
             regEdit.editValue(gamereg, PhsycStat.SelectedIndex, psycstat);
             //try parse for the info points, its a textbox, so people can put random shit like words.
-            int infopointsint;
-            if (Int32.TryParse(InfoTextbox.Text, out infopointsint))
+            int infopointsvalue = utilityScript.ToInteger(InfoTextbox.Text);
+            regEdit.editValue(gamereg, infopointsvalue, infopoints);
+            if(infopointsvalue == 0)
             {
-                regEdit.editValue(gamereg, infopointsint, infopoints);
-            }
-            else
-            {
-                int result = 0;
-                regEdit.editValue(gamereg, result, infopoints);
                 utilityScript.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
             }
             //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
@@ -105,14 +100,7 @@ namespace YanSimSaveEditor
             //debug checkmark
             string debug = utilityScript.SelectString("Profile_" + profile + "_Debug_", false);
             string debugvalue = regEdit.returnValue(gamereg, debug);
-            if (debugvalue == "1")
-            {
-                DebugCheckbox.Checked = true;
-            }
-            else
-            {
-                DebugCheckbox.Checked = false;
-            }
+            DebugCheckbox.Checked = utilityScript.ToBool(utilityScript.ToInteger(debugvalue));
             //Female Uniform
             string femaleuni = utilityScript.SelectString("Profile_" + profile + "_FemaleUniform", false);
             string femaleunivalue = regEdit.returnValue(gamereg, femaleuni);

@@ -48,6 +48,8 @@
             this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.label3 = new System.Windows.Forms.Label();
             this.progressBar = new System.Windows.Forms.ProgressBar();
+            this.warnLabel = new System.Windows.Forms.Label();
+            this.githubLink = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // randomizeButton
@@ -227,7 +229,26 @@
             this.progressBar.Step = 1;
             this.progressBar.Style = System.Windows.Forms.ProgressBarStyle.Continuous;
             this.progressBar.TabIndex = 17;
-            this.progressBar.Visible = false;
+            // 
+            // warnLabel
+            // 
+            this.warnLabel.AutoSize = true;
+            this.warnLabel.Location = new System.Drawing.Point(9, 151);
+            this.warnLabel.Name = "warnLabel";
+            this.warnLabel.Size = new System.Drawing.Size(210, 13);
+            this.warnLabel.TabIndex = 19;
+            this.warnLabel.Text = "Why Does it take so long? My Bad code....";
+            // 
+            // githubLink
+            // 
+            this.githubLink.AutoSize = true;
+            this.githubLink.Location = new System.Drawing.Point(215, 151);
+            this.githubLink.Name = "githubLink";
+            this.githubLink.Size = new System.Drawing.Size(70, 13);
+            this.githubLink.TabIndex = 20;
+            this.githubLink.TabStop = true;
+            this.githubLink.Text = "You can help";
+            this.githubLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.githubLink_LinkClicked);
             // 
             // randomizerForm
             // 
@@ -235,6 +256,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(289, 217);
+            this.Controls.Add(this.githubLink);
+            this.Controls.Add(this.warnLabel);
             this.Controls.Add(this.progressBar);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.linkLabel1);
@@ -283,5 +306,7 @@
         private System.Windows.Forms.LinkLabel linkLabel1;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.ProgressBar progressBar;
+        private System.Windows.Forms.Label warnLabel;
+        private System.Windows.Forms.LinkLabel githubLink;
     }
 }
