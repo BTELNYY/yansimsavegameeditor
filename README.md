@@ -35,9 +35,9 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3)
 
 # TODO:
-* Add credits.
 * Add external control for in game events (as in day ends, restart day, etc)
 * texture swapper (depends on how doable this is)
+* ~~Add Credits~~
 * ~~Convert to C#~~
 * ~~Allow people to change the club they are in.~~
 * ~~Add a GUI for the entire app.~~
