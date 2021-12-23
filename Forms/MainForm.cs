@@ -36,10 +36,10 @@ namespace YanSimSaveEditor
             {
                 //checks for every save and sees if its "enabled"
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                string result = utilityScript.SelectString("ProfileCreated_" + s + "_", false);
+                string result = UtilityScript.SelectString("ProfileCreated_" + s + "_", false);
                 if (result != null)
                 {
-                    string value = regEdit.returnValue(gamereg, result);
+                    string value = RegEdit.returnValue(gamereg, result);
                     if (value == "1")
                     {
                         //adds the stuff to the combobox
@@ -84,13 +84,13 @@ namespace YanSimSaveEditor
         {
             if(ProfileCombobox.SelectedIndex < 0)
             {
-                utilityScript.WriteWarning("A save file must be selected!", "Warning");
+                UtilityScript.WriteWarning("A save file must be selected!", "Warning");
             }
             else
             {
                 StudentConfig StudentConfig = new StudentConfig();
                 MainForm MainForm = new MainForm();
-                utilityScript.setProfile(ProfileCombobox.Text);
+                UtilityScript.SetProfile(ProfileCombobox.Text);
                 //what even is this bullshit?
                 MainForm.Close();
                 StudentConfig.ShowDialog();
@@ -101,11 +101,11 @@ namespace YanSimSaveEditor
         {
             if (ProfileCombobox.SelectedIndex < 0)
             {
-                utilityScript.WriteWarning("A save file must be selected!", "Warning");
+                UtilityScript.WriteWarning("A save file must be selected!", "Warning");
             }
             else
             {
-                utilityScript.setProfile(ProfileCombobox.Text);
+                UtilityScript.SetProfile(ProfileCombobox.Text);
                 GameConfig GameConfig = new GameConfig();
                 GameConfig.ShowDialog();
             }
@@ -139,13 +139,13 @@ namespace YanSimSaveEditor
             MainForm MainForm = new MainForm();
             if (ProfileCombobox.SelectedIndex < 0)
             {
-                utilityScript.WriteError("No profile was selected. Select a profile and try again.", "Error");
+                UtilityScript.WriteError("No profile was selected. Select a profile and try again.", "Error");
             }
             else //haha best code ever. KILL ME
             {
-                utilityScript.setProfile(ProfileCombobox.Text);
-                string profile = utilityScript.getProfile();
-                utilityScript.deleteProfile(profile);
+                UtilityScript.SetProfile(ProfileCombobox.Text);
+                string profile = UtilityScript.GetProfile();
+                UtilityScript.DeleteProfile(profile);
                 button1.Enabled = false;
                 MainForm.Refresh();
             }
@@ -153,12 +153,12 @@ namespace YanSimSaveEditor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            utilityScript.deleteProfile("1");
-            utilityScript.deleteProfile("2");
-            utilityScript.deleteProfile("3");
-            utilityScript.deleteProfile("11");
-            utilityScript.deleteProfile("12");
-            utilityScript.deleteProfile("13");
+            UtilityScript.DeleteProfile("1");
+            UtilityScript.DeleteProfile("2");
+            UtilityScript.DeleteProfile("3");
+            UtilityScript.DeleteProfile("11");
+            UtilityScript.DeleteProfile("12");
+            UtilityScript.DeleteProfile("13");
             button2.Enabled = false;
             MainForm MainForm = new MainForm();
             MainForm.Refresh();

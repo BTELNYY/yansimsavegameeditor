@@ -17,7 +17,7 @@ namespace YanSimSaveEditor
             try
             {
                 //gets the line with the correct student.
-                string line = File.ReadLines(utilityScript.GetJSON()).ElementAt(StudentId);
+                string line = File.ReadLines(UtilityScript.GetJSON()).ElementAt(StudentId);
                 if (line.EndsWith(@","))
                 {
                     //removes the comma at the end if it exists
@@ -31,7 +31,7 @@ namespace YanSimSaveEditor
             {
                 student tempstudent = new student();
                 //returns error as string
-                utilityScript.WriteError(e.ToString(), "Error");
+                UtilityScript.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
         }
@@ -42,22 +42,22 @@ namespace YanSimSaveEditor
             {
 
                 string Json = JsonConvert.SerializeObject(tempstudent);
-                if (utilityScript.ToInteger(tempstudent.ID) != 100)
+                if (UtilityScript.ToInteger(tempstudent.ID) != 100)
                 {
                     //if not last student, serialized object requires a comma.
                     Json = Json + ",";
                 }
                 //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
-                string[] arrLine = File.ReadAllLines(utilityScript.GetJSON());
-                arrLine[utilityScript.ToInteger(tempstudent.ID)] = Json;
-                File.WriteAllLines(utilityScript.GetJSON(), arrLine);
+                string[] arrLine = File.ReadAllLines(UtilityScript.GetJSON());
+                arrLine[UtilityScript.ToInteger(tempstudent.ID)] = Json;
+                File.WriteAllLines(UtilityScript.GetJSON(), arrLine);
                 return "success";
 
             }
             catch (Exception e)
             {
                 //returns error as string
-                utilityScript.WriteError("ERROR", e.ToString());
+                UtilityScript.WriteError("ERROR", e.ToString());
                 return "failed: got to horny jail *bonk*";
             }
         }

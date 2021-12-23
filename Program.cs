@@ -47,8 +47,6 @@ namespace YanSimSaveEditor
             //do not put any windows forms code above this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
-            //checks if YandereSimulator is in the same folder as the application
-            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             try
             {
@@ -58,17 +56,19 @@ namespace YanSimSaveEditor
             {
                 //do nothing
             }
-            bool exists = utilityScript.FileExists("YandereSimulator.exe");
-            bool checkFiles = true; //change this to true once we are done rigging UI
-            //JSONEdit.GetInfo(1);
-            //enable later.
+            bool exists = UtilityScript.FileExists("YandereSimulator.exe"); //does not check for JSONs, bot honestly the only way this cuases an issue is when people cuase it to be an issue, there is no way that this breaks unless some smart ass deleted the JSONs they had, even then I can probobly get new ones from a website. 
+            bool checkFiles = true; //keep true, this was used for debugging.
             if (!exists & checkFiles == true)
             {
-                utilityScript.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
+                UtilityScript.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
                 Application.Exit();
             }
-            //the else here was removed since if the condition was met, it would exit anyway, making an else just slowed down execution.
-            Application.Run(new MainForm());
+            else //since Application.Ext(); is not enough for this app, this will have to do.
+            {
+                Application.Run(new MainForm());
+            };
+            //the else statement catches all other results from the check, its not possible for the code bellow this to ever run. unless C# suddenly forgets how to use if.
+            //do not put anything bellow this point. wont run.  
         }
     }
 }

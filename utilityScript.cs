@@ -8,7 +8,7 @@ using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 namespace YanSimSaveEditor
 {
-    public class utilityScript
+    public class UtilityScript
     {
         public static void CreateLog(string text)
         {
@@ -56,7 +56,7 @@ namespace YanSimSaveEditor
             //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             //gets list of values
-            string[] list = regEdit.returnValuesList(gamereg);
+            string[] list = RegEdit.returnValuesList(gamereg);
             foreach (string s in list)
             {
                 //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
@@ -84,16 +84,16 @@ namespace YanSimSaveEditor
             }
             return null;
         }
-        public static void deleteProfile(string profile)
+        public static void DeleteProfile(string profile)
         {
             try
             {
                 //registry of the game
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 //gets list of values
-                string[] list = regEdit.returnValuesList(gamereg);
+                string[] list = RegEdit.returnValuesList(gamereg);
                 string pattern = "Profile_" + profile + "_";
-                string profilemarker = utilityScript.SelectString("ProfileCreated_" + profile + "_", false);
+                string profilemarker = UtilityScript.SelectString("ProfileCreated_" + profile + "_", false);
                 foreach (string s in list)
                 {
                     //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
@@ -120,16 +120,16 @@ namespace YanSimSaveEditor
                 WriteError(e.ToString(), "Error");
             }
         }
-        public static void setProfile(string profile)
+        public static void SetProfile(string profile)
         {
             //techinically a very bad way to do this, but I can make a "recover on crash" system later.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            regEdit.createValue(config, ToInteger(profile), "profile");
+            RegEdit.createValue(config, ToInteger(profile), "profile");
         }
-        public static string getProfile()
+        public static string GetProfile()
         {
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            string result = regEdit.returnValue(config, "profile");
+            string result = RegEdit.returnValue(config, "profile");
             return result;
         }
         public static int ToInteger(string input)
@@ -158,7 +158,7 @@ namespace YanSimSaveEditor
         }
         public static string GetJSON()
         {
-            string profilestring = getProfile();
+            string profilestring = GetProfile();
             int profile = ToInteger(profilestring);
             if (profile > 3)
             {
@@ -198,14 +198,14 @@ namespace YanSimSaveEditor
                     return false;
             }
         }
-        public static int getRandomInt(int min, int max)
+        public static int GetRandomInt(int min, int max)
         {
             //allows for one liners in my code.
             Random random = new Random();
             int output = random.Next(min, max);
             return output;
         }
-        public static bool getRandomBool()
+        public static bool GetRandomBool()
         {
             //gets a random boolian. 
             Random random = new Random();
@@ -219,8 +219,8 @@ namespace YanSimSaveEditor
                 return true;
             }
         }
-        //this shit don't work. why? has I ever?
-        public static double getRandomDouble(int min, int max, int min2, int max2)
+        //this shit don't work. why? has I ever? //works now.
+        public static double GetRandomDouble(int min, int max, int min2, int max2)
         {
             Random random = new Random();
             string firstdigit = random.Next(min, max).ToString();
@@ -240,6 +240,41 @@ namespace YanSimSaveEditor
                 }
             }
             return false;
+        }
+        public static string OpenFileDialog(string path, string fileTypes)
+        {
+            try //try to run this code, on error break and show the error.
+            {
+                using (OpenFileDialog openFileDialog = new OpenFileDialog())
+                {
+                    //sets info about our file dialog.
+                    openFileDialog.InitialDirectory = @path;
+                    openFileDialog.Filter = fileTypes; //format: "txt files (*.txt)|*.txt|All files (*.*)|*.*"
+                    openFileDialog.FilterIndex = 1; //ensure that filter is always this one.
+                    openFileDialog.RestoreDirectory = false;
+
+                    if (openFileDialog.ShowDialog() == DialogResult.OK)
+                    {
+                        //Get the path of specified file
+                        string filePath = openFileDialog.FileName;
+                        return filePath;
+                    }
+                    else //needed so that it can return something.
+                    {
+                        return null;
+                    }
+                }
+            }
+            catch (Exception ex)
+            {
+                WriteError("Failed parsing files as per user selection: \n \n" + ex.ToString(), "Error");
+                return null;
+            }
+        }
+        public static string[] SeperateIntoArray(string input, char seperator)
+        {
+            string[] output = input.Split(seperator);
+            return output;
         }
     }
 };

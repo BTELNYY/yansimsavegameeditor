@@ -19,9 +19,9 @@ namespace YanSimSaveEditor
                 string web = client.DownloadString(url);
                 string[] website = web.Split(' '); //splits the resulting string into a array based on spaces.
                 string version = (string)website.GetValue(0);
-                int remotever = utilityScript.ToInteger(version.Replace(".", string.Empty));
+                int remotever = UtilityScript.ToInteger(version.Replace(".", string.Empty));
                 string localver = Program.version;
-                int currentver = utilityScript.ToInteger(localver.Replace(".", string.Empty));
+                int currentver = UtilityScript.ToInteger(localver.Replace(".", string.Empty));
                 //WHAT THE FUCK IS GOING ON HERE??!?!?!?!?!?!?!?
                 if (remotever > currentver)
                 {
@@ -43,7 +43,7 @@ namespace YanSimSaveEditor
                 else if (remotever < currentver)
                 {
                     //The current version is somehow newer then the remote version, print a warning.
-                    utilityScript.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
+                    UtilityScript.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
                     return 3;
                 }
                 else
@@ -54,7 +54,7 @@ namespace YanSimSaveEditor
             }
             catch (Exception e)
             {
-                utilityScript.WriteError("Unable to check for updates. Check your internet connection, firewall, or if the server is online. Details: \n" + e.ToString(), "Error");
+                UtilityScript.WriteError("Unable to check for updates. Check your internet connection, firewall, or if the server is online. Details: \n" + e.ToString(), "Error");
                 return 2;
             }
         }

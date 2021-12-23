@@ -71,74 +71,57 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="Forms\creditsForm.cs">
+    <Compile Include="CustomCharacter.cs" />
+    <Compile Include="Forms\CreditsForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\creditsForm.Designer.cs">
-      <DependentUpon>creditsForm.cs</DependentUpon>
+    <Compile Include="Forms\CreditsForm.Designer.cs">
+      <DependentUpon>CreditsForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\randomizerForm.cs">
+    <Compile Include="Forms\RandomizerForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\randomizerForm.Designer.cs">
-      <DependentUpon>randomizerForm.cs</DependentUpon>
+    <Compile Include="Forms\RandomizerForm.Designer.cs">
+      <DependentUpon>RandomizerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\watiForForm.cs">
+    <Compile Include="UpdateScript.cs" />
+    <Compile Include="Forms\GameConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\watiForForm.Designer.cs">
-      <DependentUpon>watiForForm.cs</DependentUpon>
+    <Compile Include="Forms\GameConfig.Designer.cs">
+      <DependentUpon>GameConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="updateScript.cs" />
-    <Compile Include="Forms\gameConfig.cs">
+    <Compile Include="Forms\MainForm.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\gameConfig.Designer.cs">
-      <DependentUpon>gameConfig.cs</DependentUpon>
+    <Compile Include="Forms\MainForm.Designer.cs">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\mainForm.cs">
+    <Compile Include="Forms\SsudentConfig.cs">
       <SubType>Form</SubType>
     </Compile>
-    <Compile Include="Forms\mainForm.Designer.cs">
-      <DependentUpon>mainForm.cs</DependentUpon>
+    <Compile Include="Forms\SsudentConfig.Designer.cs">
+      <DependentUpon>SsudentConfig.cs</DependentUpon>
     </Compile>
-    <Compile Include="Forms\selectGameDir.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\selectGameDir.Designer.cs">
-      <DependentUpon>selectGameDir.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Forms\ssudentConfig.cs">
-      <SubType>Form</SubType>
-    </Compile>
-    <Compile Include="Forms\ssudentConfig.Designer.cs">
-      <DependentUpon>ssudentConfig.cs</DependentUpon>
-    </Compile>
-    <Compile Include="jsonEdit.cs" />
-    <Compile Include="regEdit.cs" />
-    <Compile Include="utilityScript.cs" />
+    <Compile Include="JsonEdit.cs" />
+    <Compile Include="RegEdit.cs" />
+    <Compile Include="UtilityScript.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <EmbeddedResource Include="Forms\creditsForm.resx">
-      <DependentUpon>creditsForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\CreditsForm.resx">
+      <DependentUpon>CreditsForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\randomizerForm.resx">
-      <DependentUpon>randomizerForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\RandomizerForm.resx">
+      <DependentUpon>RandomizerForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\watiForForm.resx">
-      <DependentUpon>watiForForm.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\GameConfig.resx">
+      <DependentUpon>GameConfig.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\gameConfig.resx">
-      <DependentUpon>gameConfig.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\MainForm.resx">
+      <DependentUpon>MainForm.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Forms\mainForm.resx">
-      <DependentUpon>mainForm.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\selectGameDir.resx">
-      <DependentUpon>selectGameDir.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Forms\ssudentConfig.resx">
-      <DependentUpon>ssudentConfig.cs</DependentUpon>
+    <EmbeddedResource Include="Forms\SsudentConfig.resx">
+      <DependentUpon>SsudentConfig.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="Properties\Resources.resx">
       <Generator>ResXFileCodeGenerator</Generator>
