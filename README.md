@@ -5,11 +5,8 @@ The other 2 files within that ZIP folder are CRITICAL, if you don't have them, i
 # Releases
 If something is wrong, tell me. I am a human and can forget to do things or make mistakes.
 
-* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.2/YanSimSaveEditor.v1.6.2.zip)
+* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.3/YanSimSaveEditor.1.6.3.zip)
 * [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
-
-Outdated Downloads:
-* [Last PowerShell build (Not Supported)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.3.1/yansim.save.game.edit.v1.3.1.exe)
 
 # Bugs and issues
 I am well aware that bugs may exist within my code please:
