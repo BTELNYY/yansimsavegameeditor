@@ -8,18 +8,18 @@ using System.Threading;
 
 namespace YanSimSaveEditor
 {
-    public class ModHandler
+    public class pipeClient
     {
         private static int numClients = 1; //only one client should exist.
 
-        public static void Main(string[] args)
+        public static void sendCommand(string[] args)
         {
             if (args.Length > 0)
             {
                 if (args[0] == "spawnclient")
                 {
                     var pipeClient =
-                        new NamedPipeClientStream(".", "testpipe",
+                        new NamedPipeClientStream(".", "btelnyyModPipe",
                             PipeDirection.InOut, PipeOptions.None,
                             TokenImpersonationLevel.Impersonation);
 

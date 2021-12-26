@@ -84,7 +84,7 @@
     <Compile Include="Forms\RandomizerForm.Designer.cs">
       <DependentUpon>RandomizerForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModHandler.cs" />
+    <Compile Include="pipeClient.cs" />
     <Compile Include="UpdateScript.cs" />
     <Compile Include="Forms\GameConfig.cs">
       <SubType>Form</SubType>

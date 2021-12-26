@@ -119,8 +119,6 @@ namespace YanSimSaveEditor
         private void ChangeGameDirButton_Click(object sender, EventArgs e)
         {
             //open the change dir dialog
-            Open SelectGameDir = new Open();
-            SelectGameDir.ShowDialog();
         }
 
         private void ApplysaveButton_Click(object sender, EventArgs e)

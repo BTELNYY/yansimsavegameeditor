@@ -28,7 +28,6 @@ namespace YanSimSaveEditor
             int[] personas = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 99 };
             int[] strength = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 99 };
             string profile = UtilityScript.GetProfile();
-            waitForForm waitForForm = new waitForForm();
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             DialogResult result;
             result = MessageBox.Show("Randomize all students? This action cannot be undone without file editing! \n \n Do not terminate until all clear message. (unless you like corruption)", "Randomize all",
