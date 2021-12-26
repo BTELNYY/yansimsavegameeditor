@@ -31,6 +31,7 @@ namespace YanSimSaveEditor
             {
                 student tempstudent = new student();
                 //returns error as string
+                Log.Error("Error while getting student JSON:" + e.ToString());
                 UtilityScript.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
@@ -58,6 +59,7 @@ namespace YanSimSaveEditor
             {
                 //returns error as string
                 UtilityScript.WriteError("ERROR", e.ToString());
+                Log.Error("Error while writing student JSON:" + e.ToString());
                 return "failed: got to horny jail *bonk*";
             }
         }

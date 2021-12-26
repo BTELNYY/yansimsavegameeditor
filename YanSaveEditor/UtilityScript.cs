@@ -10,17 +10,7 @@ namespace YanSimSaveEditor
 {
     public class UtilityScript
     {
-        public static void CreateLog(string text)
-        {
-            //takes a string and writes it to a file in the same folder as the app. not used atm.
-            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            string file = "." + "\\latest.log"; //currently hard set, will be changed later.
-            StreamWriter sw = new StreamWriter(file);
-            sw.WriteLine(text);
-            sw.Close();
-            return;
-        }
-
+        //removed the log function from here, see LoggerScript.cs, or call Log
         public static void WriteError(string msg, string title)
         {
             //Allows the display of error messages, used for when shit breaks.
@@ -43,6 +33,17 @@ namespace YanSimSaveEditor
         {
             //returns a bool depending on if a path exists.
             if (!File.Exists(path))
+            {
+                return false;
+            }
+            else
+            {
+                return true;
+            }
+        }
+        public static bool DirExists(string path)
+        {
+            if (!Directory.Exists(path))
             {
                 return false;
             }
@@ -125,6 +126,7 @@ namespace YanSimSaveEditor
             //techinically a very bad way to do this, but I can make a "recover on crash" system later.
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             RegEdit.createValue(config, ToInteger(profile), "profile");
+            Log.Info("Set the profile to " + profile);
         }
         public static string GetProfile()
         {
@@ -267,6 +269,7 @@ namespace YanSimSaveEditor
             }
             catch (Exception ex)
             {
+                Log.Error("An error occured with the OpenFileDialog Method. Exception: " + ex.ToString());
                 WriteError("Failed parsing files as per user selection: \n \n" + ex.ToString(), "Error");
                 return null;
             }

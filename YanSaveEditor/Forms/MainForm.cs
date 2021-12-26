@@ -44,6 +44,7 @@ namespace YanSimSaveEditor
                     {
                         //adds the stuff to the combobox
                         ProfileCombobox.Items.Add(s);
+                        Log.Info("Detected and added profile " + s);
                     }
                     else
                     {

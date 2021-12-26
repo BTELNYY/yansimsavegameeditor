@@ -56,6 +56,12 @@
             this.button2 = new System.Windows.Forms.Button();
             this.label11 = new System.Windows.Forms.Label();
             this.ClubCombobox = new System.Windows.Forms.ComboBox();
+            this.fakeIDcheckbox = new System.Windows.Forms.CheckBox();
+            this.raiburuLonerCheck = new System.Windows.Forms.CheckBox();
+            this.senpaiPhotoCheckbox = new System.Windows.Forms.CheckBox();
+            this.loveSickCheckbox = new System.Windows.Forms.CheckBox();
+            this.darkEndingCheckbox = new System.Windows.Forms.CheckBox();
+            this.trueEndingCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -71,7 +77,6 @@
             // 
             this.FemaleuniformCombo.FormattingEnabled = true;
             this.FemaleuniformCombo.Items.AddRange(new object[] {
-            "0",
             "1",
             "2",
             "3",
@@ -96,7 +101,6 @@
             // 
             this.MaleuniformCombobox.FormattingEnabled = true;
             this.MaleuniformCombobox.Items.AddRange(new object[] {
-            "0",
             "1",
             "2",
             "3",
@@ -270,7 +274,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(246, 374);
+            this.SaveButton.Location = new System.Drawing.Point(314, 374);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(75, 23);
             this.SaveButton.TabIndex = 9;
@@ -400,7 +404,7 @@
             // 
             // mangaButton
             // 
-            this.mangaButton.Location = new System.Drawing.Point(227, 34);
+            this.mangaButton.Location = new System.Drawing.Point(-3, 345);
             this.mangaButton.Name = "mangaButton";
             this.mangaButton.Size = new System.Drawing.Size(93, 23);
             this.mangaButton.TabIndex = 20;
@@ -437,7 +441,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(227, 63);
+            this.button2.Location = new System.Drawing.Point(96, 345);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(94, 23);
             this.button2.TabIndex = 24;
@@ -482,12 +486,78 @@
             this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
             this.ClubCombobox.TabIndex = 26;
             // 
+            // fakeIDcheckbox
+            // 
+            this.fakeIDcheckbox.AutoSize = true;
+            this.fakeIDcheckbox.Location = new System.Drawing.Point(227, 36);
+            this.fakeIDcheckbox.Name = "fakeIDcheckbox";
+            this.fakeIDcheckbox.Size = new System.Drawing.Size(70, 17);
+            this.fakeIDcheckbox.TabIndex = 27;
+            this.fakeIDcheckbox.Text = "Fake ID?";
+            this.fakeIDcheckbox.UseVisualStyleBackColor = true;
+            // 
+            // raiburuLonerCheck
+            // 
+            this.raiburuLonerCheck.AutoSize = true;
+            this.raiburuLonerCheck.Location = new System.Drawing.Point(226, 59);
+            this.raiburuLonerCheck.Name = "raiburuLonerCheck";
+            this.raiburuLonerCheck.Size = new System.Drawing.Size(99, 17);
+            this.raiburuLonerCheck.TabIndex = 28;
+            this.raiburuLonerCheck.Text = "Raiburu Loner?";
+            this.raiburuLonerCheck.UseVisualStyleBackColor = true;
+            // 
+            // senpaiPhotoCheckbox
+            // 
+            this.senpaiPhotoCheckbox.AutoSize = true;
+            this.senpaiPhotoCheckbox.Location = new System.Drawing.Point(227, 82);
+            this.senpaiPhotoCheckbox.Name = "senpaiPhotoCheckbox";
+            this.senpaiPhotoCheckbox.Size = new System.Drawing.Size(96, 17);
+            this.senpaiPhotoCheckbox.TabIndex = 29;
+            this.senpaiPhotoCheckbox.Text = "Senpai Photo?";
+            this.senpaiPhotoCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // loveSickCheckbox
+            // 
+            this.loveSickCheckbox.AutoSize = true;
+            this.loveSickCheckbox.Location = new System.Drawing.Point(227, 105);
+            this.loveSickCheckbox.Name = "loveSickCheckbox";
+            this.loveSickCheckbox.Size = new System.Drawing.Size(77, 17);
+            this.loveSickCheckbox.TabIndex = 30;
+            this.loveSickCheckbox.Text = "LoveSick?";
+            this.loveSickCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // darkEndingCheckbox
+            // 
+            this.darkEndingCheckbox.AutoSize = true;
+            this.darkEndingCheckbox.Location = new System.Drawing.Point(227, 128);
+            this.darkEndingCheckbox.Name = "darkEndingCheckbox";
+            this.darkEndingCheckbox.Size = new System.Drawing.Size(91, 17);
+            this.darkEndingCheckbox.TabIndex = 31;
+            this.darkEndingCheckbox.Text = "Dark Ending?";
+            this.darkEndingCheckbox.UseVisualStyleBackColor = true;
+            // 
+            // trueEndingCheckbox
+            // 
+            this.trueEndingCheckbox.AutoSize = true;
+            this.trueEndingCheckbox.Location = new System.Drawing.Point(226, 151);
+            this.trueEndingCheckbox.Name = "trueEndingCheckbox";
+            this.trueEndingCheckbox.Size = new System.Drawing.Size(90, 17);
+            this.trueEndingCheckbox.TabIndex = 32;
+            this.trueEndingCheckbox.Text = "True Ending?";
+            this.trueEndingCheckbox.UseVisualStyleBackColor = true;
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(319, 397);
+            this.ClientSize = new System.Drawing.Size(388, 397);
+            this.Controls.Add(this.trueEndingCheckbox);
+            this.Controls.Add(this.darkEndingCheckbox);
+            this.Controls.Add(this.loveSickCheckbox);
+            this.Controls.Add(this.senpaiPhotoCheckbox);
+            this.Controls.Add(this.raiburuLonerCheck);
+            this.Controls.Add(this.fakeIDcheckbox);
             this.Controls.Add(this.ClubCombobox);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.button2);
@@ -554,5 +624,11 @@
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Label label11;
         private System.Windows.Forms.ComboBox ClubCombobox;
+        private System.Windows.Forms.CheckBox fakeIDcheckbox;
+        private System.Windows.Forms.CheckBox raiburuLonerCheck;
+        private System.Windows.Forms.CheckBox senpaiPhotoCheckbox;
+        private System.Windows.Forms.CheckBox loveSickCheckbox;
+        private System.Windows.Forms.CheckBox darkEndingCheckbox;
+        private System.Windows.Forms.CheckBox trueEndingCheckbox;
     }
 }

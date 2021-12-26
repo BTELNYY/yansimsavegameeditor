@@ -43,21 +43,23 @@ namespace YanSimSaveEditor
                     {
                         if (UtilityScript.ToInteger(profile) > 3)
                         {
-                            File.Copy(UtilityScript.GetJSON(), "Eighties1.json", false);
+                            File.Copy(UtilityScript.GetJSON(), "Eighties-BACKUP.json", false);
+                            Log.Debug("Copied Eighties JSON.");
                         }
                         else
                         {
-                            File.Copy(UtilityScript.GetJSON(), "Students1.json", false);
+                            File.Copy(UtilityScript.GetJSON(), "Students-BACKUP.json", false);
+                            Log.Debug("Copied Students JSON.");
                         }
-                    }catch (Exception)
+                    }
+                    catch (Exception ex)
                     {
+                        Log.Error("An error occured during randomizer backup process: " + ex.ToString());
                         //do nothing
                         //this prevents the files from being overwritten again, allowing the user to return to originals.
                     }
                     foreach (int student in students)
                     {
-                        //waitForForm = Utility.openWaitForNotification();
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "None", waitForForm);
                         student studentjson = JSONEdit.GetInfo(student);
                         string studentrep = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
                         string photo = UtilityScript.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
@@ -65,7 +67,6 @@ namespace YanSimSaveEditor
                         string panty = UtilityScript.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
                         string reputation = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), reputation, waitForForm);
 
                         //I have become the thing I swore to destroy......
 
@@ -76,74 +77,73 @@ namespace YanSimSaveEditor
                         }
 
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), photo, waitForForm);
                         if (photoCheck.Checked)
                         {
                             RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(0, 3), photo);
                         }
 
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), friend, waitForForm);
                         if (friendCheck.Checked)
                         {
                             RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(0, 3), friend);
                         }
 
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), panty, waitForForm);
                         if (pantyCheck.Checked)
                         {
                             RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(0, 3), panty);
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "BreastSize", waitForForm);
+
                         if (bustCheckbox.Checked)
                         {
                             studentjson.BreastSize = UtilityScript.GetRandomDouble(0, 2, 0, 9).ToString();
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Accessory", waitForForm);
+
                         if (accessoryCheck.Checked)
                         {
                             studentjson.Accessory = UtilityScript.GetRandomInt(0, 15).ToString();
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Club", waitForForm);
+ 
                         if (clubCheck.Checked)
                         {
                             studentjson.Club = clubs.GetValue(UtilityScript.GetRandomInt(0, 19)).ToString();
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Crush", waitForForm);
+ 
                         if (crushCheck.Checked)
                         {
                             studentjson.Crush = UtilityScript.GetRandomInt(0, 101).ToString();
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Hairstyle", waitForForm);
+     
                         if (hairstyleCheck.Checked)
                         {
                             studentjson.Hairstyle = UtilityScript.GetRandomInt(0, 201).ToString();
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Persona", waitForForm);
+
                         if (personaCheck.Checked)
                         {
                             studentjson.Persona = personas.GetValue(UtilityScript.GetRandomInt(1, 18)).ToString();
                         }
-                        //Utility.updateWaitForNotification("Student: " + student.ToString(), "Strength", waitForForm);
+
                         if (strengthCheck.Checked)
                         {
                             studentjson.Strength = strength.GetValue(UtilityScript.GetRandomInt(0, 10)).ToString();
                         }
                         JSONEdit.WriteInfo(studentjson);
                         progressBar.Value = student;
+                        Log.Debug("Randomizing students. Current Student: " + student.ToString());
                     }
                     //hide, close it and dispose of the form as we no longer need it.
-                    UtilityScript.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students1.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students. Note that profile data cannot be reverted.", "Done");
+                    UtilityScript.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students-BACKUP.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students (Same goes for Eighties, but the file name is Eighties-BACKUP.json). Note that profile data cannot be reverted.", "Done");
                 }
                 catch (Exception ex)
                 {
+                    Log.Error("Error occured during randomize process: " + ex.ToString());
                     UtilityScript.WriteError(ex.ToString(), "Error");
                 }
             }
             else
             {
                 //the question answer was no, therefore return back to the randomizer config screen and do nothing about it.
-                
+                Log.Info("User cancelled randomizer process.");
             }
         }
 

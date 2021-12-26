@@ -14,6 +14,7 @@ namespace YanSimSaveEditor
         {
             try
             {
+                Log.Info("Checking for updates");
                 string url = "https://btelnyy.github.io/yansimsavegameeditor/Website/version.html";
                 WebClient client = new WebClient();
                 string web = client.DownloadString(url);
@@ -22,17 +23,18 @@ namespace YanSimSaveEditor
                 int remotever = UtilityScript.ToInteger(version.Replace(".", string.Empty));
                 string localver = Program.version;
                 int currentver = UtilityScript.ToInteger(localver.Replace(".", string.Empty));
-                //WHAT THE FUCK IS GOING ON HERE??!?!?!?!?!?!?!?
                 if (remotever > currentver)
                 {
                     //outdated client, handle question for user
                     DialogResult result;
                     result = MessageBox.Show("An Update is available, open download?", "Update Available",
                         MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+                    Log.Info("Update is ready, requesting user to update.");
                     if (result == DialogResult.Yes)
                     {
                         //opens the default browser and searches this URL.
                         System.Diagnostics.Process.Start("https://github.com/btelnyy/yansimsavegameeditor/releases");
+                        Log.Info("User opened update webpage.");
                         return 1;
                     }
                     else
@@ -43,6 +45,7 @@ namespace YanSimSaveEditor
                 else if (remotever < currentver)
                 {
                     //The current version is somehow newer then the remote version, print a warning.
+                    Log.Warning("Public version counter may be outdated or wrong, contact developers.");
                     UtilityScript.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
                     return 3;
                 }
@@ -54,6 +57,7 @@ namespace YanSimSaveEditor
             }
             catch (Exception e)
             {
+                Log.Error("Failed to connect to server: " + e.ToString());
                 UtilityScript.WriteError("Unable to check for updates. Check your internet connection, firewall, or if the server is online. Details: \n" + e.ToString(), "Error");
                 return 2;
             }

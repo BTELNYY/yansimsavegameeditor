@@ -13,7 +13,7 @@ namespace YanSimSaveEditor
         {
             //returns an arrey of all the values in a subkey
             string[] result = key.GetValueNames();
-            
+            Log.Debug("Returning all values for registry key " + key.ToString());
             return result;
         }
         public static string returnValue(RegistryKey key, string name)
@@ -23,12 +23,14 @@ namespace YanSimSaveEditor
             {
 
                 string result = key.GetValue(name).ToString();
-                
+                Log.Debug("Getting data for " + name);
                 return result;
             }
             catch (Exception e)
             {
                 //returns error as string
+                Log.Error("Failed during registry operation: " + e.ToString());
+                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }
@@ -38,12 +40,13 @@ namespace YanSimSaveEditor
             try
             {
                 key.SetValue(name, value);
-                
+                Log.Debug("Set value for key " + name);
                 return "succeeded";
             }
             catch (Exception e)
             {
                 //returns error as string
+                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }
@@ -53,12 +56,13 @@ namespace YanSimSaveEditor
             try
             {
                 key.SetValue(name, value);
- 
+                Log.Debug("Created a new registry value: " + name);
                 return "succeeded";
             }
             catch (Exception e)
             {
                 //returns error as string
+                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }
@@ -68,12 +72,14 @@ namespace YanSimSaveEditor
             try
             {
                 key.DeleteValue(name);
-
+                Log.Debug("Deleted registry value " + name);
                 return "succeeded";
             }
             catch (Exception e)
             {
                 //returns error as string
+                Log.Error("Failure during registry operation: " + e.ToString());
+                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }

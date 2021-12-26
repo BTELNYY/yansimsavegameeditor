@@ -5,6 +5,7 @@ using System.Runtime.Remoting.Messaging;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
+using System.IO;
 
 namespace YanSimSaveEditor
 {
@@ -47,6 +48,12 @@ namespace YanSimSaveEditor
             //do not put any windows forms code above this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            if (!UtilityScript.DirExists("Logs"))
+            {
+                Directory.CreateDirectory("Logs");
+            }
+            Log.Header(); //write a header.
+            Log.Info("Starting Application. Version: " + version);
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             try
             {
@@ -61,10 +68,12 @@ namespace YanSimSaveEditor
             if (!exists & checkFiles == true)
             {
                 UtilityScript.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
+                Log.FatalError("Unable to locate YandereSimulatr, exiting application.");
                 Application.Exit();
             }
             else //since Application.Ext(); is not enough for this app, this will have to do.
             {
+                Log.Info("Application checks passed, launching main form.");
                 Application.Run(new MainForm());
             };
             //the else statement catches all other results from the check, its not possible for the code bellow this to ever run. unless C# suddenly forgets how to use if.
