@@ -79,6 +79,7 @@
             this.idTextbox = new System.Windows.Forms.TextBox();
             this.noImageLabel = new System.Windows.Forms.Label();
             this.randomButton = new System.Windows.Forms.Button();
+            this.scheduleButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -284,7 +285,7 @@
             this.GenderCombobox.Items.AddRange(new object[] {
             "Female",
             "Male"});
-            this.GenderCombobox.Location = new System.Drawing.Point(298, 188);
+            this.GenderCombobox.Location = new System.Drawing.Point(299, 188);
             this.GenderCombobox.Name = "GenderCombobox";
             this.GenderCombobox.Size = new System.Drawing.Size(121, 21);
             this.GenderCombobox.TabIndex = 10;
@@ -292,7 +293,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(215, 191);
+            this.label5.Location = new System.Drawing.Point(215, 196);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 11;
@@ -301,7 +302,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(215, 214);
+            this.label6.Location = new System.Drawing.Point(215, 219);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 12;
@@ -311,26 +312,26 @@
             // 
             this.ClubCombobox.FormattingEnabled = true;
             this.ClubCombobox.Items.AddRange(new object[] {
-            "0, None",
-            "1, Cooking",
-            "2, Drama",
-            "3, Occult",
-            "4, Art",
-            "5, Light Music",
-            "6, Martial Arts",
-            "7, Photography",
-            "8, Science",
-            "9, Sports",
-            "10, Gardening",
-            "11, Gaming",
-            "12, Student Council",
-            "13, Bully",
-            "14, Delinquent",
-            "99, Info",
-            "100, Teacher",
-            "101, Gym Teacher",
-            "102, Rival Nurse"});
-            this.ClubCombobox.Location = new System.Drawing.Point(298, 211);
+            "0 - Clubless",
+            "1 - Cooking",
+            "2 - Drama",
+            "3 - Occult",
+            "4 - Art",
+            "5 - Light Club",
+            "6 - Martial Arts",
+            "7 - Photography",
+            "8 - Science",
+            "9 - Sports",
+            "10 - Gardening",
+            "11 - Gaming",
+            "12 - Student Council",
+            "13 - Bullies",
+            "14 - Delinquents",
+            "99 - ?????",
+            "100 - (Occupation) Teacher",
+            "101 - (Occupation) Gym Teacher",
+            "102 - (Occupation) School Nurse"});
+            this.ClubCombobox.Location = new System.Drawing.Point(299, 211);
             this.ClubCombobox.Name = "ClubCombobox";
             this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
             this.ClubCombobox.TabIndex = 13;
@@ -339,28 +340,28 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(215, 237);
+            this.label7.Location = new System.Drawing.Point(215, 242);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(47, 13);
+            this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 14;
-            this.label7.Text = "Strength";
+            this.label7.Text = "Self Defense";
             // 
             // StrengthCombobox
             // 
             this.StrengthCombobox.FormattingEnabled = true;
             this.StrengthCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "99"});
-            this.StrengthCombobox.Location = new System.Drawing.Point(298, 234);
+            "0 - Incapable",
+            "1 - Very Weak",
+            "2 - Weak",
+            "3 - Strong",
+            "4 - Very Strong",
+            "5 - Peak Physical Strength",
+            "6 - Extensive Self-Defense Training",
+            "7 - Carries Pepper Spray",
+            "8 - Armed",
+            "9 - Invicible",
+            "99 - ?????"});
+            this.StrengthCombobox.Location = new System.Drawing.Point(299, 234);
             this.StrengthCombobox.Name = "StrengthCombobox";
             this.StrengthCombobox.Size = new System.Drawing.Size(121, 21);
             this.StrengthCombobox.TabIndex = 15;
@@ -376,7 +377,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(215, 260);
+            this.label8.Location = new System.Drawing.Point(215, 264);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 17;
@@ -392,7 +393,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(215, 282);
+            this.label9.Location = new System.Drawing.Point(215, 286);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 13);
             this.label9.TabIndex = 19;
@@ -471,7 +472,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(215, 304);
+            this.label14.Location = new System.Drawing.Point(-2, 165);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(56, 13);
             this.label14.TabIndex = 29;
@@ -479,7 +480,7 @@
             // 
             // ReputationTextbox
             // 
-            this.ReputationTextbox.Location = new System.Drawing.Point(298, 323);
+            this.ReputationTextbox.Location = new System.Drawing.Point(298, 301);
             this.ReputationTextbox.Name = "ReputationTextbox";
             this.ReputationTextbox.Size = new System.Drawing.Size(121, 20);
             this.ReputationTextbox.TabIndex = 31;
@@ -487,11 +488,12 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(215, 326);
+            this.label13.Location = new System.Drawing.Point(215, 304);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 13);
             this.label13.TabIndex = 32;
             this.label13.Text = "Reputation";
+            this.label13.Click += new System.EventHandler(this.label13_Click);
             // 
             // HairCombobox
             // 
@@ -698,7 +700,7 @@
             "198",
             "199",
             "200"});
-            this.HairCombobox.Location = new System.Drawing.Point(298, 345);
+            this.HairCombobox.Location = new System.Drawing.Point(298, 323);
             this.HairCombobox.Name = "HairCombobox";
             this.HairCombobox.Size = new System.Drawing.Size(121, 21);
             this.HairCombobox.TabIndex = 33;
@@ -706,7 +708,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(215, 348);
+            this.label15.Location = new System.Drawing.Point(215, 323);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 34;
@@ -730,26 +732,25 @@
             // 
             this.PersonaCombobox.FormattingEnabled = true;
             this.PersonaCombobox.Items.AddRange(new object[] {
-            "0, None",
-            "1, Loner",
-            "2, Teachers Pet",
-            "3, Herioc",
-            "4, Coward",
-            "5, Evil",
-            "6, Social",
-            "7, Lovestruck",
-            "8, Dangerous",
-            "9, Strict",
-            "10, Phone Addict",
-            "11, Fragile",
-            "12, Spiteful",
-            "13, Slueth",
-            "14, Stalker",
-            "15, Protective",
-            "16, Tough",
-            "17, Snitch",
-            "99, Info-Chan"});
-            this.PersonaCombobox.Location = new System.Drawing.Point(298, 368);
+            "0 - (Supposedly) Devoted",
+            "1 - Loner",
+            "2 - Teacher\'s Pet",
+            "3 - Heroic",
+            "4 - Coward",
+            "5 - Evil",
+            "6 - Social Butterfly",
+            "7 - Lovestruck",
+            "8 - Dangerous",
+            "9 - Strict",
+            "10 - Phone Addict",
+            "11 - Fragile",
+            "12 - Spiteful",
+            "13 - Sleuth",
+            "14 - Stalker",
+            "15 - Protective",
+            "16 - Tough",
+            "99 - ?????"});
+            this.PersonaCombobox.Location = new System.Drawing.Point(298, 346);
             this.PersonaCombobox.Name = "PersonaCombobox";
             this.PersonaCombobox.Size = new System.Drawing.Size(121, 21);
             this.PersonaCombobox.TabIndex = 37;
@@ -758,7 +759,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(215, 371);
+            this.label16.Location = new System.Drawing.Point(215, 345);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(58, 13);
             this.label16.TabIndex = 38;
@@ -842,24 +843,28 @@
             // 
             this.AccessoryCombobox.FormattingEnabled = true;
             this.AccessoryCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14"});
-            this.AccessoryCombobox.Location = new System.Drawing.Point(299, 301);
+            "0 - (Male Student) None /(Female Student) None/(Staff) None",
+            "1 - (MS) Red Bandana/(FS) Eyepatch/(S) Rectangular Glasses",
+            "2 - (MS) One Opaque Lens Glasses/(FS) Bandages Over Eye/(S) Round Glasses",
+            "3 - (MS) Silver Earring/(FS) Demon Ring/(S) Oval Glasses)",
+            "4 - (MS) Blue Glasses/(FS) Golden Earrings + Purple Scrunchie/(S) Glasses",
+            "5 - (MS) Earring + Round Earlobe Piercings/(FS) Spider Choker/(S) Rectangular Gla" +
+                "sses Without Top Rim",
+            "6 - (MS) Earlobe Piercing/(FS) Bracelet/(S) Glasses Without Rop Rim",
+            "7 - (MS) Double Earrings/(FS) Blue Glasses/(S) Whistle Necklace",
+            "8 - (MS) Earlobe Piercings/(FS) Glasses with Chain/(S) Nurse Hat",
+            "9 - (MS) Earring + Spiked Earlobe Piercings/(FS) Tiger Scarf",
+            "10 - (MS) Blue Ascot/(FS) Feathers Behind Left Ear",
+            "11 - (MS) Brown Goatee/(FS) Dragon Eyepatch",
+            "12 - (MS) Dog Collar/(FS) Lilac Ascot",
+            "13 - (MS) Blue Glasses (Geiju)/(FS) Brown Glasses ",
+            "14 - (MS) Orange Goatee/(FS) Rose Choker",
+            "15 - (MS) Blue Goatee",
+            "16 - (MS) Headphones",
+            "17 - (MS) Lip Piercing"});
+            this.AccessoryCombobox.Location = new System.Drawing.Point(53, 163);
             this.AccessoryCombobox.Name = "AccessoryCombobox";
-            this.AccessoryCombobox.Size = new System.Drawing.Size(121, 21);
+            this.AccessoryCombobox.Size = new System.Drawing.Size(367, 21);
             this.AccessoryCombobox.TabIndex = 48;
             this.AccessoryCombobox.SelectedIndexChanged += new System.EventHandler(this.AccessoryCombobox_SelectedIndexChanged);
             // 
@@ -890,11 +895,22 @@
             this.randomButton.UseVisualStyleBackColor = true;
             this.randomButton.Click += new System.EventHandler(this.randomButton_Click);
             // 
+            // scheduleButton
+            // 
+            this.scheduleButton.Location = new System.Drawing.Point(218, 369);
+            this.scheduleButton.Name = "scheduleButton";
+            this.scheduleButton.Size = new System.Drawing.Size(202, 23);
+            this.scheduleButton.TabIndex = 52;
+            this.scheduleButton.Text = "Edit Schedule";
+            this.scheduleButton.UseVisualStyleBackColor = true;
+            this.scheduleButton.Click += new System.EventHandler(this.scheduleButton_Click);
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 438);
+            this.Controls.Add(this.scheduleButton);
             this.Controls.Add(this.randomButton);
             this.Controls.Add(this.noImageLabel);
             this.Controls.Add(this.idTextbox);
@@ -1007,5 +1023,6 @@
         private System.Windows.Forms.TextBox idTextbox;
         private System.Windows.Forms.Label noImageLabel;
         private System.Windows.Forms.Button randomButton;
+        private System.Windows.Forms.Button scheduleButton;
     }
 }

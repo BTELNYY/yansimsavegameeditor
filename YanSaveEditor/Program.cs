@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Remoting.Messaging;
-using System.Threading.Tasks;
+using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
@@ -13,6 +13,7 @@ namespace YanSimSaveEditor
     {
         //DO NOT FORGET TO UPDATE!!!!!!
         public static readonly string version = "1.6.3";
+        public static string[] errorArray;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

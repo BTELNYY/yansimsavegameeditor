@@ -16,6 +16,7 @@ namespace YanSimSaveEditor
             //Allows the display of error messages, used for when shit breaks.
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            Program.errorArray.Append(msg);
         }
         public static void WriteWarning(string msg, string title)
         {
@@ -132,6 +133,19 @@ namespace YanSimSaveEditor
         {
             RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
             string result = RegEdit.returnValue(config, "profile");
+            return result;
+        }
+
+        public static void SetStudent(string student)
+        {
+            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
+            RegEdit.createValue(config, ToInteger(student), "student");
+            Log.Info("Set the student to " + student);
+        }
+        public static string GetStudent()
+        {
+            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
+            string result = RegEdit.returnValue(config, "student");
             return result;
         }
         public static int ToInteger(string input)
@@ -276,8 +290,16 @@ namespace YanSimSaveEditor
         }
         public static string[] SeperateIntoArray(string input, char seperator)
         {
-            string[] output = input.Split(seperator);
-            return output;
+            try
+            {
+                string[] output = input.Split(seperator);
+                return output;
+            }
+            catch (Exception ex)
+            {
+                WriteError("Failed to seperate input into array: \n \n " + ex.ToString(), "Error");
+                return new string[0];
+            }
         }
     }
-};
+}
