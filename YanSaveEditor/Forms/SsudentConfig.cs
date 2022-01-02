@@ -73,7 +73,15 @@ namespace YanSimSaveEditor
                 {
                     studentjson.Club = club.ToString();
                 }
-                studentjson.Strength = StrengthCombobox.SelectedIndex.ToString();
+                int strength = StrengthCombobox.SelectedIndex;
+                if (strength > 10)
+                {
+                    studentjson.Strength = (strength - 88).ToString(); //what the fuck
+                }
+                else
+                {
+                    studentjson.Strength = strength.ToString();
+                }
                 studentjson.Crush = CrushTextbox.Text;
                 studentjson.BreastSize = BustTextbox.Text;
                 studentjson.Info = DescTextbox.Text;
@@ -101,7 +109,6 @@ namespace YanSimSaveEditor
             {
                 UtilityScript.WriteError(writeerror.ToString(), "Error");
             }
-
         }
 
         private void CancelButton_Click(object sender, EventArgs e)
@@ -127,14 +134,18 @@ namespace YanSimSaveEditor
             {
                 if (StudentSelect.SelectedIndex < 0)
                 {
-                    UtilityScript.WriteError("You must select a NPC ID!", "Error");
+                    UtilityScript.WriteWarning("You must select a NPC ID!", "Error");
                 }
                 else
                 {
                     //while this could be done in a 2d array foreach loop, I am too lazy. it would also do
                     //almost nothing different except how many lines of code this C# file has. Which is kinda a shitty trade.
                     string student = StudentSelect.Text;
+                    UtilityScript.SetStudent(student);
                     string[] rivals = { "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
+                    string[] femaleacc = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" };
+                    string[] maleacc = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17" };
+                    string[] teacheracc = { "0", "1", "2", "3", "4", "5", "6", "7", "8" };
                     int index = Array.IndexOf(rivals, StudentSelect.SelectedItem);
                     if (index > -1)
                     {
@@ -206,7 +217,8 @@ namespace YanSimSaveEditor
                     RealnameTextbox.Text = studentjson.RealName;
                     DescTextbox.Text = studentjson.Info; //refuses to work I guess.
                     CrushTextbox.Text = studentjson.Crush.ToString(); //I am idiot.
-                    GenderCombobox.SelectedIndex = UtilityScript.ToInteger(studentjson.Gender);
+                    int gender = UtilityScript.ToInteger(studentjson.Gender);
+                    GenderCombobox.SelectedIndex = gender;
                     AccessoryCombobox.SelectedIndex = UtilityScript.ToInteger(studentjson.Accessory); //pulls the current accessory
                     HairCombobox.SelectedIndex = UtilityScript.ToInteger(studentjson.Hairstyle);
                     ClassTextbox.Text = studentjson.Class.ToString();
@@ -289,6 +301,18 @@ namespace YanSimSaveEditor
         private void PersonaCombobox_SelectedIndexChanged(object sender, EventArgs e)
         {
 
+        }
+
+        private void label13_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void scheduleButton_Click(object sender, EventArgs e)
+        {
+            ScheduleEdit scheduleEdit = new ScheduleEdit();
+            Log.Info("Opening schedule editor");
+            scheduleEdit.ShowDialog();
         }
     }
 }
