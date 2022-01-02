@@ -63,9 +63,63 @@ namespace YanSimSaveEditor
                 return "failed: got to horny jail *bonk*";
             }
         }
-    }
+        public static student GetInfoForCustom(int StudentId)
+        {
+            try
+            {
+                //gets the line with the correct student.
+                string line = File.ReadLines(UtilityScript.GetJSON()).ElementAt(StudentId);
+                if (line.EndsWith(@","))
+                {
+                    //removes the comma at the end if it exists
+                    line = line.Remove(line.Length - 1);
+                }
+                //deserializes the line int a student object
+                student tempstudent = JsonConvert.DeserializeObject<student>(line);
+                return tempstudent;
+            }
+            catch (Exception e)
+            {
+                student tempstudent = new student();
+                //returns error as string
+                Log.Error("Error while getting student JSON:" + e.ToString());
+                UtilityScript.WriteError(e.ToString(), "Error");
+                return tempstudent;
+            }
+        }
+        public static string WriteInfoForCustom(student tempstudent)
+        {
+            //accepts student object and writes it to json file
+            try
+            {
 
-    public class student
+                string Json = JsonConvert.SerializeObject(tempstudent);
+                if (UtilityScript.ToInteger(tempstudent.ID) != 100)
+                {
+                    //if not last student, serialized object requires a comma.
+                    Json = Json + ",";
+                }
+                //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
+                string[] arrLine = File.ReadAllLines(UtilityScript.GetJSON());
+                arrLine[UtilityScript.ToInteger(tempstudent.ID)] = Json;
+                File.WriteAllLines(UtilityScript.GetJSON(), arrLine);
+                return "success";
+
+            }
+            catch (Exception e)
+            {
+                //returns error as string
+                UtilityScript.WriteError("ERROR", e.ToString());
+                Log.Error("Error while writing student JSON:" + e.ToString());
+                return "failed: got to horny jail *bonk*";
+            }
+        }
+    }
+}
+
+    
+
+public class student
     {
         //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
         //btelnyy here, this code is used more then twice.
