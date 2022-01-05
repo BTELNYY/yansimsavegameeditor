@@ -66,7 +66,7 @@ namespace YanSimSaveEditor
                 int club = ClubCombobox.SelectedIndex;
                 if (club > 14)
                 {
-                    int clubvalue = club - 84;
+                    int clubvalue = club + 84;
                     studentjson.Club = clubvalue.ToString();
                 }
                 else
@@ -156,12 +156,31 @@ namespace YanSimSaveEditor
                         RivalCheckBox.Checked = false;
                     };
                     string profile = UtilityScript.GetProfile();
-                    RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                    //changes a label
-                    idTextbox.Text = student;
                     bool allowpfp;
                     int studentint = UtilityScript.ToInteger(student);
                     int profileint = UtilityScript.ToInteger(profile);
+                    bool isEighties;
+                    if (profileint > 3)
+                    {
+                        isEighties = true;
+                    }
+                    else
+                    {
+                        isEighties = false;
+                    }
+                    if (!isEighties)
+                    {
+                        hairTextBox.Text = Globals.newhair[studentint];
+                    }
+                    else
+                    {
+                        hairTextBox.Text = Globals.oldhair[studentint];
+                        hairTextBox.Text = "N/A";
+                    }
+                    RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+                    //changes a label
+                    idTextbox.Text = student;
+
                     if (studentint > 97)
                     {
                         Portrait.Visible = false;
@@ -315,6 +334,11 @@ namespace YanSimSaveEditor
             ScheduleEdit scheduleEdit = new ScheduleEdit();
             Log.Info("Opening schedule editor");
             scheduleEdit.ShowDialog();
+        }
+
+        private void idLabel_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

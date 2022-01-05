@@ -6,6 +6,8 @@ using System.Threading;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
+using System.Text;
+using System.Threading.Tasks;
 
 namespace YanSimSaveEditor
 {
