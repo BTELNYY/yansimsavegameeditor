@@ -123,6 +123,8 @@ namespace YanSimSaveEditor
             studentjson.ScheduleDestination = destination;
             studentjson.ScheduleAction = action;
             JSONEdit.WriteInfo(studentjson);
+            UtilityScript.WriteInfo("All data written successfully", "Done");
+            Log.Info("Written all schedule data successfully unless otherwise stated above");
         }
     }
 }

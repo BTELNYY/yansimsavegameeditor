@@ -257,6 +257,7 @@ namespace YanSimSaveEditor
                         PersonaCombobox.SelectedIndex = persona;
                     }
                     SaveButton.Enabled = true;
+                    scheduleButton.Enabled = true;
                 }
             }
             catch (Exception loaderror)
@@ -275,6 +276,7 @@ namespace YanSimSaveEditor
             //MaximizeBox = false;
             //prevents people from essentially causing the app to write null values to a student.
             SaveButton.Enabled = false;
+            scheduleButton.Enabled = false;
         }
 
         private void ClubCombobox_SelectedIndexChanged(object sender, EventArgs e)

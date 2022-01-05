@@ -13,7 +13,6 @@ namespace YanSimSaveEditor
     {
         //DO NOT FORGET TO UPDATE!!!!!!
         public static readonly string version = "1.6.4";
-        public static string[] errorArray;
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

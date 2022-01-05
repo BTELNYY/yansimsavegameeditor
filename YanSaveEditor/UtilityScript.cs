@@ -16,7 +16,7 @@ namespace YanSimSaveEditor
             //Allows the display of error messages, used for when shit breaks.
             MessageBox.Show(msg, title,
                 MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Program.errorArray.Append(msg);
+            //Program.errorArray.Append(msg);
         }
         public static void WriteWarning(string msg, string title)
         {
