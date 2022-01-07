@@ -82,6 +82,7 @@
             this.scheduleButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.hairTextBox = new System.Windows.Forms.TextBox();
+            this.exportButton = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -288,7 +289,7 @@
             this.GenderCombobox.Items.AddRange(new object[] {
             "Female",
             "Male"});
-            this.GenderCombobox.Location = new System.Drawing.Point(299, 229);
+            this.GenderCombobox.Location = new System.Drawing.Point(304, 206);
             this.GenderCombobox.Name = "GenderCombobox";
             this.GenderCombobox.Size = new System.Drawing.Size(121, 21);
             this.GenderCombobox.TabIndex = 10;
@@ -296,7 +297,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(215, 237);
+            this.label5.Location = new System.Drawing.Point(220, 214);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(42, 13);
             this.label5.TabIndex = 11;
@@ -305,7 +306,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(215, 260);
+            this.label6.Location = new System.Drawing.Point(220, 237);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(28, 13);
             this.label6.TabIndex = 12;
@@ -334,7 +335,7 @@
             "100 - (Occupation) Teacher",
             "101 - (Occupation) Gym Teacher",
             "102 - (Occupation) School Nurse"});
-            this.ClubCombobox.Location = new System.Drawing.Point(299, 252);
+            this.ClubCombobox.Location = new System.Drawing.Point(304, 229);
             this.ClubCombobox.Name = "ClubCombobox";
             this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
             this.ClubCombobox.TabIndex = 13;
@@ -343,7 +344,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(215, 283);
+            this.label7.Location = new System.Drawing.Point(220, 260);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(68, 13);
             this.label7.TabIndex = 14;
@@ -364,7 +365,7 @@
             "8 - Armed",
             "9 - Invicible",
             "99 - ?????"});
-            this.StrengthCombobox.Location = new System.Drawing.Point(299, 275);
+            this.StrengthCombobox.Location = new System.Drawing.Point(304, 252);
             this.StrengthCombobox.Name = "StrengthCombobox";
             this.StrengthCombobox.Size = new System.Drawing.Size(121, 21);
             this.StrengthCombobox.TabIndex = 15;
@@ -372,7 +373,7 @@
             // 
             // CrushTextbox
             // 
-            this.CrushTextbox.Location = new System.Drawing.Point(298, 298);
+            this.CrushTextbox.Location = new System.Drawing.Point(303, 275);
             this.CrushTextbox.Name = "CrushTextbox";
             this.CrushTextbox.Size = new System.Drawing.Size(121, 20);
             this.CrushTextbox.TabIndex = 16;
@@ -380,7 +381,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(215, 305);
+            this.label8.Location = new System.Drawing.Point(220, 282);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(54, 13);
             this.label8.TabIndex = 17;
@@ -388,7 +389,7 @@
             // 
             // BustTextbox
             // 
-            this.BustTextbox.Location = new System.Drawing.Point(298, 320);
+            this.BustTextbox.Location = new System.Drawing.Point(303, 297);
             this.BustTextbox.Name = "BustTextbox";
             this.BustTextbox.Size = new System.Drawing.Size(121, 20);
             this.BustTextbox.TabIndex = 18;
@@ -396,7 +397,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(215, 327);
+            this.label9.Location = new System.Drawing.Point(220, 304);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 13);
             this.label9.TabIndex = 19;
@@ -483,7 +484,7 @@
             // 
             // ReputationTextbox
             // 
-            this.ReputationTextbox.Location = new System.Drawing.Point(298, 342);
+            this.ReputationTextbox.Location = new System.Drawing.Point(303, 319);
             this.ReputationTextbox.Name = "ReputationTextbox";
             this.ReputationTextbox.Size = new System.Drawing.Size(121, 20);
             this.ReputationTextbox.TabIndex = 31;
@@ -491,7 +492,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(215, 345);
+            this.label13.Location = new System.Drawing.Point(220, 322);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(59, 13);
             this.label13.TabIndex = 32;
@@ -703,7 +704,7 @@
             "198",
             "199",
             "200"});
-            this.HairCombobox.Location = new System.Drawing.Point(298, 364);
+            this.HairCombobox.Location = new System.Drawing.Point(303, 341);
             this.HairCombobox.Name = "HairCombobox";
             this.HairCombobox.Size = new System.Drawing.Size(121, 21);
             this.HairCombobox.TabIndex = 33;
@@ -711,7 +712,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(215, 364);
+            this.label15.Location = new System.Drawing.Point(220, 341);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(47, 13);
             this.label15.TabIndex = 34;
@@ -753,7 +754,7 @@
             "15 - Protective",
             "16 - Tough",
             "99 - ?????"});
-            this.PersonaCombobox.Location = new System.Drawing.Point(298, 387);
+            this.PersonaCombobox.Location = new System.Drawing.Point(303, 364);
             this.PersonaCombobox.Name = "PersonaCombobox";
             this.PersonaCombobox.Size = new System.Drawing.Size(121, 21);
             this.PersonaCombobox.TabIndex = 37;
@@ -762,7 +763,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(215, 386);
+            this.label16.Location = new System.Drawing.Point(220, 363);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(58, 13);
             this.label16.TabIndex = 38;
@@ -821,7 +822,7 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(218, 436);
+            this.label19.Location = new System.Drawing.Point(275, 188);
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(145, 13);
             this.label19.TabIndex = 45;
@@ -900,9 +901,9 @@
             // 
             // scheduleButton
             // 
-            this.scheduleButton.Location = new System.Drawing.Point(218, 410);
+            this.scheduleButton.Location = new System.Drawing.Point(205, 435);
             this.scheduleButton.Name = "scheduleButton";
-            this.scheduleButton.Size = new System.Drawing.Size(202, 23);
+            this.scheduleButton.Size = new System.Drawing.Size(220, 23);
             this.scheduleButton.TabIndex = 52;
             this.scheduleButton.Text = "Edit Schedule";
             this.scheduleButton.UseVisualStyleBackColor = true;
@@ -926,11 +927,23 @@
             this.hairTextBox.Size = new System.Drawing.Size(100, 20);
             this.hairTextBox.TabIndex = 55;
             // 
+            // exportButton
+            // 
+            this.exportButton.Enabled = false;
+            this.exportButton.Location = new System.Drawing.Point(205, 406);
+            this.exportButton.Name = "exportButton";
+            this.exportButton.Size = new System.Drawing.Size(220, 23);
+            this.exportButton.TabIndex = 56;
+            this.exportButton.Text = "Export Data";
+            this.exportButton.UseVisualStyleBackColor = true;
+            this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(426, 487);
+            this.Controls.Add(this.exportButton);
             this.Controls.Add(this.hairTextBox);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.scheduleButton);
@@ -1049,5 +1062,6 @@
         private System.Windows.Forms.Button scheduleButton;
         private System.Windows.Forms.TextBox hairTextBox;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button exportButton;
     }
 }

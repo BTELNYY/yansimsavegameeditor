@@ -275,8 +275,10 @@ namespace YanSimSaveEditor
                     {
                         PersonaCombobox.SelectedIndex = persona;
                     }
+                    //enables buttons which can be used once a load succeeds
                     SaveButton.Enabled = true;
                     scheduleButton.Enabled = true;
+                    exportButton.Enabled = true;
                 }
             }
             catch (Exception loaderror)
@@ -284,8 +286,9 @@ namespace YanSimSaveEditor
                 //error handling code, just shows and error before failing.
                 UtilityScript.WriteError(loaderror.ToString(), "Error");
                 SaveButton.Enabled = true;
+                scheduleButton.Enabled = true;
+                exportButton.Enabled = true;
                 warncorruoption = true;
-
             }
         }
 
@@ -342,55 +345,81 @@ namespace YanSimSaveEditor
         }
         private void ExportCharacter(int id)
         {
-            string file = ".\\about_" + id.ToString();
-            StreamWriter sw = new StreamWriter(file, append: true);
-            student json = JSONEdit.GetInfo(id);
-            string date = DateTime.Now.ToString("dd-MM-yyyy");
-            string time = DateTime.Now.ToString("hh\\:mm\\:ss");
-            sw.Write("About Character " + id.ToString());
-            sw.Write("Date: " + date + " Time: " + time);
-            sw.Write("BTELNYY's and Loaflover's Yandere Simulator Modding utility version " + Program.version);
-            sw.Write("GitHub: https://github.com/BTELNYY/yansimsavegameeditor");
-            sw.Write("Discord: https://discord.gg/P22tFkjTm3");
-            //json data
-            sw.Write("--From GUI--");
-            sw.Write("This section contains values which can be modified by the user, this is pulled directly from the GUI so unsaved changes appear here.");
-            sw.Write("ID: " + idTextbox.Text);
-            sw.Write("Name: " + NicknameTextbox.Text);
-            sw.Write("Real Name: " + RealnameTextbox.Text);
-            sw.Write("Description: " + DescTextbox.Text);
-            sw.Write("Crush: " + CrushTextbox.Text);
-            sw.Write("Accessory: " + AccessoryCombobox.Text);
-            sw.Write("Club: " + ClubCombobox.Text);
-            sw.Write("Class: " + ClassTextbox.Text);
-            sw.Write("Seat: " + SeatTextbox.Text);
-            sw.Write("Self Defense: " + StrengthCombobox.Text);
-            sw.Write("Gender: " + GenderCombobox.Text);
-            sw.Write("Persona: " + PersonaCombobox.Text);
-            sw.Write("Bust Size: " + BustTextbox.Text);
-            sw.Write("Reputation: " + ReputationTextbox.Text);
-            sw.Write("Dead: " + DeathCheckbox.Checked.ToString());
-            sw.Write("Kidnapped: " + KidnapChekbox.Checked.ToString());
-            sw.Write("Panty Shot: " + PantyshotCheckbox.Checked.ToString());
-            sw.Write("Rival: " + RivalCheckBox.Checked.ToString());
-            sw.Write("Photographed: " + PhotographedCheckbox.Checked.ToString());
-            sw.Write("Friend: " + FriendCheckbox.Checked.ToString());
-            sw.Write("--From JSON--");
-            sw.Write("This section contains data raw from the JSON, unsaved changes do not exist and more values then the GUI has are present. Registry data is not available here.");
-            sw.Write("ID: " + json.ID);
-            sw.Write("Name: " + json.Name);
-            sw.Write("Real Name: " + json.RealName);
-            sw.Write("Description: " + json.Info);
-            sw.Write("Crush: " + json.Crush);
-            sw.Write("Accessory: " + json.Accessory);
-            sw.Write("Club: " + json.Club);
-            sw.Write("Class: " + json.Class);
-            sw.Write("Seat: " + json.Seat);
-            sw.Write("Self Defense: " + json.Strength);
-            sw.Write("Gender: " + json.Gender);
-            sw.Write("Persona: " + json.Persona);
-            sw.Write("Bust Size:" + json.BreastSize);
+            try
+            {
+                string file = ".\\about_" + id.ToString() + ".txt";
+                if (UtilityScript.FileExists(file))
+                {
+                    UtilityScript.WriteWarning("A exported file on this NPC already existed, that file has been deleted.", "Deletion Warning");
+                    File.Delete(file);
+                }
+                StreamWriter sw = new StreamWriter(file, append: true);
+                student json = JSONEdit.GetInfo(id);
+                string date = DateTime.Now.ToString("dd-MM-yyyy");
+                string time = DateTime.Now.ToString("hh\\:mm\\:ss");
+                sw.WriteLine("About Character " + id.ToString());
+                sw.WriteLine("Date: " + date + " Time: " + time);
+                sw.WriteLine("BTELNYY's and Loaflover's Yandere Simulator Modding utility version " + Program.version);
+                sw.WriteLine("GitHub: https://github.com/BTELNYY/yansimsavegameeditor");
+                sw.WriteLine("Discord: https://discord.gg/P22tFkjTm3");
+                //json data
+                sw.WriteLine("--From GUI--");
+                sw.WriteLine("This section contains values which can be modified by the user, this is pulled directly from the GUI so unsaved changes appear here.");
+                sw.WriteLine("ID: " + idTextbox.Text);
+                sw.WriteLine("Name: " + NicknameTextbox.Text);
+                sw.WriteLine("Real Name: " + RealnameTextbox.Text);
+                sw.WriteLine("Description: " + DescTextbox.Text);
+                sw.WriteLine("Crush: " + CrushTextbox.Text);
+                sw.WriteLine("Accessory: " + AccessoryCombobox.Text);
+                sw.WriteLine("Club: " + ClubCombobox.Text);
+                sw.WriteLine("Class: " + ClassTextbox.Text);
+                sw.WriteLine("Seat: " + SeatTextbox.Text);
+                sw.WriteLine("Self Defense: " + StrengthCombobox.Text);
+                sw.WriteLine("Gender: " + GenderCombobox.Text);
+                sw.WriteLine("Persona: " + PersonaCombobox.Text);
+                sw.WriteLine("Bust Size: " + BustTextbox.Text);
+                sw.WriteLine("Reputation: " + ReputationTextbox.Text);
+                sw.WriteLine("Dead: " + DeathCheckbox.Checked.ToString());
+                sw.WriteLine("Kidnapped: " + KidnapChekbox.Checked.ToString());
+                sw.WriteLine("Panty Shot: " + PantyshotCheckbox.Checked.ToString());
+                sw.WriteLine("Rival: " + RivalCheckBox.Checked.ToString());
+                sw.WriteLine("Photographed: " + PhotographedCheckbox.Checked.ToString());
+                sw.WriteLine("Friend: " + FriendCheckbox.Checked.ToString());
+                sw.WriteLine("--From JSON--");
+                sw.WriteLine("This section contains data raw from the JSON, unsaved changes do not exist and more values then the GUI has are present. Registry data is not available here.");
+                sw.WriteLine("ID: " + json.ID);
+                sw.WriteLine("Name: " + json.Name);
+                sw.WriteLine("Real Name: " + json.RealName);
+                sw.WriteLine("Description: " + json.Info);
+                sw.WriteLine("Crush: " + json.Crush);
+                sw.WriteLine("Accessory: " + json.Accessory);
+                sw.WriteLine("Club: " + json.Club);
+                sw.WriteLine("Class: " + json.Class);
+                sw.WriteLine("Seat: " + json.Seat);
+                sw.WriteLine("Self Defense: " + json.Strength);
+                sw.WriteLine("Gender: " + json.Gender);
+                sw.WriteLine("Persona: " + json.Persona);
+                sw.WriteLine("Bust Size:" + json.BreastSize);
+                sw.WriteLine("Hairstyle: " + json.Hairstyle);
+                sw.WriteLine("Color: " + json.Color);
+                sw.WriteLine("Eyes: " + json.Eyes);
+                sw.WriteLine("EyeType: " + json.EyeType);
+                sw.WriteLine("Stockings: " + json.Stockings);
+                sw.WriteLine("Scheduled Time: " + json.ScheduleTime);
+                sw.WriteLine("Scheduled Destination: " + json.ScheduleDestination);
+                sw.WriteLine("Scheduled Action" + json.ScheduleAction);
+                sw.Close();
+                UtilityScript.WriteInfo("File written as: " + file, "Done.");
+            }catch(Exception ex)
+            {
+                UtilityScript.WriteError("Failed to export NPC data to text file: \n \n " + ex.ToString(), "Error");
+                Log.Error("Failed to export NPC Data: " + ex.ToString());
+            }
+        }
 
+        private void exportButton_Click(object sender, EventArgs e)
+        {
+            ExportCharacter(UtilityScript.ToInteger(StudentSelect.Text));
         }
     }
 }

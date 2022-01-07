@@ -65,6 +65,14 @@
             this.saveButton = new System.Windows.Forms.Button();
             this.Cancel = new System.Windows.Forms.Button();
             this.studentLabel = new System.Windows.Forms.Label();
+            this.timeFText = new System.Windows.Forms.TextBox();
+            this.destFText = new System.Windows.Forms.TextBox();
+            this.actionFText = new System.Windows.Forms.TextBox();
+            this.label4 = new System.Windows.Forms.Label();
+            this.label5 = new System.Windows.Forms.Label();
+            this.label6 = new System.Windows.Forms.Label();
+            this.refreshButton = new System.Windows.Forms.Button();
+            this.label7 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // textBox1
@@ -306,7 +314,7 @@
             // 
             // saveButton
             // 
-            this.saveButton.Location = new System.Drawing.Point(357, 281);
+            this.saveButton.Location = new System.Drawing.Point(357, 285);
             this.saveButton.Name = "saveButton";
             this.saveButton.Size = new System.Drawing.Size(75, 23);
             this.saveButton.TabIndex = 33;
@@ -317,7 +325,7 @@
             // Cancel
             // 
             this.Cancel.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.Cancel.Location = new System.Drawing.Point(276, 281);
+            this.Cancel.Location = new System.Drawing.Point(285, 444);
             this.Cancel.Name = "Cancel";
             this.Cancel.Size = new System.Drawing.Size(75, 23);
             this.Cancel.TabIndex = 34;
@@ -327,18 +335,93 @@
             // studentLabel
             // 
             this.studentLabel.AutoSize = true;
-            this.studentLabel.Location = new System.Drawing.Point(12, 286);
+            this.studentLabel.Location = new System.Drawing.Point(12, 444);
             this.studentLabel.Name = "studentLabel";
             this.studentLabel.Size = new System.Drawing.Size(87, 13);
             this.studentLabel.TabIndex = 35;
             this.studentLabel.Text = "Current Student: ";
+            // 
+            // timeFText
+            // 
+            this.timeFText.Location = new System.Drawing.Point(113, 353);
+            this.timeFText.Name = "timeFText";
+            this.timeFText.Size = new System.Drawing.Size(313, 20);
+            this.timeFText.TabIndex = 36;
+            // 
+            // destFText
+            // 
+            this.destFText.Location = new System.Drawing.Point(113, 379);
+            this.destFText.Name = "destFText";
+            this.destFText.Size = new System.Drawing.Size(313, 20);
+            this.destFText.TabIndex = 37;
+            // 
+            // actionFText
+            // 
+            this.actionFText.Location = new System.Drawing.Point(113, 405);
+            this.actionFText.Name = "actionFText";
+            this.actionFText.Size = new System.Drawing.Size(313, 20);
+            this.actionFText.TabIndex = 38;
+            // 
+            // label4
+            // 
+            this.label4.AutoSize = true;
+            this.label4.Location = new System.Drawing.Point(12, 356);
+            this.label4.Name = "label4";
+            this.label4.Size = new System.Drawing.Size(55, 13);
+            this.label4.TabIndex = 39;
+            this.label4.Text = "Time (Full)";
+            // 
+            // label5
+            // 
+            this.label5.AutoSize = true;
+            this.label5.Location = new System.Drawing.Point(12, 379);
+            this.label5.Name = "label5";
+            this.label5.Size = new System.Drawing.Size(85, 13);
+            this.label5.TabIndex = 40;
+            this.label5.Text = "Destination (Full)";
+            // 
+            // label6
+            // 
+            this.label6.AutoSize = true;
+            this.label6.Location = new System.Drawing.Point(12, 405);
+            this.label6.Name = "label6";
+            this.label6.Size = new System.Drawing.Size(62, 13);
+            this.label6.TabIndex = 41;
+            this.label6.Text = "Action (Full)";
+            // 
+            // refreshButton
+            // 
+            this.refreshButton.Location = new System.Drawing.Point(366, 444);
+            this.refreshButton.Name = "refreshButton";
+            this.refreshButton.Size = new System.Drawing.Size(75, 23);
+            this.refreshButton.TabIndex = 42;
+            this.refreshButton.Text = "Save";
+            this.refreshButton.UseVisualStyleBackColor = true;
+            this.refreshButton.Click += new System.EventHandler(this.refreshButton_Click);
+            // 
+            // label7
+            // 
+            this.label7.AutoSize = true;
+            this.label7.Location = new System.Drawing.Point(176, 290);
+            this.label7.Name = "label7";
+            this.label7.Size = new System.Drawing.Size(181, 13);
+            this.label7.TabIndex = 43;
+            this.label7.Text = "Note: saves only text in above boxes";
             // 
             // ScheduleEdit
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.Cancel;
-            this.ClientSize = new System.Drawing.Size(438, 304);
+            this.ClientSize = new System.Drawing.Size(438, 467);
+            this.Controls.Add(this.label7);
+            this.Controls.Add(this.refreshButton);
+            this.Controls.Add(this.label6);
+            this.Controls.Add(this.label5);
+            this.Controls.Add(this.label4);
+            this.Controls.Add(this.actionFText);
+            this.Controls.Add(this.destFText);
+            this.Controls.Add(this.timeFText);
             this.Controls.Add(this.studentLabel);
             this.Controls.Add(this.Cancel);
             this.Controls.Add(this.saveButton);
@@ -423,5 +506,13 @@
         private System.Windows.Forms.Button saveButton;
         private System.Windows.Forms.Button Cancel;
         private System.Windows.Forms.Label studentLabel;
+        private System.Windows.Forms.TextBox timeFText;
+        private System.Windows.Forms.TextBox destFText;
+        private System.Windows.Forms.TextBox actionFText;
+        private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Label label5;
+        private System.Windows.Forms.Label label6;
+        private System.Windows.Forms.Button refreshButton;
+        private System.Windows.Forms.Label label7;
     }
 }

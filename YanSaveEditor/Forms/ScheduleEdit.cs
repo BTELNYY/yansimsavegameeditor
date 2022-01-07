@@ -18,7 +18,10 @@ namespace YanSimSaveEditor
 
         private void ScheduleEdit_Load(object sender, EventArgs e)
         {
-            UtilityScript.WriteWarning("Using this function as of this version is not recommended! while no problems occur, you must have knowledge of Yandere Simulator in order to use this. ", "Warning");
+            if(sender != null && e != null)
+            {
+                UtilityScript.WriteWarning("Using this function as of this version is not recommended! while no problems occur, you must have knowledge of Yandere Simulator in order to use this. ", "Warning");
+            }
             string student = UtilityScript.GetStudent();
             studentLabel.Text = "Current Student: " + student;
             student studentjson = JSONEdit.GetInfo(UtilityScript.ToInteger(student));
@@ -71,6 +74,9 @@ namespace YanSimSaveEditor
                 }
                 counter++;
             }
+            timeFText.Text = studentjson.ScheduleTime;
+            destFText.Text = studentjson.ScheduleDestination;
+            actionFText.Text = studentjson.ScheduleAction;
         }
 
         private void saveButton_Click(object sender, EventArgs e)
@@ -123,8 +129,22 @@ namespace YanSimSaveEditor
             studentjson.ScheduleDestination = destination;
             studentjson.ScheduleAction = action;
             JSONEdit.WriteInfo(studentjson);
+            timeFText.Text = studentjson.ScheduleTime;
+            destFText.Text = studentjson.ScheduleDestination;
+            actionFText.Text = studentjson.ScheduleAction;
             UtilityScript.WriteInfo("All data written successfully", "Done");
             Log.Info("Written all schedule data successfully unless otherwise stated above");
+        }
+
+        private void refreshButton_Click(object sender, EventArgs e)
+        {
+            string student = UtilityScript.GetStudent();
+            student studentjson = JSONEdit.GetInfo(UtilityScript.ToInteger(student));
+            studentjson.ScheduleTime = timeFText.Text;
+            studentjson.ScheduleDestination = destFText.Text;
+            studentjson.ScheduleAction = actionFText.Text;
+            JSONEdit.WriteInfo(studentjson);
+            ScheduleEdit_Load(null, null);
         }
     }
 }
