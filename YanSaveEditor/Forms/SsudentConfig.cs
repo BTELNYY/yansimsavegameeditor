@@ -340,5 +340,57 @@ namespace YanSimSaveEditor
         {
 
         }
+        private void ExportCharacter(int id)
+        {
+            string file = ".\\about_" + id.ToString();
+            StreamWriter sw = new StreamWriter(file, append: true);
+            student json = JSONEdit.GetInfo(id);
+            string date = DateTime.Now.ToString("dd-MM-yyyy");
+            string time = DateTime.Now.ToString("hh\\:mm\\:ss");
+            sw.Write("About Character " + id.ToString());
+            sw.Write("Date: " + date + " Time: " + time);
+            sw.Write("BTELNYY's and Loaflover's Yandere Simulator Modding utility version " + Program.version);
+            sw.Write("GitHub: https://github.com/BTELNYY/yansimsavegameeditor");
+            sw.Write("Discord: https://discord.gg/P22tFkjTm3");
+            //json data
+            sw.Write("--From GUI--");
+            sw.Write("This section contains values which can be modified by the user, this is pulled directly from the GUI so unsaved changes appear here.");
+            sw.Write("ID: " + idTextbox.Text);
+            sw.Write("Name: " + NicknameTextbox.Text);
+            sw.Write("Real Name: " + RealnameTextbox.Text);
+            sw.Write("Description: " + DescTextbox.Text);
+            sw.Write("Crush: " + CrushTextbox.Text);
+            sw.Write("Accessory: " + AccessoryCombobox.Text);
+            sw.Write("Club: " + ClubCombobox.Text);
+            sw.Write("Class: " + ClassTextbox.Text);
+            sw.Write("Seat: " + SeatTextbox.Text);
+            sw.Write("Self Defense: " + StrengthCombobox.Text);
+            sw.Write("Gender: " + GenderCombobox.Text);
+            sw.Write("Persona: " + PersonaCombobox.Text);
+            sw.Write("Bust Size: " + BustTextbox.Text);
+            sw.Write("Reputation: " + ReputationTextbox.Text);
+            sw.Write("Dead: " + DeathCheckbox.Checked.ToString());
+            sw.Write("Kidnapped: " + KidnapChekbox.Checked.ToString());
+            sw.Write("Panty Shot: " + PantyshotCheckbox.Checked.ToString());
+            sw.Write("Rival: " + RivalCheckBox.Checked.ToString());
+            sw.Write("Photographed: " + PhotographedCheckbox.Checked.ToString());
+            sw.Write("Friend: " + FriendCheckbox.Checked.ToString());
+            sw.Write("--From JSON--");
+            sw.Write("This section contains data raw from the JSON, unsaved changes do not exist and more values then the GUI has are present. Registry data is not available here.");
+            sw.Write("ID: " + json.ID);
+            sw.Write("Name: " + json.Name);
+            sw.Write("Real Name: " + json.RealName);
+            sw.Write("Description: " + json.Info);
+            sw.Write("Crush: " + json.Crush);
+            sw.Write("Accessory: " + json.Accessory);
+            sw.Write("Club: " + json.Club);
+            sw.Write("Class: " + json.Class);
+            sw.Write("Seat: " + json.Seat);
+            sw.Write("Self Defense: " + json.Strength);
+            sw.Write("Gender: " + json.Gender);
+            sw.Write("Persona: " + json.Persona);
+            sw.Write("Bust Size:" + json.BreastSize);
+
+        }
     }
 }
