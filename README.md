@@ -5,7 +5,7 @@ The other 2 files within that ZIP folder are CRITICAL, if you don't have them, i
 # Releases
 If something is wrong, tell me. I am a human and can forget to do things or make mistakes.
 
-* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.4/YanSimSaveEditor.v1.6.4.zip)
+* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.5/YanSimSaveEditor.v1.6.5.zip)
 * [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
 
 # Bugs and issues
