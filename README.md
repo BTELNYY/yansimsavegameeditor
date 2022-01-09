@@ -1,11 +1,15 @@
 # Installation Guide
 The files extracted from the ZIP folder must go into the same folder as the games EXE, not the launcher directory, but the game directory.
 The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
+If you need additional help or something won't work, contact us [here.](https://discord.gg/P22tFkjTm3)
 
 # Releases
 If something is wrong, tell me. I am a human and can forget to do things or make mistakes.
 
+> Builds
 * [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.5/YanSimSaveEditor.v1.6.5.zip)
+> Betas
+* WARNING! THIS IS OUTDATED, USE BUILD INSTEAD!
 * [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
 
 # Bugs and issues
@@ -28,8 +32,6 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 * loaflover#2421
 * Bsce#3561
 * Jack No Last Name Given#3435
-
-Do not contact us for debugging, use our [discord](https://discord.gg/P22tFkjTm3)
 
 # TODO:
 * Add external control for in game events (as in day ends, restart day, etc)
