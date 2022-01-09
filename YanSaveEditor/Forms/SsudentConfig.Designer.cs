@@ -891,9 +891,9 @@
             // 
             // randomButton
             // 
-            this.randomButton.Location = new System.Drawing.Point(205, 464);
+            this.randomButton.Location = new System.Drawing.Point(203, 406);
             this.randomButton.Name = "randomButton";
-            this.randomButton.Size = new System.Drawing.Size(58, 23);
+            this.randomButton.Size = new System.Drawing.Size(222, 23);
             this.randomButton.TabIndex = 51;
             this.randomButton.Text = "Random";
             this.randomButton.UseVisualStyleBackColor = true;
@@ -901,7 +901,7 @@
             // 
             // scheduleButton
             // 
-            this.scheduleButton.Location = new System.Drawing.Point(205, 435);
+            this.scheduleButton.Location = new System.Drawing.Point(203, 435);
             this.scheduleButton.Name = "scheduleButton";
             this.scheduleButton.Size = new System.Drawing.Size(220, 23);
             this.scheduleButton.TabIndex = 52;
@@ -930,9 +930,9 @@
             // exportButton
             // 
             this.exportButton.Enabled = false;
-            this.exportButton.Location = new System.Drawing.Point(205, 406);
+            this.exportButton.Location = new System.Drawing.Point(203, 464);
             this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(220, 23);
+            this.exportButton.Size = new System.Drawing.Size(60, 23);
             this.exportButton.TabIndex = 56;
             this.exportButton.Text = "Export Data";
             this.exportButton.UseVisualStyleBackColor = true;

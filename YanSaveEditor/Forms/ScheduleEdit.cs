@@ -18,7 +18,7 @@ namespace YanSimSaveEditor
 
         private void ScheduleEdit_Load(object sender, EventArgs e)
         {
-            if(sender != null && e != null)
+            if (sender != null && e != null)
             {
                 UtilityScript.WriteWarning("Using this function as of this version is not recommended! while no problems occur, you must have knowledge of Yandere Simulator in order to use this. ", "Warning");
             }
