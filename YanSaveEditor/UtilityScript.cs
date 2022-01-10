@@ -188,6 +188,22 @@ namespace YanSimSaveEditor
                 return path;
             }
         }
+        public static string GetTopics()
+        {
+            string profilestring = GetProfile();
+            int profile = ToInteger(profilestring);
+            if (profile > 3)
+            {
+                // @ is needed so you dont have to replace the \ with \\
+                string path = @".\YandereSimulator_Data\StreamingAssets\JSON\EightiesTopics.json";
+                return path;
+            }
+            else
+            {
+                string path = @".\YandereSimulator_Data\StreamingAssets\JSON\Topics.json";
+                return path;
+            }
+        }
         public static int ConvertBool(bool input)
         {
             //converts a boolean into a registry friendly integer, used for checkboes
@@ -300,6 +316,16 @@ namespace YanSimSaveEditor
                 WriteError("Failed to seperate input into array: \n \n " + ex.ToString(), "Error");
                 return new string[0];
             }
+        }
+        public static void lineChanger(string newText, string fileName, int line_to_edit)
+        {
+            string[] arrLine = File.ReadAllLines(fileName);
+            arrLine[line_to_edit - 1] = newText;
+            File.WriteAllLines(fileName, arrLine);
+        }
+        public static object GetPropValue(object src, string propName)
+        {
+            return src.GetType().GetProperty(propName).GetValue(src, null);
         }
     }
 }

@@ -147,14 +147,13 @@ public class student
         public string Info { get; set; }
 
 
-        /*
-        leftover code - just to make debugging simpler (not even code just a mess - ignore if not Loaflove\r 
-        [ScheduleTime] => 7_7_8_13.0000_13.375_15.5_16_99
-        [ScheduleDestination] => Spawn_Locker_Patrol_Seat_LunchSpot_Seat_Clean_Patrol
-        [ScheduleAction] => Stand_Stand_Patrol_Sit_Eat_Sit_Clean_Patrol
-        */
+    /*
+    leftover code - just to make debugging simpler (not even code just a mess - ignore if not Loaflove\r 
+    [ScheduleTime] => 7_7_8_13.0000_13.375_15.5_16_99
+    [ScheduleDestination] => Spawn_Locker_Patrol_Seat_LunchSpot_Seat_Clean_Patrol
+    [ScheduleAction] => Stand_Stand_Patrol_Sit_Eat_Sit_Clean_Patrol
+    */
 
 
 
-    }
-
+}

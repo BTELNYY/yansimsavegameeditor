@@ -50,6 +50,11 @@ namespace YanSimSaveEditor
             //do not put any windows forms code above this
             Application.EnableVisualStyles();
             Application.SetCompatibleTextRenderingDefault(false);
+            if (Globals.debugConsole)
+            {
+                //checks if the debug flag is pulled, if yes, calls a new console window.
+                DebugConsole.StartConsole();
+            }
             if (!UtilityScript.DirExists("Logs"))
             {
                 Directory.CreateDirectory("Logs");
