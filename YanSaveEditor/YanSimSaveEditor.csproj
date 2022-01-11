@@ -71,8 +71,8 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="DebugConsoleCmdHandler.cs" />
-    <Compile Include="DebugConsole.cs" />
+    <Compile Include="DebugConsole\DebugConsole.cs" />
+    <Compile Include="DebugConsole\DebugConsoleCmdHandler.cs" />
     <Compile Include="Globals.cs" />
     <Compile Include="CustomCharacter.cs" />
     <Compile Include="Forms\CreditsForm.cs">
