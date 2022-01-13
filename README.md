@@ -30,7 +30,6 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 # Authors:
 * btelnyy#8395
 * loaflover#2421
-* Bsce#3561
 * Jack No Last Name Given#3435
 
 # TODO:
