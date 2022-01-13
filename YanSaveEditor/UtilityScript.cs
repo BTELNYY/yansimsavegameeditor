@@ -6,11 +6,20 @@ using System.Linq;
 using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
+using System.Security.Cryptography;
 namespace YanSimSaveEditor
 {
     public class UtilityScript
     {
         //removed the log function from here, see LoggerScript.cs, or call Log
+        private SHA256 Sha256 = SHA256.Create();
+        private string GetHashSha256(string filename)
+        {
+            using (FileStream stream = File.OpenRead(filename))
+            {
+                return Sha256.ComputeHash(stream).ToString();
+            }
+        }
         public static void WriteError(string msg, string title)
         {
             //Allows the display of error messages, used for when shit breaks.
