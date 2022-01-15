@@ -14,7 +14,6 @@ namespace YanSimSaveEditor
         [DllImport("kernel32")]
         static extern int FreeConsole();
         public static bool ConsoleCreated;
-        
         public static void StartConsole()
         {
             AllocConsole();
