@@ -7,7 +7,7 @@ If you need additional help or something won't work, contact us [here.](https://
 If something is wrong, tell me. I am a human and can forget to do things or make mistakes.
 
 > Builds
-* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.5/YanSimSaveEditor.v1.6.5.zip)
+* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.6.6/YanSimSaveEditor.v1.6.6.zip)
 > Betas
 * WARNING! THIS IS OUTDATED, USE BUILD INSTEAD!
 * [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
