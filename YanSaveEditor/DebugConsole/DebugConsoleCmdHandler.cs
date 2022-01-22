@@ -4,6 +4,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
+using Microsoft.Win32;
 
 namespace YanSimSaveEditor
 {
@@ -64,7 +65,23 @@ namespace YanSimSaveEditor
                             DebugConsole.WriteLineColor("Server is outdated.", ConsoleColor.Yellow);
                         }
                         break;
+                    case "getvalue":
+                        GetValue(inputargs);
+                        break;
                 }
+            }
+        }
+        public static void GetValue(string[] args)
+        {
+            try
+            {
+                RegistryKey key = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+                string value = RegEdit.returnValue(key, UtilityScript.SelectString(args[1], false));
+                DebugConsole.WriteLineColor(value, ConsoleColor.White);
+            }
+            catch (Exception e)
+            {
+                DebugConsole.WriteLineColor("Error occured while getting value. " + e.ToString(), ConsoleColor.Red);
             }
         }
     }

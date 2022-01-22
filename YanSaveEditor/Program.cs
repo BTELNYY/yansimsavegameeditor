@@ -8,7 +8,6 @@ using Microsoft.Win32;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-
 namespace YanSimSaveEditor
 {
     internal static class Program
@@ -21,6 +20,7 @@ namespace YanSimSaveEditor
         [STAThread]
         static void Main()
         {
+            
             /*
             ben summary.
             "//" is a comment statement, everything after that on the same line will not be exectued, meant for humans.

@@ -23,21 +23,42 @@ namespace YanSimSaveEditor
         public static void WriteError(string msg, string title)
         {
             //Allows the display of error messages, used for when shit breaks.
-            MessageBox.Show(msg, title,
-                MessageBoxButtons.OK, MessageBoxIcon.Error);
-            Globals.errorArray.Append(msg);
+            if (Globals.debugConsole)
+            {
+                DebugConsole.WriteLineColor(msg, ConsoleColor.Red);
+            }
+            else
+            {
+                MessageBox.Show(msg, title,
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+                Globals.errorArray.Append(msg);
+            }
         }
         public static void WriteWarning(string msg, string title)
         {
             //warning message.
-            MessageBox.Show(msg, title,
-                MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            if (Globals.debugConsole)
+            {
+                DebugConsole.WriteLineColor(msg, ConsoleColor.Yellow);
+            }
+            else
+            {
+                MessageBox.Show(msg, title,
+                    MessageBoxButtons.OK, MessageBoxIcon.Warning);
+            }
         }
         public static void WriteInfo(string msg, string title)
         {
             //info stuff
-            MessageBox.Show(msg, title,
-                MessageBoxButtons.OK, MessageBoxIcon.Information);
+            if (Globals.debugConsole)
+            {
+                DebugConsole.WriteLineColor(msg, ConsoleColor.White);
+            }
+            else 
+            {
+                MessageBox.Show(msg, title,
+                    MessageBoxButtons.OK, MessageBoxIcon.Information);
+            }
         }
         public static bool FileExists(string path)
         {
@@ -237,6 +258,18 @@ namespace YanSimSaveEditor
                     return true;
                 default:
                     return false;
+            }
+        }
+        public static float ToFloat(string input)
+        {
+            try
+            {
+                float result = float.Parse(input);
+                return result;
+            }
+            catch
+            {
+                return 0f;
             }
         }
         public static int GetRandomInt(int min, int max)
