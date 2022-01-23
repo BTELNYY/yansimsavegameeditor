@@ -21,6 +21,11 @@ If reporting on GitHub is not possible:
 * Report it on Reddit
 * email me (in profile)
 
+# Contact
+[![btelnyy's discord server.](https://discord.com/api/guilds/910764028786266153/embed.png?style=banner1)](https://discord.gg/P22tFkjTm3)
+
+
+
 # Yandere Simulator Save Game Editor
 A program to edit Yandere Simulators save files.
 You can edit the code, you can also submit your own edits to this page. I will review them and add them if needed.
