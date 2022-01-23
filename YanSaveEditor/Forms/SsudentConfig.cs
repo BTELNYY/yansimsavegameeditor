@@ -41,7 +41,7 @@ namespace YanSimSaveEditor
             {
                 //define the things we need
                 string profile = UtilityScript.GetProfile();
-                string student = StudentSelect.Text;
+                string student = (StudentSelect.SelectedIndex + 1).ToString();
                 int studentint = UtilityScript.ToInteger(student);
                 student studentjson = JSONEdit.GetInfo(studentint);
                 student studenjsonread = JSONEdit.GetInfo(studentint);
@@ -140,7 +140,7 @@ namespace YanSimSaveEditor
                 {
                     //while this could be done in a 2d array foreach loop, I am too lazy. it would also do
                     //almost nothing different except how many lines of code this C# file has. Which is kinda a shitty trade.
-                    string student = StudentSelect.Text;
+                    string student = (StudentSelect.SelectedIndex + 1).ToString();
                     UtilityScript.SetStudent(student);
                     string[] rivals = { "11", "12", "13", "14", "15", "16", "17", "18", "19", "20" };
                     string[] femaleacc = { "0", "1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14" };
@@ -419,7 +419,7 @@ namespace YanSimSaveEditor
 
         private void exportButton_Click(object sender, EventArgs e)
         {
-            ExportCharacter(UtilityScript.ToInteger(StudentSelect.Text));
+            ExportCharacter(StudentSelect.SelectedIndex + 1);
         }
     }
 }

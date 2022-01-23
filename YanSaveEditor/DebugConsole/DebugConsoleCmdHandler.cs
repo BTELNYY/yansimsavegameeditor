@@ -68,10 +68,19 @@ namespace YanSimSaveEditor
                     case "getvalue":
                         GetValue(inputargs);
                         break;
+                    case "gethexvalue":
+                        GetHexValue(inputargs);
+                        break;
+                    case "getdecvalue":
+                        GetDecValue(inputargs);
+                        break;
+                    case "toint":
+                        ConvertToInt32(inputargs);
+                        break;
                 }
             }
         }
-        public static void GetValue(string[] args)
+        private static void GetValue(string[] args)
         {
             try
             {
@@ -82,6 +91,38 @@ namespace YanSimSaveEditor
             catch (Exception e)
             {
                 DebugConsole.WriteLineColor("Error occured while getting value. " + e.ToString(), ConsoleColor.Red);
+            }
+        }
+        private static void GetHexValue(string[] args)
+        {
+            try
+            {
+                DebugConsole.WriteLineColor(UtilityScript.GetHexValue(args[1]), ConsoleColor.White);
+            }
+            catch (Exception e)
+            {
+                DebugConsole.WriteLineColor("Error getting hex value. " + e.ToString(), ConsoleColor.Red);
+            }
+        }
+        private static void GetDecValue(string[] args)
+        {
+            try
+            {
+                DebugConsole.WriteLineColor(UtilityScript.GetDecValue(args[1]), ConsoleColor.White);
+            }
+            catch (Exception e)
+            {
+                DebugConsole.WriteLineColor("Error converting integer to long. " + e.ToString(), ConsoleColor.Red);
+            }
+        }
+        private static void ConvertToInt32(string[] args)
+        {
+            try
+            {
+                DebugConsole.WriteLineColor(Convert.ToInt32(args[1]).ToString(), ConsoleColor.White);
+            }catch(Exception e)
+            {
+                DebugConsole.WriteLineColor("Error converting double to integer. " + e.ToString(), ConsoleColor.Red);
             }
         }
     }

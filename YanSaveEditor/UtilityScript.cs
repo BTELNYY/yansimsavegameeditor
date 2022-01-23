@@ -13,7 +13,7 @@ namespace YanSimSaveEditor
     {
         //removed the log function from here, see LoggerScript.cs, or call Log
         private SHA256 Sha256 = SHA256.Create();
-        private string GetHashSha256(string filename)
+        public string GetHashSha256(string filename)
         {
             using (FileStream stream = File.OpenRead(filename))
             {
@@ -272,6 +272,18 @@ namespace YanSimSaveEditor
                 return 0f;
             }
         }
+        public static long ToLong(string input)
+        {
+            try
+            {
+                long result = long.Parse(input);
+                return result;
+            }
+            catch
+            {
+                return 0;
+            }
+        }
         public static int GetRandomInt(int min, int max)
         {
             //allows for one liners in my code.
@@ -368,6 +380,30 @@ namespace YanSimSaveEditor
         public static object GetPropValue(object src, string propName)
         {
             return src.GetType().GetProperty(propName).GetValue(src, null);
+        }
+        public static string GetHexValue(string input)
+        {
+            if (input == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                return long.Parse(input, System.Globalization.NumberStyles.HexNumber).ToString();
+            }
+        }
+        public static string GetDecValue(string input)
+        {
+            if(input == null)
+            {
+                return string.Empty;
+            }
+            else
+            {
+                long decValue = UtilityScript.ToLong(input);
+                string hexValue = decValue.ToString("X");
+                return hexValue;
+            }
         }
     }
 }
