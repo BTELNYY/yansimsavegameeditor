@@ -38,15 +38,14 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 * Jack No Last Name Given#3435
 
 # TODO:
-* Add external control for in game events (as in day ends, restart day, etc)
-* texture swapper (depends on how doable this is)
-* ~~Add Credits~~
-* ~~Convert to C#~~
-* ~~Allow people to change the club they are in.~~
-* ~~Add a GUI for the entire app.~~
-* ~~Add configuration via registry~~
-* ~~Add a file icon~~ Thanks Fashion :)
-* ~~Allow modification of the students.json (With a GUI would be best.)~~
+- [ ] Add external control for in game events (as in day ends, restart day, etc)
+- [ ] texture swapper (depends on how doable this is)
+- [X] Add Credits
+- [X] Convert to C#
+- [X] Add a GUI for the entire app.
+- [X] Add configuration via registry (Exists, Unused unless storing temp vars.
+- [X] Add a file icon Thanks Fashion :)
+- [X] Allow modification of the students.json (With a GUI would be best.)
 
 This is GitHub, anyone can contribute. (hint: above list :) )
 
