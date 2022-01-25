@@ -1,0 +1,25 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <OutputType>WinExe</OutputType>
+    <TargetFramework>net6.0-windows</TargetFramework>
+    <Nullable>enable</Nullable>
+    <UseWindowsForms>true</UseWindowsForms>
+    <ImplicitUsings>enable</ImplicitUsings>
+    <ApplicationIcon>main_icon.ico</ApplicationIcon>
+    <Copyright>Loaflover &amp; btelnyy 2022</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <None Remove="IMPORTANT.jpg" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <Content Include="main_icon.ico" />
+  </ItemGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="13.0.1" />
+  </ItemGroup>
+
+</Project>

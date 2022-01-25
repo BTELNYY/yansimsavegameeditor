@@ -5,6 +5,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Reflection;
 using Microsoft.Win32;
+using System.Runtime.InteropServices;
 
 namespace YanSimSaveEditor
 {
@@ -77,6 +78,23 @@ namespace YanSimSaveEditor
                     case "toint":
                         ConvertToInt32(inputargs);
                         break;
+                    case "todouble":
+                        try
+                        {
+                            double output = BitConverter.Int64BitsToDouble(Int64.Parse(inputargs[1]));
+                            DebugConsole.WriteLineColor(output.ToString(), ConsoleColor.White);
+                        }catch(Exception e)
+                        {
+                            DebugConsole.WriteLineColor("Error: " + e.ToString(), ConsoleColor.Red);
+                        }
+                        break;
+                    case "setvalue":
+                        bool outp = SetNamedValue(inputargs);
+                        DebugConsole.WriteLineColor(outp.ToString(), ConsoleColor.White);
+                        break;
+                    case "getfullname":
+                        DebugConsole.WriteLineColor(UtilityScript.SelectString(inputargs[1], false), ConsoleColor.White);
+                        break;
                 }
             }
         }
@@ -92,6 +110,52 @@ namespace YanSimSaveEditor
             {
                 DebugConsole.WriteLineColor("Error occured while getting value. " + e.ToString(), ConsoleColor.Red);
             }
+        }
+        [DllImport("advapi32.dll")]
+        static extern uint RegSetValueEx(
+        UIntPtr hKey,
+        [MarshalAs(UnmanagedType.LPStr)] string lpValueName,
+        int Reserved,
+        RegistryValueKind dwType,
+        IntPtr lpData,
+        int cbData);
+
+        [DllImport("advapi32.dll", CharSet = CharSet.Auto)]
+        public static extern uint RegOpenKeyEx(
+            IntPtr hKey,
+            string subKey,
+            int ulOptions,
+            int samDesired,
+            out UIntPtr hkResult);
+
+        [DllImport("advapi32.dll")]
+        public static extern int RegCloseKey(UIntPtr hKey);
+
+        static public readonly IntPtr HKEY_CURRENT_USER = new IntPtr(-2147483647);
+
+        public static bool SetNamedValue(string[] args)
+        {
+            string path = "HKCU:\\SOFTWARE\\YandereDev\\YandereSimulator\\";
+            string valName = args[1];
+            double value = double.Parse(args[2]);
+            UIntPtr hKey = UIntPtr.Zero;
+            try
+            {
+                if (RegOpenKeyEx(HKEY_CURRENT_USER, path, 0, 0x20006, out hKey) != 0)
+                    return false;
+
+                int size = 8;
+                IntPtr pData = Marshal.AllocHGlobal(size);
+                Marshal.WriteInt64(pData, BitConverter.DoubleToInt64Bits(value));
+                if (RegSetValueEx(hKey, valName, 0, RegistryValueKind.DWord, pData, size) != 0)
+                    return false;
+            }
+            finally
+            {
+                if (hKey != UIntPtr.Zero)
+                    RegCloseKey(hKey);
+            }
+            return true;
         }
         private static void GetHexValue(string[] args)
         {
@@ -119,8 +183,11 @@ namespace YanSimSaveEditor
         {
             try
             {
-                DebugConsole.WriteLineColor(Convert.ToInt32(args[1]).ToString(), ConsoleColor.White);
-            }catch(Exception e)
+                double d = UtilityScript.ToDouble(args[1]);
+                long longVal = BitConverter.DoubleToInt64Bits(d);
+                DebugConsole.WriteLineColor(longVal.ToString(), ConsoleColor.White);
+            }
+            catch (Exception e)
             {
                 DebugConsole.WriteLineColor("Error converting double to integer. " + e.ToString(), ConsoleColor.Red);
             }
