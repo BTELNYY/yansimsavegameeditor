@@ -1,10 +1,4 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
-using System.Reflection;
-using Microsoft.Win32;
+﻿using Microsoft.Win32;
 using System.Runtime.InteropServices;
 
 namespace YanSimSaveEditor
@@ -89,8 +83,7 @@ namespace YanSimSaveEditor
                         }
                         break;
                     case "setvalue":
-                        bool outp = SetNamedValue(inputargs);
-                        DebugConsole.WriteLineColor(outp.ToString(), ConsoleColor.White);
+                        SetNamedValue(inputargs);
                         break;
                     case "getfullname":
                         DebugConsole.WriteLineColor(UtilityScript.SelectString(inputargs[1], false), ConsoleColor.White);
@@ -133,29 +126,39 @@ namespace YanSimSaveEditor
 
         static public readonly IntPtr HKEY_CURRENT_USER = new IntPtr(-2147483647);
 
-        public static bool SetNamedValue(string[] args)
+        public static void SetNamedValue(string[] args)
         {
-            string path = "HKCU:\\SOFTWARE\\YandereDev\\YandereSimulator\\";
+            string path = "SOFTWARE\\YandereDev\\YandereSimulator\\";
             string valName = args[1];
             double value = double.Parse(args[2]);
             UIntPtr hKey = UIntPtr.Zero;
             try
             {
                 if (RegOpenKeyEx(HKEY_CURRENT_USER, path, 0, 0x20006, out hKey) != 0)
-                    return false;
+                {
+                    UtilityScript.WriteError("Error opening key for registry editing.", "Error");
+                }
+                    
 
                 int size = 8;
                 IntPtr pData = Marshal.AllocHGlobal(size);
                 Marshal.WriteInt64(pData, BitConverter.DoubleToInt64Bits(value));
                 if (RegSetValueEx(hKey, valName, 0, RegistryValueKind.DWord, pData, size) != 0)
-                    return false;
+                {
+                    UtilityScript.WriteError("Failed to write registry data.", "Error");
+                }
+
             }
             finally
             {
+                DebugConsole.WriteLineColor("So Bassicly something went wrong, so the finally loop is running.", ConsoleColor.White);
                 if (hKey != UIntPtr.Zero)
+                {
                     RegCloseKey(hKey);
+                }
+
+
             }
-            return true;
         }
         private static void GetHexValue(string[] args)
         {

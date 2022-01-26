@@ -16,6 +16,7 @@ namespace YanSimSaveEditor
             {
                 Log.Info("Checking for updates");
                 string url = "https://btelnyy.github.io/yansimsavegameeditor/Website/version.html";
+                //oh stfu about obselete, this was fine in fremework 4.8, its gonna work now.
                 WebClient client = new WebClient();
                 string web = client.DownloadString(url);
                 string[] website = web.Split(' '); //splits the resulting string into a array based on spaces.

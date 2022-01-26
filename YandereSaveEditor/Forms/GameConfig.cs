@@ -50,6 +50,7 @@ namespace YanSimSaveEditor
                 string lovesick = UtilityScript.SelectString(profilecombined + "_LoveSick", true);
                 string darkend = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
+                string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), lovesick);
 
@@ -94,6 +95,18 @@ namespace YanSimSaveEditor
                 {
                     Log.Warning("Info Points were set to a invalid value, reset to 0");
                     UtilityScript.WriteWarning("Info Points value is not a valid int32! the number has been set to 0", "Bad Value Warning");
+                }
+                //Money code.
+                //these 2 lines actually have over 100 behind them, its cleaner this way.
+                double d = UtilityScript.ToDouble(MoneyTextbox.Text);
+                if(d > 9223372036854775807)
+                {
+                    //this wont trigger as a overflow will occur, but whatever.
+                    UtilityScript.WriteError("Value is larger then the 64-bit integer limit. Dont, I repeat don't try this.", "Error");
+                }
+                else
+                {
+                    RegEdit.SetCorruptValue(money, d);
                 }
                 //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
                 Log.Info("All Registry Data written successfully.");
@@ -174,6 +187,9 @@ namespace YanSimSaveEditor
                 string physstat = UtilityScript.SelectString("Profile_" + profile + "_PhysicalGrade", true);
                 string langstat = UtilityScript.SelectString("Profile_" + profile + "_LanguageGrade", true);
                 string psycstat = UtilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+                string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
+                string moneyval = RegEdit.returnValue(gamereg, money);
+                MoneyTextbox.Text = BitConverter.Int64BitsToDouble(Int64.Parse(moneyval)).ToString();
                 ChemStat.Text = RegEdit.returnValue(gamereg, chemstat);
                 BioStat.Text = RegEdit.returnValue(gamereg, biostat);
                 PhysedStat.Text = RegEdit.returnValue(gamereg, physstat);

@@ -62,14 +62,17 @@
             this.loveSickCheckbox = new System.Windows.Forms.CheckBox();
             this.darkEndingCheckbox = new System.Windows.Forms.CheckBox();
             this.trueEndingCheckbox = new System.Windows.Forms.CheckBox();
+            this.label12 = new System.Windows.Forms.Label();
+            this.MoneyTextbox = new System.Windows.Forms.TextBox();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(13, 13);
+            this.label1.Location = new System.Drawing.Point(15, 15);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(80, 13);
+            this.label1.Size = new System.Drawing.Size(92, 15);
             this.label1.TabIndex = 0;
             this.label1.Text = "Female Uniform";
             // 
@@ -83,17 +86,19 @@
             "4",
             "5",
             "6"});
-            this.FemaleuniformCombo.Location = new System.Drawing.Point(99, 11);
+            this.FemaleuniformCombo.Location = new System.Drawing.Point(115, 13);
+            this.FemaleuniformCombo.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FemaleuniformCombo.Name = "FemaleuniformCombo";
-            this.FemaleuniformCombo.Size = new System.Drawing.Size(121, 21);
+            this.FemaleuniformCombo.Size = new System.Drawing.Size(140, 23);
             this.FemaleuniformCombo.TabIndex = 1;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(13, 39);
+            this.label2.Location = new System.Drawing.Point(15, 45);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(69, 13);
+            this.label2.Size = new System.Drawing.Size(80, 15);
             this.label2.TabIndex = 2;
             this.label2.Text = "Male Uniform";
             // 
@@ -107,17 +112,19 @@
             "4",
             "5",
             "6"});
-            this.MaleuniformCombobox.Location = new System.Drawing.Point(99, 36);
+            this.MaleuniformCombobox.Location = new System.Drawing.Point(115, 42);
+            this.MaleuniformCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.MaleuniformCombobox.Name = "MaleuniformCombobox";
-            this.MaleuniformCombobox.Size = new System.Drawing.Size(121, 21);
+            this.MaleuniformCombobox.Size = new System.Drawing.Size(140, 23);
             this.MaleuniformCombobox.TabIndex = 3;
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(13, 65);
+            this.label3.Location = new System.Drawing.Point(15, 75);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(71, 13);
+            this.label3.Size = new System.Drawing.Size(81, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Kidnap Victim";
             // 
@@ -226,17 +233,19 @@
             "98",
             "99",
             "100"});
-            this.KidnapCombobox.Location = new System.Drawing.Point(99, 62);
+            this.KidnapCombobox.Location = new System.Drawing.Point(115, 72);
+            this.KidnapCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.KidnapCombobox.Name = "KidnapCombobox";
-            this.KidnapCombobox.Size = new System.Drawing.Size(121, 21);
+            this.KidnapCombobox.Size = new System.Drawing.Size(140, 23);
             this.KidnapCombobox.TabIndex = 5;
             // 
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(13, 91);
+            this.label4.Location = new System.Drawing.Point(15, 105);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(68, 13);
+            this.label4.Size = new System.Drawing.Size(79, 15);
             this.label4.TabIndex = 6;
             this.label4.Text = "Bringing Item";
             // 
@@ -257,26 +266,29 @@
             "10",
             "11",
             "12"});
-            this.ItemCombobox.Location = new System.Drawing.Point(99, 88);
+            this.ItemCombobox.Location = new System.Drawing.Point(115, 102);
+            this.ItemCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ItemCombobox.Name = "ItemCombobox";
-            this.ItemCombobox.Size = new System.Drawing.Size(121, 21);
+            this.ItemCombobox.Size = new System.Drawing.Size(140, 23);
             this.ItemCombobox.TabIndex = 7;
             // 
             // DebugCheckbox
             // 
             this.DebugCheckbox.AutoSize = true;
-            this.DebugCheckbox.Location = new System.Drawing.Point(227, 13);
+            this.DebugCheckbox.Location = new System.Drawing.Point(265, 15);
+            this.DebugCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DebugCheckbox.Name = "DebugCheckbox";
-            this.DebugCheckbox.Size = new System.Drawing.Size(93, 17);
+            this.DebugCheckbox.Size = new System.Drawing.Size(100, 19);
             this.DebugCheckbox.TabIndex = 8;
             this.DebugCheckbox.Text = "Debug mode?";
             this.DebugCheckbox.UseVisualStyleBackColor = true;
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(314, 374);
+            this.SaveButton.Location = new System.Drawing.Point(366, 432);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.Size = new System.Drawing.Size(88, 27);
             this.SaveButton.TabIndex = 9;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -292,9 +304,10 @@
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(99, 200);
+            this.PhsycStat.Location = new System.Drawing.Point(115, 231);
+            this.PhsycStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhsycStat.Name = "PhsycStat";
-            this.PhsycStat.Size = new System.Drawing.Size(121, 21);
+            this.PhsycStat.Size = new System.Drawing.Size(140, 23);
             this.PhsycStat.TabIndex = 10;
             // 
             // PhysedStat
@@ -307,9 +320,10 @@
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(99, 227);
+            this.PhysedStat.Location = new System.Drawing.Point(115, 262);
+            this.PhysedStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhysedStat.Name = "PhysedStat";
-            this.PhysedStat.Size = new System.Drawing.Size(121, 21);
+            this.PhysedStat.Size = new System.Drawing.Size(140, 23);
             this.PhysedStat.TabIndex = 11;
             // 
             // LangStat
@@ -322,9 +336,10 @@
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(99, 254);
+            this.LangStat.Location = new System.Drawing.Point(115, 293);
+            this.LangStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LangStat.Name = "LangStat";
-            this.LangStat.Size = new System.Drawing.Size(121, 21);
+            this.LangStat.Size = new System.Drawing.Size(140, 23);
             this.LangStat.TabIndex = 12;
             // 
             // ChemStat
@@ -337,9 +352,10 @@
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(99, 281);
+            this.ChemStat.Location = new System.Drawing.Point(115, 324);
+            this.ChemStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ChemStat.Name = "ChemStat";
-            this.ChemStat.Size = new System.Drawing.Size(121, 21);
+            this.ChemStat.Size = new System.Drawing.Size(140, 23);
             this.ChemStat.TabIndex = 13;
             // 
             // BioStat
@@ -352,61 +368,68 @@
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(99, 308);
+            this.BioStat.Location = new System.Drawing.Point(115, 355);
+            this.BioStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BioStat.Name = "BioStat";
-            this.BioStat.Size = new System.Drawing.Size(121, 21);
+            this.BioStat.Size = new System.Drawing.Size(140, 23);
             this.BioStat.TabIndex = 14;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(13, 203);
+            this.label5.Location = new System.Drawing.Point(15, 234);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(83, 13);
+            this.label5.Size = new System.Drawing.Size(91, 15);
             this.label5.TabIndex = 15;
             this.label5.Text = "Phsycology Stat";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(13, 230);
+            this.label6.Location = new System.Drawing.Point(15, 265);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(68, 13);
+            this.label6.Size = new System.Drawing.Size(71, 15);
             this.label6.TabIndex = 16;
             this.label6.Text = "Phys Ed Stat";
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(13, 257);
+            this.label7.Location = new System.Drawing.Point(15, 297);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(77, 13);
+            this.label7.Size = new System.Drawing.Size(82, 15);
             this.label7.TabIndex = 17;
             this.label7.Text = "Language Stat";
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(13, 284);
+            this.label8.Location = new System.Drawing.Point(15, 328);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(74, 13);
+            this.label8.Size = new System.Drawing.Size(84, 15);
             this.label8.TabIndex = 18;
             this.label8.Text = "Chemistry Stat";
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(13, 311);
+            this.label9.Location = new System.Drawing.Point(15, 359);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(63, 13);
+            this.label9.Size = new System.Drawing.Size(70, 15);
             this.label9.TabIndex = 19;
             this.label9.Text = "Biology Stat";
             // 
             // mangaButton
             // 
-            this.mangaButton.Location = new System.Drawing.Point(-3, 345);
+            this.mangaButton.Location = new System.Drawing.Point(-4, 398);
+            this.mangaButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mangaButton.Name = "mangaButton";
-            this.mangaButton.Size = new System.Drawing.Size(93, 23);
+            this.mangaButton.Size = new System.Drawing.Size(108, 27);
             this.mangaButton.TabIndex = 20;
             this.mangaButton.Text = "All Manga";
             this.mangaButton.UseVisualStyleBackColor = true;
@@ -415,9 +438,10 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(-5, 374);
+            this.button1.Location = new System.Drawing.Point(-6, 432);
+            this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(75, 23);
+            this.button1.Size = new System.Drawing.Size(88, 27);
             this.button1.TabIndex = 21;
             this.button1.Text = "Exit";
             this.button1.UseVisualStyleBackColor = true;
@@ -426,24 +450,27 @@
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(13, 118);
+            this.label10.Location = new System.Drawing.Point(15, 136);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(57, 13);
+            this.label10.Size = new System.Drawing.Size(64, 15);
             this.label10.TabIndex = 22;
             this.label10.Text = "Info Points";
             // 
             // InfoTextbox
             // 
-            this.InfoTextbox.Location = new System.Drawing.Point(99, 115);
+            this.InfoTextbox.Location = new System.Drawing.Point(115, 133);
+            this.InfoTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.InfoTextbox.Name = "InfoTextbox";
-            this.InfoTextbox.Size = new System.Drawing.Size(121, 20);
+            this.InfoTextbox.Size = new System.Drawing.Size(140, 23);
             this.InfoTextbox.TabIndex = 23;
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(96, 345);
+            this.button2.Location = new System.Drawing.Point(112, 398);
+            this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 23);
+            this.button2.Size = new System.Drawing.Size(110, 27);
             this.button2.TabIndex = 24;
             this.button2.Text = "All underwear";
             this.button2.UseVisualStyleBackColor = true;
@@ -452,9 +479,10 @@
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(13, 144);
+            this.label11.Location = new System.Drawing.Point(15, 166);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(28, 13);
+            this.label11.Size = new System.Drawing.Size(32, 15);
             this.label11.TabIndex = 25;
             this.label11.Text = "Club";
             // 
@@ -481,17 +509,19 @@
             "100, Teacher",
             "101, Gym Teacher",
             "102, Rival Nurse"});
-            this.ClubCombobox.Location = new System.Drawing.Point(99, 141);
+            this.ClubCombobox.Location = new System.Drawing.Point(115, 163);
+            this.ClubCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ClubCombobox.Name = "ClubCombobox";
-            this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
+            this.ClubCombobox.Size = new System.Drawing.Size(140, 23);
             this.ClubCombobox.TabIndex = 26;
             // 
             // fakeIDcheckbox
             // 
             this.fakeIDcheckbox.AutoSize = true;
-            this.fakeIDcheckbox.Location = new System.Drawing.Point(227, 36);
+            this.fakeIDcheckbox.Location = new System.Drawing.Point(265, 42);
+            this.fakeIDcheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.fakeIDcheckbox.Name = "fakeIDcheckbox";
-            this.fakeIDcheckbox.Size = new System.Drawing.Size(70, 17);
+            this.fakeIDcheckbox.Size = new System.Drawing.Size(69, 19);
             this.fakeIDcheckbox.TabIndex = 27;
             this.fakeIDcheckbox.Text = "Fake ID?";
             this.fakeIDcheckbox.UseVisualStyleBackColor = true;
@@ -499,9 +529,10 @@
             // raiburuLonerCheck
             // 
             this.raiburuLonerCheck.AutoSize = true;
-            this.raiburuLonerCheck.Location = new System.Drawing.Point(226, 59);
+            this.raiburuLonerCheck.Location = new System.Drawing.Point(264, 68);
+            this.raiburuLonerCheck.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.raiburuLonerCheck.Name = "raiburuLonerCheck";
-            this.raiburuLonerCheck.Size = new System.Drawing.Size(99, 17);
+            this.raiburuLonerCheck.Size = new System.Drawing.Size(105, 19);
             this.raiburuLonerCheck.TabIndex = 28;
             this.raiburuLonerCheck.Text = "Raiburu Loner?";
             this.raiburuLonerCheck.UseVisualStyleBackColor = true;
@@ -509,9 +540,10 @@
             // senpaiPhotoCheckbox
             // 
             this.senpaiPhotoCheckbox.AutoSize = true;
-            this.senpaiPhotoCheckbox.Location = new System.Drawing.Point(227, 82);
+            this.senpaiPhotoCheckbox.Location = new System.Drawing.Point(265, 95);
+            this.senpaiPhotoCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.senpaiPhotoCheckbox.Name = "senpaiPhotoCheckbox";
-            this.senpaiPhotoCheckbox.Size = new System.Drawing.Size(96, 17);
+            this.senpaiPhotoCheckbox.Size = new System.Drawing.Size(101, 19);
             this.senpaiPhotoCheckbox.TabIndex = 29;
             this.senpaiPhotoCheckbox.Text = "Senpai Photo?";
             this.senpaiPhotoCheckbox.UseVisualStyleBackColor = true;
@@ -519,9 +551,10 @@
             // loveSickCheckbox
             // 
             this.loveSickCheckbox.AutoSize = true;
-            this.loveSickCheckbox.Location = new System.Drawing.Point(227, 105);
+            this.loveSickCheckbox.Location = new System.Drawing.Point(265, 121);
+            this.loveSickCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.loveSickCheckbox.Name = "loveSickCheckbox";
-            this.loveSickCheckbox.Size = new System.Drawing.Size(77, 17);
+            this.loveSickCheckbox.Size = new System.Drawing.Size(77, 19);
             this.loveSickCheckbox.TabIndex = 30;
             this.loveSickCheckbox.Text = "LoveSick?";
             this.loveSickCheckbox.UseVisualStyleBackColor = true;
@@ -529,9 +562,10 @@
             // darkEndingCheckbox
             // 
             this.darkEndingCheckbox.AutoSize = true;
-            this.darkEndingCheckbox.Location = new System.Drawing.Point(227, 128);
+            this.darkEndingCheckbox.Location = new System.Drawing.Point(265, 148);
+            this.darkEndingCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.darkEndingCheckbox.Name = "darkEndingCheckbox";
-            this.darkEndingCheckbox.Size = new System.Drawing.Size(91, 17);
+            this.darkEndingCheckbox.Size = new System.Drawing.Size(95, 19);
             this.darkEndingCheckbox.TabIndex = 31;
             this.darkEndingCheckbox.Text = "Dark Ending?";
             this.darkEndingCheckbox.UseVisualStyleBackColor = true;
@@ -539,19 +573,38 @@
             // trueEndingCheckbox
             // 
             this.trueEndingCheckbox.AutoSize = true;
-            this.trueEndingCheckbox.Location = new System.Drawing.Point(226, 151);
+            this.trueEndingCheckbox.Location = new System.Drawing.Point(264, 174);
+            this.trueEndingCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.trueEndingCheckbox.Name = "trueEndingCheckbox";
-            this.trueEndingCheckbox.Size = new System.Drawing.Size(90, 17);
+            this.trueEndingCheckbox.Size = new System.Drawing.Size(93, 19);
             this.trueEndingCheckbox.TabIndex = 32;
             this.trueEndingCheckbox.Text = "True Ending?";
             this.trueEndingCheckbox.UseVisualStyleBackColor = true;
             // 
+            // label12
+            // 
+            this.label12.AutoSize = true;
+            this.label12.Location = new System.Drawing.Point(15, 197);
+            this.label12.Name = "label12";
+            this.label12.Size = new System.Drawing.Size(44, 15);
+            this.label12.TabIndex = 33;
+            this.label12.Text = "Money";
+            // 
+            // MoneyTextbox
+            // 
+            this.MoneyTextbox.Location = new System.Drawing.Point(115, 194);
+            this.MoneyTextbox.Name = "MoneyTextbox";
+            this.MoneyTextbox.Size = new System.Drawing.Size(140, 23);
+            this.MoneyTextbox.TabIndex = 34;
+            // 
             // GameConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(388, 397);
+            this.ClientSize = new System.Drawing.Size(453, 458);
+            this.Controls.Add(this.MoneyTextbox);
+            this.Controls.Add(this.label12);
             this.Controls.Add(this.trueEndingCheckbox);
             this.Controls.Add(this.darkEndingCheckbox);
             this.Controls.Add(this.loveSickCheckbox);
@@ -587,6 +640,7 @@
             this.Controls.Add(this.label1);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "GameConfig";
             this.Text = "Game Configuration";
             this.Load += new System.EventHandler(this.GameConfig_Load);
@@ -630,5 +684,7 @@
         private System.Windows.Forms.CheckBox loveSickCheckbox;
         private System.Windows.Forms.CheckBox darkEndingCheckbox;
         private System.Windows.Forms.CheckBox trueEndingCheckbox;
+        private Label label12;
+        private TextBox MoneyTextbox;
     }
 }
