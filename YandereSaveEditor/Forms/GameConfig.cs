@@ -29,7 +29,8 @@ namespace YanSimSaveEditor
 
         private void SaveButton_Click(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 string profile = UtilityScript.GetProfile();
                 string profilecombined = "Profile_" + profile;
@@ -46,12 +47,13 @@ namespace YanSimSaveEditor
                 string psycstat = UtilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
                 string club = UtilityScript.SelectString("Profile_" + profile + "_Club", true);
                 string fakeid = UtilityScript.SelectString("Profile_" + profile + "_FakeID", true);
-                string raiburuloner = UtilityScript.SelectString("Profile" + profile + "_RaiburuLoner", true);
+                string raiburuloner = UtilityScript.SelectString("Profile_" + profile + "_RaiburuLoner", true);
                 string lovesick = UtilityScript.SelectString(profilecombined + "_LoveSick", true);
                 string darkend = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
                 string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
-
+                string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation", true);
+                //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), lovesick);
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(darkEndingCheckbox.Checked), darkend);
@@ -99,7 +101,7 @@ namespace YanSimSaveEditor
                 //Money code.
                 //these 2 lines actually have over 100 behind them, its cleaner this way.
                 double d = UtilityScript.ToDouble(MoneyTextbox.Text);
-                if(d > 9223372036854775807)
+                if (d > 9223372036854775807)
                 {
                     //this wont trigger as a overflow will occur, but whatever.
                     UtilityScript.WriteError("Value is larger then the 64-bit integer limit. Dont, I repeat don't try this.", "Error");
@@ -108,10 +110,21 @@ namespace YanSimSaveEditor
                 {
                     RegEdit.SetCorruptValue(money, d);
                 }
+                double r = UtilityScript.ToDouble(ReputationTextbox.Text);
+                if (r > 9223372036854775807)
+                {
+                    //this wont trigger as a overflow will occur, but whatever.
+                    UtilityScript.WriteError("Value is larger then the 64-bit integer limit. Dont, I repeat don't try this.", "Error");
+                }
+                else
+                {
+                    RegEdit.SetCorruptValue(reputation, r);
+                }
                 //you could do this cleaner, but I am writing this. Don't like it? make a pull request.
                 Log.Info("All Registry Data written successfully.");
                 UtilityScript.WriteInfo("All Data Written Succesfully", "Done");
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 UtilityScript.WriteError(ex.ToString(), "Error");
                 Log.Error("Data write failed: " + ex.ToString());
@@ -119,7 +132,8 @@ namespace YanSimSaveEditor
         }
         private void GameConfig_Load(object sender, EventArgs e)
         {
-            try {
+            try
+            {
                 //causes lag, gotta fix.
                 //MaximizeBox = false;
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
@@ -190,12 +204,16 @@ namespace YanSimSaveEditor
                 string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
                 string moneyval = RegEdit.returnValue(gamereg, money);
                 MoneyTextbox.Text = BitConverter.Int64BitsToDouble(Int64.Parse(moneyval)).ToString();
+                string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
+                string reputationval = RegEdit.returnValue(gamereg, reputation);
+                ReputationTextbox.Text = BitConverter.Int64BitsToDouble(Int64.Parse(reputationval)).ToString();
                 ChemStat.Text = RegEdit.returnValue(gamereg, chemstat);
                 BioStat.Text = RegEdit.returnValue(gamereg, biostat);
                 PhysedStat.Text = RegEdit.returnValue(gamereg, physstat);
                 LangStat.Text = RegEdit.returnValue(gamereg, langstat);
                 PhsycStat.Text = RegEdit.returnValue(gamereg, psycstat); //I am aware of spelling mistake
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Log.Error("Error occured while reading data: " + ex.ToString());
                 UtilityScript.WriteError("Error occured when loading data: \n \n " + ex.ToString(), "Error");
@@ -215,7 +233,8 @@ namespace YanSimSaveEditor
                     RegEdit.editValue(gamereg, 1, result);
                 }
                 mangaButton.Enabled = false;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Log.Error("Error when getting all Manga: " + ex.ToString());
                 UtilityScript.WriteError("Error when getting all manga: " + ex.ToString(), "Error");
@@ -237,11 +256,13 @@ namespace YanSimSaveEditor
                     RegEdit.editValue(gamereg, 1, result);
                 }
                 button2.Enabled = false;
-            }catch(Exception ex)
+            }
+            catch (Exception ex)
             {
                 Log.Error("Error when giving user all Panties: " + ex.ToString());
                 UtilityScript.WriteError("Error on panty item grant: \n \n" + ex.ToString(), "Error");
             }
         }
     }
+    
 }

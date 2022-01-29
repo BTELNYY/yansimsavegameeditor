@@ -64,6 +64,9 @@
             this.trueEndingCheckbox = new System.Windows.Forms.CheckBox();
             this.label12 = new System.Windows.Forms.Label();
             this.MoneyTextbox = new System.Windows.Forms.TextBox();
+            this.label13 = new System.Windows.Forms.Label();
+            this.ReputationTextbox = new System.Windows.Forms.TextBox();
+            this.label14 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -285,7 +288,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(366, 432);
+            this.SaveButton.Location = new System.Drawing.Point(367, 474);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(88, 27);
@@ -304,7 +307,7 @@
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(115, 231);
+            this.PhsycStat.Location = new System.Drawing.Point(116, 273);
             this.PhsycStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhsycStat.Name = "PhsycStat";
             this.PhsycStat.Size = new System.Drawing.Size(140, 23);
@@ -320,7 +323,7 @@
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(115, 262);
+            this.PhysedStat.Location = new System.Drawing.Point(116, 304);
             this.PhysedStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhysedStat.Name = "PhysedStat";
             this.PhysedStat.Size = new System.Drawing.Size(140, 23);
@@ -336,7 +339,7 @@
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(115, 293);
+            this.LangStat.Location = new System.Drawing.Point(116, 335);
             this.LangStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LangStat.Name = "LangStat";
             this.LangStat.Size = new System.Drawing.Size(140, 23);
@@ -352,7 +355,7 @@
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(115, 324);
+            this.ChemStat.Location = new System.Drawing.Point(116, 366);
             this.ChemStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ChemStat.Name = "ChemStat";
             this.ChemStat.Size = new System.Drawing.Size(140, 23);
@@ -368,7 +371,7 @@
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(115, 355);
+            this.BioStat.Location = new System.Drawing.Point(116, 397);
             this.BioStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BioStat.Name = "BioStat";
             this.BioStat.Size = new System.Drawing.Size(140, 23);
@@ -377,7 +380,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(15, 234);
+            this.label5.Location = new System.Drawing.Point(16, 276);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);
@@ -387,7 +390,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(15, 265);
+            this.label6.Location = new System.Drawing.Point(16, 307);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 15);
@@ -397,7 +400,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(15, 297);
+            this.label7.Location = new System.Drawing.Point(16, 339);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 15);
@@ -407,7 +410,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(15, 328);
+            this.label8.Location = new System.Drawing.Point(16, 370);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 15);
@@ -417,7 +420,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(15, 359);
+            this.label9.Location = new System.Drawing.Point(16, 401);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 15);
@@ -426,7 +429,7 @@
             // 
             // mangaButton
             // 
-            this.mangaButton.Location = new System.Drawing.Point(-4, 398);
+            this.mangaButton.Location = new System.Drawing.Point(-3, 440);
             this.mangaButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mangaButton.Name = "mangaButton";
             this.mangaButton.Size = new System.Drawing.Size(108, 27);
@@ -438,7 +441,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(-6, 432);
+            this.button1.Location = new System.Drawing.Point(-5, 474);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 27);
@@ -467,7 +470,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(112, 398);
+            this.button2.Location = new System.Drawing.Point(113, 440);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 27);
@@ -597,12 +600,40 @@
             this.MoneyTextbox.Size = new System.Drawing.Size(140, 23);
             this.MoneyTextbox.TabIndex = 34;
             // 
+            // label13
+            // 
+            this.label13.AutoSize = true;
+            this.label13.Location = new System.Drawing.Point(12, 226);
+            this.label13.Name = "label13";
+            this.label13.Size = new System.Drawing.Size(65, 15);
+            this.label13.TabIndex = 35;
+            this.label13.Text = "Reputation";
+            // 
+            // ReputationTextbox
+            // 
+            this.ReputationTextbox.Location = new System.Drawing.Point(116, 225);
+            this.ReputationTextbox.Name = "ReputationTextbox";
+            this.ReputationTextbox.Size = new System.Drawing.Size(140, 23);
+            this.ReputationTextbox.TabIndex = 36;
+            // 
+            // label14
+            // 
+            this.label14.AutoSize = true;
+            this.label14.Location = new System.Drawing.Point(16, 250);
+            this.label14.Name = "label14";
+            this.label14.Size = new System.Drawing.Size(338, 15);
+            this.label14.TabIndex = 37;
+            this.label14.Text = "If this does not work, restart application AFTER you start school";
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(453, 458);
+            this.ClientSize = new System.Drawing.Size(453, 500);
+            this.Controls.Add(this.label14);
+            this.Controls.Add(this.ReputationTextbox);
+            this.Controls.Add(this.label13);
             this.Controls.Add(this.MoneyTextbox);
             this.Controls.Add(this.label12);
             this.Controls.Add(this.trueEndingCheckbox);
@@ -686,5 +717,8 @@
         private System.Windows.Forms.CheckBox trueEndingCheckbox;
         private Label label12;
         private TextBox MoneyTextbox;
+        private Label label13;
+        private TextBox ReputationTextbox;
+        private Label label14;
     }
 }
