@@ -40,6 +40,7 @@ Report any bugs to me here or on my [Discord Server](https://discord.gg/P22tFkjT
 # TODO:
 - [ ] Add external control for in game events (as in day ends, restart day, etc)
 - [ ] texture swapper (depends on how doable this is)
+- [ ] allow changing controls
 - [X] Add Credits
 - [X] Convert to C#
 - [X] Add a GUI for the entire app.
