@@ -83,7 +83,7 @@ namespace YanSimSaveEditor
                 return true;
             }
         }
-        public static string SelectString(string pattern, bool allowCreation)
+        public static string? SelectString(string pattern, bool allowCreation)
         {
             //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
@@ -154,29 +154,39 @@ namespace YanSimSaveEditor
         }
         public static void SetProfile(string profile)
         {
-            //techinically a very bad way to do this, but I can make a "recover on crash" system later.
-            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            RegEdit.createValue(config, ToInteger(profile), "profile");
+            //wow, thats so simple I am going to die of anger from how I did not do this before.
+            Globals.profile = profile;
             Log.Info("Set the profile to " + profile);
         }
-        public static string GetProfile()
+        public static string? GetProfile()
         {
-            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            string result = RegEdit.returnValue(config, "profile");
-            return result;
+            if (Globals.profile == null)
+            {
+                WriteError("Something went wrong with the profile system.", "Error");
+                return null;
+            }
+            else
+            {
+                return Globals.profile;
+            }
         }
 
         public static void SetStudent(string student)
         {
-            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            RegEdit.createValue(config, ToInteger(student), "student");
+            Globals.student = student;
             Log.Info("Set the student to " + student);
         }
-        public static string GetStudent()
+        public static string? GetStudent()
         {
-            RegistryKey config = Registry.CurrentUser.CreateSubKey("SOFTWARE\\btelnyy\\YanSaveEdit");
-            string result = RegEdit.returnValue(config, "student");
-            return result;
+            if (Globals.student == null)
+            {
+                WriteError("Something went wrong with the student system.", "Error");
+                return null;
+            }
+            else
+            {
+                return Globals.student;
+            }
         }
         public static int ToInteger(string input)
         {
@@ -237,28 +247,12 @@ namespace YanSimSaveEditor
         public static int ConvertBool(bool input)
         {
             //converts a boolean into a registry friendly integer, used for checkboes
-            switch (input)
-            {
-                case true:
-                    return 1;
-                case false:
-                    return 0;
-                default:
-                    return 0;
-            }
+            return Convert.ToInt32(input);
         }
         public static bool ToBool(int input)
         {
-            //woooo switch case
-            switch (input)
-            {
-                case 0:
-                    return false;
-                case 1:
-                    return true;
-                default:
-                    return false;
-            }
+            //holy shit, the convert method, I guess my dumbass brain is stupid or something.;
+            return Convert.ToBoolean(input);
         }
         public static float ToFloat(string input)
         {
@@ -327,7 +321,7 @@ namespace YanSimSaveEditor
             }
             return false;
         }
-        public static string OpenFileDialog(string path, string fileTypes)
+        public static string? OpenFileDialog(string path, string fileTypes)
         {
             try //try to run this code, on error break and show the error.
             {
@@ -368,7 +362,7 @@ namespace YanSimSaveEditor
             catch (Exception ex)
             {
                 WriteError("Failed to seperate input into array: \n \n " + ex.ToString(), "Error");
-                return new string[0];
+                return Array.Empty<string>();
             }
         }
         public static void lineChanger(string newText, string fileName, int line_to_edit)
@@ -381,6 +375,7 @@ namespace YanSimSaveEditor
         {
             return src.GetType().GetProperty(propName).GetValue(src, null);
         }
+        //although these methods piss me off, I am not touching them since they dont even do anything for the application.
         public static string GetHexValue(string input)
         {
             if (input == null)

@@ -7,6 +7,8 @@ using Microsoft.Win32;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
+using YanSimSaveEditor;
+using YandereSaveEditor;
 namespace YanSimSaveEditor
 {
     internal static class Program
