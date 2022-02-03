@@ -54,12 +54,14 @@ namespace YanSimSaveEditor
             {
                 DebugConsole.WriteLineColor(msg, ConsoleColor.White);
             }
-            else 
+            else
             {
                 MessageBox.Show(msg, title,
                     MessageBoxButtons.OK, MessageBoxIcon.Information);
             }
         }
+
+        //this code is completely useless, it serves no purpose, but Its being used, I will rewrite this later. (I wrote this a few days into C#, dont judge :) )
         public static bool FileExists(string path)
         {
             //returns a bool depending on if a path exists.
@@ -74,6 +76,7 @@ namespace YanSimSaveEditor
         }
         public static bool DirExists(string path)
         {
+            //returns depedning on if a directory exists.
             if (!Directory.Exists(path))
             {
                 return false;
