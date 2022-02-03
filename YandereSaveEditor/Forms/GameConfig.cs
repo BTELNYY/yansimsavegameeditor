@@ -52,7 +52,7 @@ namespace YanSimSaveEditor
                 string darkend = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
                 string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
-                string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation", true);
+                string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
                 //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), lovesick);
 

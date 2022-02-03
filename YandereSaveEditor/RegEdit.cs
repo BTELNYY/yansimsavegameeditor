@@ -71,7 +71,6 @@ namespace YanSimSaveEditor
         {
             //returns an arrey of all the values in a subkey
             string[] result = key.GetValueNames();
-            Log.Debug("Returning all values for registry key " + key.ToString());
             return result;
         }
         public static string returnValue(RegistryKey key, string name)
@@ -98,7 +97,7 @@ namespace YanSimSaveEditor
             try
             {
                 key.SetValue(name, value);
-                Log.Debug("Set value for key " + name);
+                Log.Debug("Set value for key " + name + " to " + value.ToString());
                 return "succeeded";
             }
             catch (Exception e)

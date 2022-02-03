@@ -88,6 +88,20 @@ namespace YanSimSaveEditor
                     case "getfullname":
                         DebugConsole.WriteLineColor(UtilityScript.SelectString(inputargs[1], false), ConsoleColor.White);
                         break;
+                    case "script":
+                        try
+                        {
+                            string path = UtilityScript.OpenFileDialog(".\\", "txt files (*.txt)|*.txt|All files (*.*)|*.*");
+                            DebugConsole.WriteLineColor("Enter profile.", ConsoleColor.White);
+                            string profile = DebugConsole.ReadConsole("> ");
+                            ScriptHandler.Script(path, profile);
+                            break;
+                        }
+                        catch (Exception e)
+                        {
+                            DebugConsole.WriteLineColor(e.ToString(), ConsoleColor.Red);
+                        }
+                        break;
                 }
             }
         }

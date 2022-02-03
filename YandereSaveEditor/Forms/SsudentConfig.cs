@@ -52,7 +52,9 @@ namespace YanSimSaveEditor
                 string photo = UtilityScript.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
                 string dying = UtilityScript.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
                 string friend = UtilityScript.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+                string panty = UtilityScript.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
                 //lets get ready to rumble!
+                RegEdit.editValue(gamereg, Convert.ToInt32(PantyshotCheckbox.Checked), panty);
                 RegEdit.editValue(gamereg, UtilityScript.ToInteger(ReputationTextbox.Text), studentrep);
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(DeathCheckbox.Checked), studentdead);
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(KidnapChekbox.Checked), kidnapped);
