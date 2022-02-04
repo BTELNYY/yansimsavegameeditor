@@ -190,11 +190,11 @@ namespace YanSimSaveEditor
                         RegEdit.editValue(gamereg, int.Parse(value), psycstat);
                         break;
                     case "name":
-                        value = value.Trim('"');
+                        value = value.Replace('-', ' ');
                         json.Name = value;
                         break;
                     case "realname":
-                        value = value.Trim('"');
+                        value = value.Replace('-', ' ');
                         json.RealName = value;
                         break;
                     case "gender":
