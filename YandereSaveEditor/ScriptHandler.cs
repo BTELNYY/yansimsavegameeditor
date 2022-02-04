@@ -15,6 +15,16 @@ namespace YanSimSaveEditor
         private static int errorcount = 0;
         public static void Script(string path, string curprofile)
         {
+            if (path == null)
+            {
+                UtilityScript.WriteError("Sepecified path is null.", "Error");
+                return;
+            }
+            if (curprofile == null)
+            {
+                UtilityScript.WriteError("Specified profile is null.", "Error");
+                return;
+            }
             Globals.profile = curprofile;
             ScriptHandler.profile = curprofile;
             StreamReader sw = new StreamReader(path);
@@ -117,7 +127,7 @@ namespace YanSimSaveEditor
                 switch (operation)
                 {
                     case "rep":
-                        RegEdit.editValue(gamereg, int.Parse(value), reputation);
+                        RegEdit.editValue(gamereg, int.Parse(value), studentrep);
                         break;
                     case "dead":
                         RegEdit.editValue(gamereg, int.Parse(value), studentdead);

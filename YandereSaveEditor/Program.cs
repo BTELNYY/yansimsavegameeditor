@@ -8,13 +8,12 @@ using System.IO;
 using System.Text;
 using System.Threading.Tasks;
 using YanSimSaveEditor;
-using YandereSaveEditor;
 namespace YanSimSaveEditor
 {
     internal static class Program
     {
         //DO NOT FORGET TO UPDATE!!!!!!
-        public static readonly string version = "1.6.7";
+        public static readonly string version = "1.8.0";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>

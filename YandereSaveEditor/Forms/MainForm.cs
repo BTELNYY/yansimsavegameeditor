@@ -184,5 +184,11 @@ namespace YanSimSaveEditor
             CreditsForm creditsForm = new CreditsForm();
             creditsForm.ShowDialog();
         }
+
+        private void scriptButton_Click(object sender, EventArgs e)
+        {
+            ScriptForm script = new ScriptForm();
+            script.ShowDialog();
+        }
     }
 }
