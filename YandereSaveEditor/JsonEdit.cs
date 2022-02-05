@@ -144,98 +144,85 @@ namespace YanSimSaveEditor
                 return "0";
             }
         }
-        public static void SetTopic(string id, string topicid, string value)
+        public static string SetTopic(topic topic)
         {
             try
             {
-                string[] topics = { "-1 ","0" ,"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" };
-                string[] topicvalues = { };
-                foreach (string topic in topics)
-                {
-                    string s = GetTopicValue(id, topic);
-                    topicvalues = topicvalues.Append(s).ToArray();
-                }
-                DebugConsole.WriteLineColor(string.Join(',', topicvalues), ConsoleColor.White);
-                topicvalues[int.Parse(topicid) - 1] = value;
-                //aww shit, here we go again.
-                string name = GetTopicValue(id, "0");
-                string jsonid = GetTopicValue(id, "-1");
-                string output = "{\"ID\":\"" + jsonid + "\",\"Name\":\"" + name + "\"";
-                if (id == "100")
-                {
-                    int counter = 1;
 
-                    foreach (string s in topicvalues)
-                    {
-                        if (counter > 25)
-                        {
-                            output += $",\"{string.Empty}\":\"{s}\"";
-                        }
-                        else
-                        {
-                            output += $",\"{counter}\":\"{s}\"";
-                        }
-                        counter++;
-                    }
-                    UtilityScript.WriteInfo(output, "test");
-                    UtilityScript.LineChange(output, UtilityScript.GetTopics(), int.Parse(id));
-                }
-                else
+                string Json = JsonConvert.SerializeObject(topic);
+                if (UtilityScript.ToInteger(topic.ID) != 100)
                 {
-                    int counter = 1;
-                    foreach (string s in topicvalues)
-                    {
-                        if (counter > 25)
-                        {
-                            output += $",\"{string.Empty}\":\"{s}\"";
-                        }
-                        else
-                        {
-                            output += $",\"{counter}\":\"{s}\"";
-                        }
-                        counter++;
-                    }
-                    UtilityScript.WriteInfo(output, "test");
-                    UtilityScript.LineChange(output, UtilityScript.GetTopics(), int.Parse(id));
+                    //if not last student, serialized object requires a comma.
+                    Json = Json + ",";
                 }
+                //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
+                string[] arrLine = File.ReadAllLines(UtilityScript.GetJSON());
+                arrLine[UtilityScript.ToInteger(topic.ID)] = Json;
+                File.WriteAllLines(UtilityScript.GetJSON(), arrLine);
+                return "success";
             }
             catch (Exception ex)
             {
                 UtilityScript.WriteError(ex.ToString(), "Error");
+                Log.Error("Failed when writing topics json " + ex.ToString());
+                return "error";
+            }
+        }
+        public static topic GetTopic(int StudentId)
+        {
+            try
+            {
+                //gets the line with the correct student.
+                string line = File.ReadLines(UtilityScript.GetJSON()).ElementAt(StudentId);
+                if (line.EndsWith(@","))
+                {
+                    //removes the comma at the end if it exists
+                    line = line.Remove(line.Length - 1);
+                }
+                //deserializes the line int a student object
+                topic tempstudent = JsonConvert.DeserializeObject<topic>(line);
+                return tempstudent;
+            }
+            catch (Exception e)
+            {
+                topic tempstudent = new topic();
+                //returns error as string
+                Log.Error("Error while getting student JSON:" + e.ToString());
+                UtilityScript.WriteError(e.ToString(), "Error");
+                return tempstudent;
             }
         }
     }
 }
 
-    
+
 
 public class student
-    {
-        //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
-        //btelnyy here, this code is used more then twice.
-        //DO NOT CHANGE THE ORDER OF THE STATEMENTS. I WILL BREAK YOU BACK
-        public string ID { get; }
-        public string Name { get; set; }
-        public string RealName { get; set; }
-        public string Gender { get; set; }
-        public string Class { get; set; }
-        public string Seat { get; set; }
-        public string Club { get; set; }
-        public string Persona { get; set; }
-        public string Crush { get; set; }
-        public string BreastSize { get; set; }
-        public string Strength { get; set; }
-        public string Hairstyle { get; set; }
-        public string Color { get; set; }
-        public string Eyes { get; set; }
-        public string EyeType { get; set; }
-        public string Stockings { get; set; }
-        public string Accessory { get; set; }
-        public string ScheduleTime { get; set; }
-        public string ScheduleDestination { get; set; }
-        public string ScheduleAction { get; set; }
-        public string Info { get; set; }
-
+{
+    //very crappy way to make an object BUT i am not going to write a proper set; get; and ToString; methods for all of this code that is used like twice.
+    //btelnyy here, this code is used more then twice.
+    //DO NOT CHANGE THE ORDER OF THE STATEMENTS. I WILL BREAK YOU BACK
+    public string ID { get; }
+    public string Name { get; set; }
+    public string RealName { get; set; }
+    public string Gender { get; set; }
+    public string Class { get; set; }
+    public string Seat { get; set; }
+    public string Club { get; set; }
+    public string Persona { get; set; }
+    public string Crush { get; set; }
+    public string BreastSize { get; set; }
+    public string Strength { get; set; }
+    public string Hairstyle { get; set; }
+    public string Color { get; set; }
+    public string Eyes { get; set; }
+    public string EyeType { get; set; }
+    public string Stockings { get; set; }
+    public string Accessory { get; set; }
+    public string ScheduleTime { get; set; }
+    public string ScheduleDestination { get; set; }
+    public string ScheduleAction { get; set; }
+    public string Info { get; set; }
 
     /*
     leftover code - just to make debugging simpler (not even code just a mess - ignore if not Loaflove\r 
@@ -243,7 +230,63 @@ public class student
     [ScheduleDestination] => Spawn_Locker_Patrol_Seat_LunchSpot_Seat_Clean_Patrol
     [ScheduleAction] => Stand_Stand_Patrol_Sit_Eat_Sit_Clean_Patrol
     */
-
-
-
+}
+public class topic
+{
+    public string ID { get; }
+    public string Name { get; set; }
+    [JsonProperty("1")]
+    public string one { get; set; }
+    [JsonProperty("2")]
+    public string two { get; set; }
+    [JsonProperty("3")]
+    public string three { get; set; }
+    [JsonProperty("4")]
+    public string four { get; set; }
+    [JsonProperty("5")]
+    public string five { get; set; }
+    [JsonProperty("6")]
+    public string six { get; set; }
+    [JsonProperty("7")]
+    public string seven { get; set; }
+    [JsonProperty("8")]
+    public string eight { get; set; }
+    [JsonProperty("9")]
+    public string nine { get; set; }
+    [JsonProperty("10")]
+    public string ten { get; set; }
+    [JsonProperty("11")]
+    public string eleven { get; set; }
+    [JsonProperty("12")]
+    public string twelve { get; set; }
+    [JsonProperty("13")]
+    public string thirteen { get; set; }
+    [JsonProperty("14")]
+    public string fourteen { get; set; }
+    [JsonProperty("15")]
+    public string fifteen { get; set; }
+    [JsonProperty("16")]
+    public string sixteen { get; set; }
+    [JsonProperty("17")]
+    public string seventeen { get; set; }
+    [JsonProperty("18")]
+    public string eighteen { get; set; }
+    [JsonProperty("19")]
+    public string nineteen { get; set; }
+    [JsonProperty("20")]
+    public string twenty { get; set; }
+    [JsonProperty("21")]
+    public string twentyone { get; set; }
+    [JsonProperty("22")]
+    public string twentytwo { get; set; }
+    [JsonProperty("23")]
+    public string twentythree { get; set; }
+    [JsonProperty("24")]
+    public string twentyfour { get; set; }
+    [JsonProperty("25")]
+    public string twentyfive { get; set; }
+    [JsonProperty("")]
+    public string twentysix { get; set; }
+    [JsonProperty("")]
+    public string twentyseven { get; set; }
 }
