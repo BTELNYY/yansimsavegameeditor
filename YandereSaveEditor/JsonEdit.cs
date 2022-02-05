@@ -114,6 +114,96 @@ namespace YanSimSaveEditor
                 return "failed: got to horny jail *bonk*";
             }
         }
+        public static string GetTopicValue(string id, string topicid)
+        {
+            try
+            {
+                string path = UtilityScript.GetTopics();
+                StreamReader sr = new StreamReader(path);
+                string content = sr.ReadToEnd(); //reads all the content in the file
+                string[] lines = UtilityScript.SeperateIntoArray(content, '\n');
+                //seperate all the lines in the file by the newline character.
+                string line = lines[int.Parse(id)];
+                line = line.TrimEnd(','); //trim the end comma as it will screw with code
+                line = line.Trim('{', '}');
+                string[] pairs = UtilityScript.SeperateIntoArray(line, ',');
+                //gives us a array of pairs which we can then use to get our specific topic id.
+                string pair = pairs[int.Parse(topicid) + 1]; //ignores the ID and Name elements
+                string[] elements = UtilityScript.SeperateIntoArray(pair, ':');
+                //gives us a array with 2 elements, the Key, and the Value, the key is not important.
+                string value = elements[1];
+                //remove the ""
+                value = value.Trim('"');
+                sr.Close();
+                return value;
+            }
+            catch (Exception e)
+            {
+                UtilityScript.WriteError("Error when getting topics by ID \n \n " + e.ToString(), "Error");
+                Log.Error($"Error when getting topics. Student ID: {id}, Topic ID: {topicid} Error: {e}");
+                return "0";
+            }
+        }
+        public static void SetTopic(string id, string topicid, string value)
+        {
+            try
+            {
+                string[] topics = { "-1 ","0" ,"1", "2", "3", "4", "5", "6", "7", "8", "9", "10", "11", "12", "13", "14", "15", "16", "17", "18", "19", "20", "21", "22", "23", "24", "25", "26", "27" };
+                string[] topicvalues = { };
+                foreach (string topic in topics)
+                {
+                    string s = GetTopicValue(id, topic);
+                    topicvalues = topicvalues.Append(s).ToArray();
+                }
+                DebugConsole.WriteLineColor(string.Join(',', topicvalues), ConsoleColor.White);
+                topicvalues[int.Parse(topicid) - 1] = value;
+                //aww shit, here we go again.
+                string name = GetTopicValue(id, "0");
+                string jsonid = GetTopicValue(id, "-1");
+                string output = "{\"ID\":\"" + jsonid + "\",\"Name\":\"" + name + "\"";
+                if (id == "100")
+                {
+                    int counter = 1;
+
+                    foreach (string s in topicvalues)
+                    {
+                        if (counter > 25)
+                        {
+                            output += $",\"{string.Empty}\":\"{s}\"";
+                        }
+                        else
+                        {
+                            output += $",\"{counter}\":\"{s}\"";
+                        }
+                        counter++;
+                    }
+                    UtilityScript.WriteInfo(output, "test");
+                    UtilityScript.LineChange(output, UtilityScript.GetTopics(), int.Parse(id));
+                }
+                else
+                {
+                    int counter = 1;
+                    foreach (string s in topicvalues)
+                    {
+                        if (counter > 25)
+                        {
+                            output += $",\"{string.Empty}\":\"{s}\"";
+                        }
+                        else
+                        {
+                            output += $",\"{counter}\":\"{s}\"";
+                        }
+                        counter++;
+                    }
+                    UtilityScript.WriteInfo(output, "test");
+                    UtilityScript.LineChange(output, UtilityScript.GetTopics(), int.Parse(id));
+                }
+            }
+            catch (Exception ex)
+            {
+                UtilityScript.WriteError(ex.ToString(), "Error");
+            }
+        }
     }
 }
 

@@ -281,6 +281,7 @@ namespace YanSimSaveEditor
                     SaveButton.Enabled = true;
                     scheduleButton.Enabled = true;
                     exportButton.Enabled = true;
+                    button1.Enabled = true;
                 }
             }
             catch (Exception loaderror)
@@ -290,6 +291,7 @@ namespace YanSimSaveEditor
                 SaveButton.Enabled = true;
                 scheduleButton.Enabled = true;
                 exportButton.Enabled = true;
+                button1.Enabled = true;
                 warncorruoption = true;
             }
         }
@@ -422,6 +424,12 @@ namespace YanSimSaveEditor
         private void exportButton_Click(object sender, EventArgs e)
         {
             ExportCharacter(StudentSelect.SelectedIndex + 1);
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            TopicEditor te = new TopicEditor();
+            te.ShowDialog();
         }
     }
 }

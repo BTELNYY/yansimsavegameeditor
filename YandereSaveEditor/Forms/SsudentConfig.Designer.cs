@@ -83,6 +83,7 @@
             this.label4 = new System.Windows.Forms.Label();
             this.hairTextBox = new System.Windows.Forms.TextBox();
             this.exportButton = new System.Windows.Forms.Button();
+            this.button1 = new System.Windows.Forms.Button();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -191,9 +192,10 @@
             "98",
             "99",
             "100"});
-            this.StudentSelect.Location = new System.Drawing.Point(299, 1);
+            this.StudentSelect.Location = new System.Drawing.Point(349, 1);
+            this.StudentSelect.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.StudentSelect.Name = "StudentSelect";
-            this.StudentSelect.Size = new System.Drawing.Size(64, 21);
+            this.StudentSelect.Size = new System.Drawing.Size(74, 23);
             this.StudentSelect.TabIndex = 0;
             this.StudentSelect.SelectedIndexChanged += new System.EventHandler(this.comboBox1_SelectedIndexChanged);
             this.StudentSelect.SelectionChangeCommitted += new System.EventHandler(this.StudentSelect_SelectionChangeCommitted);
@@ -201,44 +203,49 @@
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(215, 3);
+            this.label1.Location = new System.Drawing.Point(251, 3);
+            this.label1.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(78, 13);
+            this.label1.Size = new System.Drawing.Size(86, 15);
             this.label1.TabIndex = 1;
             this.label1.Text = "Student (by ID)";
             // 
             // Portrait
             // 
-            this.Portrait.Location = new System.Drawing.Point(-3, 1);
+            this.Portrait.Location = new System.Drawing.Point(-4, 1);
+            this.Portrait.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Portrait.Name = "Portrait";
-            this.Portrait.Size = new System.Drawing.Size(162, 156);
+            this.Portrait.Size = new System.Drawing.Size(189, 180);
             this.Portrait.TabIndex = 2;
             this.Portrait.TabStop = false;
             // 
             // label2
             // 
             this.label2.AutoSize = true;
-            this.label2.Location = new System.Drawing.Point(12, 188);
+            this.label2.Location = new System.Drawing.Point(14, 217);
+            this.label2.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(35, 13);
+            this.label2.Size = new System.Drawing.Size(37, 15);
             this.label2.TabIndex = 3;
             this.label2.Text = "Class:";
             // 
             // label3
             // 
             this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(12, 211);
+            this.label3.Location = new System.Drawing.Point(14, 243);
+            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(32, 13);
+            this.label3.Size = new System.Drawing.Size(32, 15);
             this.label3.TabIndex = 4;
             this.label3.Text = "Seat:";
             // 
             // idLabel
             // 
             this.idLabel.AutoSize = true;
-            this.idLabel.Location = new System.Drawing.Point(12, 255);
+            this.idLabel.Location = new System.Drawing.Point(14, 294);
+            this.idLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.idLabel.Name = "idLabel";
-            this.idLabel.Size = new System.Drawing.Size(18, 13);
+            this.idLabel.Size = new System.Drawing.Size(18, 15);
             this.idLabel.TabIndex = 5;
             this.idLabel.Text = "ID";
             this.idLabel.Click += new System.EventHandler(this.idLabel_Click);
@@ -246,9 +253,10 @@
             // DeathCheckbox
             // 
             this.DeathCheckbox.AutoSize = true;
-            this.DeathCheckbox.Location = new System.Drawing.Point(218, 28);
+            this.DeathCheckbox.Location = new System.Drawing.Point(254, 32);
+            this.DeathCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DeathCheckbox.Name = "DeathCheckbox";
-            this.DeathCheckbox.Size = new System.Drawing.Size(58, 17);
+            this.DeathCheckbox.Size = new System.Drawing.Size(58, 19);
             this.DeathCheckbox.TabIndex = 6;
             this.DeathCheckbox.Text = "Dead?";
             this.DeathCheckbox.UseVisualStyleBackColor = true;
@@ -256,9 +264,10 @@
             // PhotographedCheckbox
             // 
             this.PhotographedCheckbox.AutoSize = true;
-            this.PhotographedCheckbox.Location = new System.Drawing.Point(218, 51);
+            this.PhotographedCheckbox.Location = new System.Drawing.Point(254, 59);
+            this.PhotographedCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhotographedCheckbox.Name = "PhotographedCheckbox";
-            this.PhotographedCheckbox.Size = new System.Drawing.Size(99, 17);
+            this.PhotographedCheckbox.Size = new System.Drawing.Size(107, 19);
             this.PhotographedCheckbox.TabIndex = 7;
             this.PhotographedCheckbox.Text = "Photographed?";
             this.PhotographedCheckbox.UseVisualStyleBackColor = true;
@@ -266,9 +275,10 @@
             // PantyshotCheckbox
             // 
             this.PantyshotCheckbox.AutoSize = true;
-            this.PantyshotCheckbox.Location = new System.Drawing.Point(218, 74);
+            this.PantyshotCheckbox.Location = new System.Drawing.Point(254, 85);
+            this.PantyshotCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PantyshotCheckbox.Name = "PantyshotCheckbox";
-            this.PantyshotCheckbox.Size = new System.Drawing.Size(84, 17);
+            this.PantyshotCheckbox.Size = new System.Drawing.Size(88, 19);
             this.PantyshotCheckbox.TabIndex = 8;
             this.PantyshotCheckbox.Text = "Panty Shot?";
             this.PantyshotCheckbox.UseVisualStyleBackColor = true;
@@ -276,9 +286,10 @@
             // FriendCheckbox
             // 
             this.FriendCheckbox.AutoSize = true;
-            this.FriendCheckbox.Location = new System.Drawing.Point(320, 74);
+            this.FriendCheckbox.Location = new System.Drawing.Point(373, 85);
+            this.FriendCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.FriendCheckbox.Name = "FriendCheckbox";
-            this.FriendCheckbox.Size = new System.Drawing.Size(61, 17);
+            this.FriendCheckbox.Size = new System.Drawing.Size(64, 19);
             this.FriendCheckbox.TabIndex = 9;
             this.FriendCheckbox.Text = "Friend?";
             this.FriendCheckbox.UseVisualStyleBackColor = true;
@@ -289,26 +300,29 @@
             this.GenderCombobox.Items.AddRange(new object[] {
             "Female",
             "Male"});
-            this.GenderCombobox.Location = new System.Drawing.Point(304, 206);
+            this.GenderCombobox.Location = new System.Drawing.Point(355, 238);
+            this.GenderCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.GenderCombobox.Name = "GenderCombobox";
-            this.GenderCombobox.Size = new System.Drawing.Size(121, 21);
+            this.GenderCombobox.Size = new System.Drawing.Size(140, 23);
             this.GenderCombobox.TabIndex = 10;
             // 
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(220, 214);
+            this.label5.Location = new System.Drawing.Point(257, 247);
+            this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(42, 13);
+            this.label5.Size = new System.Drawing.Size(45, 15);
             this.label5.TabIndex = 11;
             this.label5.Text = "Gender";
             // 
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(220, 237);
+            this.label6.Location = new System.Drawing.Point(257, 273);
+            this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(28, 13);
+            this.label6.Size = new System.Drawing.Size(32, 15);
             this.label6.TabIndex = 12;
             this.label6.Text = "Club";
             // 
@@ -335,18 +349,20 @@
             "100 - (Occupation) Teacher",
             "101 - (Occupation) Gym Teacher",
             "102 - (Occupation) School Nurse"});
-            this.ClubCombobox.Location = new System.Drawing.Point(304, 229);
+            this.ClubCombobox.Location = new System.Drawing.Point(355, 264);
+            this.ClubCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ClubCombobox.Name = "ClubCombobox";
-            this.ClubCombobox.Size = new System.Drawing.Size(121, 21);
+            this.ClubCombobox.Size = new System.Drawing.Size(140, 23);
             this.ClubCombobox.TabIndex = 13;
             this.ClubCombobox.SelectedIndexChanged += new System.EventHandler(this.ClubCombobox_SelectedIndexChanged);
             // 
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(220, 260);
+            this.label7.Location = new System.Drawing.Point(257, 300);
+            this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(68, 13);
+            this.label7.Size = new System.Drawing.Size(71, 15);
             this.label7.TabIndex = 14;
             this.label7.Text = "Self Defense";
             // 
@@ -365,99 +381,111 @@
             "8 - Armed",
             "9 - Invicible",
             "99 - ?????"});
-            this.StrengthCombobox.Location = new System.Drawing.Point(304, 252);
+            this.StrengthCombobox.Location = new System.Drawing.Point(355, 291);
+            this.StrengthCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.StrengthCombobox.Name = "StrengthCombobox";
-            this.StrengthCombobox.Size = new System.Drawing.Size(121, 21);
+            this.StrengthCombobox.Size = new System.Drawing.Size(140, 23);
             this.StrengthCombobox.TabIndex = 15;
             this.StrengthCombobox.SelectedIndexChanged += new System.EventHandler(this.StrengthTextbox_SelectedIndexChanged);
             // 
             // CrushTextbox
             // 
-            this.CrushTextbox.Location = new System.Drawing.Point(303, 275);
+            this.CrushTextbox.Location = new System.Drawing.Point(354, 317);
+            this.CrushTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CrushTextbox.Name = "CrushTextbox";
-            this.CrushTextbox.Size = new System.Drawing.Size(121, 20);
+            this.CrushTextbox.Size = new System.Drawing.Size(140, 23);
             this.CrushTextbox.TabIndex = 16;
             // 
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(220, 282);
+            this.label8.Location = new System.Drawing.Point(257, 325);
+            this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(54, 13);
+            this.label8.Size = new System.Drawing.Size(60, 15);
             this.label8.TabIndex = 17;
             this.label8.Text = "Crush (ID)";
             // 
             // BustTextbox
             // 
-            this.BustTextbox.Location = new System.Drawing.Point(303, 297);
+            this.BustTextbox.Location = new System.Drawing.Point(354, 343);
+            this.BustTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BustTextbox.Name = "BustTextbox";
-            this.BustTextbox.Size = new System.Drawing.Size(121, 20);
+            this.BustTextbox.Size = new System.Drawing.Size(140, 23);
             this.BustTextbox.TabIndex = 18;
             // 
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(220, 304);
+            this.label9.Location = new System.Drawing.Point(257, 351);
+            this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(70, 13);
+            this.label9.Size = new System.Drawing.Size(76, 15);
             this.label9.TabIndex = 19;
             this.label9.Text = "Bust (0.0-2.0)";
             // 
             // NicknameTextbox
             // 
-            this.NicknameTextbox.Location = new System.Drawing.Point(12, 321);
+            this.NicknameTextbox.Location = new System.Drawing.Point(14, 370);
+            this.NicknameTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.NicknameTextbox.Name = "NicknameTextbox";
-            this.NicknameTextbox.Size = new System.Drawing.Size(185, 20);
+            this.NicknameTextbox.Size = new System.Drawing.Size(215, 23);
             this.NicknameTextbox.TabIndex = 20;
             // 
             // label10
             // 
             this.label10.AutoSize = true;
-            this.label10.Location = new System.Drawing.Point(9, 305);
+            this.label10.Location = new System.Drawing.Point(10, 352);
+            this.label10.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(55, 13);
+            this.label10.Size = new System.Drawing.Size(61, 15);
             this.label10.TabIndex = 21;
             this.label10.Text = "Nickname";
             // 
             // label11
             // 
             this.label11.AutoSize = true;
-            this.label11.Location = new System.Drawing.Point(9, 344);
+            this.label11.Location = new System.Drawing.Point(10, 397);
+            this.label11.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(60, 13);
+            this.label11.Size = new System.Drawing.Size(64, 15);
             this.label11.TabIndex = 22;
             this.label11.Text = "Real Name";
             // 
             // RealnameTextbox
             // 
-            this.RealnameTextbox.Location = new System.Drawing.Point(12, 360);
+            this.RealnameTextbox.Location = new System.Drawing.Point(14, 415);
+            this.RealnameTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RealnameTextbox.Name = "RealnameTextbox";
-            this.RealnameTextbox.Size = new System.Drawing.Size(185, 20);
+            this.RealnameTextbox.Size = new System.Drawing.Size(215, 23);
             this.RealnameTextbox.TabIndex = 23;
             // 
             // label12
             // 
             this.label12.AutoSize = true;
-            this.label12.Location = new System.Drawing.Point(9, 383);
+            this.label12.Location = new System.Drawing.Point(10, 442);
+            this.label12.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label12.Name = "label12";
-            this.label12.Size = new System.Drawing.Size(138, 13);
+            this.label12.Size = new System.Drawing.Size(155, 15);
             this.label12.TabIndex = 24;
             this.label12.Text = "Description (May Not Work)";
             // 
             // DescTextbox
             // 
-            this.DescTextbox.Location = new System.Drawing.Point(12, 399);
+            this.DescTextbox.Location = new System.Drawing.Point(14, 460);
+            this.DescTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DescTextbox.Multiline = true;
             this.DescTextbox.Name = "DescTextbox";
-            this.DescTextbox.Size = new System.Drawing.Size(185, 85);
+            this.DescTextbox.Size = new System.Drawing.Size(215, 97);
             this.DescTextbox.TabIndex = 25;
             // 
             // DyingCheckbox
             // 
             this.DyingCheckbox.AutoSize = true;
-            this.DyingCheckbox.Location = new System.Drawing.Point(320, 28);
+            this.DyingCheckbox.Location = new System.Drawing.Point(373, 32);
+            this.DyingCheckbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.DyingCheckbox.Name = "DyingCheckbox";
-            this.DyingCheckbox.Size = new System.Drawing.Size(59, 17);
+            this.DyingCheckbox.Size = new System.Drawing.Size(62, 19);
             this.DyingCheckbox.TabIndex = 27;
             this.DyingCheckbox.Text = "Dying?";
             this.DyingCheckbox.UseVisualStyleBackColor = true;
@@ -466,9 +494,10 @@
             // 
             this.RivalCheckBox.AutoSize = true;
             this.RivalCheckBox.Enabled = false;
-            this.RivalCheckBox.Location = new System.Drawing.Point(320, 51);
+            this.RivalCheckBox.Location = new System.Drawing.Point(373, 59);
+            this.RivalCheckBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.RivalCheckBox.Name = "RivalCheckBox";
-            this.RivalCheckBox.Size = new System.Drawing.Size(56, 17);
+            this.RivalCheckBox.Size = new System.Drawing.Size(56, 19);
             this.RivalCheckBox.TabIndex = 28;
             this.RivalCheckBox.Text = "Rival?";
             this.RivalCheckBox.UseVisualStyleBackColor = true;
@@ -476,25 +505,28 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(-2, 165);
+            this.label14.Location = new System.Drawing.Point(-2, 190);
+            this.label14.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label14.Name = "label14";
-            this.label14.Size = new System.Drawing.Size(56, 13);
+            this.label14.Size = new System.Drawing.Size(60, 15);
             this.label14.TabIndex = 29;
             this.label14.Text = "Accessory";
             // 
             // ReputationTextbox
             // 
-            this.ReputationTextbox.Location = new System.Drawing.Point(303, 319);
+            this.ReputationTextbox.Location = new System.Drawing.Point(354, 368);
+            this.ReputationTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ReputationTextbox.Name = "ReputationTextbox";
-            this.ReputationTextbox.Size = new System.Drawing.Size(121, 20);
+            this.ReputationTextbox.Size = new System.Drawing.Size(140, 23);
             this.ReputationTextbox.TabIndex = 31;
             // 
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(220, 322);
+            this.label13.Location = new System.Drawing.Point(257, 372);
+            this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
-            this.label13.Size = new System.Drawing.Size(59, 13);
+            this.label13.Size = new System.Drawing.Size(65, 15);
             this.label13.TabIndex = 32;
             this.label13.Text = "Reputation";
             this.label13.Click += new System.EventHandler(this.label13_Click);
@@ -704,32 +736,36 @@
             "198",
             "199",
             "200"});
-            this.HairCombobox.Location = new System.Drawing.Point(303, 341);
+            this.HairCombobox.Location = new System.Drawing.Point(354, 393);
+            this.HairCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.HairCombobox.Name = "HairCombobox";
-            this.HairCombobox.Size = new System.Drawing.Size(121, 21);
+            this.HairCombobox.Size = new System.Drawing.Size(140, 23);
             this.HairCombobox.TabIndex = 33;
             // 
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(220, 341);
+            this.label15.Location = new System.Drawing.Point(257, 393);
+            this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
-            this.label15.Size = new System.Drawing.Size(47, 13);
+            this.label15.Size = new System.Drawing.Size(53, 15);
             this.label15.TabIndex = 34;
             this.label15.Text = "Hairstyle";
             // 
             // ClassTextbox
             // 
-            this.ClassTextbox.Location = new System.Drawing.Point(53, 185);
+            this.ClassTextbox.Location = new System.Drawing.Point(62, 213);
+            this.ClassTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ClassTextbox.Name = "ClassTextbox";
-            this.ClassTextbox.Size = new System.Drawing.Size(100, 20);
+            this.ClassTextbox.Size = new System.Drawing.Size(116, 23);
             this.ClassTextbox.TabIndex = 35;
             // 
             // SeatTextbox
             // 
-            this.SeatTextbox.Location = new System.Drawing.Point(53, 207);
+            this.SeatTextbox.Location = new System.Drawing.Point(62, 239);
+            this.SeatTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SeatTextbox.Name = "SeatTextbox";
-            this.SeatTextbox.Size = new System.Drawing.Size(100, 20);
+            this.SeatTextbox.Size = new System.Drawing.Size(116, 23);
             this.SeatTextbox.TabIndex = 36;
             // 
             // PersonaCombobox
@@ -754,27 +790,30 @@
             "15 - Protective",
             "16 - Tough",
             "99 - ?????"});
-            this.PersonaCombobox.Location = new System.Drawing.Point(303, 364);
+            this.PersonaCombobox.Location = new System.Drawing.Point(354, 420);
+            this.PersonaCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PersonaCombobox.Name = "PersonaCombobox";
-            this.PersonaCombobox.Size = new System.Drawing.Size(121, 21);
+            this.PersonaCombobox.Size = new System.Drawing.Size(140, 23);
             this.PersonaCombobox.TabIndex = 37;
             this.PersonaCombobox.SelectedIndexChanged += new System.EventHandler(this.PersonaCombobox_SelectedIndexChanged);
             // 
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(220, 363);
+            this.label16.Location = new System.Drawing.Point(257, 419);
+            this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
-            this.label16.Size = new System.Drawing.Size(58, 13);
+            this.label16.Size = new System.Drawing.Size(65, 15);
             this.label16.TabIndex = 38;
             this.label16.Text = "Personality";
             // 
             // KidnapChekbox
             // 
             this.KidnapChekbox.AutoSize = true;
-            this.KidnapChekbox.Location = new System.Drawing.Point(218, 98);
+            this.KidnapChekbox.Location = new System.Drawing.Point(254, 113);
+            this.KidnapChekbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.KidnapChekbox.Name = "KidnapChekbox";
-            this.KidnapChekbox.Size = new System.Drawing.Size(83, 17);
+            this.KidnapChekbox.Size = new System.Drawing.Size(88, 19);
             this.KidnapChekbox.TabIndex = 40;
             this.KidnapChekbox.Text = "Kidnapped?";
             this.KidnapChekbox.UseVisualStyleBackColor = true;
@@ -782,27 +821,30 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(220, 118);
+            this.label17.Location = new System.Drawing.Point(257, 136);
+            this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(194, 13);
+            this.label17.Size = new System.Drawing.Size(214, 15);
             this.label17.TabIndex = 41;
             this.label17.Text = "The above value doesn\'t mean they will";
             // 
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(220, 131);
+            this.label18.Location = new System.Drawing.Point(257, 151);
+            this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
-            this.label18.Size = new System.Drawing.Size(185, 13);
+            this.label18.Size = new System.Drawing.Size(206, 15);
             this.label18.TabIndex = 42;
             this.label18.Text = "Be in your basement. See main config";
             // 
             // SaveButton
             // 
             this.SaveButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
-            this.SaveButton.Location = new System.Drawing.Point(350, 464);
+            this.SaveButton.Location = new System.Drawing.Point(408, 535);
+            this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
-            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.Size = new System.Drawing.Size(88, 27);
             this.SaveButton.TabIndex = 43;
             this.SaveButton.Text = "Save";
             this.SaveButton.UseVisualStyleBackColor = true;
@@ -811,9 +853,10 @@
             // CancelButton
             // 
             this.CancelButton.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.CancelButton.Location = new System.Drawing.Point(269, 464);
+            this.CancelButton.Location = new System.Drawing.Point(314, 535);
+            this.CancelButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.CancelButton.Name = "CancelButton";
-            this.CancelButton.Size = new System.Drawing.Size(75, 23);
+            this.CancelButton.Size = new System.Drawing.Size(88, 27);
             this.CancelButton.TabIndex = 44;
             this.CancelButton.Text = "Cancel";
             this.CancelButton.UseVisualStyleBackColor = true;
@@ -822,9 +865,10 @@
             // label19
             // 
             this.label19.AutoSize = true;
-            this.label19.Location = new System.Drawing.Point(275, 188);
+            this.label19.Location = new System.Drawing.Point(321, 217);
+            this.label19.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label19.Name = "label19";
-            this.label19.Size = new System.Drawing.Size(145, 13);
+            this.label19.Size = new System.Drawing.Size(163, 15);
             this.label19.TabIndex = 45;
             this.label19.Text = "*Some things require a restart";
             // 
@@ -835,9 +879,10 @@
             // 
             // ApplyButton
             // 
-            this.ApplyButton.Location = new System.Drawing.Point(369, -1);
+            this.ApplyButton.Location = new System.Drawing.Point(430, -1);
+            this.ApplyButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ApplyButton.Name = "ApplyButton";
-            this.ApplyButton.Size = new System.Drawing.Size(56, 23);
+            this.ApplyButton.Size = new System.Drawing.Size(65, 27);
             this.ApplyButton.TabIndex = 47;
             this.ApplyButton.Text = "Get ID";
             this.ApplyButton.UseVisualStyleBackColor = true;
@@ -866,34 +911,38 @@
             "15 - (MS) Blue Goatee",
             "16 - (MS) Headphones",
             "17 - (MS) Lip Piercing"});
-            this.AccessoryCombobox.Location = new System.Drawing.Point(53, 163);
+            this.AccessoryCombobox.Location = new System.Drawing.Point(62, 188);
+            this.AccessoryCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.AccessoryCombobox.Name = "AccessoryCombobox";
-            this.AccessoryCombobox.Size = new System.Drawing.Size(367, 21);
+            this.AccessoryCombobox.Size = new System.Drawing.Size(428, 23);
             this.AccessoryCombobox.TabIndex = 48;
             this.AccessoryCombobox.SelectedIndexChanged += new System.EventHandler(this.AccessoryCombobox_SelectedIndexChanged);
             // 
             // idTextbox
             // 
             this.idTextbox.Cursor = System.Windows.Forms.Cursors.No;
-            this.idTextbox.Location = new System.Drawing.Point(53, 252);
+            this.idTextbox.Location = new System.Drawing.Point(62, 291);
+            this.idTextbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.idTextbox.Name = "idTextbox";
             this.idTextbox.ReadOnly = true;
-            this.idTextbox.Size = new System.Drawing.Size(100, 20);
+            this.idTextbox.Size = new System.Drawing.Size(116, 23);
             this.idTextbox.TabIndex = 49;
             // 
             // noImageLabel
             // 
             this.noImageLabel.AutoSize = true;
-            this.noImageLabel.Location = new System.Drawing.Point(9, 9);
+            this.noImageLabel.Location = new System.Drawing.Point(10, 10);
+            this.noImageLabel.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.noImageLabel.Name = "noImageLabel";
-            this.noImageLabel.Size = new System.Drawing.Size(0, 13);
+            this.noImageLabel.Size = new System.Drawing.Size(0, 15);
             this.noImageLabel.TabIndex = 50;
             // 
             // randomButton
             // 
-            this.randomButton.Location = new System.Drawing.Point(203, 406);
+            this.randomButton.Location = new System.Drawing.Point(237, 468);
+            this.randomButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.randomButton.Name = "randomButton";
-            this.randomButton.Size = new System.Drawing.Size(222, 23);
+            this.randomButton.Size = new System.Drawing.Size(259, 27);
             this.randomButton.TabIndex = 51;
             this.randomButton.Text = "Random";
             this.randomButton.UseVisualStyleBackColor = true;
@@ -901,9 +950,10 @@
             // 
             // scheduleButton
             // 
-            this.scheduleButton.Location = new System.Drawing.Point(203, 435);
+            this.scheduleButton.Location = new System.Drawing.Point(367, 502);
+            this.scheduleButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.scheduleButton.Name = "scheduleButton";
-            this.scheduleButton.Size = new System.Drawing.Size(220, 23);
+            this.scheduleButton.Size = new System.Drawing.Size(127, 27);
             this.scheduleButton.TabIndex = 52;
             this.scheduleButton.Text = "Edit Schedule";
             this.scheduleButton.UseVisualStyleBackColor = true;
@@ -912,37 +962,52 @@
             // label4
             // 
             this.label4.AutoSize = true;
-            this.label4.Location = new System.Drawing.Point(12, 232);
+            this.label4.Location = new System.Drawing.Point(14, 268);
+            this.label4.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(26, 13);
+            this.label4.Size = new System.Drawing.Size(29, 15);
             this.label4.TabIndex = 53;
             this.label4.Text = "Hair";
             // 
             // hairTextBox
             // 
             this.hairTextBox.Cursor = System.Windows.Forms.Cursors.No;
-            this.hairTextBox.Location = new System.Drawing.Point(53, 229);
+            this.hairTextBox.Location = new System.Drawing.Point(62, 264);
+            this.hairTextBox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.hairTextBox.Name = "hairTextBox";
             this.hairTextBox.ReadOnly = true;
-            this.hairTextBox.Size = new System.Drawing.Size(100, 20);
+            this.hairTextBox.Size = new System.Drawing.Size(116, 23);
             this.hairTextBox.TabIndex = 55;
             // 
             // exportButton
             // 
             this.exportButton.Enabled = false;
-            this.exportButton.Location = new System.Drawing.Point(203, 464);
+            this.exportButton.Location = new System.Drawing.Point(237, 535);
+            this.exportButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.exportButton.Name = "exportButton";
-            this.exportButton.Size = new System.Drawing.Size(60, 23);
+            this.exportButton.Size = new System.Drawing.Size(70, 27);
             this.exportButton.TabIndex = 56;
             this.exportButton.Text = "Export Data";
             this.exportButton.UseVisualStyleBackColor = true;
             this.exportButton.Click += new System.EventHandler(this.exportButton_Click);
             // 
+            // button1
+            // 
+            this.button1.Enabled = false;
+            this.button1.Location = new System.Drawing.Point(237, 502);
+            this.button1.Name = "button1";
+            this.button1.Size = new System.Drawing.Size(111, 27);
+            this.button1.TabIndex = 57;
+            this.button1.Text = "Topics";
+            this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
+            // 
             // StudentConfig
             // 
-            this.AutoScaleDimensions = new System.Drawing.SizeF(6F, 13F);
+            this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(426, 487);
+            this.ClientSize = new System.Drawing.Size(497, 562);
+            this.Controls.Add(this.button1);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.hairTextBox);
             this.Controls.Add(this.label4);
@@ -997,6 +1062,7 @@
             this.Controls.Add(this.StudentSelect);
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.Name = "StudentConfig";
             this.Text = "Student Configuration";
             this.Load += new System.EventHandler(this.StudentConfig_Load);
@@ -1063,5 +1129,6 @@
         private System.Windows.Forms.TextBox hairTextBox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button exportButton;
+        private Button button1;
     }
 }

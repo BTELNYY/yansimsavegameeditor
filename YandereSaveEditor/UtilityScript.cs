@@ -34,6 +34,12 @@ namespace YanSimSaveEditor
                 Globals.errorArray.Append(msg);
             }
         }
+        public static void LineChange(string newText, string fileName, int line_to_edit)
+        {
+            string[] arrLine = File.ReadAllLines(fileName);
+            arrLine[line_to_edit] = newText;
+            File.WriteAllLines(fileName, arrLine);
+        }
         public static void WriteWarning(string msg, string title)
         {
             //warning message.

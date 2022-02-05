@@ -102,6 +102,17 @@ namespace YanSimSaveEditor
                             DebugConsole.WriteLineColor(e.ToString(), ConsoleColor.Red);
                         }
                         break;
+                    case "setprofile":
+                        UtilityScript.SetProfile(inputargs[1]);
+                        break;
+                    case "gettopic":
+                        //fuck you, and ill see you tomorrow
+                        string output1 = JSONEdit.GetTopicValue(inputargs[1], inputargs[2]);
+                        DebugConsole.WriteLineColor(output1, ConsoleColor.White);
+                        break;
+                    case "settopic":
+                        JSONEdit.SetTopic(inputargs[1], inputargs[2], inputargs[3]);
+                        break;
                 }
             }
         }
