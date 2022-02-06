@@ -3,8 +3,8 @@ using System.Collections.Generic;
 using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     internal class Globals
     {

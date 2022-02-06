@@ -1,4 +1,4 @@
-﻿namespace YanSimSaveEditor
+﻿namespace YandereSaveEditor
 {
     partial class randomizerForm
     {

@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Net;
 
-namespace YanSimSaveEditor
+namespace YandereSaveEditor
 {
     public partial class CreditsForm : Form
     {

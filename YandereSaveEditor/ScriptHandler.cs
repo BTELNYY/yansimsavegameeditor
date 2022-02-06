@@ -6,12 +6,13 @@ using System.Threading.Tasks;
 using System.IO;
 using System.Text.RegularExpressions;
 using Microsoft.Win32;
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     internal class ScriptHandler
     {
         //shabby fix, should work.
-        private static string? profile = Globals.profile;
+        private static string profile = Globals.profile;
         private static int errorcount = 0;
         public static void Script(string path, string curprofile)
         {
@@ -256,8 +257,8 @@ namespace YanSimSaveEditor
                         Log.Warning("Script operation is unknown.");
                         errorcount += 1;
                         break;
-                    JSONEdit.WriteInfo(json);
                 }
+                JSONEdit.WriteInfo(json);
             }
             catch (Exception e)
             {

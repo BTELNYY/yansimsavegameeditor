@@ -7,8 +7,9 @@ using Microsoft.Win32;
 using System.IO;
 using System.Text;
 using System.Threading.Tasks;
-using YanSimSaveEditor;
-namespace YanSimSaveEditor
+using YandereSaveEditor;
+#nullable disable
+namespace YandereSaveEditor
 {
     internal static class Program
     {

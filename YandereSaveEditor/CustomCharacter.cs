@@ -5,8 +5,8 @@ using System.IO;
 using System.Data;
 using System.Text;
 using System.Threading.Tasks;
-
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     public class CustomCharacter
     {

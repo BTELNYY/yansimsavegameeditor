@@ -1,10 +1,11 @@
 ﻿using Microsoft.Win32;
 using System.Runtime.InteropServices;
-
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     internal class DebugConsoleCmdHandler
     {
+        //this script is used for the DebugConsole.cs script, I dont care that its messy, its debug code, not meant for usage.
         public static void Debug(bool nolog)
         {
             if (!DebugConsole.ConsoleCreated)
@@ -16,10 +17,12 @@ namespace YanSimSaveEditor
             {
                 string input = DebugConsole.ReadConsole("> ");
                 string[] inputargs = UtilityScript.SeperateIntoArray(input, ' ');
+                //I am aware this may spam the screen, but who cares?
+                Log.Debug($"User command input: {inputargs[0]}");
                 switch (inputargs[0])
                 {
                     default:
-                        DebugConsole.WriteLineColor("Error: Unkown command.", ConsoleColor.Red);
+                        Log.Error("Unkown Command.");
                         Debug(true);
                         break;
                     case "version":
@@ -109,9 +112,6 @@ namespace YanSimSaveEditor
                         //fuck you, and ill see you tomorrow
                         string output1 = JSONEdit.GetTopicValue(inputargs[1], inputargs[2]);
                         DebugConsole.WriteLineColor(output1, ConsoleColor.White);
-                        break;
-                    case "settopic":
-                        JSONEdit.SetTopic(inputargs[1], inputargs[2], inputargs[3]);
                         break;
                 }
             }

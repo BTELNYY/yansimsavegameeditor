@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 //using is needed to import things correctly.
-namespace YanSimSaveEditor
+namespace YandereSaveEditor
 {
     public partial class GameConfig : Form
     {

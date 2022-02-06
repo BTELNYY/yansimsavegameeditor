@@ -5,7 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
 using System.Runtime.InteropServices;
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     //this works just fine, do not touch it.
 

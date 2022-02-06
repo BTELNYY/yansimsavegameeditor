@@ -10,7 +10,7 @@ using System.IO;
 using System.Windows.Forms;
 using Microsoft.Win32;
 
-namespace YanSimSaveEditor
+namespace YandereSaveEditor
 {
     public partial class StudentConfig : Form
     {

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-namespace YanSimSaveEditor
+namespace YandereSaveEditor
 {
     public partial class TopicEditor : Form
     {

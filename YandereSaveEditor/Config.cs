@@ -4,14 +4,15 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using Microsoft.Win32;
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     internal class Config
     {
         public static string GetValue(string name, string defaultvalue)
         {
             //checks if a value with that name exists, if no, make a new one with a default value
-            RegistryKey? reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\btelnyy\\YanSaveEdit");
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\btelnyy\\YanSaveEdit");
             if(reg == null)
             {
                 //creates a key if the key does not exist already.
@@ -37,7 +38,7 @@ namespace YanSimSaveEditor
         public static void SetValue(string name, string value)
         {
             //sets a config value
-            RegistryKey? reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\btelnyy\\YanSaveEdit");
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\btelnyy\\YanSaveEdit");
             if (reg == null)
             {
                 //creates a key if the key does not exist already.
@@ -48,7 +49,7 @@ namespace YanSimSaveEditor
         public static void DeleteAll()
         {
             //deletes everything from the registry regarding this application, used for uninstalls
-            RegistryKey? reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\btelnyy\\");
+            RegistryKey reg = Registry.CurrentUser.OpenSubKey("\\SOFTWARE\\btelnyy\\");
             reg.DeleteSubKey("YanSaveEdit");
         }
     }

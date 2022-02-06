@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Net;
 using System.Windows.Forms;
-
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     public class Upgrade
     {

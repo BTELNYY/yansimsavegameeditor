@@ -10,7 +10,7 @@ using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
 
-namespace YanSimSaveEditor
+namespace YandereSaveEditor
 {
     public partial class randomizerForm : Form
     {

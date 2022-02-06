@@ -5,8 +5,8 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using Microsoft.Win32;
-
-namespace YanSimSaveEditor
+#nullable disable
+namespace YandereSaveEditor
 {
     public class Log
     {

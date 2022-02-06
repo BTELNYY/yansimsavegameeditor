@@ -7,7 +7,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
-namespace YanSimSaveEditor
+namespace YandereSaveEditor
 {
     public class UtilityScript
     {
@@ -15,10 +15,8 @@ namespace YanSimSaveEditor
         private SHA256 Sha256 = SHA256.Create();
         public string GetHashSha256(string filename)
         {
-            using (FileStream stream = File.OpenRead(filename))
-            {
-                return Sha256.ComputeHash(stream).ToString();
-            }
+            using FileStream stream = File.OpenRead(filename);
+            return Sha256.ComputeHash(stream).ToString();
         }
         public static void WriteError(string msg, string title)
         {
@@ -71,26 +69,12 @@ namespace YanSimSaveEditor
         public static bool FileExists(string path)
         {
             //returns a bool depending on if a path exists.
-            if (!File.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return File.Exists(path);
         }
         public static bool DirExists(string path)
         {
             //returns depedning on if a directory exists.
-            if (!Directory.Exists(path))
-            {
-                return false;
-            }
-            else
-            {
-                return true;
-            }
+            return Directory.Exists(path);
         }
         public static string? SelectString(string pattern, bool allowCreation)
         {
