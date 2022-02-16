@@ -174,7 +174,7 @@ namespace YandereSaveEditor
             try
             {
                 //gets the line with the correct student.
-                string line = File.ReadLines(UtilityScript.GetJSON()).ElementAt(StudentId);
+                string line = File.ReadLines(UtilityScript.GetTopics()).ElementAt(StudentId);
                 if (line.EndsWith(@","))
                 {
                     //removes the comma at the end if it exists
