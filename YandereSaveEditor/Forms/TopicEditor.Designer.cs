@@ -80,6 +80,7 @@
             this.comboBox24 = new System.Windows.Forms.ComboBox();
             this.comboBox25 = new System.Windows.Forms.ComboBox();
             this.cancelButton = new System.Windows.Forms.Button();
+            this.SaveButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // comboBox1
@@ -512,12 +513,22 @@
             // 
             // cancelButton
             // 
-            this.cancelButton.Location = new System.Drawing.Point(642, 314);
+            this.cancelButton.Location = new System.Drawing.Point(561, 315);
             this.cancelButton.Name = "cancelButton";
             this.cancelButton.Size = new System.Drawing.Size(75, 23);
             this.cancelButton.TabIndex = 50;
             this.cancelButton.Text = "Close";
             this.cancelButton.UseVisualStyleBackColor = true;
+            // 
+            // SaveButton
+            // 
+            this.SaveButton.Location = new System.Drawing.Point(642, 315);
+            this.SaveButton.Name = "SaveButton";
+            this.SaveButton.Size = new System.Drawing.Size(75, 23);
+            this.SaveButton.TabIndex = 51;
+            this.SaveButton.Text = "Save";
+            this.SaveButton.UseVisualStyleBackColor = true;
+            this.SaveButton.Click += new System.EventHandler(this.SaveButton_Click);
             // 
             // TopicEditor
             // 
@@ -525,6 +536,7 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.cancelButton;
             this.ClientSize = new System.Drawing.Size(717, 336);
+            this.Controls.Add(this.SaveButton);
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.comboBox25);
             this.Controls.Add(this.comboBox24);
@@ -638,5 +650,6 @@
         private ComboBox comboBox24;
         private ComboBox comboBox25;
         private Button cancelButton;
+        private Button SaveButton;
     }
 }

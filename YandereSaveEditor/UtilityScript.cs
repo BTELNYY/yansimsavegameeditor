@@ -249,27 +249,11 @@ namespace YandereSaveEditor
         }
         public static float ToFloat(string input)
         {
-            try
-            {
-                float result = float.Parse(input);
-                return result;
-            }
-            catch
-            {
-                return 0f;
-            }
+            return float.Parse(input);
         }
         public static long ToLong(string input)
         {
-            try
-            {
-                long result = long.Parse(input);
-                return result;
-            }
-            catch
-            {
-                return 0;
-            }
+            return Convert.ToInt64(input);
         }
         public static int GetRandomInt(int min, int max)
         {

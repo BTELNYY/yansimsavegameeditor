@@ -54,5 +54,26 @@ namespace YandereSaveEditor
         {
 
         }
+
+        private void SaveButton_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                topic topic = JSONEdit.GetTopic(Convert.ToInt32(Globals.student));
+                ComboBox[] comboboxes = { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5, comboBox6, comboBox7, comboBox8, comboBox9, comboBox10, comboBox11, comboBox12, comboBox13, comboBox14, comboBox15, comboBox16, comboBox17, comboBox18, comboBox19, comboBox20, comboBox21, comboBox22, comboBox23, comboBox24, comboBox25 };
+                object[] topicjson = { topic.one, topic.two, topic.three, topic.four, topic.five, topic.six, topic.seven, topic.eight, topic.nine, topic.ten, topic.eleven, topic.thirteen, topic.fourteen, topic.fifteen, topic.sixteen, topic.seventeen, topic.eighteen, topic.nineteen, topic.twenty, topic.twentyone, topic.twentytwo, topic.twentythree, topic.twentyfour, topic.twentyfive };
+                int counter = 0;
+                while(counter != 24)
+                {
+                    ComboBox box = comboboxes[counter];
+                    topicjson[counter] = box.SelectedIndex.ToString();
+                    counter++;
+                }
+                JSONEdit.SetTopic(topic);
+            }catch(Exception ex)
+            {
+                UtilityScript.WriteError(ex.ToString(), ex.Message);
+            }
+        }
     }
 }
