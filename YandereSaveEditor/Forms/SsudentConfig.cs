@@ -429,6 +429,7 @@ namespace YandereSaveEditor
         private void button1_Click(object sender, EventArgs e)
         {
             TopicEditor te = new TopicEditor();
+            Globals.student = StudentSelect.Text;
             te.ShowDialog();
         }
     }
