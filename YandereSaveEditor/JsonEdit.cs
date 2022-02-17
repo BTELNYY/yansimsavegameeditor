@@ -175,6 +175,7 @@ namespace YandereSaveEditor
             {
                 //gets the line with the correct student.
                 string line = File.ReadLines(UtilityScript.GetTopics()).ElementAt(StudentId);
+                Log.Debug("Getting JSON line with ID " + StudentId.ToString());
                 if (line.EndsWith(@","))
                 {
                     //removes the comma at the end if it exists
@@ -188,7 +189,7 @@ namespace YandereSaveEditor
             {
                 topic tempstudent = new topic();
                 //returns error as string
-                Log.Error("Error while getting student JSON:" + e.ToString());
+                Log.Error("Error while getting topic JSON:" + e.ToString());
                 UtilityScript.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
@@ -234,9 +235,10 @@ public class student
 }
 public class topic
 {
-    [JsonIgnore]
-    public string ID { get; }
-    [JsonIgnore]
+    [JsonProperty("ID")]
+    public string ID { get; set; }
+
+    [JsonProperty("Name")]
     public string Name { get; set; }
 
     [JsonProperty("1")]
