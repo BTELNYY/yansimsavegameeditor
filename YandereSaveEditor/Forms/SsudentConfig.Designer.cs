@@ -84,6 +84,7 @@
             this.hairTextBox = new System.Windows.Forms.TextBox();
             this.exportButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
+            this.arrestedCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -1002,11 +1003,22 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // arrestedCheckbox
+            // 
+            this.arrestedCheckbox.AutoSize = true;
+            this.arrestedCheckbox.Location = new System.Drawing.Point(373, 113);
+            this.arrestedCheckbox.Name = "arrestedCheckbox";
+            this.arrestedCheckbox.Size = new System.Drawing.Size(75, 19);
+            this.arrestedCheckbox.TabIndex = 58;
+            this.arrestedCheckbox.Text = "Arrested?";
+            this.arrestedCheckbox.UseVisualStyleBackColor = true;
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 562);
+            this.Controls.Add(this.arrestedCheckbox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.exportButton);
             this.Controls.Add(this.hairTextBox);
@@ -1130,5 +1142,6 @@
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button exportButton;
         private Button button1;
+        private CheckBox arrestedCheckbox;
     }
 }

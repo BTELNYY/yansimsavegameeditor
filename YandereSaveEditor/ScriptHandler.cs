@@ -123,12 +123,16 @@ namespace YandereSaveEditor
             string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
             string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
             string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
+            string arrested = UtilityScript.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
             try
             {
                 switch (operation)
                 {
                     case "rep":
                         RegEdit.editValue(gamereg, int.Parse(value), studentrep);
+                        break;
+                    case "arrested":
+                        RegEdit.editValue(gamereg, int.Parse(value), arrested);
                         break;
                     case "dead":
                         RegEdit.editValue(gamereg, int.Parse(value), studentdead);
@@ -265,26 +269,6 @@ namespace YandereSaveEditor
                 UtilityScript.WriteError($"Error occured while parsing script: \n \n {e.Message}", "Error");
                 errorcount += 1;
             }
-        }
-        private static string SelectString(string[] array, string pattern)
-        {
-            //gets list of values
-            foreach (string s in array)
-            {
-                //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
-                bool result = Regex.IsMatch(s, pattern + @"*"); //regex is my nightmare
-                if (result)
-                {
-                    return s;
-                }
-                else if (!result)
-                {
-                    continue;
-                }
-                //returns null if the loop breaks. cuz yes.
-                return null;
-            }
-            return null;
         }
     }
 }

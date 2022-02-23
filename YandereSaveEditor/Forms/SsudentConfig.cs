@@ -53,6 +53,7 @@ namespace YandereSaveEditor
                 string dying = UtilityScript.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
                 string friend = UtilityScript.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
                 string panty = UtilityScript.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
+                string arrested = UtilityScript.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
                 //lets get ready to rumble!
                 RegEdit.editValue(gamereg, Convert.ToInt32(PantyshotCheckbox.Checked), panty);
                 RegEdit.editValue(gamereg, UtilityScript.ToInteger(ReputationTextbox.Text), studentrep);
@@ -61,6 +62,7 @@ namespace YandereSaveEditor
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(PhotographedCheckbox.Checked), photo);
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(DyingCheckbox.Checked), dying);
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(FriendCheckbox.Checked), friend);
+                RegEdit.editValue(gamereg, Convert.ToInt32(arrestedCheckbox.Checked), arrested);
                 studentjson.Gender = GenderCombobox.SelectedIndex.ToString();
                 studentjson.Name = NicknameTextbox.Text;
                 studentjson.RealName = RealnameTextbox.Text;
@@ -232,6 +234,8 @@ namespace YandereSaveEditor
                     PantyshotCheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, panty))); //jesus
                     string reputation = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
                     ReputationTextbox.Text = RegEdit.returnValue(gamereg, reputation);
+                    string arrested = UtilityScript.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
+                    arrestedCheckbox.Checked = Convert.ToBoolean(Convert.ToInt32(RegEdit.returnValue(gamereg, arrested)));
                     student studentjson = JSONEdit.GetInfo(StudentSelect.SelectedIndex + 1);
                     //damn.
                     NicknameTextbox.Text = studentjson.Name;
