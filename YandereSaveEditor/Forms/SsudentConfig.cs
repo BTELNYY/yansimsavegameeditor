@@ -44,7 +44,6 @@ namespace YandereSaveEditor
                 string student = (StudentSelect.SelectedIndex + 1).ToString();
                 int studentint = UtilityScript.ToInteger(student);
                 student studentjson = JSONEdit.GetInfo(studentint);
-                student studenjsonread = JSONEdit.GetInfo(studentint);
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 string studentdead = UtilityScript.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
                 string studentrep = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);

@@ -12,6 +12,7 @@
 
   <ItemGroup>
     <None Remove="IMPORTANT.jpg" />
+    <None Remove="ScriptHandler.cs~RFa8bf6ac.TMP" />
   </ItemGroup>
 
   <ItemGroup>
