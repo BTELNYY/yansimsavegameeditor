@@ -67,6 +67,9 @@
             this.label13 = new System.Windows.Forms.Label();
             this.ReputationTextbox = new System.Windows.Forms.TextBox();
             this.label14 = new System.Windows.Forms.Label();
+            this.label15 = new System.Windows.Forms.Label();
+            this.vtuberIdTextbox = new System.Windows.Forms.TextBox();
+            this.abductionTargetCombo = new System.Windows.Forms.ComboBox();
             this.SuspendLayout();
             // 
             // label1
@@ -288,7 +291,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(367, 474);
+            this.SaveButton.Location = new System.Drawing.Point(373, 545);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(88, 27);
@@ -307,7 +310,7 @@
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(116, 273);
+            this.PhsycStat.Location = new System.Drawing.Point(122, 344);
             this.PhsycStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhsycStat.Name = "PhsycStat";
             this.PhsycStat.Size = new System.Drawing.Size(140, 23);
@@ -323,7 +326,7 @@
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(116, 304);
+            this.PhysedStat.Location = new System.Drawing.Point(122, 375);
             this.PhysedStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhysedStat.Name = "PhysedStat";
             this.PhysedStat.Size = new System.Drawing.Size(140, 23);
@@ -339,7 +342,7 @@
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(116, 335);
+            this.LangStat.Location = new System.Drawing.Point(122, 406);
             this.LangStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LangStat.Name = "LangStat";
             this.LangStat.Size = new System.Drawing.Size(140, 23);
@@ -355,7 +358,7 @@
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(116, 366);
+            this.ChemStat.Location = new System.Drawing.Point(122, 437);
             this.ChemStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ChemStat.Name = "ChemStat";
             this.ChemStat.Size = new System.Drawing.Size(140, 23);
@@ -371,7 +374,7 @@
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(116, 397);
+            this.BioStat.Location = new System.Drawing.Point(122, 468);
             this.BioStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BioStat.Name = "BioStat";
             this.BioStat.Size = new System.Drawing.Size(140, 23);
@@ -380,7 +383,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(16, 276);
+            this.label5.Location = new System.Drawing.Point(22, 347);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);
@@ -390,7 +393,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(16, 307);
+            this.label6.Location = new System.Drawing.Point(22, 378);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 15);
@@ -400,7 +403,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(16, 339);
+            this.label7.Location = new System.Drawing.Point(22, 410);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 15);
@@ -410,7 +413,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(16, 370);
+            this.label8.Location = new System.Drawing.Point(22, 441);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 15);
@@ -420,7 +423,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(16, 401);
+            this.label9.Location = new System.Drawing.Point(22, 472);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 15);
@@ -429,7 +432,7 @@
             // 
             // mangaButton
             // 
-            this.mangaButton.Location = new System.Drawing.Point(-3, 440);
+            this.mangaButton.Location = new System.Drawing.Point(3, 511);
             this.mangaButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mangaButton.Name = "mangaButton";
             this.mangaButton.Size = new System.Drawing.Size(108, 27);
@@ -441,7 +444,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(-5, 474);
+            this.button1.Location = new System.Drawing.Point(1, 545);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 27);
@@ -470,7 +473,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(113, 440);
+            this.button2.Location = new System.Drawing.Point(119, 511);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 27);
@@ -611,7 +614,7 @@
             // 
             // ReputationTextbox
             // 
-            this.ReputationTextbox.Location = new System.Drawing.Point(116, 225);
+            this.ReputationTextbox.Location = new System.Drawing.Point(114, 226);
             this.ReputationTextbox.Name = "ReputationTextbox";
             this.ReputationTextbox.Size = new System.Drawing.Size(140, 23);
             this.ReputationTextbox.TabIndex = 36;
@@ -619,18 +622,45 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(16, 250);
+            this.label14.Location = new System.Drawing.Point(22, 321);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(338, 15);
             this.label14.TabIndex = 37;
             this.label14.Text = "If this does not work, restart application AFTER you start school";
+            // 
+            // label15
+            // 
+            this.label15.AutoSize = true;
+            this.label15.Location = new System.Drawing.Point(19, 259);
+            this.label15.Name = "label15";
+            this.label15.Size = new System.Drawing.Size(58, 15);
+            this.label15.TabIndex = 38;
+            this.label15.Text = "VTuber ID";
+            // 
+            // vtuberIdTextbox
+            // 
+            this.vtuberIdTextbox.Location = new System.Drawing.Point(113, 256);
+            this.vtuberIdTextbox.Name = "vtuberIdTextbox";
+            this.vtuberIdTextbox.Size = new System.Drawing.Size(141, 23);
+            this.vtuberIdTextbox.TabIndex = 39;
+            // 
+            // abductionTargetCombo
+            // 
+            this.abductionTargetCombo.FormattingEnabled = true;
+            this.abductionTargetCombo.Location = new System.Drawing.Point(114, 286);
+            this.abductionTargetCombo.Name = "abductionTargetCombo";
+            this.abductionTargetCombo.Size = new System.Drawing.Size(141, 23);
+            this.abductionTargetCombo.TabIndex = 40;
             // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(453, 500);
+            this.ClientSize = new System.Drawing.Size(453, 571);
+            this.Controls.Add(this.abductionTargetCombo);
+            this.Controls.Add(this.vtuberIdTextbox);
+            this.Controls.Add(this.label15);
             this.Controls.Add(this.label14);
             this.Controls.Add(this.ReputationTextbox);
             this.Controls.Add(this.label13);
@@ -720,5 +750,8 @@
         private Label label13;
         private TextBox ReputationTextbox;
         private Label label14;
+        private Label label15;
+        private TextBox vtuberIdTextbox;
+        private ComboBox abductionTargetCombo;
     }
 }

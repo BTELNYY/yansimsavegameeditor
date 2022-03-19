@@ -31,6 +31,7 @@ namespace YandereSaveEditor
         {
             try
             {
+                //Sorry for not making this very clean, its both my fault and alexes
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
                 string profile = UtilityScript.GetProfile();
                 string profilecombined = "Profile_" + profile;
@@ -47,16 +48,19 @@ namespace YandereSaveEditor
                 string psycstat = UtilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
                 string club = UtilityScript.SelectString("Profile_" + profile + "_Club", true);
                 string fakeid = UtilityScript.SelectString("Profile_" + profile + "_FakeID", true);
-                string raiburuloner = UtilityScript.SelectString("Profile_" + profile + "_RaiburuLoner", true);
-                string lovesick = UtilityScript.SelectString(profilecombined + "_LoveSick", true);
-                string darkend = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
+                string raiburu_loner = UtilityScript.SelectString("Profile_" + profile + "_raiburu_loner", true);
+                string love_sick = UtilityScript.SelectString(profilecombined + "_love_sick", true);
+                string dark_end = UtilityScript.SelectString(profilecombined + "_dark_ending", true);
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
                 string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
                 string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
+                string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
                 //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
-                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), lovesick);
+                RegEdit.editValue(gamereg, Convert.ToInt32(vtuberIdTextbox.Text), vtuber_id);
 
-                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(darkEndingCheckbox.Checked), darkend);
+                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), love_sick);
+
+                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(darkEndingCheckbox.Checked), dark_end);
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(DebugCheckbox.Checked), debug);
 
@@ -64,7 +68,7 @@ namespace YandereSaveEditor
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(trueEndingCheckbox.Checked), trueend);
 
-                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(raiburuLonerCheck.Checked), raiburuloner);
+                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(raiburuLonerCheck.Checked), raiburu_loner);
 
                 RegEdit.editValue(gamereg, FemaleuniformCombo.SelectedIndex + 1, femaleuni);
 
@@ -147,14 +151,14 @@ namespace YandereSaveEditor
                 string fakeid = UtilityScript.SelectString("Profile_" + profile + "_FakeID", true);
                 fakeIDcheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, fakeid))); //lots of conversions
                 //Raiburu Loner check
-                string raiburuloner = UtilityScript.SelectString("Profile_" + profile + "_RaiburuLoner", true);
-                raiburuLonerCheck.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, raiburuloner)));
+                string raiburu_loner = UtilityScript.SelectString("Profile_" + profile + "_raiburu_loner", true);
+                raiburuLonerCheck.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, raiburu_loner)));
                 //love sick mode
-                string lovesick = UtilityScript.SelectString(profilecombined + "_LoveSick", true);
-                loveSickCheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, lovesick)));
+                string love_sick = UtilityScript.SelectString(profilecombined + "_love_sick", true);
+                loveSickCheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, love_sick)));
                 //dark ending
-                string darkend = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
-                darkEndingCheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, darkend)));
+                string dark_end = UtilityScript.SelectString(profilecombined + "_dark_ending", true);
+                darkEndingCheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, dark_end)));
                 //true ending
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
                 trueEndingCheckbox.Checked = UtilityScript.ToBool(UtilityScript.ToInteger(RegEdit.returnValue(gamereg, trueend)));
@@ -194,7 +198,10 @@ namespace YandereSaveEditor
                 {
                     ClubCombobox.SelectedIndex = clubvalue;
                 }
-
+                //vtuberid
+                //currently not used in game, but this is still cool ig
+                string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
+                vtuberIdTextbox.Text = RegEdit.returnValue(gamereg, vtuber_id);
                 //stats
                 string chemstat = UtilityScript.SelectString("Profile_" + profile + "_ChemistryGrade", true);
                 string biostat = UtilityScript.SelectString("Profile_" + profile + "_BiologyGrade", true);
