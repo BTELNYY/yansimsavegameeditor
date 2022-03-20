@@ -10,7 +10,7 @@ namespace YandereSaveEditor
     internal static class Program
     {
         //DO NOT FORGET TO UPDATE!!!!!!
-        public static readonly string version = "1.8.2";
+        public static readonly string version = "1.8.3";
         /// <summary>
         /// The main entry point for the application.
         /// </summary>
