@@ -70,6 +70,8 @@
             this.label15 = new System.Windows.Forms.Label();
             this.vtuberIdTextbox = new System.Windows.Forms.TextBox();
             this.abductionTargetCombo = new System.Windows.Forms.ComboBox();
+            this.label16 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -130,9 +132,9 @@
             this.label3.Location = new System.Drawing.Point(15, 75);
             this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(81, 15);
+            this.label3.Size = new System.Drawing.Size(103, 15);
             this.label3.TabIndex = 4;
-            this.label3.Text = "Kidnap Victim";
+            this.label3.Text = "Kidnap Victim (ID)";
             // 
             // KidnapCombobox
             // 
@@ -259,19 +261,19 @@
             // 
             this.ItemCombobox.FormattingEnabled = true;
             this.ItemCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12"});
+            "0, None",
+            "1, Scissors",
+            "2, Box Cutter",
+            "3, Screwdirver",
+            "4, Rat Poison",
+            "5, Alcohol",
+            "6, Cigarettes",
+            "7, Condoms",
+            "8, Lockpick",
+            "9, Sedative",
+            "10, Narcotics",
+            "11, Lethal Posion",
+            "12, Explosive"});
             this.ItemCombobox.Location = new System.Drawing.Point(115, 102);
             this.ItemCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ItemCombobox.Name = "ItemCombobox";
@@ -631,7 +633,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(19, 259);
+            this.label15.Location = new System.Drawing.Point(15, 259);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(58, 15);
             this.label15.TabIndex = 38;
@@ -646,11 +648,233 @@
             // 
             // abductionTargetCombo
             // 
+            this.abductionTargetCombo.AutoCompleteCustomSource.AddRange(new string[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
             this.abductionTargetCombo.FormattingEnabled = true;
+            this.abductionTargetCombo.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
             this.abductionTargetCombo.Location = new System.Drawing.Point(114, 286);
             this.abductionTargetCombo.Name = "abductionTargetCombo";
             this.abductionTargetCombo.Size = new System.Drawing.Size(141, 23);
             this.abductionTargetCombo.TabIndex = 40;
+            // 
+            // label16
+            // 
+            this.label16.AutoSize = true;
+            this.label16.Location = new System.Drawing.Point(15, 289);
+            this.label16.Name = "label16";
+            this.label16.Size = new System.Drawing.Size(98, 15);
+            this.label16.TabIndex = 41;
+            this.label16.Text = "Abduction Target";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(265, 289);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(34, 15);
+            this.label17.TabIndex = 42;
+            this.label17.Text = "By ID";
             // 
             // GameConfig
             // 
@@ -658,6 +882,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(453, 571);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label16);
             this.Controls.Add(this.abductionTargetCombo);
             this.Controls.Add(this.vtuberIdTextbox);
             this.Controls.Add(this.label15);
@@ -753,5 +979,7 @@
         private Label label15;
         private TextBox vtuberIdTextbox;
         private ComboBox abductionTargetCombo;
+        private Label label16;
+        private Label label17;
     }
 }

@@ -8,7 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
-//using is needed to import things correctly.
+#nullable disable
 namespace YandereSaveEditor
 {
     public partial class GameConfig : Form
@@ -53,10 +53,14 @@ namespace YandereSaveEditor
                 string dark_end = UtilityScript.SelectString(profilecombined + "_dark_ending", true);
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
                 string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
+                //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
                 string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
                 string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
-                //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
+                string abduction_target = UtilityScript.SelectString(profilecombined + "AbductionTarget", true);
+
                 RegEdit.editValue(gamereg, Convert.ToInt32(vtuberIdTextbox.Text), vtuber_id);
+
+                RegEdit.editValue(gamereg, Convert.ToInt32(abductionTargetCombo.Text), abduction_target);
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), love_sick);
 
@@ -174,8 +178,11 @@ namespace YandereSaveEditor
                 //Kidnap Victim
                 string kidnapvictim = UtilityScript.SelectString("Profile_" + profile + "_KidnapVictim", true); //will create the value if none is found.
                 string kidnapvictimvalue = RegEdit.returnValue(gamereg, kidnapvictim);
-
                 KidnapCombobox.Text = kidnapvictimvalue;
+                //abduction target
+                string abduction_target = UtilityScript.SelectString(profilecombined + "AbductionTarget", true);
+                string abduction_target_value = RegEdit.returnValue(gamereg, abduction_target);
+                abductionTargetCombo.Text = abduction_target_value;
                 //bringing item
                 string bringitem = UtilityScript.SelectString("Profile_" + profile + "_BringingItem", false);
                 string bringitemvalue = RegEdit.returnValue(gamereg, bringitem);
