@@ -7,11 +7,12 @@ If you need additional help or something won't work, contact us [here.](https://
 If something is wrong, tell me. I am a human and can forget to do things or make mistakes.
 
 > Builds
-* [Download the latest build](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.8.2/YandereSaveEditor.v1.8.2.zip)
+* [Latest Release](https://github.com/BTELNYY/yansimsavegameeditor/releases/latest)
+* To download: look under assets for a file titled "YandereSaveEditor.X.X.X.zip" where X is replaced by a number. this is the file you are looking for
+* If you still need support, ask me on discord
 > Betas
 * WARNING! THIS IS OUTDATED, USE BUILD INSTEAD!
 * [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
-
 # Bugs and issues
 I am well aware that bugs may exist within my code please:
 * Report it on this github by making a new issue
