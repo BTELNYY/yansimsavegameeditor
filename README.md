@@ -3,6 +3,7 @@ The files extracted from the ZIP folder must go into the same folder as the game
 The other 2 files within that ZIP folder are CRITICAL, if you don't have them, it won't work.
 If you need additional help or something won't work, contact us [here.](https://discord.gg/P22tFkjTm3)
 
+**FYI: Some code can be slow cuz I was learning C# when I first wrote this. Yes Legacy code**
 # Releases
 If something is wrong, tell me. I am a human and can forget to do things or make mistakes.
 
