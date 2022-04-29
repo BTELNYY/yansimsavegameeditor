@@ -7,6 +7,7 @@ using System.Windows.Forms;
 using System.Text.RegularExpressions;
 using System.Threading.Tasks;
 using System.Security.Cryptography;
+#nullable disable
 namespace YandereSaveEditor
 {
     public class UtilityScript
@@ -76,7 +77,7 @@ namespace YandereSaveEditor
             //returns depedning on if a directory exists.
             return Directory.Exists(path);
         }
-        public static string? SelectString(string pattern, bool allowCreation)
+        public static string SelectString(string pattern, bool allowCreation)
         {
             //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
@@ -151,7 +152,7 @@ namespace YandereSaveEditor
             Globals.profile = profile;
             Log.Info("Set the profile to " + profile);
         }
-        public static string? GetProfile()
+        public static string GetProfile()
         {
             if (Globals.profile == null)
             {
@@ -169,7 +170,7 @@ namespace YandereSaveEditor
             Globals.student = student;
             Log.Info("Set the student to " + student);
         }
-        public static string? GetStudent()
+        public static string GetStudent()
         {
             if (Globals.student == null)
             {
@@ -298,7 +299,7 @@ namespace YandereSaveEditor
             }
             return false;
         }
-        public static string? OpenFileDialog(string path, string fileTypes)
+        public static string OpenFileDialog(string path, string fileTypes)
         {
             try //try to run this code, on error break and show the error.
             {

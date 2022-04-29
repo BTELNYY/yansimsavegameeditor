@@ -69,9 +69,9 @@ namespace YandereSaveEditor
             }
         }
         //handles the profile operations to speed up execution.
-        public static string? profile { get; set; }
+        public static string profile { get; set; }
         //handles the student operations
-        public static string? student { get; set; }
+        public static string student { get; set; }
 
 
 

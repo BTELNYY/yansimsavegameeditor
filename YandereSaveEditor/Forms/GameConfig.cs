@@ -56,7 +56,8 @@ namespace YandereSaveEditor
                 //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
                 string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
                 string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
-                string abduction_target = UtilityScript.SelectString(profilecombined + "AbductionTarget", true);
+                string abduction_target = UtilityScript.SelectString(profilecombined + "_AbductionTarget", true);
+                string show_abduction = UtilityScript.SelectString(profilecombined + "_ShowAbduction", true);
 
                 RegEdit.editValue(gamereg, Convert.ToInt32(vtuberIdTextbox.Text), vtuber_id);
 
@@ -65,6 +66,10 @@ namespace YandereSaveEditor
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(loveSickCheckbox.Checked), love_sick);
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(darkEndingCheckbox.Checked), dark_end);
+
+                RegEdit.editValue(gamereg, UtilityScript.ConvertBool(showAbductionCheckbox.Checked), show_abduction);
+
+                
 
                 RegEdit.editValue(gamereg, UtilityScript.ConvertBool(DebugCheckbox.Checked), debug);
 
@@ -188,12 +193,14 @@ namespace YandereSaveEditor
                 string bringitemvalue = RegEdit.returnValue(gamereg, bringitem);
 
                 ItemCombobox.Text = bringitemvalue;
-
+                //show abduction
+                string show_abduction = UtilityScript.SelectString(profilecombined + "_ShowAbduction", true);
+                string show_abduction_value = RegEdit.returnValue(gamereg, show_abduction);
+                showAbductionCheckbox.Checked = Convert.ToBoolean(UtilityScript.ToInteger(show_abduction_value));
                 //info points
                 string infopoints = UtilityScript.SelectString("Profile_" + profile + "_PantyShots", true);
                 string infopointsvalue = RegEdit.returnValue(gamereg, infopoints);
                 InfoTextbox.Text = infopointsvalue;
-
                 //club
                 string club = UtilityScript.SelectString("Profile_" + profile + "_Club", true);
                 int clubvalue = UtilityScript.ToInteger(RegEdit.returnValue(gamereg, club));

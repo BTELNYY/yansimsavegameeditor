@@ -72,6 +72,7 @@
             this.abductionTargetCombo = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
+            this.showAbductionCheckbox = new System.Windows.Forms.CheckBox();
             this.SuspendLayout();
             // 
             // label1
@@ -876,12 +877,23 @@
             this.label17.TabIndex = 42;
             this.label17.Text = "By ID";
             // 
+            // showAbductionCheckbox
+            // 
+            this.showAbductionCheckbox.AutoSize = true;
+            this.showAbductionCheckbox.Location = new System.Drawing.Point(265, 199);
+            this.showAbductionCheckbox.Name = "showAbductionCheckbox";
+            this.showAbductionCheckbox.Size = new System.Drawing.Size(119, 19);
+            this.showAbductionCheckbox.TabIndex = 43;
+            this.showAbductionCheckbox.Text = "Show Abduction?";
+            this.showAbductionCheckbox.UseVisualStyleBackColor = true;
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(453, 571);
+            this.Controls.Add(this.showAbductionCheckbox);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.abductionTargetCombo);
@@ -981,5 +993,6 @@
         private ComboBox abductionTargetCombo;
         private Label label16;
         private Label label17;
+        private CheckBox showAbductionCheckbox;
     }
 }
