@@ -174,9 +174,10 @@ namespace YandereSaveEditor
                 }
 
             }
-            finally
+            catch(Exception e)
             {
                 DebugConsole.WriteLineColor("So Bassicly something went wrong, so the finally loop is running.", ConsoleColor.White);
+                UtilityScript.WriteError("Something went wrong: " + e.ToString(), "Error");
                 if (hKey != UIntPtr.Zero)
                 {
                     RegCloseKey(hKey);
