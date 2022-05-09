@@ -914,8 +914,8 @@
             this.label19.Name = "label19";
             this.label19.Size = new System.Drawing.Size(479, 15);
             this.label19.TabIndex = 46;
-            this.label19.Text = "This gets the decimal valu eof a precentage, use multiplication and division to g" +
-    "et precent";
+            this.label19.Text = "This gets the decimal value of a precentage, use multiplication and division to g" +
+    "et percent";
             // 
             // label20
             // 
