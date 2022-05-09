@@ -75,6 +75,8 @@
             this.showAbductionCheckbox = new System.Windows.Forms.CheckBox();
             this.SchoolAtmosphereTextbox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
+            this.label20 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -296,7 +298,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(370, 621);
+            this.SaveButton.Location = new System.Drawing.Point(414, 621);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(88, 27);
@@ -905,12 +907,33 @@
             this.label18.TabIndex = 45;
             this.label18.Text = "Atmosphere (%)";
             // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(19, 343);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(479, 15);
+            this.label19.TabIndex = 46;
+            this.label19.Text = "This gets the decimal valu eof a precentage, use multiplication and division to g" +
+    "et precent";
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(19, 358);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(246, 15);
+            this.label20.TabIndex = 47;
+            this.label20.Text = "I hope I do not need to explain grade 5 maths";
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(453, 645);
+            this.ClientSize = new System.Drawing.Size(504, 645);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.SchoolAtmosphereTextbox);
             this.Controls.Add(this.showAbductionCheckbox);
@@ -1016,5 +1039,7 @@
         private CheckBox showAbductionCheckbox;
         private TextBox SchoolAtmosphereTextbox;
         private Label label18;
+        private Label label19;
+        private Label label20;
     }
 }

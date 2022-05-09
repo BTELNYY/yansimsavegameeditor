@@ -9,7 +9,7 @@ using System.Threading.Tasks;
 using System.Windows.Forms;
 using Microsoft.Win32;
 using System.IO;
-
+#nullable disable
 namespace YandereSaveEditor
 {
     public partial class randomizerForm : Form

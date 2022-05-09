@@ -124,35 +124,60 @@ namespace YandereSaveEditor
             string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
             string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
             string arrested = UtilityScript.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
+            string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
+            string abduction_target = UtilityScript.SelectString(profilecombined + "_AbductionTarget", true);
+            string show_abduction = UtilityScript.SelectString(profilecombined + "_ShowAbduction", true);
+            string atmosphere_precent = UtilityScript.SelectString(profilecombined + "_SchoolAtmosphere", true);
             try
             {
                 switch (operation)
                 {
+                    case "abducttarget":
+                        RegEdit.editValue(gamereg, int.Parse(value), abduction_target);
+                        break;
+                    case "showabduction":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
+                        RegEdit.editValue(gamereg, int.Parse(value), show_abduction);
+                        break;
+                    case "vtuberid":
+                        RegEdit.editValue(gamereg, int.Parse(value), vtuber_id);
+                        break;
+                    case "atmosphere":
+                        RegEdit.SetCorruptValue(atmosphere_precent, UtilityScript.ToDouble(value));
+                        break;
                     case "rep":
                         RegEdit.editValue(gamereg, int.Parse(value), studentrep);
                         break;
                     case "arrested":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), arrested);
                         break;
                     case "dead":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), studentdead);
                         break;
                     case "friend":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), friend);
                         break;
                     case "kidnapped":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), kidnapped);
                         break;
                     case "photo":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), photo);
                         break;
                     case "dying":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), dying);
                         break;
                     case "panty":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), panty);
                         break;
                     case "debug":
+                        if (value == "true") { value = "1"; } else { value = "0"; }
                         RegEdit.editValue(gamereg, int.Parse(value), debug);
                         break;
                     case "femaleuni":
