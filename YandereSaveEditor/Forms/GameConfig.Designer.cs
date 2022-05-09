@@ -73,6 +73,8 @@
             this.label16 = new System.Windows.Forms.Label();
             this.label17 = new System.Windows.Forms.Label();
             this.showAbductionCheckbox = new System.Windows.Forms.CheckBox();
+            this.SchoolAtmosphereTextbox = new System.Windows.Forms.TextBox();
+            this.label18 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -294,7 +296,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(373, 545);
+            this.SaveButton.Location = new System.Drawing.Point(370, 621);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(88, 27);
@@ -313,7 +315,7 @@
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(122, 344);
+            this.PhsycStat.Location = new System.Drawing.Point(119, 420);
             this.PhsycStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhsycStat.Name = "PhsycStat";
             this.PhsycStat.Size = new System.Drawing.Size(140, 23);
@@ -329,7 +331,7 @@
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(122, 375);
+            this.PhysedStat.Location = new System.Drawing.Point(119, 451);
             this.PhysedStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhysedStat.Name = "PhysedStat";
             this.PhysedStat.Size = new System.Drawing.Size(140, 23);
@@ -345,7 +347,7 @@
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(122, 406);
+            this.LangStat.Location = new System.Drawing.Point(119, 482);
             this.LangStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LangStat.Name = "LangStat";
             this.LangStat.Size = new System.Drawing.Size(140, 23);
@@ -361,7 +363,7 @@
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(122, 437);
+            this.ChemStat.Location = new System.Drawing.Point(119, 513);
             this.ChemStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ChemStat.Name = "ChemStat";
             this.ChemStat.Size = new System.Drawing.Size(140, 23);
@@ -377,7 +379,7 @@
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(122, 468);
+            this.BioStat.Location = new System.Drawing.Point(119, 544);
             this.BioStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BioStat.Name = "BioStat";
             this.BioStat.Size = new System.Drawing.Size(140, 23);
@@ -386,7 +388,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(22, 347);
+            this.label5.Location = new System.Drawing.Point(19, 423);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);
@@ -396,7 +398,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(22, 378);
+            this.label6.Location = new System.Drawing.Point(19, 454);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 15);
@@ -406,7 +408,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(22, 410);
+            this.label7.Location = new System.Drawing.Point(19, 486);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 15);
@@ -416,7 +418,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(22, 441);
+            this.label8.Location = new System.Drawing.Point(19, 517);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 15);
@@ -426,7 +428,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(22, 472);
+            this.label9.Location = new System.Drawing.Point(19, 548);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 15);
@@ -435,7 +437,7 @@
             // 
             // mangaButton
             // 
-            this.mangaButton.Location = new System.Drawing.Point(3, 511);
+            this.mangaButton.Location = new System.Drawing.Point(0, 587);
             this.mangaButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mangaButton.Name = "mangaButton";
             this.mangaButton.Size = new System.Drawing.Size(108, 27);
@@ -447,7 +449,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(1, 545);
+            this.button1.Location = new System.Drawing.Point(-2, 621);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 27);
@@ -476,7 +478,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(119, 511);
+            this.button2.Location = new System.Drawing.Point(116, 587);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 27);
@@ -625,7 +627,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(22, 321);
+            this.label14.Location = new System.Drawing.Point(19, 397);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(338, 15);
             this.label14.TabIndex = 37;
@@ -887,12 +889,30 @@
             this.showAbductionCheckbox.Text = "Show Abduction?";
             this.showAbductionCheckbox.UseVisualStyleBackColor = true;
             // 
+            // SchoolAtmosphereTextbox
+            // 
+            this.SchoolAtmosphereTextbox.Location = new System.Drawing.Point(113, 315);
+            this.SchoolAtmosphereTextbox.Name = "SchoolAtmosphereTextbox";
+            this.SchoolAtmosphereTextbox.Size = new System.Drawing.Size(141, 23);
+            this.SchoolAtmosphereTextbox.TabIndex = 44;
+            // 
+            // label18
+            // 
+            this.label18.AutoSize = true;
+            this.label18.Location = new System.Drawing.Point(15, 318);
+            this.label18.Name = "label18";
+            this.label18.Size = new System.Drawing.Size(93, 15);
+            this.label18.TabIndex = 45;
+            this.label18.Text = "Atmosphere (%)";
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(453, 571);
+            this.ClientSize = new System.Drawing.Size(453, 645);
+            this.Controls.Add(this.label18);
+            this.Controls.Add(this.SchoolAtmosphereTextbox);
             this.Controls.Add(this.showAbductionCheckbox);
             this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
@@ -994,5 +1014,7 @@
         private Label label16;
         private Label label17;
         private CheckBox showAbductionCheckbox;
+        private TextBox SchoolAtmosphereTextbox;
+        private Label label18;
     }
 }

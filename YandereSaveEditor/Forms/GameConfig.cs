@@ -58,6 +58,10 @@ namespace YandereSaveEditor
                 string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
                 string abduction_target = UtilityScript.SelectString(profilecombined + "_AbductionTarget", true);
                 string show_abduction = UtilityScript.SelectString(profilecombined + "_ShowAbduction", true);
+                string atmosphere_precent = UtilityScript.SelectString(profilecombined + "_SchoolAtmosphere", true);
+
+
+                RegEdit.SetCorruptValue(atmosphere_precent, UtilityScript.ToDouble(SchoolAtmosphereTextbox.Text));
 
                 RegEdit.editValue(gamereg, Convert.ToInt32(vtuberIdTextbox.Text), vtuber_id);
 
@@ -178,6 +182,10 @@ namespace YandereSaveEditor
                 //Male uniform
                 string maleuni = UtilityScript.SelectString("Profile_" + profile + "_MaleUniform", false);
                 string maleunivalue = RegEdit.returnValue(gamereg, maleuni);
+
+                //atmosphere
+                string atmosphere_precent = UtilityScript.SelectString(profilecombined + "_SchoolAtmosphere", true);
+                SchoolAtmosphereTextbox.Text = RegEdit.returnValue(gamereg, atmosphere_precent);
 
                 MaleuniformCombobox.SelectedIndex = UtilityScript.ToInteger(maleunivalue) - 1;
                 //Kidnap Victim
