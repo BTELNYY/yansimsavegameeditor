@@ -279,7 +279,7 @@ namespace YandereSaveEditor
                         json.ScheduleDestination = value;
                         break;
                     case "info":
-                        value = value.Trim('"');
+                        value = value.Replace('-', ' ');
                         json.Info = value;
                         break;
                     default:
