@@ -171,7 +171,7 @@ namespace YandereSaveEditor
 
         private void githublink_Click(object sender, EventArgs e)
         {
-            System.Diagnostics.Process.Start("https://github.com/btelnyy/yansimsavegameeditor");
+            System.Diagnostics.Process.Start("https://github.com/BTELNYY/yansimsavegameeditor");
         }
 
         private void label6_Click(object sender, EventArgs e)

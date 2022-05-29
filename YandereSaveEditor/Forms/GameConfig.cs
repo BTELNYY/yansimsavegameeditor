@@ -48,9 +48,9 @@ namespace YandereSaveEditor
                 string psycstat = UtilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
                 string club = UtilityScript.SelectString("Profile_" + profile + "_Club", true);
                 string fakeid = UtilityScript.SelectString("Profile_" + profile + "_FakeID", true);
-                string raiburu_loner = UtilityScript.SelectString("Profile_" + profile + "_raiburu_loner", true);
-                string love_sick = UtilityScript.SelectString(profilecombined + "_love_sick", true);
-                string dark_end = UtilityScript.SelectString(profilecombined + "_dark_ending", true);
+                string raiburu_loner = UtilityScript.SelectString("Profile_" + profile + "_RaiburuLoner", true);
+                string love_sick = UtilityScript.SelectString(profilecombined + "LoveSick", true);
+                string dark_end = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
                 string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
                 string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
                 //for some reason, sometimes the other reputation is shown here, which is odd. I simply yeeted this as a possible bug.
@@ -193,7 +193,7 @@ namespace YandereSaveEditor
                 string kidnapvictimvalue = RegEdit.returnValue(gamereg, kidnapvictim);
                 KidnapCombobox.Text = kidnapvictimvalue;
                 //abduction target
-                string abduction_target = UtilityScript.SelectString(profilecombined + "AbductionTarget", true);
+                string abduction_target = UtilityScript.SelectString(profilecombined + "_AbductionTarget", true);
                 string abduction_target_value = RegEdit.returnValue(gamereg, abduction_target);
                 abductionTargetCombo.Text = abduction_target_value;
                 //bringing item
@@ -206,7 +206,7 @@ namespace YandereSaveEditor
                 string show_abduction_value = RegEdit.returnValue(gamereg, show_abduction);
                 showAbductionCheckbox.Checked = Convert.ToBoolean(UtilityScript.ToInteger(show_abduction_value));
                 //info points
-                string infopoints = UtilityScript.SelectString("Profile_" + profile + "_PantyShots", true);
+                string infopoints = UtilityScript.SelectString(profilecombined + "_PantyShots", true);
                 string infopointsvalue = RegEdit.returnValue(gamereg, infopoints);
                 InfoTextbox.Text = infopointsvalue;
                 //club
