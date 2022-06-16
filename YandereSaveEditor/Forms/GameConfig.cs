@@ -87,8 +87,6 @@ namespace YandereSaveEditor
 
                 RegEdit.editValue(gamereg, MaleuniformCombobox.SelectedIndex + 1, maleuni);
 
-                RegEdit.editValue(gamereg, KidnapCombobox.SelectedIndex, kidnapvictim);
-
                 RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
 
                 int clubvalue = ClubCombobox.SelectedIndex;
@@ -191,7 +189,6 @@ namespace YandereSaveEditor
                 //Kidnap Victim
                 string kidnapvictim = UtilityScript.SelectString("Profile_" + profile + "_KidnapVictim", true); //will create the value if none is found.
                 string kidnapvictimvalue = RegEdit.returnValue(gamereg, kidnapvictim);
-                KidnapCombobox.Text = kidnapvictimvalue;
                 //abduction target
                 string abduction_target = UtilityScript.SelectString(profilecombined + "_AbductionTarget", true);
                 string abduction_target_value = RegEdit.returnValue(gamereg, abduction_target);
@@ -291,6 +288,12 @@ namespace YandereSaveEditor
                 Log.Error("Error when giving user all Panties: " + ex.ToString());
                 UtilityScript.WriteError("Error on panty item grant: \n \n" + ex.ToString(), "Error");
             }
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            PrisonerForm form = new();
+            form.Show();
         }
     }
     

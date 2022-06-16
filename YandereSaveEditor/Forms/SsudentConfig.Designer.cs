@@ -1075,6 +1075,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "StudentConfig";
             this.Text = "Student Configuration";
             this.Load += new System.EventHandler(this.StudentConfig_Load);

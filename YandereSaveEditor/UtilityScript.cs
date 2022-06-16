@@ -79,6 +79,11 @@ namespace YandereSaveEditor
         }
         public static string SelectString(string pattern, bool allowCreation)
         {
+            //prevents tool from setting exact same value many times
+            if (!pattern.EndsWith("_"))
+            {
+                pattern += "_";
+            }
             //registry of the game
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             //gets list of values

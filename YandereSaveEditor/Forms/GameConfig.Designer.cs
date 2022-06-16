@@ -33,8 +33,6 @@
             this.FemaleuniformCombo = new System.Windows.Forms.ComboBox();
             this.label2 = new System.Windows.Forms.Label();
             this.MaleuniformCombobox = new System.Windows.Forms.ComboBox();
-            this.label3 = new System.Windows.Forms.Label();
-            this.KidnapCombobox = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.ItemCombobox = new System.Windows.Forms.ComboBox();
             this.DebugCheckbox = new System.Windows.Forms.CheckBox();
@@ -77,6 +75,7 @@
             this.label18 = new System.Windows.Forms.Label();
             this.label19 = new System.Windows.Forms.Label();
             this.label20 = new System.Windows.Forms.Label();
+            this.button3 = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // label1
@@ -130,127 +129,6 @@
             this.MaleuniformCombobox.Name = "MaleuniformCombobox";
             this.MaleuniformCombobox.Size = new System.Drawing.Size(140, 23);
             this.MaleuniformCombobox.TabIndex = 3;
-            // 
-            // label3
-            // 
-            this.label3.AutoSize = true;
-            this.label3.Location = new System.Drawing.Point(15, 75);
-            this.label3.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(103, 15);
-            this.label3.TabIndex = 4;
-            this.label3.Text = "Kidnap Victim (ID)";
-            // 
-            // KidnapCombobox
-            // 
-            this.KidnapCombobox.FormattingEnabled = true;
-            this.KidnapCombobox.Items.AddRange(new object[] {
-            "0",
-            "1",
-            "2",
-            "3",
-            "4",
-            "5",
-            "6",
-            "7",
-            "8",
-            "9",
-            "10",
-            "11",
-            "12",
-            "13",
-            "14",
-            "15",
-            "16",
-            "17",
-            "18",
-            "19",
-            "20",
-            "21",
-            "22",
-            "23",
-            "24",
-            "25",
-            "26",
-            "27",
-            "28",
-            "29",
-            "30",
-            "31",
-            "32",
-            "33",
-            "34",
-            "35",
-            "36",
-            "37",
-            "38",
-            "39",
-            "40",
-            "41",
-            "42",
-            "43",
-            "44",
-            "45",
-            "46",
-            "47",
-            "48",
-            "49",
-            "50",
-            "51",
-            "52",
-            "53",
-            "54",
-            "55",
-            "56",
-            "57",
-            "58",
-            "59",
-            "60",
-            "61",
-            "62",
-            "63",
-            "64",
-            "65",
-            "66",
-            "67",
-            "68",
-            "69",
-            "70",
-            "71",
-            "72",
-            "73",
-            "74",
-            "75",
-            "76",
-            "77",
-            "78",
-            "79",
-            "80",
-            "81",
-            "82",
-            "83",
-            "84",
-            "85",
-            "86",
-            "87",
-            "88",
-            "89",
-            "90",
-            "91",
-            "92",
-            "93",
-            "94",
-            "95",
-            "96",
-            "97",
-            "98",
-            "99",
-            "100"});
-            this.KidnapCombobox.Location = new System.Drawing.Point(115, 72);
-            this.KidnapCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
-            this.KidnapCombobox.Name = "KidnapCombobox";
-            this.KidnapCombobox.Size = new System.Drawing.Size(140, 23);
-            this.KidnapCombobox.TabIndex = 5;
             // 
             // label4
             // 
@@ -926,12 +804,23 @@
             this.label20.TabIndex = 47;
             this.label20.Text = "I hope I do not need to explain grade 5 maths";
             // 
+            // button3
+            // 
+            this.button3.Location = new System.Drawing.Point(15, 71);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(239, 23);
+            this.button3.TabIndex = 48;
+            this.button3.Text = "Manage Prisoners";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
             this.ClientSize = new System.Drawing.Size(504, 645);
+            this.Controls.Add(this.button3);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.label19);
             this.Controls.Add(this.label18);
@@ -974,8 +863,6 @@
             this.Controls.Add(this.DebugCheckbox);
             this.Controls.Add(this.ItemCombobox);
             this.Controls.Add(this.label4);
-            this.Controls.Add(this.KidnapCombobox);
-            this.Controls.Add(this.label3);
             this.Controls.Add(this.MaleuniformCombobox);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.FemaleuniformCombo);
@@ -997,8 +884,6 @@
         private System.Windows.Forms.ComboBox FemaleuniformCombo;
         private System.Windows.Forms.Label label2;
         private System.Windows.Forms.ComboBox MaleuniformCombobox;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.ComboBox KidnapCombobox;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.ComboBox ItemCombobox;
         private System.Windows.Forms.CheckBox DebugCheckbox;
@@ -1041,5 +926,6 @@
         private Label label18;
         private Label label19;
         private Label label20;
+        private Button button3;
     }
 }

@@ -138,6 +138,7 @@
             this.Controls.Add(this.cancelButton);
             this.Controls.Add(this.runButton);
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
+            this.MaximizeBox = false;
             this.Name = "ScriptForm";
             this.Text = "Script Runner";
             this.Load += new System.EventHandler(this.ScriptForm_Load);
