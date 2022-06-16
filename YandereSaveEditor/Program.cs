@@ -4,6 +4,7 @@ global using System.Windows.Forms;
 global using Microsoft.Win32;
 global using System.IO;
 global using System.Text.RegularExpressions;
+using System.Diagnostics;
 #nullable disable
 namespace YandereSaveEditor
 {
@@ -44,6 +45,7 @@ namespace YandereSaveEditor
             bool checkFiles = true; //keep true, this was used for debugging.
             if (!exists & checkFiles == true)
             {
+                VerifyAppAge();
                 UtilityScript.WriteError("YandereSimulator.exe could not be found in the applications folder, please copy this program to that folder. Including .dlls", "File Not Found");
                 Log.FatalError("Unable to locate YandereSimulatr, exiting application.");
                 Application.Exit();
@@ -55,6 +57,16 @@ namespace YandereSaveEditor
             };
             //the else statement catches all other results from the check, its not possible for the code bellow this to ever run. unless C# suddenly forgets how to use if.
             //do not put anything bellow this point. wont run.  
+        }
+        public static void VerifyAppAge()
+        {
+            string filename = Process.GetCurrentProcess().MainModule.FileName;
+            FileInfo yansim = new FileInfo("YandereSimulator.exe");
+            FileInfo curexe = new FileInfo(filename);
+            if (yansim.LastWriteTime > curexe.LastWriteTime)
+            {
+                UtilityScript.WriteWarning("YandereSimulator.exe is newer than this application, please update this application to the newest version, as the version you are using may not work correctly with this version of YanSim.", "Outdated Application");
+            }
         }
     }
 }
