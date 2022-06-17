@@ -18,7 +18,7 @@ namespace YandereSaveEditor
             try
             {
                 //gets the line with the correct student.
-                string line = File.ReadLines(UtilityScript.GetJSON()).ElementAt(StudentId);
+                string line = File.ReadLines(Utility.GetJSON()).ElementAt(StudentId);
                 if (line.EndsWith(@","))
                 {
                     //removes the comma at the end if it exists
@@ -33,7 +33,7 @@ namespace YandereSaveEditor
                 student tempstudent = new student();
                 //returns error as string
                 Log.Error("Error while getting student JSON:" + e.ToString());
-                UtilityScript.WriteError(e.ToString(), "Error");
+                Utility.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
         }
@@ -44,22 +44,22 @@ namespace YandereSaveEditor
             {
 
                 string Json = JsonConvert.SerializeObject(tempstudent);
-                if (UtilityScript.ToInteger(tempstudent.ID) != 100)
+                if (Utility.ToInteger(tempstudent.ID) != 100)
                 {
                     //if not last student, serialized object requires a comma.
                     Json = Json + ",";
                 }
                 //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
-                string[] arrLine = File.ReadAllLines(UtilityScript.GetJSON());
-                arrLine[UtilityScript.ToInteger(tempstudent.ID)] = Json;
-                File.WriteAllLines(UtilityScript.GetJSON(), arrLine);
+                string[] arrLine = File.ReadAllLines(Utility.GetJSON());
+                arrLine[Utility.ToInteger(tempstudent.ID)] = Json;
+                File.WriteAllLines(Utility.GetJSON(), arrLine);
                 return "success";
 
             }
             catch (Exception e)
             {
                 //returns error as string
-                UtilityScript.WriteError("ERROR", e.ToString());
+                Utility.WriteError("ERROR", e.ToString());
                 Log.Error("Error while writing student JSON:" + e.ToString());
                 return "failed: got to horny jail *bonk*";
             }
@@ -69,7 +69,7 @@ namespace YandereSaveEditor
             try
             {
                 //gets the line with the correct student.
-                string line = File.ReadLines(UtilityScript.GetJSON()).ElementAt(StudentId);
+                string line = File.ReadLines(Utility.GetJSON()).ElementAt(StudentId);
                 if (line.EndsWith(@","))
                 {
                     //removes the comma at the end if it exists
@@ -84,7 +84,7 @@ namespace YandereSaveEditor
                 student tempstudent = new student();
                 //returns error as string
                 Log.Error("Error while getting student JSON:" + e.ToString());
-                UtilityScript.WriteError(e.ToString(), "Error");
+                Utility.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
         }
@@ -95,22 +95,22 @@ namespace YandereSaveEditor
             {
 
                 string Json = JsonConvert.SerializeObject(tempstudent);
-                if (UtilityScript.ToInteger(tempstudent.ID) != 100)
+                if (Utility.ToInteger(tempstudent.ID) != 100)
                 {
                     //if not last student, serialized object requires a comma.
                     Json = Json + ",";
                 }
                 //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
-                string[] arrLine = File.ReadAllLines(UtilityScript.GetJSON());
-                arrLine[UtilityScript.ToInteger(tempstudent.ID)] = Json;
-                File.WriteAllLines(UtilityScript.GetJSON(), arrLine);
+                string[] arrLine = File.ReadAllLines(Utility.GetJSON());
+                arrLine[Utility.ToInteger(tempstudent.ID)] = Json;
+                File.WriteAllLines(Utility.GetJSON(), arrLine);
                 return "success";
 
             }
             catch (Exception e)
             {
                 //returns error as string
-                UtilityScript.WriteError("ERROR", e.ToString());
+                Utility.WriteError("ERROR", e.ToString());
                 Log.Error("Error while writing student JSON:" + e.ToString());
                 return "failed: got to horny jail *bonk*";
             }
@@ -119,18 +119,18 @@ namespace YandereSaveEditor
         {
             try
             {
-                string path = UtilityScript.GetTopics();
+                string path = Utility.GetTopics();
                 StreamReader sr = new StreamReader(path);
                 string content = sr.ReadToEnd(); //reads all the content in the file
-                string[] lines = UtilityScript.SeperateIntoArray(content, '\n');
+                string[] lines = Utility.SeperateIntoArray(content, '\n');
                 //seperate all the lines in the file by the newline character.
                 string line = lines[int.Parse(id)];
                 line = line.TrimEnd(','); //trim the end comma as it will screw with code
                 line = line.Trim('{', '}');
-                string[] pairs = UtilityScript.SeperateIntoArray(line, ',');
+                string[] pairs = Utility.SeperateIntoArray(line, ',');
                 //gives us a array of pairs which we can then use to get our specific topic id.
                 string pair = pairs[int.Parse(topicid) + 1]; //ignores the ID and Name elements
-                string[] elements = UtilityScript.SeperateIntoArray(pair, ':');
+                string[] elements = Utility.SeperateIntoArray(pair, ':');
                 //gives us a array with 2 elements, the Key, and the Value, the key is not important.
                 string value = elements[1];
                 //remove the ""
@@ -140,7 +140,7 @@ namespace YandereSaveEditor
             }
             catch (Exception e)
             {
-                UtilityScript.WriteError("Error when getting topics by ID \n \n " + e.ToString(), "Error");
+                Utility.WriteError("Error when getting topics by ID \n \n " + e.ToString(), "Error");
                 Log.Error($"Error when getting topics. Student ID: {id}, Topic ID: {topicid} Error: {e}");
                 return "0";
             }
@@ -151,20 +151,20 @@ namespace YandereSaveEditor
             {
 
                 string Json = JsonConvert.SerializeObject(topic);
-                if (UtilityScript.ToInteger(topic.ID) != 100)
+                if (Utility.ToInteger(topic.ID) != 100)
                 {
                     //if not last student, serialized object requires a comma.
                     Json = Json + ",";
                 }
                 //this next part gets the full json script as an arrey and replaces the specific line with the serialized student object
-                string[] arrLine = File.ReadAllLines(UtilityScript.GetTopics());
-                arrLine[UtilityScript.ToInteger(topic.ID)] = Json;
-                File.WriteAllLines(UtilityScript.GetTopics(), arrLine);
+                string[] arrLine = File.ReadAllLines(Utility.GetTopics());
+                arrLine[Utility.ToInteger(topic.ID)] = Json;
+                File.WriteAllLines(Utility.GetTopics(), arrLine);
                 return "success";
             }
             catch (Exception ex)
             {
-                UtilityScript.WriteError(ex.ToString(), "Error");
+                Utility.WriteError(ex.ToString(), "Error");
                 Log.Error("Failed when writing topics json " + ex.ToString());
                 return "error";
             }
@@ -174,7 +174,7 @@ namespace YandereSaveEditor
             try
             {
                 //gets the line with the correct student.
-                string line = File.ReadLines(UtilityScript.GetTopics()).ElementAt(StudentId);
+                string line = File.ReadLines(Utility.GetTopics()).ElementAt(StudentId);
                 Log.Debug("Getting JSON line with ID " + StudentId.ToString());
                 if (line.EndsWith(@","))
                 {
@@ -190,7 +190,7 @@ namespace YandereSaveEditor
                 topic tempstudent = new topic();
                 //returns error as string
                 Log.Error("Error while getting topic JSON:" + e.ToString());
-                UtilityScript.WriteError(e.ToString(), "Error");
+                Utility.WriteError(e.ToString(), "Error");
                 return tempstudent;
             }
         }

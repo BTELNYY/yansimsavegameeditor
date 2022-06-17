@@ -18,19 +18,19 @@ namespace YandereSaveEditor
         {
             if (path == null)
             {
-                UtilityScript.WriteError("Sepecified path is null.", "Error");
+                Utility.WriteError("Sepecified path is null.", "Error");
                 return;
             }
             if (curprofile == null)
             {
-                UtilityScript.WriteError("Specified profile is null.", "Error");
+                Utility.WriteError("Specified profile is null.", "Error");
                 return;
             }
             Globals.profile = curprofile;
             ScriptHandler.profile = curprofile;
             StreamReader sw = new StreamReader(path);
             string readdata = sw.ReadToEnd();
-            string[] script = UtilityScript.SeperateIntoArray(readdata, '\n');
+            string[] script = Utility.SeperateIntoArray(readdata, '\n');
             Log.Info($"Seperated script file {path} into {script.Length} elements");
             ScriptLogic(script);
             sw.Close();
@@ -42,13 +42,13 @@ namespace YandereSaveEditor
             string[] allowedprofiles = { "1", "2", "3", "11", "12", "13" };
             if (!allowedprofiles.Contains(profile))
             {
-                UtilityScript.WriteError("Profile is not legal!", "Error");
+                Utility.WriteError("Profile is not legal!", "Error");
                 return;
             }
             foreach (string line in script)
             {
                 Log.Info("Passing " + line + " into Script.");
-                string[] args = UtilityScript.SeperateIntoArray(line, ' ');
+                string[] args = Utility.SeperateIntoArray(line, ' ');
                 counter++;
                 if (args[0] == "set")
                 {
@@ -60,13 +60,13 @@ namespace YandereSaveEditor
                     errorcount += 1;
                 }
             }
-            UtilityScript.WriteInfo($"Finished parsing script. \n Error(s): {errorcount} \n if this value is larger then 0, check the log.", "Done");
+            Utility.WriteInfo($"Finished parsing script. \n Error(s): {errorcount} \n if this value is larger then 0, check the log.", "Done");
         }
         private static void Script(string[] args)
         {
             if (args.Length < 3)
             {
-                UtilityScript.WriteError("Script parse error: The syntax is invalid.", "Error");
+                Utility.WriteError("Script parse error: The syntax is invalid.", "Error");
                 //acts like a list of errors which occured, this is intended for a print out at the end of the operation.
                 errorcount += 1;
             }
@@ -96,42 +96,82 @@ namespace YandereSaveEditor
             }
             student json = JSONEdit.GetInfo(int.Parse(student));
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            string studentdead = UtilityScript.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
-            string studentrep = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
-            string kidnapped = UtilityScript.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
-            string photo = UtilityScript.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
-            string dying = UtilityScript.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
-            string friend = UtilityScript.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
-            string panty = UtilityScript.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
+            string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
+            string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+            string kidnapped = Utility.SelectString("Profile_" + profile + "_StudentKidnapped_" + student + "_", true);
+            string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
+            string dying = Utility.SelectString("Profile_" + profile + "_StudentDying_" + student + "_", true);
+            string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+            string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
             string profilecombined = "Profile_" + profile;
-            string debug = UtilityScript.SelectString("Profile_" + profile + "_Debug", false);
-            string femaleuni = UtilityScript.SelectString("Profile_" + profile + "_FemaleUniform", false);
-            string maleuni = UtilityScript.SelectString("Profile_" + profile + "_MaleUniform", false);
-            string kidnapvictim = UtilityScript.SelectString("Profile_" + profile + "_KidnapVictim_", true);
-            string bringitem = UtilityScript.SelectString("Profile_" + profile + "_BringingItem", false);
-            string infopoints = UtilityScript.SelectString("Profile_" + profile + "_PantyShots", true);
-            string chemstat = UtilityScript.SelectString("Profile_" + profile + "_ChemistryGrade", true);
-            string biostat = UtilityScript.SelectString("Profile_" + profile + "_BiologyGrade", true);
-            string physstat = UtilityScript.SelectString("Profile_" + profile + "_PhysicalGrade", true);
-            string langstat = UtilityScript.SelectString("Profile_" + profile + "_LanguageGrade", true);
-            string psycstat = UtilityScript.SelectString("Profile_" + profile + "_PsychologyGrade", true);
-            string club = UtilityScript.SelectString("Profile_" + profile + "_Club", true);
-            string fakeid = UtilityScript.SelectString("Profile_" + profile + "_FakeID", true);
-            string raiburuloner = UtilityScript.SelectString("Profile_" + profile + "_RaiburuLoner", true);
-            string lovesick = UtilityScript.SelectString(profilecombined + "_LoveSick", true);
-            string darkend = UtilityScript.SelectString(profilecombined + "_DarkEnding", true);
-            string trueend = UtilityScript.SelectString(profilecombined + "_TrueEnding", true);
-            string money = UtilityScript.SelectString("Profile_" + profile + "_Money", true);
-            string reputation = UtilityScript.SelectString("Profile_" + profile + "_Reputation_", true);
-            string arrested = UtilityScript.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
-            string vtuber_id = UtilityScript.SelectString(profilecombined + "_VtuberID", true);
-            string abduction_target = UtilityScript.SelectString(profilecombined + "_AbductionTarget", true);
-            string show_abduction = UtilityScript.SelectString(profilecombined + "_ShowAbduction", true);
-            string atmosphere_precent = UtilityScript.SelectString(profilecombined + "_SchoolAtmosphere", true);
+            string debug = Utility.SelectString("Profile_" + profile + "_Debug", false);
+            string femaleuni = Utility.SelectString("Profile_" + profile + "_FemaleUniform", false);
+            string maleuni = Utility.SelectString("Profile_" + profile + "_MaleUniform", false);
+            string kidnapvictim = Utility.SelectString("Profile_" + profile + "_KidnapVictim_", true);
+            string bringitem = Utility.SelectString("Profile_" + profile + "_BringingItem", false);
+            string infopoints = Utility.SelectString("Profile_" + profile + "_PantyShots", true);
+            string chemstat = Utility.SelectString("Profile_" + profile + "_ChemistryGrade", true);
+            string biostat = Utility.SelectString("Profile_" + profile + "_BiologyGrade", true);
+            string physstat = Utility.SelectString("Profile_" + profile + "_PhysicalGrade", true);
+            string langstat = Utility.SelectString("Profile_" + profile + "_LanguageGrade", true);
+            string psycstat = Utility.SelectString("Profile_" + profile + "_PsychologyGrade", true);
+            string club = Utility.SelectString("Profile_" + profile + "_Club", true);
+            string fakeid = Utility.SelectString("Profile_" + profile + "_FakeID", true);
+            string raiburuloner = Utility.SelectString("Profile_" + profile + "_RaiburuLoner", true);
+            string lovesick = Utility.SelectString(profilecombined + "_LoveSick", true);
+            string darkend = Utility.SelectString(profilecombined + "_DarkEnding", true);
+            string trueend = Utility.SelectString(profilecombined + "_TrueEnding", true);
+            string money = Utility.SelectString("Profile_" + profile + "_Money", true);
+            string reputation = Utility.SelectString("Profile_" + profile + "_Reputation_", true);
+            string arrested = Utility.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
+            string vtuber_id = Utility.SelectString(profilecombined + "_VtuberID", true);
+            string abduction_target = Utility.SelectString(profilecombined + "_AbductionTarget", true);
+            string show_abduction = Utility.SelectString(profilecombined + "_ShowAbduction", true);
+            string atmosphere_precent = Utility.SelectString(profilecombined + "_SchoolAtmosphere", true);
+            string pris1fn = Utility.SelectString(profilecombined + "_Prisoner1", true);
+            string pris2fn = Utility.SelectString(profilecombined + "_Prisoner2", true);
+            string pris3fn = Utility.SelectString(profilecombined + "_Prisoner3", true);
+            string pris4fn = Utility.SelectString(profilecombined + "_Prisoner4", true);
+            string pris5fn = Utility.SelectString(profilecombined + "_Prisoner5", true);
+            string pris6fn = Utility.SelectString(profilecombined + "_Prisoner6", true);
+            string pris7fn = Utility.SelectString(profilecombined + "_Prisoner7", true);
+            string pris8fn = Utility.SelectString(profilecombined + "_Prisoner8", true);
+            string pris9fn = Utility.SelectString(profilecombined + "_Prisoner9", true);
+            string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
             try
             {
                 switch (operation)
                 {
+                    case "prisonerone":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris1fn);
+                        break;
+                    case "prisonertwo":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris2fn);
+                        break;
+                    case "prisonerthree":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris3fn);
+                        break;
+                    case "prisonerfour":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris4fn);
+                        break;
+                    case "prisonerfive":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris5fn);
+                        break;
+                    case "prisonersix":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris6fn);
+                        break;
+                    case "prisonerseven":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris7fn);
+                        break;
+                    case "prisonereight":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris8fn);
+                        break;
+                    case "prisonernine":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris9fn);
+                        break;
+                    case "prisonerten":
+                        RegEdit.editValue(gamereg, int.Parse(value), pris10fn);
+                        break;
                     case "abducttarget":
                         RegEdit.editValue(gamereg, int.Parse(value), abduction_target);
                         break;
@@ -143,7 +183,7 @@ namespace YandereSaveEditor
                         RegEdit.editValue(gamereg, int.Parse(value), vtuber_id);
                         break;
                     case "atmosphere":
-                        RegEdit.SetCorruptValue(atmosphere_precent, UtilityScript.ToDouble(value));
+                        RegEdit.SetCorruptValue(atmosphere_precent, Utility.ToDouble(value));
                         break;
                     case "rep":
                         RegEdit.editValue(gamereg, int.Parse(value), studentrep);
@@ -193,6 +233,7 @@ namespace YandereSaveEditor
                         RegEdit.SetCorruptValue(reputation, double.Parse(value));
                         break;
                     case "kidnapvictim":
+                        Log.Warning("Using outdated command in script! Ignore this if you are using a build older than june 15th 2022!");
                         RegEdit.editValue(gamereg, int.Parse(value), kidnapvictim);
                         break;
                     case "bringitem":
@@ -291,7 +332,7 @@ namespace YandereSaveEditor
             }
             catch (Exception e)
             {
-                UtilityScript.WriteError($"Error occured while parsing script: \n \n {e.Message}", "Error");
+                Utility.WriteError($"Error occured while parsing script: \n \n {e.Message}", "Error");
                 errorcount += 1;
             }
         }

@@ -20,14 +20,14 @@ namespace YandereSaveEditor
         {
             if (sender != null && e != null)
             {
-                UtilityScript.WriteWarning("Using this function as of this version is not recommended! while no problems occur, you must have knowledge of Yandere Simulator in order to use this. ", "Warning");
+                Utility.WriteWarning("Using this function as of this version is not recommended! while no problems occur, you must have knowledge of Yandere Simulator in order to use this. ", "Warning");
             }
-            string student = UtilityScript.GetStudent();
+            string student = Utility.GetStudent();
             studentLabel.Text = "Current Student: " + student;
-            student studentjson = JSONEdit.GetInfo(UtilityScript.ToInteger(student));
-            string[] time = UtilityScript.SeperateIntoArray(studentjson.ScheduleTime, '_');
-            string[] destination = UtilityScript.SeperateIntoArray(studentjson.ScheduleDestination, '_');
-            string[] action = UtilityScript.SeperateIntoArray(studentjson.ScheduleAction, '_');
+            student studentjson = JSONEdit.GetInfo(Utility.ToInteger(student));
+            string[] time = Utility.SeperateIntoArray(studentjson.ScheduleTime, '_');
+            string[] destination = Utility.SeperateIntoArray(studentjson.ScheduleDestination, '_');
+            string[] action = Utility.SeperateIntoArray(studentjson.ScheduleAction, '_');
             object[] timetext = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9, textBox10 };
             object[] desttext = { textBox11, textBox12, textBox13, textBox14, textBox15, textBox16, textBox17, textBox18, textBox19, textBox20 };
             object[] actiontext = { textBox21, textBox22, textBox23, textBox24, textBox25, textBox26, textBox27, textBox28, textBox29, textBox30 };
@@ -81,8 +81,8 @@ namespace YandereSaveEditor
 
         private void saveButton_Click(object sender, EventArgs e)
         {
-            string student = UtilityScript.GetStudent();
-            student studentjson = JSONEdit.GetInfo(UtilityScript.ToInteger(student));
+            string student = Utility.GetStudent();
+            student studentjson = JSONEdit.GetInfo(Utility.ToInteger(student));
             object[] timetext = { textBox1, textBox2, textBox3, textBox4, textBox5, textBox6, textBox7, textBox8, textBox9, textBox10 };
             object[] desttext = { textBox11, textBox12, textBox13, textBox14, textBox15, textBox16, textBox17, textBox18, textBox19, textBox20 };
             object[] actiontext = { textBox21, textBox22, textBox23, textBox24, textBox25, textBox26, textBox27, textBox28, textBox29, textBox30 };
@@ -132,14 +132,14 @@ namespace YandereSaveEditor
             timeFText.Text = studentjson.ScheduleTime;
             destFText.Text = studentjson.ScheduleDestination;
             actionFText.Text = studentjson.ScheduleAction;
-            UtilityScript.WriteInfo("All data written successfully", "Done");
+            Utility.WriteInfo("All data written successfully", "Done");
             Log.Info("Written all schedule data successfully unless otherwise stated above");
         }
 
         private void refreshButton_Click(object sender, EventArgs e)
         {
-            string student = UtilityScript.GetStudent();
-            student studentjson = JSONEdit.GetInfo(UtilityScript.ToInteger(student));
+            string student = Utility.GetStudent();
+            student studentjson = JSONEdit.GetInfo(Utility.ToInteger(student));
             studentjson.ScheduleTime = timeFText.Text;
             studentjson.ScheduleDestination = destFText.Text;
             studentjson.ScheduleAction = actionFText.Text;

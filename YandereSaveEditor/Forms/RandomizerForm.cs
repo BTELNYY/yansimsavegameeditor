@@ -27,7 +27,7 @@ namespace YandereSaveEditor
             int[] clubs = { 0, 1, 2, 3, 4, 5, 6, 7, 9, 9, 10, 11, 12, 13, 14, 99, 100, 101, 102 };
             int[] personas = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 99 };
             int[] strength = { 1, 2, 3, 4, 5, 6, 7, 8, 9, 99 };
-            string profile = UtilityScript.GetProfile();
+            string profile = Utility.GetProfile();
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
             DialogResult result;
             result = MessageBox.Show("Randomize all students? This action cannot be undone without file editing! \n \n Do not terminate until all clear message. (unless you like corruption)", "Randomize all",
@@ -41,14 +41,14 @@ namespace YandereSaveEditor
                 {
                     try
                     {
-                        if (UtilityScript.ToInteger(profile) > 3)
+                        if (Utility.ToInteger(profile) > 3)
                         {
-                            File.Copy(UtilityScript.GetJSON(), "Eighties-BACKUP.json", false);
+                            File.Copy(Utility.GetJSON(), "Eighties-BACKUP.json", false);
                             Log.Debug("Copied Eighties JSON.");
                         }
                         else
                         {
-                            File.Copy(UtilityScript.GetJSON(), "Students-BACKUP.json", false);
+                            File.Copy(Utility.GetJSON(), "Students-BACKUP.json", false);
                             Log.Debug("Copied Students JSON.");
                         }
                     }
@@ -61,11 +61,11 @@ namespace YandereSaveEditor
                     foreach (int student in students)
                     {
                         student studentjson = JSONEdit.GetInfo(student);
-                        string studentrep = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
-                        string photo = UtilityScript.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
-                        string friend = UtilityScript.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
-                        string panty = UtilityScript.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
-                        string reputation = UtilityScript.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                        string studentrep = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
+                        string photo = Utility.SelectString("Profile_" + profile + "_StudentPhotographed_" + student + "_", true);
+                        string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
+                        string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
+                        string reputation = Utility.SelectString("Profile_" + profile + "_StudentReputation_" + student + "_", true);
 
 
                         //I have become the thing I swore to destroy......
@@ -73,71 +73,71 @@ namespace YandereSaveEditor
 
                         if (repCheck.Checked)
                         {
-                            RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(-100, 100), reputation);
+                            RegEdit.editValue(gamereg, Utility.GetRandomInt(-100, 100), reputation);
                         }
 
 
                         if (photoCheck.Checked)
                         {
-                            RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(0, 3), photo);
+                            RegEdit.editValue(gamereg, Utility.GetRandomInt(0, 3), photo);
                         }
 
 
                         if (friendCheck.Checked)
                         {
-                            RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(0, 3), friend);
+                            RegEdit.editValue(gamereg, Utility.GetRandomInt(0, 3), friend);
                         }
 
                         if (pantyCheck.Checked)
                         {
-                            RegEdit.editValue(gamereg, UtilityScript.GetRandomInt(0, 3), panty);
+                            RegEdit.editValue(gamereg, Utility.GetRandomInt(0, 3), panty);
                         }
 
                         if (bustCheckbox.Checked)
                         {
-                            studentjson.BreastSize = UtilityScript.GetRandomDouble(0, 2, 0, 9).ToString();
+                            studentjson.BreastSize = Utility.GetRandomDouble(0, 2, 0, 9).ToString();
                         }
 
                         if (accessoryCheck.Checked)
                         {
-                            studentjson.Accessory = UtilityScript.GetRandomInt(0, 15).ToString();
+                            studentjson.Accessory = Utility.GetRandomInt(0, 15).ToString();
                         }
  
                         if (clubCheck.Checked)
                         {
-                            studentjson.Club = clubs.GetValue(UtilityScript.GetRandomInt(0, 19)).ToString();
+                            studentjson.Club = clubs.GetValue(Utility.GetRandomInt(0, 19)).ToString();
                         }
  
                         if (crushCheck.Checked)
                         {
-                            studentjson.Crush = UtilityScript.GetRandomInt(0, 101).ToString();
+                            studentjson.Crush = Utility.GetRandomInt(0, 101).ToString();
                         }
      
                         if (hairstyleCheck.Checked)
                         {
-                            studentjson.Hairstyle = UtilityScript.GetRandomInt(0, 201).ToString();
+                            studentjson.Hairstyle = Utility.GetRandomInt(0, 201).ToString();
                         }
 
                         if (personaCheck.Checked)
                         {
-                            studentjson.Persona = personas.GetValue(UtilityScript.GetRandomInt(1, 18)).ToString();
+                            studentjson.Persona = personas.GetValue(Utility.GetRandomInt(1, 18)).ToString();
                         }
 
                         if (strengthCheck.Checked)
                         {
-                            studentjson.Strength = strength.GetValue(UtilityScript.GetRandomInt(0, 10)).ToString();
+                            studentjson.Strength = strength.GetValue(Utility.GetRandomInt(0, 10)).ToString();
                         }
                         JSONEdit.WriteInfo(studentjson);
                         progressBar.Value = student;
                         Log.Debug("Randomizing students. Current Student: " + student.ToString());
                     }
                     //hide, close it and dispose of the form as we no longer need it.
-                    UtilityScript.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students-BACKUP.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students (Same goes for Eighties, but the file name is Eighties-BACKUP.json). Note that profile data cannot be reverted.", "Done");
+                    Utility.WriteInfo("Finished, if you wish to go back, delete Students.json within the normal JSON folder and rename Students-BACKUP.json to Students.json, after this, copy this new file to your JSON folder. this will restore all previous data for the students (Same goes for Eighties, but the file name is Eighties-BACKUP.json). Note that profile data cannot be reverted.", "Done");
                 }
                 catch (Exception ex)
                 {
                     Log.Error("Error occured during randomize process: " + ex.ToString());
-                    UtilityScript.WriteError(ex.ToString(), "Error");
+                    Utility.WriteError(ex.ToString(), "Error");
                 }
             }
             else

@@ -10,13 +10,13 @@ namespace YandereSaveEditor
         {
             if (!DebugConsole.ConsoleCreated)
             {
-                UtilityScript.WriteError("Console must be created before being used!", "Error");
+                Utility.WriteError("Console must be created before being used!", "Error");
                 return;
             }
             while (nolog)
             {
                 string input = DebugConsole.ReadConsole("> ");
-                string[] inputargs = UtilityScript.SeperateIntoArray(input, ' ');
+                string[] inputargs = Utility.SeperateIntoArray(input, ' ');
                 //I am aware this may spam the screen, but who cares?
                 Log.Debug($"User command input: {inputargs[0]}");
                 switch (inputargs[0])
@@ -89,12 +89,12 @@ namespace YandereSaveEditor
                         SetNamedValue(inputargs);
                         break;
                     case "getfullname":
-                        DebugConsole.WriteLineColor(UtilityScript.SelectString(inputargs[1], false), ConsoleColor.White);
+                        DebugConsole.WriteLineColor(Utility.SelectString(inputargs[1], false), ConsoleColor.White);
                         break;
                     case "script":
                         try
                         {
-                            string path = UtilityScript.OpenFileDialog(".\\", "txt files (*.txt)|*.txt|All files (*.*)|*.*");
+                            string path = Utility.OpenFileDialog(".\\", "txt files (*.txt)|*.txt|All files (*.*)|*.*");
                             DebugConsole.WriteLineColor("Enter profile.", ConsoleColor.White);
                             string profile = DebugConsole.ReadConsole("> ");
                             ScriptHandler.Script(path, profile);
@@ -106,7 +106,7 @@ namespace YandereSaveEditor
                         }
                         break;
                     case "setprofile":
-                        UtilityScript.SetProfile(inputargs[1]);
+                        Utility.SetProfile(inputargs[1]);
                         break;
                     case "gettopic":
                         //fuck you, and ill see you tomorrow
@@ -121,7 +121,7 @@ namespace YandereSaveEditor
             try
             {
                 RegistryKey key = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                string value = RegEdit.returnValue(key, UtilityScript.SelectString(args[1], false));
+                string value = RegEdit.returnValue(key, Utility.SelectString(args[1], false));
                 DebugConsole.WriteLineColor(value, ConsoleColor.White);
             }
             catch (Exception e)
@@ -161,7 +161,7 @@ namespace YandereSaveEditor
             {
                 if (RegOpenKeyEx(HKEY_CURRENT_USER, path, 0, 0x20006, out hKey) != 0)
                 {
-                    UtilityScript.WriteError("Error opening key for registry editing.", "Error");
+                    Utility.WriteError("Error opening key for registry editing.", "Error");
                 }
                     
 
@@ -170,14 +170,14 @@ namespace YandereSaveEditor
                 Marshal.WriteInt64(pData, BitConverter.DoubleToInt64Bits(value));
                 if (RegSetValueEx(hKey, valName, 0, RegistryValueKind.DWord, pData, size) != 0)
                 {
-                    UtilityScript.WriteError("Failed to write registry data.", "Error");
+                    Utility.WriteError("Failed to write registry data.", "Error");
                 }
 
             }
             catch(Exception e)
             {
                 DebugConsole.WriteLineColor("So Bassicly something went wrong, so the finally loop is running.", ConsoleColor.White);
-                UtilityScript.WriteError("Something went wrong: " + e.ToString(), "Error");
+                Utility.WriteError("Something went wrong: " + e.ToString(), "Error");
                 if (hKey != UIntPtr.Zero)
                 {
                     RegCloseKey(hKey);
@@ -190,7 +190,7 @@ namespace YandereSaveEditor
         {
             try
             {
-                DebugConsole.WriteLineColor(UtilityScript.GetHexValue(args[1]), ConsoleColor.White);
+                DebugConsole.WriteLineColor(Utility.GetHexValue(args[1]), ConsoleColor.White);
             }
             catch (Exception e)
             {
@@ -201,7 +201,7 @@ namespace YandereSaveEditor
         {
             try
             {
-                DebugConsole.WriteLineColor(UtilityScript.GetDecValue(args[1]), ConsoleColor.White);
+                DebugConsole.WriteLineColor(Utility.GetDecValue(args[1]), ConsoleColor.White);
             }
             catch (Exception e)
             {
@@ -212,7 +212,7 @@ namespace YandereSaveEditor
         {
             try
             {
-                double d = UtilityScript.ToDouble(args[1]);
+                double d = Utility.ToDouble(args[1]);
                 long longVal = BitConverter.DoubleToInt64Bits(d);
                 DebugConsole.WriteLineColor(longVal.ToString(), ConsoleColor.White);
             }

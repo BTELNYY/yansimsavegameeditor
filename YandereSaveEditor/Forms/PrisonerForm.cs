@@ -20,21 +20,21 @@ namespace YandereSaveEditor
         private void PrisonerForm_Load(object sender, EventArgs e)
         {
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            string profilecombined = "Profile_" + UtilityScript.GetProfile();
+            string profilecombined = "Profile_" + Utility.GetProfile();
             //awful way to code, but I will optimize the select string method later
             //prisoner 1 fullname (of the value)
             try
             {
-                string pris1fn = UtilityScript.SelectString(profilecombined + "_Prisoner1", true);
-                string pris2fn = UtilityScript.SelectString(profilecombined + "_Prisoner2", true);
-                string pris3fn = UtilityScript.SelectString(profilecombined + "_Prisoner3", true);
-                string pris4fn = UtilityScript.SelectString(profilecombined + "_Prisoner4", true);
-                string pris5fn = UtilityScript.SelectString(profilecombined + "_Prisoner5", true);
-                string pris6fn = UtilityScript.SelectString(profilecombined + "_Prisoner6", true);
-                string pris7fn = UtilityScript.SelectString(profilecombined + "_Prisoner7", true);
-                string pris8fn = UtilityScript.SelectString(profilecombined + "_Prisoner8", true);
-                string pris9fn = UtilityScript.SelectString(profilecombined + "_Prisoner9", true);
-                string pris10fn = UtilityScript.SelectString(profilecombined + "_Prisoner10", true);
+                string pris1fn = Utility.SelectString(profilecombined + "_Prisoner1", true);
+                string pris2fn = Utility.SelectString(profilecombined + "_Prisoner2", true);
+                string pris3fn = Utility.SelectString(profilecombined + "_Prisoner3", true);
+                string pris4fn = Utility.SelectString(profilecombined + "_Prisoner4", true);
+                string pris5fn = Utility.SelectString(profilecombined + "_Prisoner5", true);
+                string pris6fn = Utility.SelectString(profilecombined + "_Prisoner6", true);
+                string pris7fn = Utility.SelectString(profilecombined + "_Prisoner7", true);
+                string pris8fn = Utility.SelectString(profilecombined + "_Prisoner8", true);
+                string pris9fn = Utility.SelectString(profilecombined + "_Prisoner9", true);
+                string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
                 //prisoner 1 value
                 string pris1v = RegEdit.returnValue(gamereg, pris1fn);
                 string pris2v = RegEdit.returnValue(gamereg, pris2fn);
@@ -60,27 +60,27 @@ namespace YandereSaveEditor
             }
             catch (Exception ex)
             {
-                UtilityScript.WriteError("Error loading prisoner config: \n \n" + ex.ToString(), "Error: " + ex.Message);
+                Utility.WriteError("Error loading prisoner config: \n \n" + ex.ToString(), "Error: " + ex.Message);
             }
         }
 
         private void ApplyButton_Click(object sender, EventArgs e)
         {
             RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-            string profilecombined = "Profile_" + UtilityScript.GetProfile();
+            string profilecombined = "Profile_" + Utility.GetProfile();
             try
             {
-                string pris1fn = UtilityScript.SelectString(profilecombined + "_Prisoner1", true);
-                string pris2fn = UtilityScript.SelectString(profilecombined + "_Prisoner2", true);
-                string pris3fn = UtilityScript.SelectString(profilecombined + "_Prisoner3", true);
-                string pris4fn = UtilityScript.SelectString(profilecombined + "_Prisoner4", true);
-                string pris5fn = UtilityScript.SelectString(profilecombined + "_Prisoner5", true);
-                string pris6fn = UtilityScript.SelectString(profilecombined + "_Prisoner6", true);
-                string pris7fn = UtilityScript.SelectString(profilecombined + "_Prisoner7", true);
-                string pris8fn = UtilityScript.SelectString(profilecombined + "_Prisoner8", true);
-                string pris9fn = UtilityScript.SelectString(profilecombined + "_Prisoner9", true);
-                string pris10fn = UtilityScript.SelectString(profilecombined + "_Prisoner10", true);
-                string prisTotal = UtilityScript.SelectString(profilecombined + "_Prisoners", true);
+                string pris1fn = Utility.SelectString(profilecombined + "_Prisoner1", true);
+                string pris2fn = Utility.SelectString(profilecombined + "_Prisoner2", true);
+                string pris3fn = Utility.SelectString(profilecombined + "_Prisoner3", true);
+                string pris4fn = Utility.SelectString(profilecombined + "_Prisoner4", true);
+                string pris5fn = Utility.SelectString(profilecombined + "_Prisoner5", true);
+                string pris6fn = Utility.SelectString(profilecombined + "_Prisoner6", true);
+                string pris7fn = Utility.SelectString(profilecombined + "_Prisoner7", true);
+                string pris8fn = Utility.SelectString(profilecombined + "_Prisoner8", true);
+                string pris9fn = Utility.SelectString(profilecombined + "_Prisoner9", true);
+                string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
+                string prisTotal = Utility.SelectString(profilecombined + "_Prisoners", true);
                 RegEdit.editValue(gamereg, comboBox1.SelectedIndex, pris1fn);
                 RegEdit.editValue(gamereg, comboBox2.SelectedIndex, pris2fn);
                 RegEdit.editValue(gamereg, comboBox3.SelectedIndex, pris3fn);
@@ -101,11 +101,11 @@ namespace YandereSaveEditor
                     }
                 }
                 RegEdit.editValue(gamereg, total, prisTotal);
-                UtilityScript.WriteInfo("Prisoner config saved!", "Done");
+                Utility.WriteInfo("Prisoner config saved!", "Done");
             }
             catch(Exception ex)
             {
-                UtilityScript.WriteError("Error applying prisoner config: \n \n" + ex.ToString(), "Error: " + ex.Message);
+                Utility.WriteError("Error applying prisoner config: \n \n" + ex.ToString(), "Error: " + ex.Message);
             }
         }
 

@@ -25,7 +25,7 @@ namespace YandereSaveEditor
             sw.WriteLine("Attach:YanHoodie:YandereChan/Character/PelvisRoot/Hips");
             sw.WriteLine("RefLocalPosition:YanHoode:0:-0.9:0"); //position according to player, 0 is on top of head.
             sw.WriteLine("RefLocalRotation:YanHoodie:0:0:)"); //vector rotation.
-            string[] patharray = UtilityScript.SeperateIntoArray(file, char.Parse(@"\"));
+            string[] patharray = Utility.SeperateIntoArray(file, char.Parse(@"\"));
             string texture = patharray.Last();
             sw.WriteLine("OpenTexture:" + texture);
             sw.WriteLine("Texture3:0:YanHoodie");
@@ -35,7 +35,7 @@ namespace YandereSaveEditor
         {
             StreamWriter sw = new StreamWriter(file);
             sw.WriteLine("DeliYanHair:PlayerHair:YandereChan");
-            string[] patharray = UtilityScript.SeperateIntoArray(file, char.Parse(@"\"));
+            string[] patharray = Utility.SeperateIntoArray(file, char.Parse(@"\"));
             string texture = patharray.Last();
             sw.WriteLine("OpenTexture:" + texture);
             sw.WriteLine("Texture:0:PlayerHair");

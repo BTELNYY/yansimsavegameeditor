@@ -36,7 +36,7 @@ namespace YandereSaveEditor
             {
                 //checks for every save and sees if its "enabled"
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                string result = UtilityScript.SelectString("ProfileCreated_" + s + "_", false);
+                string result = Utility.SelectString("ProfileCreated_" + s + "_", false);
                 if (result != null)
                 {
                     string value = RegEdit.returnValue(gamereg, result);
@@ -85,13 +85,13 @@ namespace YandereSaveEditor
         {
             if(ProfileCombobox.SelectedIndex < 0)
             {
-                UtilityScript.WriteWarning("A save file must be selected!", "Warning");
+                Utility.WriteWarning("A save file must be selected!", "Warning");
             }
             else
             {
                 StudentConfig StudentConfig = new StudentConfig();
                 MainForm MainForm = new MainForm();
-                UtilityScript.SetProfile(ProfileCombobox.Text);
+                Utility.SetProfile(ProfileCombobox.Text);
                 //what even is this bullshit?
                 MainForm.Close();
                 StudentConfig.ShowDialog();
@@ -102,11 +102,11 @@ namespace YandereSaveEditor
         {
             if (ProfileCombobox.SelectedIndex < 0)
             {
-                UtilityScript.WriteWarning("A save file must be selected!", "Warning");
+                Utility.WriteWarning("A save file must be selected!", "Warning");
             }
             else
             {
-                UtilityScript.SetProfile(ProfileCombobox.Text);
+                Utility.SetProfile(ProfileCombobox.Text);
                 GameConfig GameConfig = new GameConfig();
                 GameConfig.ShowDialog();
             }
@@ -138,13 +138,13 @@ namespace YandereSaveEditor
             MainForm MainForm = new MainForm();
             if (ProfileCombobox.SelectedIndex < 0)
             {
-                UtilityScript.WriteError("No profile was selected. Select a profile and try again.", "Error");
+                Utility.WriteError("No profile was selected. Select a profile and try again.", "Error");
             }
             else //haha best code ever. KILL ME
             {
-                UtilityScript.SetProfile(ProfileCombobox.Text);
-                string profile = UtilityScript.GetProfile();
-                UtilityScript.DeleteProfile(profile);
+                Utility.SetProfile(ProfileCombobox.Text);
+                string profile = Utility.GetProfile();
+                Utility.DeleteProfile(profile);
                 button1.Enabled = false;
                 MainForm.Refresh();
             }
@@ -152,12 +152,12 @@ namespace YandereSaveEditor
 
         private void button2_Click(object sender, EventArgs e)
         {
-            UtilityScript.DeleteProfile("1");
-            UtilityScript.DeleteProfile("2");
-            UtilityScript.DeleteProfile("3");
-            UtilityScript.DeleteProfile("11");
-            UtilityScript.DeleteProfile("12");
-            UtilityScript.DeleteProfile("13");
+            Utility.DeleteProfile("1");
+            Utility.DeleteProfile("2");
+            Utility.DeleteProfile("3");
+            Utility.DeleteProfile("11");
+            Utility.DeleteProfile("12");
+            Utility.DeleteProfile("13");
             button2.Enabled = false;
             MainForm MainForm = new MainForm();
             MainForm.Refresh();

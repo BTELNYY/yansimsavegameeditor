@@ -21,9 +21,9 @@ namespace YandereSaveEditor
                 string web = client.DownloadString(url);
                 string[] website = web.Split(' '); //splits the resulting string into a array based on spaces.
                 string version = (string)website.GetValue(0);
-                int remotever = UtilityScript.ToInteger(version.Replace(".", string.Empty));
+                int remotever = Utility.ToInteger(version.Replace(".", string.Empty));
                 string localver = Program.version;
-                int currentver = UtilityScript.ToInteger(localver.Replace(".", string.Empty));
+                int currentver = Utility.ToInteger(localver.Replace(".", string.Empty));
                 if (remotever > currentver)
                 {
                     //outdated client, handle question for user
@@ -47,7 +47,7 @@ namespace YandereSaveEditor
                 {
                     //The current version is somehow newer then the remote version, print a warning.
                     Log.Warning("Public version counter may be outdated or wrong, contact developers.");
-                    UtilityScript.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
+                    Utility.WriteWarning("Public version counter may be outdated, notify developers.", "Version Mismatch");
                     return 3;
                 }
                 else
@@ -59,7 +59,7 @@ namespace YandereSaveEditor
             catch (Exception e)
             {
                 Log.Error("Failed to connect to server: " + e.ToString());
-                UtilityScript.WriteError("Unable to check for updates. Check your internet connection, firewall, or if the server is online. Details: \n" + e.ToString(), "Error");
+                Utility.WriteError("Unable to check for updates. Check your internet connection, firewall, or if the server is online. Details: \n" + e.ToString(), "Error");
                 return 2;
             }
         }

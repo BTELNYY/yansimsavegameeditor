@@ -45,7 +45,7 @@ namespace YandereSaveEditor
             {
                 if (RegOpenKeyEx(HKEY_CURRENT_USER, path, 0, 0x20006, out hKey) != 0)
                 {
-                    UtilityScript.WriteError("Error opening key for registry editing.", "Error");
+                    Utility.WriteError("Error opening key for registry editing.", "Error");
                 }
 
 
@@ -54,7 +54,7 @@ namespace YandereSaveEditor
                 Marshal.WriteInt64(pData, BitConverter.DoubleToInt64Bits(value));
                 if (RegSetValueEx(hKey, valName, 0, RegistryValueKind.DWord, pData, size) != 0)
                 {
-                    UtilityScript.WriteError("Failed to write registry data.", "Error");
+                    Utility.WriteError("Failed to write registry data.", "Error");
                 }
 
             }
@@ -88,7 +88,7 @@ namespace YandereSaveEditor
             {
                 //returns error as string
                 Log.Error("Failed during registry operation: " + e.ToString());
-                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
+                Utility.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }
@@ -104,7 +104,7 @@ namespace YandereSaveEditor
             catch (Exception e)
             {
                 //returns error as string
-                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
+                Utility.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }
@@ -120,7 +120,7 @@ namespace YandereSaveEditor
             catch (Exception e)
             {
                 //returns error as string
-                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
+                Utility.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }
@@ -137,7 +137,7 @@ namespace YandereSaveEditor
             {
                 //returns error as string
                 Log.Error("Failure during registry operation: " + e.ToString());
-                UtilityScript.WriteError("Failure during registry operation: " + e.ToString(), "Error");
+                Utility.WriteError("Failure during registry operation: " + e.ToString(), "Error");
                 return e.ToString();
             }
         }

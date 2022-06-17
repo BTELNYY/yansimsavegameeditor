@@ -10,8 +10,11 @@ using System.Security.Cryptography;
 #nullable disable
 namespace YandereSaveEditor
 {
-    public class UtilityScript
+    
+    public class Utility
     {
+        //value to see if the better handler has broken, and if yes, use the old handler
+        public static bool BetterRegValLoaderHadError = false;
         //removed the log function from here, see LoggerScript.cs, or call Log
         private SHA256 Sha256 = SHA256.Create();
         public string GetHashSha256(string filename)
@@ -79,6 +82,19 @@ namespace YandereSaveEditor
         }
         public static string SelectString(string pattern, bool allowCreation)
         {
+            if (pattern.EndsWith('_'))
+            {
+                pattern = pattern.TrimEnd('_');
+            }
+            string value = BetterRegnameGetter.GetFullName(pattern);
+            if(value == null)
+            {
+                value = SelectValueNameOld(pattern, allowCreation);
+            }
+            return value;
+        }
+        public static string SelectValueNameOld(string pattern, bool allowCreation)
+        {
             //prevents tool from setting exact same value many times
             if (!pattern.EndsWith("_"))
             {
@@ -124,7 +140,7 @@ namespace YandereSaveEditor
                 //gets list of values
                 string[] list = RegEdit.returnValuesList(gamereg);
                 string pattern = "Profile_" + profile + "_";
-                string profilemarker = UtilityScript.SelectString("ProfileCreated_" + profile + "_", false);
+                string profilemarker = Utility.SelectString("ProfileCreated_" + profile + "_", false);
                 foreach (string s in list)
                 {
                     //check if the pattern matches the current position in array, if yes, return the name of the value otherwise try again
@@ -378,7 +394,7 @@ namespace YandereSaveEditor
             }
             else
             {
-                long decValue = UtilityScript.ToLong(input);
+                long decValue = Utility.ToLong(input);
                 string hexValue = decValue.ToString("X");
                 return hexValue;
             }

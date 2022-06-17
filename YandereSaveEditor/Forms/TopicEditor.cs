@@ -41,7 +41,7 @@ namespace YandereSaveEditor
                 }
             }catch(Exception ex)
             {
-                UtilityScript.WriteError(ex.ToString(), "Error");
+                Utility.WriteError(ex.ToString(), "Error");
             }
         }
         private void SaveButton_Click(object sender, EventArgs e)
@@ -77,11 +77,11 @@ namespace YandereSaveEditor
                 topic.twentyfive = comboBox25.SelectedIndex.ToString();
                 JSONEdit.SetTopic(topic);
                 TopicEditor_Load(null, null);
-                UtilityScript.WriteInfo("Finished writing JSON data", "Done");
+                Utility.WriteInfo("Finished writing JSON data", "Done");
             }
             catch (Exception ex)
             {
-                UtilityScript.WriteError(ex.ToString(), ex.Message);
+                Utility.WriteError(ex.ToString(), ex.Message);
             }
         }
     }

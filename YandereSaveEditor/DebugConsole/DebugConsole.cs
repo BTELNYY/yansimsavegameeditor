@@ -38,7 +38,7 @@ namespace YandereSaveEditor
         {
             if (!ConsoleCreated)
             {
-                UtilityScript.WriteError("Console must be created before being used!", "Error");
+                Utility.WriteError("Console must be created before being used!", "Error");
                 return;
             }
             //these 3 lines are important, So I need to make them a method.
@@ -50,7 +50,7 @@ namespace YandereSaveEditor
         {
             if (!ConsoleCreated)
             {
-                UtilityScript.WriteError("Console must be created before being used!", "Error");
+                Utility.WriteError("Console must be created before being used!", "Error");
                 return null;
             }
             Console.Write(displaypath);

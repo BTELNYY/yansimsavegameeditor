@@ -20,7 +20,7 @@ namespace YandereSaveEditor
         private static string? path;
         private void chooseFile_Click(object sender, EventArgs e)
         {
-            path = UtilityScript.OpenFileDialog(".\\", "txt files (*.txt)|*.txt|All files (*.*)|*.*");
+            path = Utility.OpenFileDialog(".\\", "txt files (*.txt)|*.txt|All files (*.*)|*.*");
             pathTextbox.Text = path;
         }
 
@@ -31,7 +31,7 @@ namespace YandereSaveEditor
             {
                 //checks for every save and sees if its "enabled"
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                string result = UtilityScript.SelectString("ProfileCreated_" + s + "_", false);
+                string result = Utility.SelectString("ProfileCreated_" + s + "_", false);
                 if (result != null)
                 {
                     string value = RegEdit.returnValue(gamereg, result);
