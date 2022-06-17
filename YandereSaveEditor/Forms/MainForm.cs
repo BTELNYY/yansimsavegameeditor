@@ -36,7 +36,7 @@ namespace YandereSaveEditor
             {
                 //checks for every save and sees if its "enabled"
                 RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
-                string result = Utility.SelectString("ProfileCreated_" + s + "_", false);
+                string result = Utility.SelectValueNameOld("ProfileCreated_" + s + "_", false);
                 if (result != null)
                 {
                     string value = RegEdit.returnValue(gamereg, result);
