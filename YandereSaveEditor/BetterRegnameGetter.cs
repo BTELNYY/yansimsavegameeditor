@@ -18,12 +18,25 @@ namespace YandereSaveEditor
                 foreach(string value in regvalues)
                 {
                     int LastUnderscore = value.LastIndexOf("_");
-                    string newvalue = value.Remove(LastUnderscore);
-                    if (data.ContainsKey(newvalue))
+                    if(LastUnderscore != value.Length)
+                    {
+                        //Log.Debug(value[LastUnderscore].ToString() + " " + value[LastUnderscore + 1].ToString());
+                        if(value[LastUnderscore + 1] == 'h')
+                        {
+                            string newvalue = value.Remove(LastUnderscore);
+                            if (data.ContainsKey(newvalue))
+                            {
+                                continue;
+                            }
+                            data.Add(newvalue, value);
+                            continue;
+                        }
+                    }
+                    if (data.ContainsKey(value))
                     {
                         return;
                     }
-                    data.Add(newvalue, value);
+                    data.Add(value, value);
                 }
             }
             catch(Exception ex)

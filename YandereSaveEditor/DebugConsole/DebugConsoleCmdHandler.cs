@@ -25,6 +25,9 @@ namespace YandereSaveEditor
                         Log.Error("Unkown Command.");
                         Debug(true);
                         break;
+                    case "help":
+                        DebugConsole.WriteLineColor("There is no help in console, go read DebugConsoleCmdHandler.cs on GitHub", ConsoleColor.Gray);
+                        break;
                     case "version":
                         DebugConsole.WriteLineColor(Program.version, ConsoleColor.White);
                         break;
@@ -112,6 +115,17 @@ namespace YandereSaveEditor
                         //fuck you, and ill see you tomorrow
                         string output1 = JSONEdit.GetTopicValue(inputargs[1], inputargs[2]);
                         DebugConsole.WriteLineColor(output1, ConsoleColor.White);
+                        break;
+                    case "reloaddict":
+                        Log.Info("Reloading Registry Key Dict!");
+                        BetterRegnameGetter.Load();
+                        break;
+                    case "listdict":
+                        Log.Info("KEY: VALUE");
+                        foreach (string key in BetterRegnameGetter.data.Keys)
+                        {
+                            Log.Info(key + ": " + BetterRegnameGetter.data[key]);
+                        }
                         break;
                 }
             }
