@@ -800,9 +800,9 @@
             this.label20.AutoSize = true;
             this.label20.Location = new System.Drawing.Point(19, 358);
             this.label20.Name = "label20";
-            this.label20.Size = new System.Drawing.Size(246, 15);
+            this.label20.Size = new System.Drawing.Size(170, 15);
             this.label20.TabIndex = 47;
-            this.label20.Text = "I hope I do not need to explain grade 5 maths";
+            this.label20.Text = "This is currently broken, I know";
             // 
             // button3
             // 

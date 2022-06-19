@@ -51,6 +51,7 @@ namespace YandereSaveEditor
             {
                 Log.Warning("Cannot find registry value " + KeyName + "!");
                 string value = Utility.SelectValueNameOld(KeyName, true);
+                //adds the value to the dict so we do not need to re-run the slower above method again
                 data.Add(KeyName, value);
             }
             return data[KeyName];
