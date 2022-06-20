@@ -138,11 +138,15 @@ namespace YandereSaveEditor
             string pris8fn = Utility.SelectString(profilecombined + "_Prisoner8", true);
             string pris9fn = Utility.SelectString(profilecombined + "_Prisoner9", true);
             string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
+            string prisoners = Utility.SelectString(profilecombined + "_Prisoners", true);
             string sanity = Utility.SelectString(profilecombined + "_StudentSanity_" + student, true);
             try
             {
                 switch (operation)
                 {
+                    case "prisoners":
+                        RegEdit.editValue(gamereg, int.Parse(value), prisoners);
+                        break;
                     case "sanity":
                         RegEdit.SetCorruptValue(sanity, Convert.ToDouble(value));
                         break;
