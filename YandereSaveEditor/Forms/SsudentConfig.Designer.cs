@@ -85,6 +85,8 @@
             this.exportButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.arrestedCheckbox = new System.Windows.Forms.CheckBox();
+            this.SanityTextbox = new System.Windows.Forms.TextBox();
+            this.label20 = new System.Windows.Forms.Label();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -1013,11 +1015,29 @@
             this.arrestedCheckbox.Text = "Arrested?";
             this.arrestedCheckbox.UseVisualStyleBackColor = true;
             // 
+            // SanityTextbox
+            // 
+            this.SanityTextbox.Location = new System.Drawing.Point(62, 320);
+            this.SanityTextbox.Name = "SanityTextbox";
+            this.SanityTextbox.Size = new System.Drawing.Size(116, 23);
+            this.SanityTextbox.TabIndex = 59;
+            // 
+            // label20
+            // 
+            this.label20.AutoSize = true;
+            this.label20.Location = new System.Drawing.Point(14, 323);
+            this.label20.Name = "label20";
+            this.label20.Size = new System.Drawing.Size(39, 15);
+            this.label20.TabIndex = 60;
+            this.label20.Text = "Sanity";
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 562);
+            this.Controls.Add(this.label20);
+            this.Controls.Add(this.SanityTextbox);
             this.Controls.Add(this.arrestedCheckbox);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.exportButton);
@@ -1144,5 +1164,7 @@
         private System.Windows.Forms.Button exportButton;
         private Button button1;
         private CheckBox arrestedCheckbox;
+        private Label label20;
+        private TextBox SanityTextbox;
     }
 }

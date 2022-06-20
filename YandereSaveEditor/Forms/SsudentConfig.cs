@@ -53,6 +53,7 @@ namespace YandereSaveEditor
                 string friend = Utility.SelectString("Profile_" + profile + "_StudentFriend_" + student + "_", true);
                 string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
                 string arrested = Utility.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
+                string sanity = Utility.SelectString("Profile_" + profile + "_StudentSanity_" + student + "_", true);
                 //lets get ready to rumble!
                 RegEdit.editValue(gamereg, Convert.ToInt32(PantyshotCheckbox.Checked), panty);
                 RegEdit.editValue(gamereg, Utility.ToInteger(ReputationTextbox.Text), studentrep);
@@ -62,6 +63,7 @@ namespace YandereSaveEditor
                 RegEdit.editValue(gamereg, Utility.ConvertBool(DyingCheckbox.Checked), dying);
                 RegEdit.editValue(gamereg, Utility.ConvertBool(FriendCheckbox.Checked), friend);
                 RegEdit.editValue(gamereg, Convert.ToInt32(arrestedCheckbox.Checked), arrested);
+                RegEdit.SetCorruptValue(sanity, Convert.ToDouble(SanityTextbox.Text));
                 studentjson.Gender = GenderCombobox.SelectedIndex.ToString();
                 studentjson.Name = NicknameTextbox.Text;
                 studentjson.RealName = RealnameTextbox.Text;
@@ -211,6 +213,10 @@ namespace YandereSaveEditor
                         string file = path + "Student_" + StudentSelect.SelectedItem + ".png";
                         Portrait.Image = Image.FromFile(file);
                     }
+                    string sanity = Utility.SelectString("Profile_" + profile + "_StudentSanity_" + student + "_", true);
+                    string sanityval = RegEdit.returnValue(gamereg, sanity);
+                    SanityTextbox.Text = BitConverter.Int64BitsToDouble(Int64.Parse(sanityval)).ToString();
+
                     string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true); //the _ is needed so my method doesnt shit itself.
                     //above comment fixed, I added a trim statement.
                     string studentdeadvalue = RegEdit.returnValue(gamereg, studentdead);

@@ -68,6 +68,39 @@ namespace YandereSaveEditor
 
             }
         }
+        public static void SetCorruptValue(string name, float d)
+        {
+            string path = "SOFTWARE\\YandereDev\\YandereSimulator\\";
+            string valName = name;
+            double value = d;
+            UIntPtr hKey = UIntPtr.Zero;
+            try
+            {
+                if (RegOpenKeyEx(HKEY_CURRENT_USER, path, 0, 0x20006, out hKey) != 0)
+                {
+                    Utility.WriteError("Error opening key for registry editing.", "Error");
+                }
+
+
+                int size = 8;
+                IntPtr pData = Marshal.AllocHGlobal(size);
+                Marshal.WriteInt64(pData, BitConverter.DoubleToInt64Bits(value));
+                if (RegSetValueEx(hKey, valName, 0, RegistryValueKind.DWord, pData, size) != 0)
+                {
+                    Utility.WriteError("Failed to write registry data.", "Error");
+                }
+
+            }
+            finally
+            {
+                if (hKey != UIntPtr.Zero)
+                {
+                    RegCloseKey(hKey);
+                }
+
+
+            }
+        }
         public static string[] returnValuesList(RegistryKey key)
         {
             //returns an arrey of all the values in a subkey

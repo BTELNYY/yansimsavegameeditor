@@ -61,7 +61,7 @@ namespace YandereSaveEditor
                 string atmosphere_precent = Utility.SelectString(profilecombined + "_SchoolAtmosphere", true);
 
 
-                RegEdit.SetCorruptValue(atmosphere_precent, Utility.ToFloat(SchoolAtmosphereTextbox.Text));
+                RegEdit.SetCorruptValue(atmosphere_precent, Utility.ToDouble(SchoolAtmosphereTextbox.Text) / 100);
 
                 RegEdit.editValue(gamereg, Convert.ToInt32(vtuberIdTextbox.Text), vtuber_id);
 
@@ -179,7 +179,8 @@ namespace YandereSaveEditor
                 //atmosphere
                 string atmosphere_precent = Utility.SelectString(profilecombined + "_SchoolAtmosphere_", true);
                 string atmosphereval = RegEdit.returnValue(gamereg, atmosphere_precent);
-                SchoolAtmosphereTextbox.Text = ReputationTextbox.Text = BitConverter.Int64BitsToDouble(Int64.Parse(atmosphereval)).ToString();
+                Int64 atmosphere = Int64.Parse(atmosphereval);
+                SchoolAtmosphereTextbox.Text = (BitConverter.Int64BitsToDouble(atmosphere) * 100).ToString();
 
 
 
