@@ -138,10 +138,14 @@ namespace YandereSaveEditor
             string pris8fn = Utility.SelectString(profilecombined + "_Prisoner8", true);
             string pris9fn = Utility.SelectString(profilecombined + "_Prisoner9", true);
             string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
+            string sanity = Utility.SelectString(profilecombined + "_StudentSanity_" + student, true);
             try
             {
                 switch (operation)
                 {
+                    case "sanity":
+                        RegEdit.SetCorruptValue(sanity, Convert.ToDouble(value));
+                        break;
                     case "prisonerone":
                         RegEdit.editValue(gamereg, int.Parse(value), pris1fn);
                         break;
@@ -183,7 +187,7 @@ namespace YandereSaveEditor
                         RegEdit.editValue(gamereg, int.Parse(value), vtuber_id);
                         break;
                     case "atmosphere":
-                        RegEdit.SetCorruptValue(atmosphere_precent, Utility.ToDouble(value));
+                        RegEdit.SetCorruptValue(atmosphere_precent, (Utility.ToDouble(value) / 100));
                         break;
                     case "rep":
                         RegEdit.editValue(gamereg, int.Parse(value), studentrep);
