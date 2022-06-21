@@ -54,7 +54,9 @@ namespace YandereSaveEditor
                 string panty = Utility.SelectString("Profile_" + profile + "_PantyShot_" + student + "_", true);
                 string arrested = Utility.SelectString("Profile_" + profile + "_StudentArrested_" + student + "_", true);
                 string sanity = Utility.SelectString("Profile_" + profile + "_StudentSanity_" + student + "_", true);
+                string ransomed = Utility.SelectString("Profile_" + profile + "_StudentRansomed_" + student + "_", true);
                 //lets get ready to rumble!
+                RegEdit.editValue(gamereg, Convert.ToInt32(RansomCheckbox.Checked), ransomed);
                 RegEdit.editValue(gamereg, Convert.ToInt32(PantyshotCheckbox.Checked), panty);
                 RegEdit.editValue(gamereg, Utility.ToInteger(ReputationTextbox.Text), studentrep);
                 RegEdit.editValue(gamereg, Utility.ConvertBool(DeathCheckbox.Checked), studentdead);
@@ -217,8 +219,15 @@ namespace YandereSaveEditor
                     string sanityval = RegEdit.returnValue(gamereg, sanity);
                     SanityTextbox.Text = BitConverter.Int64BitsToDouble(Int64.Parse(sanityval)).ToString();
 
-                    string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true); //the _ is needed so my method doesnt shit itself.
-                    //above comment fixed, I added a trim statement.
+                    string ransomed = Utility.SelectString("Profile_" + profile + "_StudentRansomed_" + student + "_", true);
+                    RansomCheckbox.Checked = Utility.ToBool(Utility.ToInteger(RegEdit.returnValue(gamereg, ransomed)));
+
+                    string studentdead = Utility.SelectString("Profile_" + profile + "_StudentDead_" + student + "_", true);
+                    
+                    
+
+
+                    
                     string studentdeadvalue = RegEdit.returnValue(gamereg, studentdead);
                     //ok so, what the fuck is this code?
                     DeathCheckbox.Checked = Utility.ToBool(Utility.ToInteger(studentdeadvalue)); 

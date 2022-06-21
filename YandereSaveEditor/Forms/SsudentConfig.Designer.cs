@@ -87,6 +87,7 @@
             this.arrestedCheckbox = new System.Windows.Forms.CheckBox();
             this.SanityTextbox = new System.Windows.Forms.TextBox();
             this.label20 = new System.Windows.Forms.Label();
+            this.RansomCheckbox = new System.Windows.Forms.CheckBox();
             ((System.ComponentModel.ISupportInitialize)(this.Portrait)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.fileSystemWatcher1)).BeginInit();
             this.SuspendLayout();
@@ -312,7 +313,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(257, 247);
+            this.label5.Location = new System.Drawing.Point(257, 241);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(45, 15);
@@ -322,7 +323,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(257, 273);
+            this.label6.Location = new System.Drawing.Point(257, 267);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(32, 15);
@@ -362,7 +363,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(257, 300);
+            this.label7.Location = new System.Drawing.Point(257, 294);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(71, 15);
@@ -402,7 +403,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(257, 325);
+            this.label8.Location = new System.Drawing.Point(257, 320);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(60, 15);
@@ -420,7 +421,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(257, 351);
+            this.label9.Location = new System.Drawing.Point(257, 346);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(76, 15);
@@ -526,7 +527,7 @@
             // label13
             // 
             this.label13.AutoSize = true;
-            this.label13.Location = new System.Drawing.Point(257, 372);
+            this.label13.Location = new System.Drawing.Point(257, 371);
             this.label13.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label13.Name = "label13";
             this.label13.Size = new System.Drawing.Size(65, 15);
@@ -748,7 +749,7 @@
             // label15
             // 
             this.label15.AutoSize = true;
-            this.label15.Location = new System.Drawing.Point(257, 393);
+            this.label15.Location = new System.Drawing.Point(257, 396);
             this.label15.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label15.Name = "label15";
             this.label15.Size = new System.Drawing.Size(53, 15);
@@ -803,7 +804,7 @@
             // label16
             // 
             this.label16.AutoSize = true;
-            this.label16.Location = new System.Drawing.Point(257, 419);
+            this.label16.Location = new System.Drawing.Point(255, 423);
             this.label16.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label16.Name = "label16";
             this.label16.Size = new System.Drawing.Size(65, 15);
@@ -813,7 +814,7 @@
             // KidnapChekbox
             // 
             this.KidnapChekbox.AutoSize = true;
-            this.KidnapChekbox.Location = new System.Drawing.Point(254, 113);
+            this.KidnapChekbox.Location = new System.Drawing.Point(254, 138);
             this.KidnapChekbox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.KidnapChekbox.Name = "KidnapChekbox";
             this.KidnapChekbox.Size = new System.Drawing.Size(88, 19);
@@ -824,7 +825,7 @@
             // label17
             // 
             this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(257, 136);
+            this.label17.Location = new System.Drawing.Point(251, 156);
             this.label17.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label17.Name = "label17";
             this.label17.Size = new System.Drawing.Size(214, 15);
@@ -834,7 +835,7 @@
             // label18
             // 
             this.label18.AutoSize = true;
-            this.label18.Location = new System.Drawing.Point(257, 151);
+            this.label18.Location = new System.Drawing.Point(251, 171);
             this.label18.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label18.Name = "label18";
             this.label18.Size = new System.Drawing.Size(206, 15);
@@ -1031,11 +1032,22 @@
             this.label20.TabIndex = 60;
             this.label20.Text = "Sanity";
             // 
+            // RansomCheckbox
+            // 
+            this.RansomCheckbox.AutoSize = true;
+            this.RansomCheckbox.Location = new System.Drawing.Point(255, 113);
+            this.RansomCheckbox.Name = "RansomCheckbox";
+            this.RansomCheckbox.Size = new System.Drawing.Size(87, 19);
+            this.RansomCheckbox.TabIndex = 61;
+            this.RansomCheckbox.Text = "Ransomed?";
+            this.RansomCheckbox.UseVisualStyleBackColor = true;
+            // 
             // StudentConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.ClientSize = new System.Drawing.Size(497, 562);
+            this.Controls.Add(this.RansomCheckbox);
             this.Controls.Add(this.label20);
             this.Controls.Add(this.SanityTextbox);
             this.Controls.Add(this.arrestedCheckbox);
@@ -1166,5 +1178,6 @@
         private CheckBox arrestedCheckbox;
         private Label label20;
         private TextBox SanityTextbox;
+        private CheckBox RansomCheckbox;
     }
 }

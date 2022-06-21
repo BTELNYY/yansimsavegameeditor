@@ -92,18 +92,29 @@ namespace YandereSaveEditor
                 RegEdit.editValue(gamereg, comboBox9.SelectedIndex, pris9fn);
                 RegEdit.editValue(gamereg, comboBox10.SelectedIndex, pris10fn);
                 ComboBox[] boxes = { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5, comboBox6, comboBox7, comboBox8, comboBox9, comboBox10 };
+                int[] prisonerids = new int[10];
                 int total = 0;
                 foreach (ComboBox box in boxes)
                 {
+                    prisonerids[total] = box.SelectedIndex;
                     if (box.SelectedIndex > 0)
                     {
                         total++;
                     }
                 }
                 RegEdit.editValue(gamereg, total, prisTotal);
+                if (UpdatePrisonerNotAtSchool.Checked)
+                {
+                    foreach(int prisoner in prisonerids)
+                    {
+                        string knkey = Utility.SelectString(profilecombined + "_StudentKidnapped_" + prisoner, true);
+                        RegEdit.editValue(gamereg, 1, knkey);
+                    }
+                }
                 Utility.WriteInfo("Prisoner config saved!", "Done");
+                PrisonerForm_Load(this, new EventArgs());
             }
-            catch(Exception ex)
+            catch (Exception ex)
             {
                 Utility.WriteError("Error applying prisoner config: \n \n" + ex.ToString(), "Error: " + ex.Message);
             }
@@ -112,6 +123,53 @@ namespace YandereSaveEditor
         private void CancelButton_Click(object sender, EventArgs e)
         {
             Close();
+        }
+
+        private void ReleaseEveryoneButton_Click(object sender, EventArgs e)
+        {
+            RegistryKey gamereg = Registry.CurrentUser.CreateSubKey("SOFTWARE\\YandereDev\\YandereSimulator");
+            string profilecombined = "Profile_" + Utility.GetProfile();
+            string pris1fn = Utility.SelectString(profilecombined + "_Prisoner1", true);
+            string pris2fn = Utility.SelectString(profilecombined + "_Prisoner2", true);
+            string pris3fn = Utility.SelectString(profilecombined + "_Prisoner3", true);
+            string pris4fn = Utility.SelectString(profilecombined + "_Prisoner4", true);
+            string pris5fn = Utility.SelectString(profilecombined + "_Prisoner5", true);
+            string pris6fn = Utility.SelectString(profilecombined + "_Prisoner6", true);
+            string pris7fn = Utility.SelectString(profilecombined + "_Prisoner7", true);
+            string pris8fn = Utility.SelectString(profilecombined + "_Prisoner8", true);
+            string pris9fn = Utility.SelectString(profilecombined + "_Prisoner9", true);
+            string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
+            string prisTotal = Utility.SelectString(profilecombined + "_Prisoners", true);
+            ComboBox[] boxes = { comboBox1, comboBox2, comboBox3, comboBox4, comboBox5, comboBox6, comboBox7, comboBox8, comboBox9, comboBox10 };
+            int[] prisonerids = new int[10];
+            int total = 0;
+            foreach (ComboBox box in boxes)
+            {
+                prisonerids[total] = box.SelectedIndex;
+                if (box.SelectedIndex > 0)
+                {
+                    total++;
+                }
+                box.SelectedIndex = 0;
+            }
+            foreach (int prisoner in prisonerids)
+            {
+                string knkey = Utility.SelectString(profilecombined + "_StudentKidnapped_" + prisoner, true);
+                RegEdit.editValue(gamereg, 0, knkey);
+            }
+            RegEdit.editValue(gamereg, comboBox1.SelectedIndex, pris1fn);
+            RegEdit.editValue(gamereg, comboBox2.SelectedIndex, pris2fn);
+            RegEdit.editValue(gamereg, comboBox3.SelectedIndex, pris3fn);
+            RegEdit.editValue(gamereg, comboBox4.SelectedIndex, pris4fn);
+            RegEdit.editValue(gamereg, comboBox5.SelectedIndex, pris5fn);
+            RegEdit.editValue(gamereg, comboBox6.SelectedIndex, pris6fn);
+            RegEdit.editValue(gamereg, comboBox7.SelectedIndex, pris7fn);
+            RegEdit.editValue(gamereg, comboBox8.SelectedIndex, pris8fn);
+            RegEdit.editValue(gamereg, comboBox9.SelectedIndex, pris9fn);
+            RegEdit.editValue(gamereg, comboBox10.SelectedIndex, pris10fn);
+            RegEdit.editValue(gamereg, 0, prisTotal);
+            Utility.WriteInfo("Released Everyone from captivity", "Done");
+            PrisonerForm_Load(this, new EventArgs());
         }
     }
 }

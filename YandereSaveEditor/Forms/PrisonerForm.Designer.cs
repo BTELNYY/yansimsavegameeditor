@@ -52,6 +52,8 @@
             this.label10 = new System.Windows.Forms.Label();
             this.label11 = new System.Windows.Forms.Label();
             this.CloseButton = new System.Windows.Forms.Button();
+            this.UpdatePrisonerNotAtSchool = new System.Windows.Forms.CheckBox();
+            this.ReleaseEveryoneButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // ApplyButton
@@ -1273,6 +1275,26 @@
             this.CloseButton.UseVisualStyleBackColor = true;
             this.CloseButton.Click += new System.EventHandler(this.CancelButton_Click);
             // 
+            // UpdatePrisonerNotAtSchool
+            // 
+            this.UpdatePrisonerNotAtSchool.AutoSize = true;
+            this.UpdatePrisonerNotAtSchool.Location = new System.Drawing.Point(12, 328);
+            this.UpdatePrisonerNotAtSchool.Name = "UpdatePrisonerNotAtSchool";
+            this.UpdatePrisonerNotAtSchool.Size = new System.Drawing.Size(257, 19);
+            this.UpdatePrisonerNotAtSchool.TabIndex = 23;
+            this.UpdatePrisonerNotAtSchool.Text = "Remove kidnapped characters from school?";
+            this.UpdatePrisonerNotAtSchool.UseVisualStyleBackColor = true;
+            // 
+            // ReleaseEveryoneButton
+            // 
+            this.ReleaseEveryoneButton.Location = new System.Drawing.Point(195, 38);
+            this.ReleaseEveryoneButton.Name = "ReleaseEveryoneButton";
+            this.ReleaseEveryoneButton.Size = new System.Drawing.Size(156, 23);
+            this.ReleaseEveryoneButton.TabIndex = 24;
+            this.ReleaseEveryoneButton.Text = "Release Everyone";
+            this.ReleaseEveryoneButton.UseVisualStyleBackColor = true;
+            this.ReleaseEveryoneButton.Click += new System.EventHandler(this.ReleaseEveryoneButton_Click);
+            // 
             // PrisonerForm
             // 
             this.AcceptButton = this.ApplyButton;
@@ -1280,6 +1302,8 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.CloseButton;
             this.ClientSize = new System.Drawing.Size(349, 383);
+            this.Controls.Add(this.ReleaseEveryoneButton);
+            this.Controls.Add(this.UpdatePrisonerNotAtSchool);
             this.Controls.Add(this.CloseButton);
             this.Controls.Add(this.label11);
             this.Controls.Add(this.label10);
@@ -1339,5 +1363,7 @@
         private Label label10;
         private Label label11;
         private Button CloseButton;
+        private CheckBox UpdatePrisonerNotAtSchool;
+        private Button ReleaseEveryoneButton;
     }
 }

@@ -59,8 +59,14 @@ namespace YandereSaveEditor
                 string abduction_target = Utility.SelectString(profilecombined + "_AbductionTarget", true);
                 string show_abduction = Utility.SelectString(profilecombined + "_ShowAbduction", true);
                 string atmosphere_precent = Utility.SelectString(profilecombined + "_SchoolAtmosphere", true);
+                string fragiletarget = Utility.SelectString(profilecombined + "_FragileTarget", true);
+                string fragileslave = Utility.SelectString(profilecombined + "_FragileSlave", true);
+                string studentslave = Utility.SelectString(profilecombined + "_StudentSlave", true);
 
-
+                RegEdit.editValue(gamereg, FragileTargetCombo.SelectedIndex, fragiletarget);
+                RegEdit.editValue(gamereg, FragileSlaveCombo.SelectedIndex, fragileslave);
+                RegEdit.editValue(gamereg, StudentSlaveCombo.SelectedIndex, studentslave);
+                
                 RegEdit.SetCorruptValue(atmosphere_precent, Utility.ToDouble(SchoolAtmosphereTextbox.Text) / 100);
 
                 RegEdit.editValue(gamereg, Convert.ToInt32(vtuberIdTextbox.Text), vtuber_id);
@@ -181,6 +187,13 @@ namespace YandereSaveEditor
                 string atmosphereval = RegEdit.returnValue(gamereg, atmosphere_precent);
                 Int64 atmosphere = Int64.Parse(atmosphereval);
                 SchoolAtmosphereTextbox.Text = (BitConverter.Int64BitsToDouble(atmosphere) * 100).ToString();
+
+                string fragiletarget = Utility.SelectString(profilecombined + "_FragileTarget", true);
+                string fragileslave = Utility.SelectString(profilecombined + "_FragileSlave", true);
+                string studentslave = Utility.SelectString(profilecombined + "_StudentSlave", true);
+                FragileTargetCombo.SelectedIndex = Utility.ToInteger(RegEdit.returnValue(gamereg, fragiletarget));
+                FragileSlaveCombo.SelectedIndex = Utility.ToInteger(RegEdit.returnValue(gamereg, fragileslave));
+                StudentSlaveCombo.SelectedIndex = Utility.ToInteger(RegEdit.returnValue(gamereg, studentslave));
 
 
 

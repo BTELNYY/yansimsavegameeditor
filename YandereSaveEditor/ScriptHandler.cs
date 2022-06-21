@@ -140,10 +140,22 @@ namespace YandereSaveEditor
             string pris10fn = Utility.SelectString(profilecombined + "_Prisoner10", true);
             string prisoners = Utility.SelectString(profilecombined + "_Prisoners", true);
             string sanity = Utility.SelectString(profilecombined + "_StudentSanity_" + student, true);
+            string fragiletarget = Utility.SelectString(profilecombined + "_FragileTarget", true);
+            string fragileslave = Utility.SelectString(profilecombined + "_FragileSlave", true);
+            string studentslave = Utility.SelectString(profilecombined + "_StudentSlave", true);
             try
             {
                 switch (operation)
                 {
+                    case "fragiletarget":
+                        RegEdit.editValue(gamereg, Utility.ToInteger(value), fragiletarget);
+                        break;
+                    case "fragileslave":
+                        RegEdit.editValue(gamereg, Utility.ToInteger(value), fragileslave);
+                        break;
+                    case "studentslave":
+                        RegEdit.editValue(gamereg, Utility.ToInteger(value), studentslave);
+                        break;
                     case "prisoners":
                         RegEdit.editValue(gamereg, int.Parse(value), prisoners);
                         break;

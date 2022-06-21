@@ -69,11 +69,16 @@
             this.vtuberIdTextbox = new System.Windows.Forms.TextBox();
             this.abductionTargetCombo = new System.Windows.Forms.ComboBox();
             this.label16 = new System.Windows.Forms.Label();
-            this.label17 = new System.Windows.Forms.Label();
             this.showAbductionCheckbox = new System.Windows.Forms.CheckBox();
             this.SchoolAtmosphereTextbox = new System.Windows.Forms.TextBox();
             this.label18 = new System.Windows.Forms.Label();
             this.button3 = new System.Windows.Forms.Button();
+            this.FragileTargetCombo = new System.Windows.Forms.ComboBox();
+            this.FragileSlaveCombo = new System.Windows.Forms.ComboBox();
+            this.StudentSlaveCombo = new System.Windows.Forms.ComboBox();
+            this.label3 = new System.Windows.Forms.Label();
+            this.label17 = new System.Windows.Forms.Label();
+            this.label19 = new System.Windows.Forms.Label();
             this.SuspendLayout();
             // 
             // label1
@@ -174,7 +179,7 @@
             // 
             // SaveButton
             // 
-            this.SaveButton.Location = new System.Drawing.Point(414, 621);
+            this.SaveButton.Location = new System.Drawing.Point(417, 616);
             this.SaveButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.SaveButton.Name = "SaveButton";
             this.SaveButton.Size = new System.Drawing.Size(88, 27);
@@ -193,7 +198,7 @@
             "3",
             "4",
             "5"});
-            this.PhsycStat.Location = new System.Drawing.Point(119, 420);
+            this.PhsycStat.Location = new System.Drawing.Point(122, 415);
             this.PhsycStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhsycStat.Name = "PhsycStat";
             this.PhsycStat.Size = new System.Drawing.Size(140, 23);
@@ -209,7 +214,7 @@
             "3",
             "4",
             "5"});
-            this.PhysedStat.Location = new System.Drawing.Point(119, 451);
+            this.PhysedStat.Location = new System.Drawing.Point(122, 446);
             this.PhysedStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.PhysedStat.Name = "PhysedStat";
             this.PhysedStat.Size = new System.Drawing.Size(140, 23);
@@ -225,7 +230,7 @@
             "3",
             "4",
             "5"});
-            this.LangStat.Location = new System.Drawing.Point(119, 482);
+            this.LangStat.Location = new System.Drawing.Point(122, 477);
             this.LangStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.LangStat.Name = "LangStat";
             this.LangStat.Size = new System.Drawing.Size(140, 23);
@@ -241,7 +246,7 @@
             "3",
             "4",
             "5"});
-            this.ChemStat.Location = new System.Drawing.Point(119, 513);
+            this.ChemStat.Location = new System.Drawing.Point(122, 508);
             this.ChemStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ChemStat.Name = "ChemStat";
             this.ChemStat.Size = new System.Drawing.Size(140, 23);
@@ -257,7 +262,7 @@
             "3",
             "4",
             "5"});
-            this.BioStat.Location = new System.Drawing.Point(119, 544);
+            this.BioStat.Location = new System.Drawing.Point(122, 539);
             this.BioStat.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.BioStat.Name = "BioStat";
             this.BioStat.Size = new System.Drawing.Size(140, 23);
@@ -266,7 +271,7 @@
             // label5
             // 
             this.label5.AutoSize = true;
-            this.label5.Location = new System.Drawing.Point(19, 423);
+            this.label5.Location = new System.Drawing.Point(22, 418);
             this.label5.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label5.Name = "label5";
             this.label5.Size = new System.Drawing.Size(91, 15);
@@ -276,7 +281,7 @@
             // label6
             // 
             this.label6.AutoSize = true;
-            this.label6.Location = new System.Drawing.Point(19, 454);
+            this.label6.Location = new System.Drawing.Point(22, 449);
             this.label6.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label6.Name = "label6";
             this.label6.Size = new System.Drawing.Size(71, 15);
@@ -286,7 +291,7 @@
             // label7
             // 
             this.label7.AutoSize = true;
-            this.label7.Location = new System.Drawing.Point(19, 486);
+            this.label7.Location = new System.Drawing.Point(22, 481);
             this.label7.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label7.Name = "label7";
             this.label7.Size = new System.Drawing.Size(82, 15);
@@ -296,7 +301,7 @@
             // label8
             // 
             this.label8.AutoSize = true;
-            this.label8.Location = new System.Drawing.Point(19, 517);
+            this.label8.Location = new System.Drawing.Point(22, 512);
             this.label8.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label8.Name = "label8";
             this.label8.Size = new System.Drawing.Size(84, 15);
@@ -306,7 +311,7 @@
             // label9
             // 
             this.label9.AutoSize = true;
-            this.label9.Location = new System.Drawing.Point(19, 548);
+            this.label9.Location = new System.Drawing.Point(22, 543);
             this.label9.Margin = new System.Windows.Forms.Padding(4, 0, 4, 0);
             this.label9.Name = "label9";
             this.label9.Size = new System.Drawing.Size(70, 15);
@@ -315,7 +320,7 @@
             // 
             // mangaButton
             // 
-            this.mangaButton.Location = new System.Drawing.Point(0, 587);
+            this.mangaButton.Location = new System.Drawing.Point(3, 582);
             this.mangaButton.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.mangaButton.Name = "mangaButton";
             this.mangaButton.Size = new System.Drawing.Size(108, 27);
@@ -327,7 +332,7 @@
             // button1
             // 
             this.button1.DialogResult = System.Windows.Forms.DialogResult.Cancel;
-            this.button1.Location = new System.Drawing.Point(-2, 621);
+            this.button1.Location = new System.Drawing.Point(1, 616);
             this.button1.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button1.Name = "button1";
             this.button1.Size = new System.Drawing.Size(88, 27);
@@ -356,7 +361,7 @@
             // 
             // button2
             // 
-            this.button2.Location = new System.Drawing.Point(116, 587);
+            this.button2.Location = new System.Drawing.Point(119, 582);
             this.button2.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.button2.Name = "button2";
             this.button2.Size = new System.Drawing.Size(110, 27);
@@ -505,7 +510,7 @@
             // label14
             // 
             this.label14.AutoSize = true;
-            this.label14.Location = new System.Drawing.Point(19, 397);
+            this.label14.Location = new System.Drawing.Point(22, 392);
             this.label14.Name = "label14";
             this.label14.Size = new System.Drawing.Size(338, 15);
             this.label14.TabIndex = 37;
@@ -748,15 +753,6 @@
             this.label16.TabIndex = 41;
             this.label16.Text = "Abduction Target";
             // 
-            // label17
-            // 
-            this.label17.AutoSize = true;
-            this.label17.Location = new System.Drawing.Point(265, 289);
-            this.label17.Name = "label17";
-            this.label17.Size = new System.Drawing.Size(34, 15);
-            this.label17.TabIndex = 42;
-            this.label17.Text = "By ID";
-            // 
             // showAbductionCheckbox
             // 
             this.showAbductionCheckbox.AutoSize = true;
@@ -793,17 +789,379 @@
             this.button3.UseVisualStyleBackColor = true;
             this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
+            // FragileTargetCombo
+            // 
+            this.FragileTargetCombo.FormattingEnabled = true;
+            this.FragileTargetCombo.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
+            this.FragileTargetCombo.Location = new System.Drawing.Point(363, 226);
+            this.FragileTargetCombo.Name = "FragileTargetCombo";
+            this.FragileTargetCombo.Size = new System.Drawing.Size(139, 23);
+            this.FragileTargetCombo.TabIndex = 49;
+            // 
+            // FragileSlaveCombo
+            // 
+            this.FragileSlaveCombo.FormattingEnabled = true;
+            this.FragileSlaveCombo.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
+            this.FragileSlaveCombo.Location = new System.Drawing.Point(363, 255);
+            this.FragileSlaveCombo.Name = "FragileSlaveCombo";
+            this.FragileSlaveCombo.Size = new System.Drawing.Size(139, 23);
+            this.FragileSlaveCombo.TabIndex = 50;
+            // 
+            // StudentSlaveCombo
+            // 
+            this.StudentSlaveCombo.FormattingEnabled = true;
+            this.StudentSlaveCombo.Items.AddRange(new object[] {
+            "0",
+            "1",
+            "2",
+            "3",
+            "4",
+            "5",
+            "6",
+            "7",
+            "8",
+            "9",
+            "10",
+            "11",
+            "12",
+            "13",
+            "14",
+            "15",
+            "16",
+            "17",
+            "18",
+            "19",
+            "20",
+            "21",
+            "22",
+            "23",
+            "24",
+            "25",
+            "26",
+            "27",
+            "28",
+            "29",
+            "30",
+            "31",
+            "32",
+            "33",
+            "34",
+            "35",
+            "36",
+            "37",
+            "38",
+            "39",
+            "40",
+            "41",
+            "42",
+            "43",
+            "44",
+            "45",
+            "46",
+            "47",
+            "48",
+            "49",
+            "50",
+            "51",
+            "52",
+            "53",
+            "54",
+            "55",
+            "56",
+            "57",
+            "58",
+            "59",
+            "60",
+            "61",
+            "62",
+            "63",
+            "64",
+            "65",
+            "66",
+            "67",
+            "68",
+            "69",
+            "70",
+            "71",
+            "72",
+            "73",
+            "74",
+            "75",
+            "76",
+            "77",
+            "78",
+            "79",
+            "80",
+            "81",
+            "82",
+            "83",
+            "84",
+            "85",
+            "86",
+            "87",
+            "88",
+            "89",
+            "90",
+            "91",
+            "92",
+            "93",
+            "94",
+            "95",
+            "96",
+            "97",
+            "98",
+            "99",
+            "100"});
+            this.StudentSlaveCombo.Location = new System.Drawing.Point(363, 286);
+            this.StudentSlaveCombo.Name = "StudentSlaveCombo";
+            this.StudentSlaveCombo.Size = new System.Drawing.Size(139, 23);
+            this.StudentSlaveCombo.TabIndex = 51;
+            // 
+            // label3
+            // 
+            this.label3.AutoSize = true;
+            this.label3.Location = new System.Drawing.Point(265, 229);
+            this.label3.Name = "label3";
+            this.label3.Size = new System.Drawing.Size(77, 15);
+            this.label3.TabIndex = 52;
+            this.label3.Text = "Fragile Target";
+            // 
+            // label17
+            // 
+            this.label17.AutoSize = true;
+            this.label17.Location = new System.Drawing.Point(265, 258);
+            this.label17.Name = "label17";
+            this.label17.Size = new System.Drawing.Size(72, 15);
+            this.label17.TabIndex = 53;
+            this.label17.Text = "Fragile Slave";
+            // 
+            // label19
+            // 
+            this.label19.AutoSize = true;
+            this.label19.Location = new System.Drawing.Point(265, 289);
+            this.label19.Name = "label19";
+            this.label19.Size = new System.Drawing.Size(78, 15);
+            this.label19.TabIndex = 54;
+            this.label19.Text = "Student Slave";
+            // 
             // GameConfig
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(7F, 15F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.CancelButton = this.button1;
-            this.ClientSize = new System.Drawing.Size(504, 645);
+            this.ClientSize = new System.Drawing.Size(504, 642);
+            this.Controls.Add(this.label19);
+            this.Controls.Add(this.label17);
+            this.Controls.Add(this.label3);
+            this.Controls.Add(this.StudentSlaveCombo);
+            this.Controls.Add(this.FragileSlaveCombo);
+            this.Controls.Add(this.FragileTargetCombo);
             this.Controls.Add(this.button3);
             this.Controls.Add(this.label18);
             this.Controls.Add(this.SchoolAtmosphereTextbox);
             this.Controls.Add(this.showAbductionCheckbox);
-            this.Controls.Add(this.label17);
             this.Controls.Add(this.label16);
             this.Controls.Add(this.abductionTargetCombo);
             this.Controls.Add(this.vtuberIdTextbox);
@@ -897,10 +1255,15 @@
         private TextBox vtuberIdTextbox;
         private ComboBox abductionTargetCombo;
         private Label label16;
-        private Label label17;
         private CheckBox showAbductionCheckbox;
         private TextBox SchoolAtmosphereTextbox;
         private Label label18;
         private Button button3;
+        private ComboBox FragileTargetCombo;
+        private ComboBox FragileSlaveCombo;
+        private ComboBox StudentSlaveCombo;
+        private Label label3;
+        private Label label17;
+        private Label label19;
     }
 }
