@@ -71,7 +71,7 @@ namespace YandereSaveEditor
                 studentjson.RealName = RealnameTextbox.Text;
                 //something with negative 67 causes an error somewhere here, however I am unable to locate it.
                 int club = ClubCombobox.SelectedIndex;
-                if (club > 14)
+                if (club > 15)
                 {
                     int clubvalue = club + 84;
                     studentjson.Club = clubvalue.ToString();

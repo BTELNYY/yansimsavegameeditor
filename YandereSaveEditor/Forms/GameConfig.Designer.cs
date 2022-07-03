@@ -399,10 +399,13 @@
             "12, Student Council",
             "13, Bully",
             "14, Delinquent",
-            "99, Info",
-            "100, Teacher",
-            "101, Gym Teacher",
-            "102, Rival Nurse"});
+            "15, Newspaper",
+            "16, Info/Nemisis",
+            "17, Teacher",
+            "18, Gym Teacher",
+            "19, Rival Nurse",
+            "20, Counselor",
+            "21, Headmaster"});
             this.ClubCombobox.Location = new System.Drawing.Point(115, 163);
             this.ClubCombobox.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
             this.ClubCombobox.Name = "ClubCombobox";
@@ -1205,6 +1208,7 @@
             this.FormBorderStyle = System.Windows.Forms.FormBorderStyle.Fixed3D;
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Margin = new System.Windows.Forms.Padding(4, 3, 4, 3);
+            this.MaximizeBox = false;
             this.Name = "GameConfig";
             this.Text = "Game Configuration";
             this.Load += new System.EventHandler(this.GameConfig_Load);

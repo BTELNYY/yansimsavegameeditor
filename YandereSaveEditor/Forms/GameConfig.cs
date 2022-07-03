@@ -96,14 +96,13 @@ namespace YandereSaveEditor
                 RegEdit.editValue(gamereg, ItemCombobox.SelectedIndex, bringitem);
 
                 int clubvalue = ClubCombobox.SelectedIndex;
-                if (clubvalue > 15)
+                RegEdit.editValue(gamereg, clubvalue, club);
+                if(clubvalue == 16)
                 {
-                    RegEdit.editValue(gamereg, clubvalue + 84, club);
+                    //deal with the one special case
+                    RegEdit.editValue(gamereg, 99, club);
                 }
-                else
-                {
-                    RegEdit.editValue(gamereg, clubvalue, club);
-                }
+
 
                 //idk about the spacing above. Bellow is for the player stats.
                 RegEdit.editValue(gamereg, ChemStat.SelectedIndex, chemstat);
@@ -221,14 +220,8 @@ namespace YandereSaveEditor
                 //club
                 string club = Utility.SelectString("Profile_" + profile + "_Club", true);
                 int clubvalue = Utility.ToInteger(RegEdit.returnValue(gamereg, club));
-                if (clubvalue > 14)
-                {
-                    ClubCombobox.SelectedIndex = clubvalue - 84;
-                }
-                else
-                {
-                    ClubCombobox.SelectedIndex = clubvalue;
-                }
+                ClubCombobox.SelectedIndex = clubvalue;
+
                 //vtuberid
                 //currently not used in game, but this is still cool ig
                 string vtuber_id = Utility.SelectString(profilecombined + "_VtuberID", true);
