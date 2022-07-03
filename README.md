@@ -13,7 +13,7 @@ If something is wrong, tell me. I am a human and can forget to do things or make
 * If you still need support, ask me on discord
 > Betas
 * WARNING! THIS IS OUTDATED, USE BUILD INSTEAD!
-* [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.5-beta.4/YanSimSaveEditor.1.5.Beta.4.zip)
+* [Download the latest beta (Outdated)](https://github.com/BTELNYY/yansimsavegameeditor/releases/download/v1.9.0-beta.1/YandereSaveEditor.v1.9.0.Beta.1.zip)
 # Bugs and issues
 I am well aware that bugs may exist within my code please:
 * Report it on this github by making a new issue
